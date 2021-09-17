@@ -1,6 +1,6 @@
-# SW_Capstone_Design
+# `SW_Capstone_Design`
 
-## Project OneBoard from Team Connect
+## Project `OneBoard` from `Team Connect`
 
 In the project directory, you can run:
 
