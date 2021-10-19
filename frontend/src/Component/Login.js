@@ -12,6 +12,13 @@ const Login = (props) => {
     setInputPassword(e.target.value);
   };
 
+  const onClickLogin = () => {
+    console.log("ID : ", inputId);
+    console.log("PW : ", inputPassword);
+    //axios Post 로 user information 받아오기
+    //.then (res) => 아이디 패스워드 인증확인
+  };
+
   return (
     <div>
       <h1>Login</h1>
@@ -22,12 +29,17 @@ const Login = (props) => {
           value={inputId}
           onChange={handleInputId}
         />
+      </div>
+      <div>
         <input
           type="text"
           name="input_password"
           value={inputPassword}
           onChange={handleInputPassword}
         />
+      </div>
+      <div>
+        <button onClick={onClickLogin}>Login</button>
       </div>
     </div>
   );
