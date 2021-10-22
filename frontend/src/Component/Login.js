@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import Header from "./Header";
+import "./Login.css";
 
-const Login = (props) => {
+const Login = () => {
   const [inputId, setInputId] = useState("");
   const [inputPassword, setInputPassword] = useState("");
 
@@ -21,8 +23,13 @@ const Login = (props) => {
 
   return (
     <div>
-      <h1>Login</h1>
       <div>
+        <Header />
+      </div>
+      <h1 className="Login_logo">
+        <div className="Login_text">Login</div>
+      </h1>
+      <div className="input_ID">
         <input
           type="text"
           name="input_id"
@@ -30,7 +37,7 @@ const Login = (props) => {
           onChange={handleInputId}
         />
       </div>
-      <div>
+      <div className="Input_PW">
         <input
           type="text"
           name="input_password"

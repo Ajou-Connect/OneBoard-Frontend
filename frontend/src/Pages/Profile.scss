@@ -1,0 +1,14 @@
+h2 {
+  text-align: center;
+}
+
+ul {
+  list-style: none;
+  text-align: center;
+  li {
+    &.ProfileList {
+      padding: 20px;
+      width: 100px;
+    }
+  }
+}

@@ -14,7 +14,7 @@ export const SidebarData = [
     cName: "nav-text",
   },
   {
-    title: "Lecture",
+    title: "강의목록",
     path: "/Lecture",
     icon: <BsIcons.BsFillCameraVideoFill />,
     cName: "nav-text",
@@ -26,9 +26,10 @@ export const SidebarData = [
     cName: "nav-text",
   },
   {
-    title: "Notice",
+    title: "공지사항",
     path: "/Notice",
     icon: <BsIcons.BsFillInfoCircleFill />,
     cName: "nav-text",
   },
+  {},
 ];
