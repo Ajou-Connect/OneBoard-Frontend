@@ -1,6 +1,6 @@
 import React from "react";
 
-export const UserData = [
+const UserData = [
   {
     name: "김동현",
     ID: "201520862",
@@ -8,3 +8,5 @@ export const UserData = [
   },
   {},
 ];
+
+export default UserData;
