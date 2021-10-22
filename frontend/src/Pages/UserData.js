@@ -1,5 +1,3 @@
-import React from "react";
-
 const UserData = [
   {
     name: "김동현",
