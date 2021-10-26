@@ -1,14 +1,61 @@
 h2 {
+  font-weight: 200, bold;
+  line-height: 1.4;
+  display: block;
+  margin-block-start: 0.83em;
+  margin-block-end: 0.83em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
   text-align: center;
 }
 
-ul {
-  list-style: none;
-  text-align: center;
-  li {
-    &.ProfileList {
-      padding: 20px;
-      width: 100px;
+section {
+  display: block;
+}
+
+.user-information {
+  padding: 0.75rem;
+  ul {
+    list-style: none;
+    text-align: center;
+    font-family: inherit;
+    font-size: 0.875rem;
+    line-height: 1.6;
+    list-style-position: outside;
+    border: solid 0.0625rem #cdcdcd;
+    margin: 0.625rem 0 0 0;
+    li {
+      margin: 0;
+      padding: 0;
+      text-align: -webkit-match-parent;
+      list-style: none;
+      &.data-row {
+        align-items: center;
+        background-color: #fff;
+        color: #262626;
+        display: flex;
+        position: relative;
+        padding: 1.25rem 0;
+
+        &.data-container {
+          display: flex;
+          flex: 1;
+          flex-direction: row;
+          margin: 0 1.25rem;
+          margin-left: 1.25rem;
+          margin-right: 3.1875rem;
+          max-width: calc(100%-4.4375rem);
+        }
+      }
     }
   }
+}
+
+.data-title {
+  flex: 1;
+  font-size: 0.875rem;
+  font-weight: 700;
+  margin-right: 1.25rem;
+  overflow: hidden;
+  word-wrap: break-word;
 }

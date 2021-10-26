@@ -6,6 +6,7 @@ import React from "react";
 // import MenuLecture from "./Pages/MenuLecture";
 import Header from "./Component/Header";
 import SideBar from "./Component/SideBar";
+import "./App.css";
 
 const App = () => {
   return (
