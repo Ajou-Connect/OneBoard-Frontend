@@ -15,7 +15,7 @@ section {
 
 .user-information {
   display: inline;
-  padding: 0.75rem;
+  padding: 0 0.75rem;
   ul {
     list-style: none;
     text-align: center;
@@ -25,6 +25,7 @@ section {
     list-style-position: outside;
     border: solid 0.0625rem #cdcdcd;
     margin: 0.625rem 0 0 0;
+    padding: 0;
     li {
       margin: 0;
       padding: 0;
@@ -38,7 +39,7 @@ section {
         position: relative;
         padding: 1.25rem 0;
 
-        &.data-container {
+        .data-container {
           display: flex;
           flex: 1;
           flex-direction: row;
@@ -52,6 +53,10 @@ section {
   }
 }
 
+.data-row:not(:first-child) {
+  border-top: solid 0.0625rem #cdcdcd;
+}
+
 .data-title {
   flex: 1;
   font-size: 0.875rem;
@@ -59,4 +64,17 @@ section {
   margin-right: 1.25rem;
   overflow: hidden;
   word-wrap: break-word;
+}
+
+.data-value {
+  flex: 1;
+  font-size: 0.875rem;
+  font-weight: 400;
+  overflow: hidden;
+  word-wrap: break-word;
+  border-left: solid 0.0725rem #979595;
+  &.div {
+    margin: 0;
+    padding: 0;
+  }
 }
