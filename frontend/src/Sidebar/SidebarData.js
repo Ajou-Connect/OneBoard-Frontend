@@ -31,4 +31,5 @@ export const SidebarData = [
     icon: <BsIcons.BsArrowBarLeft />,
     cName: 'nav-text',
   },
+  {},
 ];
