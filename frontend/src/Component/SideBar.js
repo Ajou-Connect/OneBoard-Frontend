@@ -11,7 +11,7 @@ const SideBar = () => {
       <Router>
         <Nav />
         <Switch>
-          <Route path="/MenuLecture" component={MenuLecture} />
+          <Route path="/Lecture" component={MenuLecture} />
           <Route path="/" exact component={Home} />
           <Route path="/Profile" component={Profile} />
         </Switch>

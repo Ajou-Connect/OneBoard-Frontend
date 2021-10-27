@@ -1,0 +1,103 @@
+h2 {
+  color: #262626;
+  font-style: normal;
+  text-rendering: optimizeLegibility;
+  padding: 0;
+  display: block;
+  margin-block-start: 0.83em;
+  margin-block-end: 0.83em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
+span {
+  margin: 0;
+}
+
+.term {
+  max-height: inherit;
+  background-color: #fff;
+  display: flex;
+  position: relative;
+  box-shadow: 0 5px 0 0 rgb(219, 219, 219), 0 1px 0 0 #cdcdcd;
+  align-items: center;
+}
+
+h2.semester {
+  position: relative;
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  font-size: 1rem;
+  line-height: 1.4;
+  margin: 0.25rem 1.375rem 4.25rem;
+}
+h2.active-term {
+  flex-grow: 1;
+  margin-top: 1.3125rem;
+  margin-bottom: 1.3125rem;
+  padding-bottom: 0;
+}
+
+.course-columns {
+  padding: 0 1.5rem;
+}
+
+.term-name {
+  margin-bottom: 0.625rem;
+  margin-top: 15px;
+}
+
+.course-columns.list-colums-view.element-card {
+  flex-direction: column;
+  align-items: stretch;
+}
+.element-card {
+  min-height: 5.125rem;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.child-is-invokable {
+  cursor: pointer;
+}
+
+.element-card.bar {
+  margin-left: 0.125rem;
+  margin-bottom: 1rem;
+  padding: 1rem 0.75rem 0.75rem 1.5rem;
+  display: flex;
+  background-color: #fff;
+  border: 0.0625rem solid #cdcdcd;
+  margin-top: 1.5rem;
+}
+
+.small-12 {
+  width: 100%;
+}
+
+.course-id {
+  color: #666;
+  font-size: 0.875rem;
+  padding-left: 0.0625rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap !important;
+  word-wrap: normal !important;
+}
+
+.small-status {
+  flex-direction: row;
+  align-items: center;
+}
+
+.small-status > div {
+  align-items: center;
+  height: 1.4375rem;
+}
+
+.basic-info {
+  display: flex;
+}
