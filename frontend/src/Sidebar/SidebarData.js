@@ -20,12 +20,6 @@ export const SidebarData = [
     cName: 'nav-text',
   },
   {
-    title: '공지사항',
-    path: '/Notice',
-    icon: <BsIcons.BsFillInfoCircleFill />,
-    cName: 'nav-text',
-  },
-  {
     title: 'Logout',
     path: '/logout',
     icon: <BsIcons.BsArrowBarLeft />,

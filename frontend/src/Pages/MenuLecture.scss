@@ -46,6 +46,7 @@ h2.active-term {
 .term-name {
   margin-bottom: 0.625rem;
   margin-top: 15px;
+  font-weight: bold;
 }
 
 .course-columns.list-colums-view.element-card {
@@ -56,6 +57,7 @@ h2.active-term {
   min-height: 5.125rem;
   justify-content: flex-start;
   flex-wrap: wrap;
+  box-shadow: 0 5px 0 0 rgb(238, 231, 231), 0 1px 0 0 #cdcdcd;
 }
 
 .child-is-invokable {
