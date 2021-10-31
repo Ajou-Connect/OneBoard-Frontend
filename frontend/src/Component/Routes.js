@@ -4,9 +4,6 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Home from '../Pages/Home';
 import Profile from '../Pages/Profile';
 import MenuLecture from '../Pages/MenuLecture';
-import LecturePage from '../Pages/LecturePage';
-import LectureNotice from '../Pages/LectureNotice';
-
 
 const Routes = () => {
   return (
@@ -14,11 +11,9 @@ const Routes = () => {
       <Router>
         <Nav />
         <Switch>
-          <Route exact path="/Lecture" component={MenuLecture} />
           <Route path="/" exact component={Home} />
           <Route exact path="/Profile" component={Profile} />
-          <Route exact path="/Lecture/LecturePage" component={LecturePage} />
-          <Route exact path="/Lecture/LecturePage/Notice" component={LectureNotice}/>
+          <Route exact path="/Lecture" component={MenuLecture} />
         </Switch>
       </Router>
     </div>
