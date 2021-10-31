@@ -4,19 +4,21 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Home from '../Pages/Home';
 import Profile from '../Pages/Profile';
 import MenuLecture from '../Pages/MenuLecture';
+import LecturePage from '../Pages/LecturePage';
 
-const SideBar = () => {
+const Routes = () => {
   return (
-    <div className="sidebar-container">
+    <div className="Routes-container">
       <Router>
         <Nav />
         <Switch>
-          <Route path="/Lecture" component={MenuLecture} />
+          <Route exact path="/Lecture" component={MenuLecture} />
           <Route path="/" exact component={Home} />
-          <Route path="/Profile" component={Profile} />
+          <Route exact path="/Profile" component={Profile} />
+          <Route exact path="/Lecture/LectureID" component={LecturePage} />
         </Switch>
       </Router>
     </div>
   );
 };
-export default SideBar;
+export default Routes;
