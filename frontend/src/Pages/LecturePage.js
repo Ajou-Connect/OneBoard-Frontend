@@ -1,5 +1,6 @@
 import React from 'react';
 import "./LecturePage.scss";
+import {Link } from 'react-router-dom';
 const LecturePage = () => {
   return (
     <div className="LecturePage">
@@ -16,7 +17,7 @@ const LecturePage = () => {
           </li>
           <li className="menu-item">
             <div className="menu-text">
-              공지사항
+              <Link to="/Lecture/LecturPage/Notice" className="menu-text">공지사항</Link>
             </div>
           </li>
           <li className="menu-item">

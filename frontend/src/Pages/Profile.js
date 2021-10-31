@@ -10,7 +10,7 @@ const Profile = () => {
         <ul>
           <li className="data-row">
             <div className="data-container">
-              <span className="data-title">성명</span>
+              <span className="data-title"></span>
               <div className="data-value">이름</div>
             </div>
           </li>
