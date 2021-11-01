@@ -1,20 +1,20 @@
 import React from 'react';
 import Nav from '../Sidebar/Nav';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import Home from '../Pages/Home';
 import Profile from '../Pages/Profile';
-import MenuLecture from '../Pages/MenuLecture';
-
+import LectureList from '../Pages/LectureList';
+import LectureHome from '../Pages/LecturePages/LectureHome';
+import LectureNotice from '../Pages/LecturePages/LectureNotice';
 const Routes = () => {
   return (
     <div className="Routes-container">
-      <Router>
-        <Nav />
-
-        <Route exact path="/" component={Home} />
-        <Route exact path="/Profile" component={Profile} />
-        <Route exact path="/Lecture" component={MenuLecture} />
-      </Router>
+      <Nav />
+      <Route exact path="/" component={Home} />
+      <Route exact path="/Profile" component={Profile} />
+      <Route exact path="/Lecture" component={LectureList} />
+      <Route path="/Lecture/LecturePage1/Home" component={LectureHome} />
+      <Route path="/Lecture/LecturePage1/Notice" component={LectureNotice} />
     </div>
   );
 };

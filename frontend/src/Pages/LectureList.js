@@ -1,8 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './MenuLecture.scss';
-
-const MenuLecture = () => {
+import './LectureList.scss';
+const LectureList = () => {
   return (
     <div>
       <div className="term">
@@ -33,7 +32,7 @@ const MenuLecture = () => {
                   </div>
                 </div>
                 <div className="a-tag later">
-                  <Link to="/Lecture/LecturePage">과목이름</Link>
+                  <Link to="/Lecture/LecturePage1/Home">과목이름</Link>
                 </div>
                 <div className="small-status">
                   <div className="basic-info">담당 교수</div>
@@ -73,4 +72,4 @@ const MenuLecture = () => {
   );
 };
 
-export default MenuLecture;
+export default LectureList;
