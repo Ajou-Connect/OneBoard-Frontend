@@ -1,12 +1,13 @@
 import React from 'react';
 import LectureSidebar from '../LectureSidebar';
+import './LectureNotice.scss';
 const LectureNotice = () => {
   return (
-    <div>
-      <div className="lecture-menu">
+    <div className="notice">
+      <nav className="lecture-menu">
         <LectureSidebar />
-      </div>
-      <div className="notice">data값 들어갈거임</div>
+      </nav>
+      <div className="notice-main">data값 들어갈거임wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww</div>
     </div>
   );
 };

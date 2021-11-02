@@ -4,8 +4,10 @@ import LectureSidebar from '../LectureSidebar';
 const LectureHome = () => {
   return (
     <div>
-      <LectureSidebar />
-      this is Lecture home
+      <div className="lecture-sidebar">
+        <LectureSidebar />
+      </div>
+      <div>내용</div>
     </div>
   );
 };
