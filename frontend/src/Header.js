@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Header.scss';
+import logoimage from './img/OneBoard.png';
 
 class Header extends Component {
   constructor(props) {
@@ -11,7 +12,7 @@ class Header extends Component {
     return (
       <div className="header-head">
         <div className="header-image">
-          <img className="logoimage" alt="OneBoard" src="img/OneBoard.png" />
+          <img src={logoimage} alt="OneBoard" />
         </div>
       </div>
     );
