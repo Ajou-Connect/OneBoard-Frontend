@@ -4,12 +4,13 @@ svg {
 }
 
 .navbar {
-  background-color: #060b26;
+  background-color: #e0af27;
   height: 60px;
   display: flex;
   justify-items: center;
   align-items: center;
   padding: 0px;
+  border-radius: 10px;
 }
 .menu-bars {
   margin-left: 1rem;
@@ -18,7 +19,7 @@ svg {
   margin-top: center;
 }
 .nav-menu {
-  background-color: #060b26;
+  background-color: #995a1f;
   width: 200px;
   height: 100vh;
   display: flex;
@@ -37,7 +38,7 @@ svg {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  padding: 8px 0px 8px 16px;
+  padding: 8px 0px 8px;
   list-style: none;
   height: 60px;
 }
@@ -53,15 +54,16 @@ svg {
   border-radius: 4px;
 }
 .nav-text a:hover {
-  background-color: #0091ea;
+  background-color: #cf4931;
   width: 90%;
+  margin: 0;
 }
 .nav-menu-items {
   width: 100%;
   padding: 0;
 }
 .navbar-toggle {
-  background-color: #060b26;
+  background-color: #995a1f;
   width: 100%;
   height: 80px;
   display: flex;

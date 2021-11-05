@@ -4,6 +4,7 @@ body {
   font-size: 0.875rem;
   line-height: 1.6;
   cursor: auto;
+  height: 100%;
 }
 
 div {

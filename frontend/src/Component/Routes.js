@@ -6,6 +6,7 @@ import Profile from '../Pages/Profile';
 import LectureList from '../Pages/LectureList';
 import LectureHome from '../Pages/LecturePages/LectureHome';
 import LectureNotice from '../Pages/LecturePages/LectureNotice';
+import './Routes.scss';
 const Routes = () => {
   return (
     <div className="Routes-container">
