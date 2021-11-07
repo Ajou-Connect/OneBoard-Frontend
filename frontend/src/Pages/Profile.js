@@ -3,6 +3,10 @@ import './Profile.scss';
 import UserData from '../Pages/UserData';
 
 const Profile = () => {
+
+  
+
+
   return (
     <div className="user-information">
       <section>
