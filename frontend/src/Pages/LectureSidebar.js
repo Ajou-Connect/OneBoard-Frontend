@@ -31,7 +31,11 @@ const LectureSidebar = () => {
             <div className="menu-text">성적</div>
           </li>
           <li className="menu-item">
-            <div className="menu-text">출석 관리</div>
+            <div className="menu-text">
+              <Link to="/Lecture/LecturePage1/Attendance" className="menu-text">
+              출석 관리
+              </Link>
+            </div>
           </li>
           <li className="menu-item">
             <div className="menu-text">과목 선택</div>
