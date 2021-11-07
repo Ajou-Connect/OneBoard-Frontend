@@ -15,7 +15,11 @@ const LectureSidebar = () => {
             </div>
           </li>
           <li className="menu-item">
-            <div className="menu-text">강의계획서</div>
+            <div className="menu-text">
+              <Link to ="/Lecture/LecturePage1/Plan" className="menu-text">
+              강의계획서
+              </Link>
+              </div>
           </li>
           <li className="menu-item">
             <div className="menu-text">
@@ -25,10 +29,17 @@ const LectureSidebar = () => {
             </div>
           </li>
           <li className="menu-item">
-            <div className="menu-text">수업 목록</div>
+            <div className="menu-text">
+              <Link to ="/Lecture/LecturePage1/Lesson" className="menu-text">수업 목록
+              </Link>
+              </div>
           </li>
           <li className="menu-item">
-            <div className="menu-text">성적</div>
+            <div className="menu-text">
+              <Link to ="/Lecture/LecturePage1/Score" className="menu-text">
+              성적
+              </Link>
+              </div>
           </li>
           <li className="menu-item">
             <div className="menu-text">
@@ -38,7 +49,11 @@ const LectureSidebar = () => {
             </div>
           </li>
           <li className="menu-item">
-            <div className="menu-text">과목 선택</div>
+            <div className="menu-text">
+              <Link to ="/Lecture" className="menu-text">
+              과목 선택
+              </Link>
+              </div>
           </li>
         </ul>
       </nav>
