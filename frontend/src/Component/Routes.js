@@ -11,6 +11,7 @@ import LectureScore from '../Pages/LecturePages/LectureScore';
 import LecturePlan from '../Pages/LecturePages/LecturePlan';
 import LectureLesson from '../Pages/LecturePages/LectureLesson';
 import './Routes.scss';
+
 const Routes = () => {
   return (
     <div className="Routes-container">
@@ -24,8 +25,8 @@ const Routes = () => {
       <Route path="/Lecture/LecturePage1/Score" component={LectureScore} />
       <Route path="/Lecture/LecturePage1/Lesson" component={LecturePlan} />
       <Route path="/Lecture/LecturePage1/Plan" component={LectureLesson} />
-      
     </div>
   );
 };
+
 export default Routes;

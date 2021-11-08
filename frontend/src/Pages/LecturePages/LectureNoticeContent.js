@@ -1,17 +1,17 @@
-import React, { useState } from 'react';
-import moment from 'moment';
-import { Link } from 'react-router-dom';
-import Pagination from './NoticePagination';
+import React from 'react';
+// import moment from 'moment';
+// import { Link } from 'react-router-dom';
+// import Pagination from './NoticePagination';
 import './LectureNoticeContent.scss';
 const LectureNoticeContent = (props) => {
-  const [posts, setPosts] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(5);
+  // const [posts, setPosts] = useState([]);
+  // const [currentPage, setCurrentPage] = useState(1);
+  // const [postsPerPage] = useState(5);
 
-  const indexOfLastPost = currentPage * postsPerPage;
-  const indexOfFirstPost = indexOfLastPost - postsPerPage;
-  const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+  // const indexOfLastPost = currentPage * postsPerPage;
+  // const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  // const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
+  // const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
     <div id="content" className="contentBox">
