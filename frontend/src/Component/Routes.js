@@ -1,15 +1,15 @@
 import React from 'react';
 import Nav from '../Sidebar/Nav';
 import { Route } from 'react-router-dom';
-import Home from '../Pages/Home';
-import Profile from '../Pages/Profile';
-import LectureList from '../Pages/LectureList';
-import LectureHome from '../Pages/LecturePages/LectureHome';
-import LectureNotice from '../Pages/LecturePages/LectureNotice';
-import LectureAttendance from '../Pages/LecturePages/LectureAttendance';
-import LectureScore from '../Pages/LecturePages/LectureScore';
-import LecturePlan from '../Pages/LecturePages/LecturePlan';
-import LectureLesson from '../Pages/LecturePages/LectureLesson';
+import Home from '../Pages/MainNav/Home';
+import Profile from '../Pages/MainNav/Profile';
+import LectureList from '../Pages/MainNav/LectureList';
+import LectureHome from '../Pages/LecturePages/Home/LectureHome';
+import LectureNotice from '../Pages/LecturePages/Notice/LectureNotice';
+import LectureAttendance from '../Pages/LecturePages/Attendance/LectureAttendance';
+import LectureScore from '../Pages/LecturePages/Score/LectureScore';
+import LecturePlan from '../Pages/LecturePages/Plan/LecturePlan';
+import LectureLesson from '../Pages/LecturePages/Lesson/LectureLesson';
 import './Routes.scss';
 
 const Routes = () => {

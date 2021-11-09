@@ -1,13 +1,14 @@
 import React from 'react';
-import Routes from './Component/Routes';
+import LoginCheck from './Component/Login/LoginCheck';
 import './App.scss';
-
+// import Routes from './Component/Routes';
 
 const App = () => {
   return (
     <div className="App-style">
-      <Routes />
-      
+      {/* <Login /> */}
+      <LoginCheck />
+      {/* <Routes /> */}
     </div>
   );
 };

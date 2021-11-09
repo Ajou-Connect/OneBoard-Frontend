@@ -1,17 +1,15 @@
 import React from 'react';
 import LectureSidebar from '../LectureSidebar';
-import "./LectureHome.scss";
+import './LectureHome.scss';
 
 const LectureHome = () => {
   return (
     <div className="lecture-home">
       <div className="lecture-sidebar">
         <LectureSidebar />
-      </div >
+      </div>
       <div className="lecture-content">
-        <div className="content-box">
-            ??
-        </div>
+        <div className="content-box">??</div>
       </div>
     </div>
   );

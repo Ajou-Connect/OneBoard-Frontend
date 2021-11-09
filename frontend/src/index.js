@@ -5,6 +5,11 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import Header from '../src/Header';
+import axios from 'axios';
+
+axios.defaults.baseURL = 'http://115.85.182.194:8080';
+// axios.defaults.withCredentials = true;
+
 ReactDOM.render(
   <React.StrictMode>
     <Header />

@@ -1,6 +1,6 @@
 import React from 'react';
 import './Home.scss';
-
+import Routes from '../../Component/Routes';
 const Home = () => {
   return (
     <div className="home">
