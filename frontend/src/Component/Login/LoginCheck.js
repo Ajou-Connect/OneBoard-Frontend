@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Container, Row, Col, Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
 import Logo from '../../img/OneBoard.png';
 import axios from 'axios';
-
+import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router';
 const LoginCheck = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -15,6 +16,8 @@ const LoginCheck = () => {
       onSubmit();
     }
   };
+
+  const history = useHistory();
 
   useEffect(() => {
     if (sessionStorage.getItem('email')) {
@@ -43,8 +46,19 @@ const LoginCheck = () => {
       .post('/auth/login', data)
       .then((res) => {
         console.log(res);
+        setGetAlert({
+          flag: true,
+          message: '로그인 되었습니다! OneBoard에 오신것을 환영합니다',
+        });
+        setTimeout(() => {
+          history.push('/profile');
+        }, 1500);
       })
       .catch((error) => {
+        setGetAlert({
+          flag: true,
+          message: '로그인 혹은 비밀번호가 옳지 않습니다. 다시 입력해주세요.',
+        });
         console.log(error);
       });
   };
@@ -93,7 +107,9 @@ const LoginCheck = () => {
             fontSize: '18px',
             height: '50px',
           }}
-        ></div>
+        >
+          {getAlert.message}
+        </div>
       </ModalBody>
     </Container>
   );

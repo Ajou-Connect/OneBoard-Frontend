@@ -1,10 +1,16 @@
 import React from 'react';
 import './Home.scss';
-import Routes from '../../Component/Routes';
+import { Nav } from 'reactstrap';
 const Home = () => {
   return (
     <div className="home">
-      <h1>Home</h1>
+      <h1>
+        {/* <Routes /> */}
+        Home
+      </h1>
+      <nav>
+        <Nav />
+      </nav>
     </div>
   );
 };

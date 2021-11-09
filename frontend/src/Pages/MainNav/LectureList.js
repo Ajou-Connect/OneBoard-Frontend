@@ -32,7 +32,7 @@ const LectureList = () => {
                   </div>
                 </div>
                 <div className="a-tag later">
-                  <Link to="/Lecture/LecturePage1/Home">과목이름</Link>
+                  <Link to="/Main/Lecture/LecturePage1/Home">과목이름</Link>
                 </div>
                 <div className="small-status">
                   <div className="basic-info">담당 교수</div>

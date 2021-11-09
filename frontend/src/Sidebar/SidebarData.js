@@ -3,25 +3,25 @@ import * as BsIcons from 'react-icons/bs';
 export const SidebarData = [
   {
     title: '프로필',
-    path: '/Profile',
+    path: '/Main/Profile',
     icon: <BsIcons.BsPersonBoundingBox />,
     cName: 'nav-text',
   },
   {
     title: 'Home',
-    path: '/',
+    path: '/Main/Home',
     icon: <BsIcons.BsFillHouseDoorFill />,
     cName: 'nav-text',
   },
   {
     title: '강의목록',
-    path: '/Lecture',
+    path: '/Main/Lecture',
     icon: <BsIcons.BsFillCameraVideoFill />,
     cName: 'nav-text',
   },
   {
     title: 'Logout',
-    path: '/logout',
+    path: '/Main/logout',
     icon: <BsIcons.BsArrowBarLeft />,
     cName: 'nav-text',
   },
