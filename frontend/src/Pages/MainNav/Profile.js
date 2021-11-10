@@ -6,6 +6,7 @@ const Profile = () => {
   const [users, setUsers] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const user = sessionStorage.getItem('email');
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -13,9 +14,14 @@ const Profile = () => {
         setError(null);
         setUsers(null);
         setLoading(true);
-        const res = await axios.get('http://115.85.182.194:8080/user2');
-        setUsers(res.data);
-        console.log(res);
+        const res = await axios.get('/member');
+        console.log(res.data[1].id);
+        for (let i = 0; i < res.data.length; i++) {
+          if (res.data[i].email === user) {
+            setUsers(res.data[i]);
+          }
+        }
+        console.log(res.data[1]);
       } catch (e) {
         setError(e);
         console.log(e);

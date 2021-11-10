@@ -11,6 +11,11 @@ const Nav = () => {
   const [sidebar, setSidebar] = useState(false);
   const showSidebar = () => setSidebar(!sidebar);
 
+  const logout = () => {
+    sessionStorage.removeItem('email');
+    sessionStorage.removeItem('token');
+  };
+
   return (
     <div className="navbar-container">
       <IconContext.Provider value={{ color: '#fff' }}>
@@ -45,6 +50,13 @@ const Nav = () => {
                 </li>
               );
             })}
+            <li className="nav-text">
+              <span className="menuList">
+                <Link to="/Login" onClick={logout}>
+                  Logout
+                </Link>
+              </span>
+            </li>
           </ul>
         </nav>
       </IconContext.Provider>

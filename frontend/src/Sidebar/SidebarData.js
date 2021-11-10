@@ -19,10 +19,10 @@ export const SidebarData = [
     icon: <BsIcons.BsFillCameraVideoFill />,
     cName: 'nav-text',
   },
-  {
-    title: 'Logout',
-    path: '/Main/logout',
-    icon: <BsIcons.BsArrowBarLeft />,
-    cName: 'nav-text',
-  },
+  // {
+  //   title: 'Logout',
+  //   path: '/Main/logout',
+  //   icon: <BsIcons.BsArrowBarLeft />,
+  //   cName: 'nav-text',
+  // },
 ];

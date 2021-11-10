@@ -48,20 +48,34 @@ const LoginCheck = () => {
     await axios
       .post('/auth/login', data)
       .then((res) => {
-        console.log(res);
-        setGetAlert({
-          flag: true,
-          message: '로그인 되었습니다! OneBoard에 오신것을 환영합니다',
-        });
-        setTimeout(() => {
-          history.push('/Main');
-        }, 1500);
+        console.log(res.data.data);
+        if (res.data.result === 'FAIL') {
+          setIsLogined(false);
+          setGetAlert({
+            flag: true,
+            message: '아이디 혹은 비밀번호가 틀렸거나 없는 사용자 입니다.',
+          });
+          setTimeout(() => {
+            setGetAlert({ flag: false, message: '' });
+          }, 1500);
+        }
+
+        try {
+          setIsLogined(true);
+          sessionStorage.setItem('token', res.data.data.token);
+          sessionStorage.setItem('email', res.data.data.email);
+          setGetAlert({
+            flag: true,
+            message: '로그인 되었습니다! OneBoard에 오신것을 환영합니다',
+          });
+          setTimeout(() => {
+            history.push('/Main');
+          }, 1500);
+        } catch (error) {
+          setError(error.message);
+        }
       })
       .catch((error) => {
-        setGetAlert({
-          flag: true,
-          message: '로그인 혹은 비밀번호가 옳지 않습니다. 다시 입력해주세요.',
-        });
         console.log(error);
       });
   };

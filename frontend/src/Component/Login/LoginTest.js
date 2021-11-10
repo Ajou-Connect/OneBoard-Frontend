@@ -54,48 +54,48 @@ const SignIn = () => {
       email: email,
       password: password,
     };
-    // await axios
-    //   .post('/users/signin', data)
-    //   .then((res) => {
-    //     if (res.data.message === 'login failed') {
-    //       setIslogined(false);
-    //       setGetalert({
-    //         flag: true,
-    //         message: '아이디 및 비밀번호가 틀렸거나, 없는 사용자거나 중복로그인입니다.',
-    //       });
-    //       setTimeout(() => {
-    //         setGetalert({ flag: false, message: '' });
-    //       }, 1500);
-    //       //toast("아이디 및 비밀번호가 틀렸거나, 없는 사용자입니다.")
-    //     } else if (res.data.message === 'hell') {
-    //       setGetalert({
-    //         flag: true,
-    //         message: '신고가 3번이상 누적된 사용자로서 더 이상 U-TING 서비스 사용이 불가합니다.',
-    //       });
-    //       setTimeout(() => {
-    //         setGetalert({ flag: false, message: '' });
-    //       }, 1500);
-    //     } else {
-    //       try {
-    //         setIslogined(true);
-    //         sessionStorage.setItem('token', res.data.token);
-    //         sessionStorage.setItem('nickname', res.data.perObj.nickname);
-    //         sessionStorage.setItem('email', email);
-    //         setGetalert({ flag: true, message: '로그인 되었습니다.' });
+    await axios
+      .post('/users/signin', data)
+      .then((res) => {
+        if (res.data.message === 'login failed') {
+          setIslogined(false);
+          setGetalert({
+            flag: true,
+            message: '아이디 및 비밀번호가 틀렸거나, 없는 사용자거나 중복로그인입니다.',
+          });
+          setTimeout(() => {
+            setGetalert({ flag: false, message: '' });
+          }, 1500);
+          //toast("아이디 및 비밀번호가 틀렸거나, 없는 사용자입니다.")
+        } else if (res.data.message === 'hell') {
+          setGetalert({
+            flag: true,
+            message: '신고가 3번이상 누적된 사용자로서 더 이상 U-TING 서비스 사용이 불가합니다.',
+          });
+          setTimeout(() => {
+            setGetalert({ flag: false, message: '' });
+          }, 1500);
+        } else {
+          try {
+            setIslogined(true);
+            sessionStorage.setItem('token', res.data.token);
+            sessionStorage.setItem('nickname', res.data.perObj.nickname);
+            sessionStorage.setItem('email', email);
+            setGetalert({ flag: true, message: '로그인 되었습니다.' });
 
-    //         if (email === 'admin@ajou.ac.kr') {
-    //           window.location.href = `${baseurl.baseFront}/admin`;
-    //         } else {
-    //           setTimeout(() => {
-    //             window.location.href = `${baseurl.baseFront}/main`;
-    //           }, 1000);
-    //         }
-    //       } catch (error) {
-    //         setError(error.message);
-    //       }
-    //     }
-    //   })
-    //   .catch((err) => {});
+            if (email === 'admin@ajou.ac.kr') {
+              window.location.href = `${baseurl.baseFront}/admin`;
+            } else {
+              setTimeout(() => {
+                window.location.href = `${baseurl.baseFront}/main`;
+              }, 1000);
+            }
+          } catch (error) {
+            setError(error.message);
+          }
+        }
+      })
+      .catch((err) => {});
   };
   return (
     <Container className="SignInContainer">
