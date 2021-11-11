@@ -1,0 +1,14 @@
+body {
+  background: #ac7c56;
+  color: #262626;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  cursor: auto;
+  height: 100%;
+}
+
+div {
+  margin: 0;
+  padding: 0;
+  display: block;
+}

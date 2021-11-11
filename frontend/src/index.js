@@ -1,15 +1,23 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import "bootstrap/dist/css/bootstrap.css";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
+import { BrowserRouter } from 'react-router-dom';
+import Header from '../src/Header';
+import axios from 'axios';
 
-import App from "./App";
-import reportWebVitals from "./reportWebVitals";
+axios.defaults.baseURL = 'http://115.85.182.194:8080';
+// axios.defaults.withCredentials = true;
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Header />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </React.StrictMode>,
-  document.getElementById("root")
+  document.getElementById('root'),
 );
 
 // If you want to start measuring performance in your app, pass a function

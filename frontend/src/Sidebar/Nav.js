@@ -5,11 +5,16 @@ import { Link } from 'react-router-dom';
 import './Nav.scss';
 import { IconContext } from 'react-icons';
 import { SidebarData } from './SidebarData';
-import UserData from '../Pages/UserData';
+// import UserData from '../Pages/UserData';
 
 const Nav = () => {
   const [sidebar, setSidebar] = useState(false);
   const showSidebar = () => setSidebar(!sidebar);
+
+  const logout = () => {
+    sessionStorage.removeItem('email');
+    sessionStorage.removeItem('token');
+  };
 
   return (
     <div className="navbar-container">
@@ -26,13 +31,13 @@ const Nav = () => {
                 <AiIcons.AiOutlineClose />
               </Link>
               <div className="navbar-toggle-text">
-                {UserData.map((item, index) => {
+                {/* {UserData.map((item, index) => {
                   return (
                     <div key={index} className="navbar-toggle-profile-name">
                       {item.name} {item.ID}
                     </div>
                   );
-                })}
+                })} */}
               </div>
             </li>
             {SidebarData.map((item, index) => {
@@ -40,11 +45,18 @@ const Nav = () => {
                 <li key={index} className={item.cName}>
                   <Link to={item.path}>
                     {item.icon}
-                    <span>{item.title}</span>
+                    <span className="menuList">{item.title}</span>
                   </Link>
                 </li>
               );
             })}
+            <li className="nav-text">
+              <span className="menuList">
+                <Link to="/Login" onClick={logout}>
+                  Logout
+                </Link>
+              </span>
+            </li>
           </ul>
         </nav>
       </IconContext.Provider>
