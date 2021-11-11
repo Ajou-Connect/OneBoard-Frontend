@@ -1,20 +1,42 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import './Nav.scss';
 import { IconContext } from 'react-icons';
 import { SidebarData } from './SidebarData';
+import axios from 'axios';
 // import UserData from '../Pages/UserData';
 
 const Nav = () => {
   const [sidebar, setSidebar] = useState(false);
   const showSidebar = () => setSidebar(!sidebar);
+  const [users, setUsers] = useState(null);
+  const user = sessionStorage.getItem('token');
 
   const logout = () => {
     sessionStorage.removeItem('email');
     sessionStorage.removeItem('token');
   };
+
+  useEffect(() => {
+    const fetchUsers = async () => {
+      try {
+        const res = await axios.get('/user', { headers: { 'X-AUTH-TOKEN': `${user}` } });
+        console.log(res.data);
+        setUsers(res.data.data);
+        // for (let i = 0; i < res.data.length; i++) {
+        //   if (res.data[i].email === user) {
+        //     setUsers(res.data[i]);
+        //   }
+        // }
+        // console.log(res.data[1]);
+      } catch (e) {
+        console.log(e);
+      }
+    };
+    fetchUsers();
+  }, []);
 
   return (
     <div className="navbar-container">
@@ -31,13 +53,11 @@ const Nav = () => {
                 <AiIcons.AiOutlineClose />
               </Link>
               <div className="navbar-toggle-text">
-                {/* {UserData.map((item, index) => {
-                  return (
-                    <div key={index} className="navbar-toggle-profile-name">
-                      {item.name} {item.ID}
-                    </div>
-                  );
-                })} */}
+                <div className="navbar-toggle-profile-name">
+                  {users.name}
+                  <br />
+                  {users.studentNumber}
+                </div>
               </div>
             </li>
             {SidebarData.map((item, index) => {
