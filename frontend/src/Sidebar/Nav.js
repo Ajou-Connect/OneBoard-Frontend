@@ -5,9 +5,9 @@ import { Link } from 'react-router-dom';
 import './Nav.scss';
 import { IconContext } from 'react-icons';
 import { SidebarData } from './SidebarData';
-import axios from 'axios';
 
 const Nav = () => {
+  const user = JSON.parse(sessionStorage.userInfo);
   const [sidebar, setSidebar] = useState(false);
   const showSidebar = () => setSidebar(!sidebar);
   const [name, setName] = useState(null);
@@ -16,19 +16,14 @@ const Nav = () => {
   const logout = () => {
     sessionStorage.removeItem('email');
     sessionStorage.removeItem('token');
+    sessionStorage.removeItem('userInfo');
   };
 
   useEffect(() => {
-    const user = sessionStorage.getItem('token');
     const fetchUser = async () => {
       try {
-        setName(null);
-        setStudentNumber(null);
-
-        const res = await axios.get('/user', { headers: { 'X-AUTH-TOKEN': `${user}` } });
-        console.log('data값 : ' + res.data.data.name);
-        setName(res.data.data.name);
-        setStudentNumber(res.data.data.studentNumber);
+        setName(user.name);
+        setStudentNumber(user.studentNumber);
       } catch (e) {
         console.log(e);
       }

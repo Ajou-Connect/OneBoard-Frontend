@@ -3,28 +3,28 @@ import moment from 'moment';
 import './LectureNoticeContent.scss';
 import axios from 'axios';
 const LectureNoticeContent = (props) => {
-  const user = sessionStorage.getItem('token');
+  const user = JSON.parse(sessionStorage.userInfo);
+  const isProfessor = user.userType === 'T';
+  const [notices, setNotices] = useState({
+    id: 0,
+    title: "",
+    content: "",
+    lectureId: 0,
+    exposeDt: null,
+    updataDt : null,
+  });
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
 
-  // const [users, setUsers] = useState(null);
-  const [isProfessor, setIsProfessor] = useState(false);
-
+  
   useEffect(() => {
-    const fetchUsers = async () => {
+    console.log(isProfessor);
+
+    const fetchNotice = async () => {
       try {
-        const res = await axios.get('/user', { headers: { 'X-AUTH-TOKEN': `${user}` } });
-        console.log(res.data); // user data
-        console.log(res.data.data.userType);
-        sessionStorage.setItem('userType', res.data.data.userType);
-      } catch (e) {
-        console.log(e);
+        
       }
     };
-    fetchUsers();
-    const userType = sessionStorage.getItem('userType');
-    if (userType === 'T') {
-      setIsProfessor(true);
-    }
-    console.log(`${isProfessor}`);
   }, []);
 
   return (
