@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './LectureList.scss';
 const LectureList = () => {
+  const user = JSON.parse(sessionStorage.userInfo);
+
+  useEffect(() => {});
+
   return (
     <div>
       <div className="term">

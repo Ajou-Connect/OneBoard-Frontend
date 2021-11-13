@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Row, Col, Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
-import Logo from '../../img/OneBoard.png';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router';
 const LoginCheck = () => {
   const [email, setEmail] = useState('');
@@ -88,6 +86,10 @@ const LoginCheck = () => {
         }
       })
       .catch((error) => {
+        setGetAlert({
+          flag: true,
+          message: '아이디 혹은 비밀번호가 틀렸거나 없는 사용자 입니다.',
+        });
         console.log(error);
       });
   };
