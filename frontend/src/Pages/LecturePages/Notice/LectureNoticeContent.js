@@ -96,6 +96,7 @@ const LectureNoticeContent = (props) => {
 
   const onWriteClick = (e) => {
     e.preventDefault();
+    return (window.location.href = `/Main/Lecture/LecturePage1/Notice/WriteNotice`);
     // 글쓰기 눌렀을 때 writepage로 이동
   };
 
@@ -140,7 +141,7 @@ const LectureNoticeContent = (props) => {
                     <h3 className="notice-title">{notice.title}</h3>
                     <div className="details">
                       <p>
-                        <span>{notice.exposeDt}</span>
+                        <span>작성일 : {notice.exposeDt}</span>
                       </p>
                       <div className="notice-content">{notice.content}</div>
                     </div>

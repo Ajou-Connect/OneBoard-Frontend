@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import Button from '../../../Component/common/Button';
+import { withRouter } from 'react-router';
+import { useSelector } from 'react-redux';
 
 const WriteAcitonButtonBlock = styled.div`
   margin-top: 1rem;
@@ -17,7 +19,15 @@ const StyledButton = styled(Button)`
   }
 `;
 
-const WriteActionButtons = ({ onCancel, onPublish }) => {
+const WriteActionButtons = ({ history }) => {
+  const onPublish = () => {
+    //axios post 부분 들어가야댐
+  };
+
+  const onCancel = () => {
+    history.goBack();
+  };
+
   return (
     <WriteAcitonButtonBlock>
       <StyledButton cyan onClick={onPublish}>
@@ -28,4 +38,4 @@ const WriteActionButtons = ({ onCancel, onPublish }) => {
   );
 };
 
-export default WriteActionButtons;
+export default withRouter(WriteActionButtons);

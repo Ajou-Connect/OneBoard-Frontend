@@ -23,9 +23,9 @@ const Routes = () => {
       <Route exact path="/Main/Lecture" component={LectureList} />
       <Route exact path="/Login" component={LoginCheck} />
       <Route path="/Main/Lecture/LecturePage1/Home" component={LectureHome} />
-      <Route path="/Main/Lecture/LecturePage1/Notice" component={LectureNotice} />
+      <Route exact path="/Main/Lecture/LecturePage1/Notice" component={LectureNotice} />
       {/* <Route path="/Main/Lecture/LecturePage1/Notice/:NoticeId/UpdateNotice" component={업데이트 notice페이지}/> */}
-      <Route path="/Main/Lecture/LecturePage1/Notice/WriteNotice" component={NoticeWrite} />
+      <Route exact path="/Main/Lecture/LecturePage1/Notice/WriteNotice" component={NoticeWrite} />
       <Route path="/Main/Lecture/LecturePage1/Attendance" component={LectureAttendance} />
       <Route path="/Main/Lecture/LecturePage1/Score" component={LectureScore} />
       <Route path="/Main/Lecture/LecturePage1/Lesson" component={LecturePlan} />
