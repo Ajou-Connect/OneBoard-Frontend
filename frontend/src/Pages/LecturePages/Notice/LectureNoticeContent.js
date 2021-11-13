@@ -2,6 +2,35 @@ import React, { useEffect, useState } from 'react';
 import moment from 'moment';
 import './LectureNoticeContent.scss';
 import axios from 'axios';
+import styled from 'styled-components';
+
+const WriteBtn = styled.button`
+  font-size: 12px;
+  padding: 5px;
+  margin-top: 10px;
+  background-color: #ececec;
+  color: #3e3e3e;
+  border-radius: 5px;
+  &:hover {
+    background-color: #bfbfbf;
+  }
+  display: inline-block;
+  float: right;
+`;
+
+const Btn = styled.button`
+  font-size: 2px;
+  padding: 5px;
+  margin-top: 50px;
+  margin-right: 10px;
+  background-color: rgba(215, 226, 185, 0.596);
+  color: #3e3e3e;
+  border-radius: 7px;
+  &:hover {
+    background-color: #bfbfbf;
+  }
+`;
+
 const LectureNoticeContent = (props) => {
   const user = JSON.parse(sessionStorage.userInfo);
   const isProfessor = user.userType === 'T';
@@ -28,6 +57,7 @@ const LectureNoticeContent = (props) => {
           .catch((e) => {
             console.log(e);
           });
+        setLoading(false);
       } catch (e) {
         setError(e);
         console.log(e);
@@ -36,15 +66,46 @@ const LectureNoticeContent = (props) => {
     fetchNotice();
   }, []);
 
-  const onWriteClick = () => {
+  if (loading)
+    return (
+      <div
+        style={{
+          textAlign: 'center',
+          fontSize: '30px',
+          fontStyle: 'italic',
+          fontWeight: 'bold',
+        }}
+      >
+        로딩중 ...
+      </div>
+    );
+
+  if (error)
+    return (
+      <div
+        style={{
+          textAlign: 'center',
+          fontSize: '30px',
+          fontStyle: 'italic',
+          fontWeight: 'bold',
+        }}
+      >
+        에러가 발생했습니다. 공지사항을 불러올수 없습니다.
+      </div>
+    );
+
+  const onWriteClick = (e) => {
+    e.preventDefault();
     // 글쓰기 눌렀을 때 writepage로 이동
   };
 
-  const onUpdataClick = () => {
+  const onUpdataClick = (e) => {
+    e.preventDefault();
     //수정 눌렀을때 updatepage로 이동
   };
 
-  const onDeleteClick = () => {
+  const onDeleteClick = (e) => {
+    e.preventDefault();
     //delete눌렀을때 axios.delete로 공지사항 목록 하나 삭제
   };
 
@@ -57,7 +118,6 @@ const LectureNoticeContent = (props) => {
           </h1>
         </div>
       </div>
-
       <div className="container clearfix" id="containerdiv">
         <form name="noticeForm" id="noticeForm">
           <ul id="announcementList" className="announcementList announcementList-read">
@@ -71,7 +131,7 @@ const LectureNoticeContent = (props) => {
                   fontWeight: 'bold',
                 }}
               >
-                등록된 공지사항이 없습니다{' '}
+                등록된 공지사항이 없습니다.
               </div>
             ) : (
               notices.map((notice, index) => {
@@ -88,11 +148,20 @@ const LectureNoticeContent = (props) => {
                       <p>
                         <span>작성자 : {notice.id}</span>
                       </p>
+                      <p>
+                        <span>
+                          <Btn onClick={onUpdataClick}>수정하기</Btn>
+                        </span>
+                        <span>
+                          <Btn onClick={onDeleteClick}>삭제하기</Btn>
+                        </span>
+                      </p>
                     </div>
                   </li>
                 );
               })
             )}
+            <WriteBtn onClick={onWriteClick}>글쓰기</WriteBtn>
           </ul>
         </form>
       </div>

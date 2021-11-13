@@ -4,7 +4,9 @@ import './LectureList.scss';
 const LectureList = () => {
   const user = JSON.parse(sessionStorage.userInfo);
 
-  useEffect(() => {});
+  // 최초 렌더링 후 보여줄 함수 작성
+  //await async 로 lecture id 호출
+  useEffect(() => {}, []);
 
   return (
     <div>
