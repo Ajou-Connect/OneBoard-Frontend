@@ -1,29 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import './Profile.scss';
-import axios from 'axios';
 
 const Profile = () => {
   const [users, setUsers] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const user = sessionStorage.getItem('token');
+  const user = JSON.parse(sessionStorage.userInfo);
 
   useEffect(() => {
     const fetchUsers = async () => {
       try {
         setError(null);
-        setUsers(null);
         setLoading(true);
-
-        const res = await axios.get('/user', { headers: { 'X-AUTH-TOKEN': `${user}` } });
-        console.log(res.data);
-        setUsers(res.data.data);
-        // for (let i = 0; i < res.data.length; i++) {
-        //   if (res.data[i].email === user) {
-        //     setUsers(res.data[i]);
-        //   }
-        // }
-        // console.log(res.data[1]);
+        setUsers(user);
       } catch (e) {
         setError(e);
         console.log(e);

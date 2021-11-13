@@ -48,7 +48,6 @@ const LoginCheck = () => {
     await axios
       .post('/auth/login', data)
       .then((res) => {
-        console.log(res.data.data);
         if (res.data.result === 'FAIL') {
           setIsLogined(false);
           setGetAlert({
@@ -64,6 +63,19 @@ const LoginCheck = () => {
           setIsLogined(true);
           sessionStorage.setItem('token', res.data.data.token);
           sessionStorage.setItem('email', res.data.data.email);
+          const token = sessionStorage.getItem('token');
+          console.log(token);
+          axios
+            .get('/user', { headers: { 'X-AUTH-TOKEN': `${token}` } })
+            .then((res) => {
+              const info = res.data.data;
+              console.log('userinfo : ' + info);
+              sessionStorage.setItem('userInfo', JSON.stringify(info));
+            })
+            .catch((e) => {
+              console.log(e);
+            });
+
           setGetAlert({
             flag: true,
             message: '로그인 되었습니다! OneBoard에 오신것을 환영합니다',

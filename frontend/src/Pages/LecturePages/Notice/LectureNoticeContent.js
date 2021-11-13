@@ -1,17 +1,31 @@
-import React from 'react';
-// import moment from 'moment';
-// import { Link } from 'react-router-dom';
-// import Pagination from './NoticePagination';
+import React, { useEffect, useState } from 'react';
+import moment from 'moment';
 import './LectureNoticeContent.scss';
+import axios from 'axios';
 const LectureNoticeContent = (props) => {
-  // const [posts, setPosts] = useState([]);
-  // const [currentPage, setCurrentPage] = useState(1);
-  // const [postsPerPage] = useState(5);
+  const user = sessionStorage.getItem('token');
 
-  // const indexOfLastPost = currentPage * postsPerPage;
-  // const indexOfFirstPost = indexOfLastPost - postsPerPage;
-  // const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
-  // const paginate = (pageNumber) => setCurrentPage(pageNumber);
+  // const [users, setUsers] = useState(null);
+  const [isProfessor, setIsProfessor] = useState(false);
+
+  useEffect(() => {
+    const fetchUsers = async () => {
+      try {
+        const res = await axios.get('/user', { headers: { 'X-AUTH-TOKEN': `${user}` } });
+        console.log(res.data); // user data
+        console.log(res.data.data.userType);
+        sessionStorage.setItem('userType', res.data.data.userType);
+      } catch (e) {
+        console.log(e);
+      }
+    };
+    fetchUsers();
+    const userType = sessionStorage.getItem('userType');
+    if (userType === 'T') {
+      setIsProfessor(true);
+    }
+    console.log(`${isProfessor}`);
+  }, []);
 
   return (
     <div id="content" className="contentBox">
