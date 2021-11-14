@@ -45,6 +45,13 @@ const LectureSidebar = (props) => {
           </li>
           <li className="menu-item">
             <div className="menu-text">
+              <Link to={`/Main/Lecture/${props.lectureId}/Assignment`} className="menu-text">
+                과제/시험
+              </Link>
+            </div>
+          </li>
+          <li className="menu-item">
+            <div className="menu-text">
               <Link to={`/Main/Lecture/${props.lectureId}/Attendance`} className="menu-text">
                 출석 관리
               </Link>

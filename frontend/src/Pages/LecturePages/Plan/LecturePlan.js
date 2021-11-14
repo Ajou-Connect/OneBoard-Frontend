@@ -3,7 +3,7 @@ import LectureSidebar from '../LectureSidebar';
 
 const LecturePlan = ({ match }) => {
   const lectureId = match.params.lectureId;
-  const 
+
   return (
     <div>
       <nav>
