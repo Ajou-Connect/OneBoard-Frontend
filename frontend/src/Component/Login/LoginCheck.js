@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Row, Col, Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
-import Logo from '../../img/OneBoard.png';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router';
 const LoginCheck = () => {
   const [email, setEmail] = useState('');
@@ -48,7 +46,6 @@ const LoginCheck = () => {
     await axios
       .post('/auth/login', data)
       .then((res) => {
-        console.log(res.data.data);
         if (res.data.result === 'FAIL') {
           setIsLogined(false);
           setGetAlert({
@@ -64,6 +61,19 @@ const LoginCheck = () => {
           setIsLogined(true);
           sessionStorage.setItem('token', res.data.data.token);
           sessionStorage.setItem('email', res.data.data.email);
+          const token = sessionStorage.getItem('token');
+          console.log(token);
+          axios
+            .get('/user', { headers: { 'X-AUTH-TOKEN': `${token}` } })
+            .then((res) => {
+              const info = res.data.data;
+              console.log('userinfo : ' + info);
+              sessionStorage.setItem('userInfo', JSON.stringify(info));
+            })
+            .catch((e) => {
+              console.log(e);
+            });
+
           setGetAlert({
             flag: true,
             message: '로그인 되었습니다! OneBoard에 오신것을 환영합니다',
@@ -76,6 +86,10 @@ const LoginCheck = () => {
         }
       })
       .catch((error) => {
+        setGetAlert({
+          flag: true,
+          message: '아이디 혹은 비밀번호가 틀렸거나 없는 사용자 입니다.',
+        });
         console.log(error);
       });
   };

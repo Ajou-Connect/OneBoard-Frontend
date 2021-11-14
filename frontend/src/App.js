@@ -4,6 +4,7 @@ import './App.scss';
 import { Route } from 'react-router';
 import Routes from '../src/Component/Routes';
 import Main from './Pages/MainNav/Main';
+
 const App = () => {
   return (
     <div className="App-style">

@@ -1,102 +1,122 @@
-import React from 'react';
-import styled from 'styled-components';
-const Container = styled.div`
-  width: 97%;
-  display: block;
-  justify-content: center;
-  align-items: center;
-  margin: 10px auto;
-  padding: 0 20px;
-`;
-const Title = styled.div`
-  font-size: 30px;
-  border-bottom: 1px solid #f7f9fc;
-  height: 40px;
-  line-height: 40px;
-  font-style: italic;
-`;
-const SubTitle = styled.div`
-  float: left;
-  margin-top: 3px;
-  margin-right: 20px;
-  color: #8b8b8b;
-  font-size: 13px;
-  font-weight: 400;
-`;
-const Box = styled.div`
-  width: 100%;
-  display: block;
-  margin: 0px 5px 10px 0px;
-  padding: 10px;
-  background: white;
-  border-radius: 5px;
-  box-shadow: 0px 2px 3px 1px #e0e0e0;
-  position: relative;
-`;
-const WriteBtn = styled.a`
-  display: inline-block;
-  float: right;
-  font-size: 16px;
-  padding: 5px;
-  background-color: ${(props) => props.theme.color.blue};
-  color: white;
-  border-radius: 5px;
-`;
-const SmallBtn = styled.button`
-  font-size: 12px;
-  padding: 5px;
-  margin: 1px;
-  background-color: #ececec;
-  color: #3e3e3e;
-  border-radius: 5px;
-  &:hover {
-    background-color: #bfbfbf;
-  }
-`;
-const NoticeTitle = styled.div`
-  display: block;
-  margin: 10px 0px 10px 10px;
-  color: #233044;
-  font-size: 16px;
-  font-weight: 700;
-`;
-const NoticeContent = styled.div`
-  width: 78%;
-  display: block;
-  font-size: 14px;
-  margin: 10px 0px 10px 10px;
-  border-bottom: 1px solid #bfbfbf;
-`;
-const NoticeMenuButton = styled.button`
-  position: absolute;
-  height: 30px;
-  width: 30px;
-  top: 10px;
-  right: 10px;
-  border-radius: 75px;
-  &:hover {
-    background-color: #f3f3f3;
-  }
-`;
-const NoticeMenuBox = styled.div`
-  position: absolute;
-  top: 40px;
-  right: 10px;
-`;
-const Line = styled.div`
-  position: absolute;
-  height: 100%;
-  width: 1px;
-  top: 0px;
-  right: 20%;
-  background-color: #bfbfbf;
-`;
-const WriteNotice = () => {
-  return (
-    <div>
-      <div>hi</div>
-    </div>
-  );
-};
+import React, { useState } from "react";
+import moment from "moment";
+import axios from "axios";
+import palette from "../../../lib/styles/palette";
+import Button from "../../../Component/common/Button";
+import { withRouter } from "react-router";
+import styled from "styled-components";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
 
-export default WriteNotice;
+const TitleInput = styled.input`
+  font-size: 2rem;
+  outline: none;
+  padding-bottom: 0.5rem;
+  border: none;
+  border-bottom: 1px solid ${palette.gray[4]};
+  margin-bottom: 2rem;
+  margin-top: 10px;
+  width: 100%;
+`;
+
+
+
+const WriteAcitonButtonBlock = styled.div`
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  button + button {
+    margin-left: 0.5rem;
+  }
+`;
+
+const StyledButton = styled(Button)`
+  height: 2.125rem;
+  & + & {
+    margin-left: 0.5rem;
+  }
+`;
+
+const WriteNotice = ({ history }) => {
+    const [title, setTitle] = useState("");
+    const [content, setContent] = useState("");
+    const exposeDt = moment().format('YYYY-MM-DD HH:mm:ss');
+    
+    const getTitle = e => {
+        setTitle(e.target.value);
+        console.log(title);
+    }
+
+    const onSubmit = () => {
+    /// 무언가 들어갈거
+    console.log('title : ' + title);
+    console.log('content : ' + content);
+    axios
+      .post('/lecture/1/notice', {
+        title: title,
+        content: content,
+        exposeDt: exposeDt,
+      })
+      .then((res) => {
+        console.log(res);
+        return (window.location.href = `/Main/Lecture/LecturePage1/Notice`);
+      })
+      .catch((res) => {
+        console.log('Error : ' + res);
+      });
+  };
+
+  const onCancel = () => {
+    history.goBack();
+  };
+
+   const modules = {
+             toolbar: [
+          //[{ 'font': [] }],
+          [{ 'header': [1, 2, false] }],
+          ['bold', 'italic', 'underline','strike', 'blockquote'],
+          [{'list': 'ordered'}, {'list': 'bullet'}, {'indent': '-1'}, {'indent': '+1'}],
+          ['link', 'image'],
+          [{ 'align': [] }, { 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
+          ['clean']
+        ],
+      }
+
+    
+const format = [
+     'header',
+        'bold', 'italic', 'underline', 'strike', 'blockquote',
+        'list', 'bullet', 'indent',
+        'link', 'image',
+        'align', 'color', 'background',    
+    ]
+    
+    const handleText = (editor) => {
+        console.log(editor);
+        setContent(editor)
+    }
+ 
+return (
+    <div>
+        <TitleInput onChange={getTitle} placeholder="제목" />
+        <ReactQuill
+            style={{ height: "650px" }}
+            theme="snow"
+            modules={modules}
+            formats={format}
+            value={content}
+            onChange={(content, delta, source, editor) => handleText(editor.getHTML())}
+            
+        />
+    
+    <WriteAcitonButtonBlock>
+        <StyledButton cyan onClick={onSubmit}>
+          공지사항 등록
+        </StyledButton>
+        <StyledButton onClick={onCancel}>취소</StyledButton>
+        </WriteAcitonButtonBlock>
+        </div>
+)
+
+}
+
+export default withRouter(WriteNotice);

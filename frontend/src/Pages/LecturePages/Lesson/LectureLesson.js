@@ -1,11 +1,12 @@
 import React from 'react';
 import LectureSidebar from '../LectureSidebar';
 
-const LectureLesson = () => {
+const LectureLesson = ({ match }) => {
+  const lectureId = match.params.lectureId;
   return (
     <div>
       <nav>
-        <LectureSidebar />
+        <LectureSidebar lectureId={lectureId} />
       </nav>
     </div>
   );

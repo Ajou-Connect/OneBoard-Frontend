@@ -1,24 +1,39 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import './Nav.scss';
 import { IconContext } from 'react-icons';
 import { SidebarData } from './SidebarData';
-// import UserData from '../Pages/UserData';
 
 const Nav = () => {
+  const user = JSON.parse(sessionStorage.userInfo);
   const [sidebar, setSidebar] = useState(false);
   const showSidebar = () => setSidebar(!sidebar);
+  const [name, setName] = useState(null);
+  const [studentNumber, setStudentNumber] = useState(null);
 
   const logout = () => {
     sessionStorage.removeItem('email');
     sessionStorage.removeItem('token');
+    sessionStorage.removeItem('userInfo');
   };
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        setName(user.name);
+        setStudentNumber(user.studentNumber);
+      } catch (e) {
+        console.log(e);
+      }
+    };
+    fetchUser();
+  }, [user]);
 
   return (
     <div className="navbar-container">
-      <IconContext.Provider value={{ color: '#fff' }}>
+      <IconContext.Provider value={{ color: '#131111' }}>
         <div className="navbar">
           <Link to="#" className="menu-bars">
             <FaIcons.FaBars onClick={showSidebar} />
@@ -31,13 +46,9 @@ const Nav = () => {
                 <AiIcons.AiOutlineClose />
               </Link>
               <div className="navbar-toggle-text">
-                {/* {UserData.map((item, index) => {
-                  return (
-                    <div key={index} className="navbar-toggle-profile-name">
-                      {item.name} {item.ID}
-                    </div>
-                  );
-                })} */}
+                <div className="navbar-toggle-profile-name">
+                  {name} {studentNumber}
+                </div>
               </div>
             </li>
             {SidebarData.map((item, index) => {
