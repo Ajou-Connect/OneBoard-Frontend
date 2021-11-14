@@ -8,6 +8,7 @@ import Button from '../../../Component/common/Button';
 import { withRouter } from 'react-router';
 import moment from 'moment';
 //나중에 match추가
+// commit for reset 
 
 const TitleInput = styled.input`
   font-size: 2rem;
