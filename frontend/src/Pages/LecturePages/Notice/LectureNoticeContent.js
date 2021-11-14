@@ -155,20 +155,24 @@ const LectureNoticeContent = (props) => {
                       <p>
                         <span>작성자 : {notice.id}</span>
                       </p>
-                      <p>
-                        <span>
-                          <Btn onClick={(e) => onUpdateClick(e, notice.id)}>수정하기</Btn>
-                        </span>
-                        <span>
-                          <Btn onClick={(e) => onDeleteClick(e, notice.id)}>삭제하기</Btn>
-                        </span>
-                      </p>
+                      {isProfessor ? (
+                        <p>
+                          <span>
+                            <Btn onClick={(e) => onUpdateClick(e, notice.id)}>수정하기</Btn>
+                          </span>
+                          <span>
+                            <Btn onClick={(e) => onDeleteClick(e, notice.id)}>삭제하기</Btn>
+                          </span>
+                        </p>
+                      ) : (
+                        <p></p>
+                      )}
                     </div>
                   </li>
                 );
               })
             )}
-            <WriteBtn onClick={onWriteClick}>글쓰기</WriteBtn>
+            {isProfessor ? <WriteBtn onClick={onWriteClick}>글쓰기</WriteBtn> : <div></div>}
           </ul>
         </form>
       </div>
