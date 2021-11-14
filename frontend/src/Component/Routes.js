@@ -21,7 +21,7 @@ const Routes = () => {
       <Nav />
       <Route exact path="/Main/Home" component={Home} />
       <Route path="/Main/Profile" component={Profile} />
-      <Route path="/Main/Lecture" component={LectureList} />
+      <Route exact path="/Main/Lecture" component={LectureList} />
       <Route exact path="/Login" component={LoginCheck} />
       <Route path="/Main/Lecture/:lectureId/Home" component={LectureHome} />
       <Route exact path="/Main/Lecture/:lectureId/Notice" component={LectureNotice} />

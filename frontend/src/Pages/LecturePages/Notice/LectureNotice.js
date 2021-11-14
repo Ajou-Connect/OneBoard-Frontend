@@ -3,14 +3,17 @@ import LectureSidebar from '../LectureSidebar';
 import './LectureNotice.scss';
 import LectureNoticeContent from './LectureNoticeContent';
 
-const LectureNotice = () => {
+const LectureNotice = ({ match }) => {
+  const Id = match.params.lectureId;
+  console.log(match.params);
+  console.log('notice id : ' + Id);
   return (
     <div className="notice">
       <nav className="lecture-menu">
-        <LectureSidebar />
+        <LectureSidebar lectureId={Id} />
       </nav>
       <div className="notice-main">
-        <LectureNoticeContent />
+        <LectureNoticeContent lectureId={Id} />
       </div>
     </div>
   );

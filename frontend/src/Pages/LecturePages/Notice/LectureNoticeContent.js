@@ -30,23 +30,23 @@ const Btn = styled.button`
   }
 `;
 
-const LectureNoticeContent = () => {
+const LectureNoticeContent = (props) => {
   const user = JSON.parse(sessionStorage.userInfo);
   const isProfessor = user.userType === 'T';
   const [notices, setNotices] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
-
+  const lectureId = props.lectureId;
   useEffect(() => {
     console.log(isProfessor);
-
+    console.log('lectureId : ' + lectureId);
     const fetchNotice = async () => {
       try {
         setError(null);
         setLoading(true);
         //lectureID부분 나중에 `${lectureId}` 로 바꾸기
         await axios
-          .get('/lecture/1/notices')
+          .get('/lecture/' + lectureId + '/notices')
           .then((res) => {
             const result = res.data.data;
             console.log(result);
