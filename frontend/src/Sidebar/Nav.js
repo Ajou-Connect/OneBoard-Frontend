@@ -29,7 +29,7 @@ const Nav = () => {
       }
     };
     fetchUser();
-  }, []);
+  }, [user]);
 
   return (
     <div className="navbar-container">

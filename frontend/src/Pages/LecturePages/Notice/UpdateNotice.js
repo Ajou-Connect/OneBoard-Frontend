@@ -20,17 +20,6 @@ const TitleInput = styled.input`
   width: 100%;
 `;
 
-const QuillWrapper = styled.div`
-  .ql-editor {
-    padding: 0;
-    min-height: 320px;
-    font-size: 1.125rem;
-    line-height: 1.5;
-  }
-  .ql-editor.ql-blank::before {
-    left: 0px;
-  }
-`;
 
 const WriteAcitonButtonBlock = styled.div`
   margin-top: 3rem;
@@ -47,11 +36,14 @@ const StyledButton = styled(Button)`
   }
 `;
 
-const UpdateNotice = ({ history }) => {
+const UpdateNotice = ({ history , match }) => {
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
     const exposeDt = moment().format('YYYY-MM-DD HH:mm:ss');
     
+  const noticeId = match.params.noticeId;
+  console.log(noticeId);
+  
     const getTitle = e => {
         setTitle(e.target.value);
         console.log(title);
@@ -62,7 +54,7 @@ const UpdateNotice = ({ history }) => {
     console.log('title : ' + title);
     console.log('content : ' + content);
     axios
-      .post('/lecture/1/notice', {
+      .put('/lecture/1/notice', {
         title: title,
         content: content,
         exposeDt: exposeDt,

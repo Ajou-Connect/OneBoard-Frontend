@@ -19,17 +19,7 @@ const TitleInput = styled.input`
   width: 100%;
 `;
 
-const QuillWrapper = styled.div`
-  .ql-editor {
-    padding: 0;
-    min-height: 320px;
-    font-size: 1.125rem;
-    line-height: 1.5;
-  }
-  .ql-editor.ql-blank::before {
-    left: 0px;
-  }
-`;
+
 
 const WriteAcitonButtonBlock = styled.div`
   margin-top: 3rem;
