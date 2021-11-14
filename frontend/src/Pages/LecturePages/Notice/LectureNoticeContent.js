@@ -52,7 +52,6 @@ const LectureNoticeContent = (props) => {
             const result = res.data.data;
             console.log(result);
             setNotices(result);
-            
           })
           .catch((e) => {
             console.log(e);
@@ -100,19 +99,18 @@ const LectureNoticeContent = (props) => {
     // 글쓰기 눌렀을 때 writepage로 이동
   };
 
-  const onUpdateClick = (e,noticeid) => {
+  const onUpdateClick = (e, noticeid) => {
     e.preventDefault();
     return (window.location.href = `/Main/Lecture/LecturePage1/Notice/UpdateNotice/${noticeid}`);
     //수정 눌렀을때 updatepage로 이동
   };
 
-  const onDeleteClick = (e,noticeid) => {
+  const onDeleteClick = (e, noticeid) => {
     //delete눌렀을때 axios.delete로 공지사항 목록 하나 삭제
-    axios.delete("/lecture/1/notice/" + noticeid)
-      .then((res) => {
-        const result = res.data;
-        console.log(result);
-    })
+    axios.delete('/lecture/1/notice/' + noticeid).then((res) => {
+      const result = res.data;
+      console.log(result);
+    });
   };
 
   return (
@@ -148,7 +146,10 @@ const LectureNoticeContent = (props) => {
                       <p>
                         <span>작성일 : {notice.exposeDt}</span>
                       </p>
-                      <div className="notice-content" dangerouslySetInnerHTML={{__html:notice.content}}></div>
+                      <div
+                        className="notice-content"
+                        dangerouslySetInnerHTML={{ __html: notice.content }}
+                      ></div>
                     </div>
                     <div className="noticeInfo">
                       <p>
@@ -156,10 +157,10 @@ const LectureNoticeContent = (props) => {
                       </p>
                       <p>
                         <span>
-                          <Btn onClick={(e)=>onUpdateClick(e,notice.id)}>수정하기</Btn>
+                          <Btn onClick={(e) => onUpdateClick(e, notice.id)}>수정하기</Btn>
                         </span>
                         <span>
-                          <Btn onClick={(e)=>onDeleteClick(e,notice.id)}>삭제하기</Btn>
+                          <Btn onClick={(e) => onDeleteClick(e, notice.id)}>삭제하기</Btn>
                         </span>
                       </p>
                     </div>
