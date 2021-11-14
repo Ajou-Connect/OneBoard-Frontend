@@ -105,9 +105,13 @@ const LectureNoticeContent = (props) => {
     //수정 눌렀을때 updatepage로 이동
   };
 
-  const onDeleteClick = (e) => {
-    e.preventDefault();
+  const onDeleteClick = (e,noticeid) => {
     //delete눌렀을때 axios.delete로 공지사항 목록 하나 삭제
+    axios.delete("/lecture/1/notice/" + noticeid)
+      .then((res) => {
+        const result = res.data;
+        console.log(result);
+    })
   };
 
   return (
@@ -143,7 +147,7 @@ const LectureNoticeContent = (props) => {
                       <p>
                         <span>작성일 : {notice.exposeDt}</span>
                       </p>
-                      <div className="notice-content">{notice.content}</div>
+                      <div className="notice-content" dangerouslySetInnerHTML={{__html:notice.content}}></div>
                     </div>
                     <div className="noticeInfo">
                       <p>
@@ -154,7 +158,7 @@ const LectureNoticeContent = (props) => {
                           <Btn onClick={onUpdataClick}>수정하기</Btn>
                         </span>
                         <span>
-                          <Btn onClick={onDeleteClick}>삭제하기</Btn>
+                          <Btn onClick={(e)=>onDeleteClick(e,notice.id)}>삭제하기</Btn>
                         </span>
                       </p>
                     </div>

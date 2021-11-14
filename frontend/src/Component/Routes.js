@@ -13,6 +13,7 @@ import LectureLesson from '../Pages/LecturePages/Lesson/LectureLesson';
 import './Routes.scss';
 import LoginCheck from './Login/LoginCheck';
 import WriteNotice from '../Pages/LecturePages/Notice/WiteNotice';
+import WriteTest from '../Pages/LecturePages/Notice/WriteTest';
 
 const Routes = () => {
   return (
@@ -25,7 +26,7 @@ const Routes = () => {
       <Route path="/Main/Lecture/LecturePage1/Home" component={LectureHome} />
       <Route exact path="/Main/Lecture/LecturePage1/Notice" component={LectureNotice} />
       {/* <Route path="/Main/Lecture/LecturePage1/Notice/:NoticeId/UpdateNotice" component={업데이트 notice페이지}/> */}
-      <Route exact path="/Main/Lecture/LecturePage1/Notice/WriteNotice" component={WriteNotice} />
+      <Route exact path="/Main/Lecture/LecturePage1/Notice/WriteNotice" component={WriteTest} />
       <Route path="/Main/Lecture/LecturePage1/Attendance" component={LectureAttendance} />
       <Route path="/Main/Lecture/LecturePage1/Score" component={LectureScore} />
       <Route path="/Main/Lecture/LecturePage1/Lesson" component={LecturePlan} />

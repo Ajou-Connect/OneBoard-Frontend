@@ -50,7 +50,7 @@ const StyledButton = styled(Button)`
 
 const WriteNotice = ({ history }) => {
   const [title, setTitle] = useState('');
-  const [content, setContent] = useState();
+  const [content, setContent] = useState("");
   const exposeDt = moment().format('YYYY-MM-DD HH:mm:ss');
   const getTitle = (e) => {
     setTitle(e.target.value);
