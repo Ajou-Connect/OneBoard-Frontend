@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import moment from 'moment';
 import './LectureNoticeContent.scss';
 import axios from 'axios';
 import styled from 'styled-components';
@@ -31,7 +30,7 @@ const Btn = styled.button`
   }
 `;
 
-const LectureNoticeContent = (props) => {
+const LectureNoticeContent = () => {
   const user = JSON.parse(sessionStorage.userInfo);
   const isProfessor = user.userType === 'T';
   const [notices, setNotices] = useState([]);
@@ -52,6 +51,7 @@ const LectureNoticeContent = (props) => {
             const result = res.data.data;
             console.log(result);
             setNotices(result);
+            console.log('notices : ' + notices);
           })
           .catch((e) => {
             console.log(e);

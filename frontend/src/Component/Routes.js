@@ -21,16 +21,20 @@ const Routes = () => {
       <Nav />
       <Route exact path="/Main/Home" component={Home} />
       <Route path="/Main/Profile" component={Profile} />
-      <Route exact path="/Main/Lecture" component={LectureList} />
+      <Route path="/Main/Lecture" component={LectureList} />
       <Route exact path="/Login" component={LoginCheck} />
-      <Route path="/Main/Lecture/LecturePage1/Home" component={LectureHome} />
-      <Route exact path="/Main/Lecture/LecturePage1/Notice" component={LectureNotice} />
-      <Route exact path="/Main/Lecture/LecturePage1/Notice/UpdateNotice/:noticeId" component={UpdateNotice}/>
-      <Route exact path="/Main/Lecture/LecturePage1/Notice/WriteNotice" component={WriteNotice} />
-      <Route path="/Main/Lecture/LecturePage1/Attendance" component={LectureAttendance} />
-      <Route path="/Main/Lecture/LecturePage1/Score" component={LectureScore} />
-      <Route path="/Main/Lecture/LecturePage1/Lesson" component={LecturePlan} />
-      <Route path="/Main/Lecture/LecturePage1/Plan" component={LectureLesson} />
+      <Route path="/Main/Lecture/:lectureId/Home" component={LectureHome} />
+      <Route exact path="/Main/Lecture/:lectureId/Notice" component={LectureNotice} />
+      <Route
+        exact
+        path="/Main/Lecture/:lectureId/Notice/UpdateNotice/:noticeId"
+        component={UpdateNotice}
+      />
+      <Route exact path="/Main/Lecture/:lectureId/Notice/WriteNotice" component={WriteNotice} />
+      <Route path="/Main/Lecture/:lectureId/Attendance" component={LectureAttendance} />
+      <Route path="/Main/Lecture/:lectureId/Score" component={LectureScore} />
+      <Route path="/Main/Lecture/:lectureId/Lesson" component={LecturePlan} />
+      <Route path="/Main/Lecture/:lectureId/Plan" component={LectureLesson} />
     </div>
   );
 };

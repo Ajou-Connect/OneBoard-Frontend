@@ -7,7 +7,6 @@ import { withRouter } from 'react-router';
 import styled from 'styled-components';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
-import { Link } from 'react-router-dom';
 
 const TitleInput = styled.input`
   font-size: 2rem;
