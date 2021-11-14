@@ -12,8 +12,8 @@ import LecturePlan from '../Pages/LecturePages/Plan/LecturePlan';
 import LectureLesson from '../Pages/LecturePages/Lesson/LectureLesson';
 import './Routes.scss';
 import LoginCheck from './Login/LoginCheck';
-import WriteNotice from '../Pages/LecturePages/Notice/WiteNotice';
-import WriteTest from '../Pages/LecturePages/Notice/WriteTest';
+import WriteNotice from '../Pages/LecturePages/Notice/WriteNotice';
+import UpdateNotice from '../Pages/LecturePages/Notice/UpdateNotice';
 
 const Routes = () => {
   return (
@@ -25,8 +25,8 @@ const Routes = () => {
       <Route exact path="/Login" component={LoginCheck} />
       <Route path="/Main/Lecture/LecturePage1/Home" component={LectureHome} />
       <Route exact path="/Main/Lecture/LecturePage1/Notice" component={LectureNotice} />
-      {/* <Route path="/Main/Lecture/LecturePage1/Notice/:NoticeId/UpdateNotice" component={업데이트 notice페이지}/> */}
-      <Route exact path="/Main/Lecture/LecturePage1/Notice/WriteNotice" component={WriteTest} />
+      <Route exact path="/Main/Lecture/LecturePage1/Notice/UpdateNotice/:noticeId" component={UpdateNotice}/>
+      <Route exact path="/Main/Lecture/LecturePage1/Notice/WriteNotice" component={WriteNotice} />
       <Route path="/Main/Lecture/LecturePage1/Attendance" component={LectureAttendance} />
       <Route path="/Main/Lecture/LecturePage1/Score" component={LectureScore} />
       <Route path="/Main/Lecture/LecturePage1/Lesson" component={LecturePlan} />

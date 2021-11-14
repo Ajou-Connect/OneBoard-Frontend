@@ -32,7 +32,7 @@ const QuillWrapper = styled.div`
 `;
 
 const WriteAcitonButtonBlock = styled.div`
-  margin-top: 1rem;
+  margin-top: 3rem;
   margin-bottom: 3rem;
   button + button {
     margin-left: 0.5rem;
@@ -46,7 +46,7 @@ const StyledButton = styled(Button)`
   }
 `;
 
-const WriteTest = ({ history }) => {
+const WriteNotice = ({ history }) => {
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
     const exposeDt = moment().format('YYYY-MM-DD HH:mm:ss');
@@ -129,4 +129,4 @@ return (
 
 }
 
-export default withRouter(WriteTest);
+export default withRouter(WriteNotice);

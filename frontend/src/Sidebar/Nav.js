@@ -33,7 +33,7 @@ const Nav = () => {
 
   return (
     <div className="navbar-container">
-      <IconContext.Provider value={{ color: '#fff' }}>
+      <IconContext.Provider value={{ color: '#131111' }}>
         <div className="navbar">
           <Link to="#" className="menu-bars">
             <FaIcons.FaBars onClick={showSidebar} />
