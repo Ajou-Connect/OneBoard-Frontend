@@ -78,9 +78,7 @@ const StateBox = styled.div`
   width: 50%;
 `;
 
-const ProfessorAssignmentList = (props) => {
-  const user = JSON.parse(sessionStorage.userInfo);
-  const isProfessor = user.userType === 'T';
+const StudentAssignmentList = (props) => {
   const lectureId = props.lectureId;
   const [assignments, setAssignments] = useState([]);
   const [error, setError] = useState(null);
@@ -141,10 +139,6 @@ const ProfessorAssignmentList = (props) => {
       </div>
     );
 
-  const goWrite = () => {
-    return (window.location.href = `/Main/Lecture/${lectureId}/Assignment/Write`);
-  };
-
   const goDetail = () => {
     //해당 assignment에 해당하는 페이지로 라우팅
   };
@@ -155,13 +149,6 @@ const ProfessorAssignmentList = (props) => {
         <Title>Assignment</Title>
         <div style={{ width: '100%', display: 'block' }}>
           <SubTitle>과제</SubTitle>
-          <WriteBtn onClick={(e) => goWrite(e)}>작성하기</WriteBtn>
-        </div>
-        <div style={{ width: '100%', display: 'block', height: '20px' }}>
-          <StateDescript>마감</StateDescript>{' '}
-          <StateColorCircle style={{ backgroundColor: '#E24C4B' }} />
-          <StateDescript>진행 중</StateDescript>{' '}
-          <StateColorCircle style={{ backgroundColor: '#66FF33' }} />
         </div>
       </Container>
       <div>
@@ -225,4 +212,4 @@ const ProfessorAssignmentList = (props) => {
   );
 };
 
-export default ProfessorAssignmentList;
+export default StudentAssignmentList;

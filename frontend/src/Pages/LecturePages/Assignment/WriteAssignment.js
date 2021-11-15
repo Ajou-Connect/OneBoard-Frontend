@@ -34,38 +34,54 @@ const StyledButton = styled(Button)`
   }
 `;
 
-const WriteNotice = ({ history, match }) => {
+const WriteAssignment = ({ history, match }) => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
-  const exposeDt = moment().format('YYYY-MM-DD HH:mm:ss');
+  const [startDate, setStartDate] = useState('');
+  const [endDate, setEndDate] = useState('');
+  const [fileUrl, setFileUrl] = useState('');
+  const [exposeDt, setExposeDt] = useState('');
   const lectureId = match.params.lectureId;
+
   const getTitle = (e) => {
     setTitle(e.target.value);
     console.log(title);
   };
 
   const onSubmit = () => {
-    /// 무언가 들어갈거
     console.log('title : ' + title);
     console.log('content : ' + content);
+    console.log('StrtDate : ' + startDate);
+    console.log('endDate : ' + endDate);
+    setEndDate('1');
+    setStartDate('2');
+    setFileUrl('3');
+    setExposeDt('4');
     axios
-      .post(`/lecture/${lectureId}/notice`, {
+      .post(`/lecture/${lectureId}/assignment`, {
         title: title,
         content: content,
+        fileUrl: fileUrl,
+        startDt: startDate,
+        endDt: endDate,
         exposeDt: exposeDt,
       })
       .then((res) => {
         console.log(res);
-        //LectureId 넣어줘야됨
-        return (window.location.href = `/Main/Lecture/${lectureId}/Notice`);
+        return (window.location.href = `/Main/Lecture/${lectureId}/Assignment`);
       })
-      .catch((res) => {
-        console.log('Error : ' + res);
+      .catch((e) => {
+        console.log(e);
       });
   };
 
   const onCancel = () => {
-    history.goBack();
+    history.goback();
+  };
+
+  const handleText = (editor) => {
+    console.log(editor);
+    setContent(editor);
   };
 
   const modules = {
@@ -97,11 +113,6 @@ const WriteNotice = ({ history, match }) => {
     'background',
   ];
 
-  const handleText = (editor) => {
-    console.log(editor);
-    setContent(editor);
-  };
-
   return (
     <div>
       <TitleInput onChange={getTitle} placeholder="제목" />
@@ -113,10 +124,9 @@ const WriteNotice = ({ history, match }) => {
         value={content}
         onChange={(content, delta, source, editor) => handleText(editor.getHTML())}
       />
-
       <WriteAcitonButtonBlock>
         <StyledButton cyan onClick={onSubmit}>
-          공지사항 등록
+          과제 및 시험 등록
         </StyledButton>
         <StyledButton onClick={onCancel}>취소</StyledButton>
       </WriteAcitonButtonBlock>
@@ -124,4 +134,4 @@ const WriteNotice = ({ history, match }) => {
   );
 };
 
-export default withRouter(WriteNotice);
+export default withRouter(WriteAssignment);

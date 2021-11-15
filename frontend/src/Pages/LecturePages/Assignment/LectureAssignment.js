@@ -1,21 +1,35 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import LectureSidebar from '../LectureSidebar';
 import axios from 'axios';
 import moment from 'moment';
 import styled from 'styled-components';
 import './LectureAssignment.scss';
 import ProfessorAssignmentList from './ProfessorAssignmentList';
+import StudentAssignmentList from './StudentAssignmentList';
 
 const LectureAssignment = ({ match }) => {
   const lectureId = match.params.lectureId;
-  const userType = match.params.userType;
+  const user = JSON.parse(sessionStorage.userInfo);
+  const userType = user.userType;
+
+  const [isProfessor, setIsProfessor] = useState('');
+
+  useEffect(() => {
+    setIsProfessor(userType);
+    console.log(isProfessor);
+  }, []);
+
   return (
     <div className="lectureAssignment">
       <nav className="lecture-sidebar">
         <LectureSidebar lectureId={lectureId} />
       </nav>
       <div className="assignment-content">
-        <ProfessorAssignmentList lectureId={lectureId} userType={userType} />
+        {isProfessor === 'T' ? (
+          <ProfessorAssignmentList lectureId={lectureId} userType={userType} />
+        ) : (
+          <StudentAssignmentList lectureId={lectureId} userType={userType} />
+        )}
       </div>
     </div>
   );
