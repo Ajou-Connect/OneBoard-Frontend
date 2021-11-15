@@ -5,8 +5,7 @@ import LectureNoticeContent from './LectureNoticeContent';
 
 const LectureNotice = ({ match }) => {
   const Id = match.params.lectureId;
-  console.log(match.params);
-  console.log('notice id : ' + Id);
+
   return (
     <div className="notice">
       <nav className="lecture-menu">

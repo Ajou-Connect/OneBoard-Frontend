@@ -38,8 +38,6 @@ const LectureNoticeContent = (props) => {
   const [loading, setLoading] = useState(false);
   const lectureId = props.lectureId;
   useEffect(() => {
-    console.log(isProfessor);
-    console.log('lectureId : ' + lectureId);
     const fetchNotice = async () => {
       try {
         setError(null);
@@ -49,9 +47,8 @@ const LectureNoticeContent = (props) => {
           .get('/lecture/' + lectureId + '/notices')
           .then((res) => {
             const result = res.data.data;
-            console.log(result);
+
             setNotices(result);
-            console.log('notices : ' + notices);
           })
           .catch((e) => {
             console.log(e);

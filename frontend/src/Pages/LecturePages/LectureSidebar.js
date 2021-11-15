@@ -2,7 +2,8 @@ import React from 'react';
 import './LectureSidebar.scss';
 import { Link } from 'react-router-dom';
 const LectureSidebar = (props) => {
-  console.log('props값 : ' + props.lectureId);
+  const user = JSON.parse(sessionStorage.userInfo);
+  const userType = user.userType;
   return (
     <div className="LecturePage">
       <nav className="menu">
@@ -45,7 +46,10 @@ const LectureSidebar = (props) => {
           </li>
           <li className="menu-item">
             <div className="menu-text">
-              <Link to={`/Main/Lecture/${props.lectureId}/Assignment`} className="menu-text">
+              <Link
+                to={`/Main/Lecture/${userType}/${props.lectureId}/Assignment`}
+                className="menu-text"
+              >
                 과제/시험
               </Link>
             </div>

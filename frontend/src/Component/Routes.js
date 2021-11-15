@@ -31,7 +31,7 @@ const Routes = () => {
         path="/Main/Lecture/:lectureId/Notice/UpdateNotice/:noticeId"
         component={UpdateNotice}
       />
-      <Route exact path="/Main/Lecture/:lectureId/Assignment" component={LectureAssignment} />
+      <Route exact path="/Main/Lecture/:type/:lectureId/Assignment" component={LectureAssignment} />
       <Route exact path="/Main/Lecture/:lectureId/Notice/WriteNotice" component={WriteNotice} />
       <Route path="/Main/Lecture/:lectureId/Attendance" component={LectureAttendance} />
       <Route path="/Main/Lecture/:lectureId/Score" component={LectureScore} />
