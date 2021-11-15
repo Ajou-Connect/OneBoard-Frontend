@@ -134,6 +134,18 @@ const LectureAttendance = ({ match }) => {
               <td style={{ padding: '10px 0', borderBottom: '1px solid #D5D5D5' }}>시간</td>
               <td style={{ padding: '10px 0', borderBottom: '1px solid #D5D5D5' }}>결석</td>
             </TabletrColor>
+            <TabletrColor>
+              <td style={{ padding: '10px 0', borderBottom: '1px solid #D5D5D5' }}>test date</td>
+              <td style={{ padding: '10px 0', borderBottom: '1px solid #D5D5D5' }}>김동현</td>
+              <td style={{ padding: '10px 0', borderBottom: '1px solid #D5D5D5' }}>시간</td>
+              <td style={{ padding: '10px 0', borderBottom: '1px solid #D5D5D5' }}>결석</td>
+            </TabletrColor>
+            <TabletrColor>
+              <td style={{ padding: '10px 0', borderBottom: '1px solid #D5D5D5' }}>test date</td>
+              <td style={{ padding: '10px 0', borderBottom: '1px solid #D5D5D5' }}>김동현</td>
+              <td style={{ padding: '10px 0', borderBottom: '1px solid #D5D5D5' }}>시간</td>
+              <td style={{ padding: '10px 0', borderBottom: '1px solid #D5D5D5' }}>결석</td>
+            </TabletrColor>
           </tbody>
         </table>
       </div>
