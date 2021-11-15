@@ -6,13 +6,11 @@ const LectureHome = ({ match }) => {
   const lectureId = match.params.lectureId;
   console.log(lectureId);
   return (
-    <div className="lecture-home">
+    <div className="home">
       <div className="lecture-sidebar">
         <LectureSidebar lectureId={lectureId} />
       </div>
-      <div className="lecture-content">
-        <div className="content-box">??</div>
-      </div>
+      <div className="home-content">??</div>
     </div>
   );
 };
