@@ -8,10 +8,11 @@ const LectureAssignment = ({ match }) => {
   const lectureId = match.params.lectureId;
 
   return (
-    <div>
-      <nav>
+    <div className="lectureAssignment">
+      <nav className="lecture-sidebar">
         <LectureSidebar lectureId={lectureId} />
       </nav>
+      <div className="assignment-content">here is for content</div>
     </div>
   );
 };
