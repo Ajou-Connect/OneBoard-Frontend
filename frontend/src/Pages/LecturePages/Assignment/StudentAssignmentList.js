@@ -102,12 +102,12 @@ const StudentAssignmentList = (props) => {
             console.log(e);
             setError(e);
           });
-        setLoading(false);
       } catch (e) {
         setError(e);
         console.log(e);
       }
     };
+    return () => setLoading(false);
     fetchAssignment();
   }, []);
 

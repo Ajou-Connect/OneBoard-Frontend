@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import LectureSidebar from '../LectureSidebar';
-import axios from 'axios';
-import moment from 'moment';
-import styled from 'styled-components';
 import './LectureAssignment.scss';
 import ProfessorAssignmentList from './ProfessorAssignmentList';
 import StudentAssignmentList from './StudentAssignmentList';
