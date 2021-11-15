@@ -55,6 +55,7 @@ const LectureNoticeContent = (props) => {
           })
           .catch((e) => {
             console.log(e);
+            setError(e);
           });
         setLoading(false);
       } catch (e) {
