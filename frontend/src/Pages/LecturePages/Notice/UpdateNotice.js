@@ -43,6 +43,7 @@ const UpdateNotice = ({ history, match }) => {
   const exposeDt = moment().format('YYYY-MM-DD HH:mm:ss');
 
   const noticeId = match.params.noticeId;
+  const lectureId = match.params.lectureId;
 
   useEffect(() => {
     console.log('useEffect에서 log : ' + noticeId);
@@ -52,7 +53,7 @@ const UpdateNotice = ({ history, match }) => {
         setLoading(true);
 
         await axios
-          .get('/lecture/1/notice/' + noticeId)
+          .get(`/lecture/${lectureId}/notice/` + noticeId)
           .then((res) => {
             const result = res.data.data;
             console.log('noticeID에 해당하는 notice data : ' + result);

@@ -10,7 +10,9 @@ const LectureHome = ({ match }) => {
       <div className="lecture-sidebar">
         <LectureSidebar lectureId={lectureId} />
       </div>
-      <div className="home-content">??</div>
+      <div style={{ fontWeight: 'bold', fontSize: '150px' }} className="home-content">
+        Home
+      </div>
     </div>
   );
 };
