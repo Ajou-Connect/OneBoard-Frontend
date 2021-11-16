@@ -147,6 +147,10 @@ const ProfessorAssignmentList = (props) => {
     return (window.location.href = `/Main/Lecture/${lectureId}/Assignment/Write`);
   };
 
+  const goUpdate = (e, assignmentId) => {
+    return (window.location.href = `/Main/Lecture/${userType}/${lectureId}/Assignment/Update/${assignmentId}`);
+  };
+
   const goDetail = (e, assignmentId) => {
     //해당 assignment에 해당하는 페이지로 라우팅
     return (window.location.href = `/Main/Lecture/${userType}/${lectureId}/Assignment/${assignmentId}/ProfessorDetail`);
@@ -273,7 +277,7 @@ const ProfessorAssignmentList = (props) => {
                     >
                       <Btn
                         onClick={(e) => {
-                          goWrite();
+                          goUpdate(e, assignmentList.id);
                         }}
                       >
                         수정하기
