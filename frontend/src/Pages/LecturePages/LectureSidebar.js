@@ -2,7 +2,8 @@ import React from 'react';
 import './LectureSidebar.scss';
 import { Link } from 'react-router-dom';
 const LectureSidebar = (props) => {
-  console.log('props값 : ' + props.lectureId);
+  const user = JSON.parse(sessionStorage.userInfo);
+  const userType = user.userType;
   return (
     <div className="LecturePage">
       <nav className="menu">

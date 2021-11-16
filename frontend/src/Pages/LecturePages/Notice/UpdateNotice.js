@@ -43,7 +43,9 @@ const UpdateNotice = ({ history, match }) => {
   const exposeDt = moment().format('YYYY-MM-DD HH:mm:ss');
 
   const noticeId = match.params.noticeId;
+  const lectureId = match.params.lectureId;
 
+  console.log(lectureId);
   useEffect(() => {
     console.log('useEffect에서 log : ' + noticeId);
     const fetchUpdateNotice = async () => {
@@ -52,7 +54,7 @@ const UpdateNotice = ({ history, match }) => {
         setLoading(true);
 
         await axios
-          .get('/lecture/1/notice/' + noticeId)
+          .get(`/lecture/${lectureId}/notice/` + noticeId)
           .then((res) => {
             const result = res.data.data;
             console.log('noticeID에 해당하는 notice data : ' + result);
@@ -81,14 +83,14 @@ const UpdateNotice = ({ history, match }) => {
     console.log('title : ' + title);
     console.log('content : ' + content);
     axios
-      .put('/lecture/1/notice/' + noticeId, {
+      .put(`/lecture/${lectureId}/notice/` + noticeId, {
         title: title,
         content: content,
         exposeDt: exposeDt,
       })
       .then((res) => {
         console.log(res);
-        return (window.location.href = `/Main/Lecture/LecturePage1/Notice`);
+        return (window.location.href = `/Main/Lecture/${lectureId}/Notice`);
       })
       .catch((res) => {
         console.log('Error : ' + res);

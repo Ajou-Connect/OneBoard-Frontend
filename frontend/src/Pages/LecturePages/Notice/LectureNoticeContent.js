@@ -38,8 +38,6 @@ const LectureNoticeContent = (props) => {
   const [loading, setLoading] = useState(false);
   const lectureId = props.lectureId;
   useEffect(() => {
-    console.log(isProfessor);
-    console.log('lectureId : ' + lectureId);
     const fetchNotice = async () => {
       try {
         setError(null);
@@ -49,12 +47,12 @@ const LectureNoticeContent = (props) => {
           .get('/lecture/' + lectureId + '/notices')
           .then((res) => {
             const result = res.data.data;
-            console.log(result);
+
             setNotices(result);
-            console.log('notices : ' + notices);
           })
           .catch((e) => {
             console.log(e);
+            setError(e);
           });
         setLoading(false);
       } catch (e) {
@@ -95,13 +93,13 @@ const LectureNoticeContent = (props) => {
 
   const onWriteClick = (e) => {
     e.preventDefault();
-    return (window.location.href = `/Main/Lecture/LecturePage1/Notice/WriteNotice`);
+    return (window.location.href = `/Main/Lecture/${lectureId}/Notice/WriteNotice`);
     // 글쓰기 눌렀을 때 writepage로 이동
   };
 
   const onUpdateClick = (e, noticeid) => {
     e.preventDefault();
-    return (window.location.href = `/Main/Lecture/LecturePage1/Notice/UpdateNotice/${noticeid}`);
+    return (window.location.href = `/Main/Lecture/${lectureId}/Notice/UpdateNotice/${noticeid}`);
     //수정 눌렀을때 updatepage로 이동
   };
 
