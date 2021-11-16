@@ -16,6 +16,7 @@ import WriteNotice from '../Pages/LecturePages/Notice/WriteNotice';
 import UpdateNotice from '../Pages/LecturePages/Notice/UpdateNotice';
 import LectureAssignment from '../Pages/LecturePages/Assignment/LectureAssignment';
 import WriteAssignment from '../Pages/LecturePages/Assignment/WriteAssignment';
+import ProfessorAssignmentDetail from '../Pages/LecturePages/Assignment/ProfessorAssignmentDetail';
 
 const Routes = () => {
   return (
@@ -33,6 +34,11 @@ const Routes = () => {
         component={UpdateNotice}
       />
       <Route exact path="/Main/Lecture/:type/:lectureId/Assignment" component={LectureAssignment} />
+      <Route
+        exact
+        path="/Main/Lecture/:type/:lectureId/Assignment/:assignmentId/ProfessorDetail"
+        component={ProfessorAssignmentDetail}
+      />
       <Route exact path="/Main/Lecture/:lectureId/Assignment/Write" component={WriteAssignment} />
       <Route exact path="/Main/Lecture/:lectureId/Notice/WriteNotice" component={WriteNotice} />
       <Route path="/Main/Lecture/:lectureId/Attendance" component={LectureAttendance} />

@@ -8,6 +8,7 @@ const WriteBtn = styled.button`
   padding: 5px;
   margin-top: 10px;
   margin-bottom: 5px;
+  margin-left: 30px auto;
   background-color: #ececec;
   color: #3e3e3e;
   border-radius: 5px;
@@ -81,7 +82,7 @@ const StateBox = styled.div`
 
 const ProfessorAssignmentList = (props) => {
   const user = JSON.parse(sessionStorage.userInfo);
-  const isProfessor = user.userType === 'T';
+  const userType = user.userType;
   const lectureId = props.lectureId;
   const [assignments, setAssignments] = useState([]);
   const [error, setError] = useState(null);
@@ -146,8 +147,9 @@ const ProfessorAssignmentList = (props) => {
     return (window.location.href = `/Main/Lecture/${lectureId}/Assignment/Write`);
   };
 
-  const goDetail = () => {
+  const goDetail = (e, assignmentId) => {
     //해당 assignment에 해당하는 페이지로 라우팅
+    return (window.location.href = `/Main/Lecture/${userType}/${lectureId}/Assignment/${assignmentId}/ProfessorDetail`);
   };
 
   return (
@@ -185,7 +187,7 @@ const ProfessorAssignmentList = (props) => {
             }}
           >
             <tr>
-              <th style={{ padding: '10px 0', width: '30%' }}>과제 내용</th>
+              <th style={{ padding: '10px 0', width: '30%' }}>과제 명</th>
               <th style={{ padding: '10px 0', width: '30%' }}>과제 기간</th>
               <th style={{ padding: '10px 0', width: '30%' }}>진행 상태</th>
               <th style={{ padding: '10px 0', width: '30%' }}>채점 상태</th>
@@ -214,13 +216,14 @@ const ProfessorAssignmentList = (props) => {
                       boxShadow: '0px 2px 2px 1px #eeeeee',
                       cursor: 'pointer',
                     }}
-                    onClick={goDetail}
+                    onClick={(e) => goDetail(e, assignmentList.id)}
                   >
                     <td
                       style={{
                         padding: '10px 0',
                         backgroundColor: 'white',
                         borderRadius: '5px 0 0 5px',
+                        width: '30%',
                       }}
                     >
                       <div
@@ -235,12 +238,19 @@ const ProfessorAssignmentList = (props) => {
                         {assignmentList.title}
                       </div>
                     </td>
-                    <td style={{ padding: '10px 0', backgroundColor: 'white' }}>
+                    <td style={{ padding: '10px 0', backgroundColor: 'white', width: '30%' }}>
                       {assignmentList.startDt} ~ {assignmentList.endDt}
                     </td>
-                    <td style={{ padding: '10px 0', backgroundColor: 'white' }}>몇일 남았는지</td>
+                    <td style={{ padding: '10px 0', backgroundColor: 'white', width: '30%' }}>
+                      몇일 남았는지
+                    </td>
                     <td
-                      style={{ padding: '10px 0', backgroundColor: 'white', paddingRight: '20px' }}
+                      style={{
+                        padding: '10px 0',
+                        backgroundColor: 'white',
+                        paddingRight: '70px',
+                        width: '30%',
+                      }}
                     >
                       {assignmentList.endDt === 'endDate' ? (
                         <StateColorCircle style={{ backgroundColor: '#E24C4B' }} />
