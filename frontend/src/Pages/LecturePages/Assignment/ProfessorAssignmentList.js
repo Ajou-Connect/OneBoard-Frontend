@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
+import moment from 'moment';
 
 const WriteBtn = styled.button`
   font-size: 12px;
@@ -96,8 +97,8 @@ const ProfessorAssignmentList = (props) => {
         await axios
           .get(`/lecture/${lectureId}/assignments`)
           .then((res) => {
-            const result = res.data;
-            console.log(result);
+            const result = res.data.data;
+            console.log('몇번째 : ' + result);
             setAssignments(result);
           })
           .catch((e) => {
@@ -191,33 +192,66 @@ const ProfessorAssignmentList = (props) => {
             </tr>
           </thead>
           <tbody>
-            {/* map함수로 assignmentList 돌리기 */}
-            <tr
-              style={{
-                borderRadius: '5px',
-                boxShadow: '0px 2px 2px 1px #eeeeee',
-                cursor: 'pointer',
-              }}
-              onClick={goDetail}
-            >
-              <td
-                style={{ padding: '10px 0', backgroundColor: 'white', borderRadius: '5px 0 0 5px' }}
+            {assignments.length === 0 ? (
+              <div
+                style={{
+                  display: 'flex',
+                  textAlign: 'center',
+                  marginLeft: '400px',
+                  fontSize: '30px',
+                  fontStyle: 'italic',
+                  fontWeight: 'bold',
+                }}
               >
-                <div
-                  style={{
-                    fontSize: '20px',
-                    fontWeight: '700',
-                    color: '#3E3E3E',
-                    display: 'block',
-                  }}
-                >
-                  제목
-                </div>
-              </td>
-              <td style={{ padding: '10px 0', backgroundColor: 'white' }}>날짜 22~33</td>
-              <td style={{ padding: '10px 0', backgroundColor: 'white' }}>몇일 남았는지</td>
-              <td style={{ padding: '10px 0', backgroundColor: 'white' }}>채점 체크표시</td>
-            </tr>
+                등록된 과제가 없습니다.
+              </div>
+            ) : (
+              assignments.map((assignmentList, index) => {
+                return (
+                  <tr
+                    style={{
+                      borderRadius: '5px',
+                      boxShadow: '0px 2px 2px 1px #eeeeee',
+                      cursor: 'pointer',
+                    }}
+                    onClick={goDetail}
+                  >
+                    <td
+                      style={{
+                        padding: '10px 0',
+                        backgroundColor: 'white',
+                        borderRadius: '5px 0 0 5px',
+                      }}
+                    >
+                      <div
+                        key={index}
+                        style={{
+                          fontSize: '20px',
+                          fontWeight: '700',
+                          color: '#3E3E3E',
+                          display: 'block',
+                        }}
+                      >
+                        {assignmentList.title}
+                      </div>
+                    </td>
+                    <td style={{ padding: '10px 0', backgroundColor: 'white' }}>
+                      {assignmentList.startDt} ~ {assignmentList.endDt}
+                    </td>
+                    <td style={{ padding: '10px 0', backgroundColor: 'white' }}>몇일 남았는지</td>
+                    <td
+                      style={{ padding: '10px 0', backgroundColor: 'white', paddingRight: '20px' }}
+                    >
+                      {assignmentList.endDt === 'endDate' ? (
+                        <StateColorCircle style={{ backgroundColor: '#E24C4B' }} />
+                      ) : (
+                        <StateColorCircle style={{ backgroundColor: '#66FF33' }} />
+                      )}
+                    </td>
+                  </tr>
+                );
+              })
+            )}
           </tbody>
         </table>
       </div>

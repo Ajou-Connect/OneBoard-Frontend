@@ -13,7 +13,6 @@ const LectureAssignment = ({ match }) => {
 
   useEffect(() => {
     setIsProfessor(userType);
-    console.log(isProfessor);
   }, []);
 
   return (

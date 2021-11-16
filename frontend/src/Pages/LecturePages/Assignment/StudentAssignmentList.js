@@ -95,7 +95,7 @@ const StudentAssignmentList = (props) => {
           .get(`/lecture/${lectureId}/assignments`)
           .then((res) => {
             const result = res.data;
-            console.log(result);
+            console.log('설마 너니? : ' + result);
             setAssignments(result);
           })
           .catch((e) => {

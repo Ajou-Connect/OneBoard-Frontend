@@ -42,6 +42,8 @@ const WriteAssignment = ({ history, match }) => {
   const [fileUrl, setFileUrl] = useState('');
   const [exposeDt, setExposeDt] = useState('');
   const lectureId = match.params.lectureId;
+  const user = JSON.parse(sessionStorage.userInfo);
+  const userType = user.userType;
 
   const getTitle = (e) => {
     setTitle(e.target.value);
@@ -53,10 +55,7 @@ const WriteAssignment = ({ history, match }) => {
     console.log('content : ' + content);
     console.log('StrtDate : ' + startDate);
     console.log('endDate : ' + endDate);
-    setEndDate('1');
-    setStartDate('2');
-    setFileUrl('3');
-    setExposeDt('4');
+
     axios
       .post(`/lecture/${lectureId}/assignment`, {
         title: title,
@@ -68,7 +67,7 @@ const WriteAssignment = ({ history, match }) => {
       })
       .then((res) => {
         console.log(res);
-        return (window.location.href = `/Main/Lecture/${lectureId}/Assignment`);
+        return (window.location.href = `/Main/Lecture/${userType}/${lectureId}/Assignment`);
       })
       .catch((e) => {
         console.log(e);
