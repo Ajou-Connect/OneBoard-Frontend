@@ -152,6 +152,11 @@ const ProfessorAssignmentList = (props) => {
     return (window.location.href = `/Main/Lecture/${userType}/${lectureId}/Assignment/${assignmentId}/ProfessorDetail`);
   };
 
+  const onDelete = (e, assignmentId) => {
+    axios.delete(`/lecture/${lectureId}/assignment/` + assignmentId);
+    window.location.href = `/Main/Lecture/${userType}/${lectureId}/Assignment`;
+  };
+
   return (
     <div>
       <Container>
@@ -187,10 +192,11 @@ const ProfessorAssignmentList = (props) => {
             }}
           >
             <tr>
-              <th style={{ padding: '10px 0', width: '30%' }}>과제 명</th>
-              <th style={{ padding: '10px 0', width: '30%' }}>과제 기간</th>
-              <th style={{ padding: '10px 0', width: '30%' }}>진행 상태</th>
-              <th style={{ padding: '10px 0', width: '30%' }}>채점 상태</th>
+              <th style={{ padding: '10px 0', width: '20%' }}>과제 명</th>
+              <th style={{ padding: '10px 0', width: '20%' }}>과제 기간</th>
+              <th style={{ padding: '10px 0', width: '20%' }}>진행 상태</th>
+              <th style={{ padding: '10px 0', width: '20%' }}>마감 완료</th>
+              <th style={{ padding: '10px 0', width: '20%' }}>수정/삭제</th>
             </tr>
           </thead>
           <tbody>
@@ -216,14 +222,13 @@ const ProfessorAssignmentList = (props) => {
                       boxShadow: '0px 2px 2px 1px #eeeeee',
                       cursor: 'pointer',
                     }}
-                    onClick={(e) => goDetail(e, assignmentList.id)}
                   >
                     <td
                       style={{
                         padding: '10px 0',
                         backgroundColor: 'white',
                         borderRadius: '5px 0 0 5px',
-                        width: '30%',
+                        width: '20%',
                       }}
                     >
                       <div
@@ -234,22 +239,23 @@ const ProfessorAssignmentList = (props) => {
                           color: '#3E3E3E',
                           display: 'block',
                         }}
+                        onClick={(e) => goDetail(e, assignmentList.id)}
                       >
                         {assignmentList.title}
                       </div>
                     </td>
-                    <td style={{ padding: '10px 0', backgroundColor: 'white', width: '30%' }}>
+                    <td style={{ padding: '10px 0', backgroundColor: 'white', width: '20%' }}>
                       {assignmentList.startDt} ~ {assignmentList.endDt}
                     </td>
-                    <td style={{ padding: '10px 0', backgroundColor: 'white', width: '30%' }}>
+                    <td style={{ padding: '10px 0', backgroundColor: 'white', width: '20%' }}>
                       몇일 남았는지
                     </td>
                     <td
                       style={{
                         padding: '10px 0',
                         backgroundColor: 'white',
-                        paddingRight: '70px',
-                        width: '30%',
+                        paddingRight: '150px',
+                        width: '20%',
                       }}
                     >
                       {assignmentList.endDt === 'endDate' ? (
@@ -257,6 +263,28 @@ const ProfessorAssignmentList = (props) => {
                       ) : (
                         <StateColorCircle style={{ backgroundColor: '#66FF33' }} />
                       )}
+                    </td>
+                    <td
+                      style={{
+                        padding: '10px 0',
+                        backgroundColor: 'white',
+                        width: '20%',
+                      }}
+                    >
+                      <Btn
+                        onClick={(e) => {
+                          goWrite();
+                        }}
+                      >
+                        수정하기
+                      </Btn>
+                      <Btn
+                        onClick={(e) => {
+                          onDelete(e, assignmentList.id);
+                        }}
+                      >
+                        삭제하기
+                      </Btn>
                     </td>
                   </tr>
                 );

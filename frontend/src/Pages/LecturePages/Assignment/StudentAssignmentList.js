@@ -17,7 +17,9 @@ const WriteBtn = styled.button`
   float: right;
 `;
 
-const Btn = styled.button`
+const Btn =
+  styled.button -
+  `
   font-size: 2px;
   padding: 5px;
   margin-top: 50px;

@@ -105,7 +105,7 @@ const LectureNoticeContent = (props) => {
 
   const onDeleteClick = (e, noticeid) => {
     //delete눌렀을때 axios.delete로 공지사항 목록 하나 삭제
-    axios.delete('/lecture/1/notice/' + noticeid).then((res) => {
+    axios.delete(`/lecture/${lectureId}/notice/` + noticeid).then((res) => {
       const result = res.data;
       console.log(result);
     });
