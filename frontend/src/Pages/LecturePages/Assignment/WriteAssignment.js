@@ -7,7 +7,10 @@ import { withRouter } from 'react-router';
 import styled from 'styled-components';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
+import 'antd/dist/antd.css';
+import { DatePicker, Space } from 'antd';
 
+const { RangePicker } = DatePicker;
 const TitleInput = styled.input`
   font-size: 2rem;
   outline: none;
@@ -34,35 +37,77 @@ const StyledButton = styled(Button)`
   }
 `;
 
+const ScoreInput = styled.input`
+  margin: 5px 0px;
+  border-radius: 3px;
+  height: 31.6px;
+  border: 1px solid #d9d9d9;
+  padding: 0px 10px;
+  &:focus {
+    border: 1px solid #40a9ff;
+    box-shadow: 0 0 0 2px #1890ff 20%;
+    outline: 0;
+  }
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+`;
+
+const ListContainer = styled.div`
+  background-color: white;
+  border-radius: 10px;
+  padding: 15px;
+  margin: 0 auto;
+  width: 80%;
+  box-shadow: 0 5px 5px 0 #eeeeee;
+`;
+const Container = styled.div`
+  width: 97%;
+  display: block;
+  justify-content: center;
+  align-items: center;
+  margin: 10px auto;
+  padding: 0 20px;
+  margin-bottom: 50px;
+`;
+
 const WriteAssignment = ({ history, match }) => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
-  const [startDate, setStartDate] = useState('');
-  const [endDate, setEndDate] = useState('');
+  const [period, setPeriod] = useState('');
   const [fileUrl, setFileUrl] = useState('');
   const [exposeDt, setExposeDt] = useState('');
   const lectureId = match.params.lectureId;
   const user = JSON.parse(sessionStorage.userInfo);
   const userType = user.userType;
+  const [score, setScore] = useState('');
 
   const getTitle = (e) => {
     setTitle(e.target.value);
     console.log(title);
   };
 
+  const onChangePeriod = (e, dateString) => {
+    setPeriod({
+      ...period,
+      start: dateString[0],
+      end: dateString[1],
+    });
+  };
+
   const onSubmit = () => {
     console.log('title : ' + title);
     console.log('content : ' + content);
-    console.log('StrtDate : ' + startDate);
-    console.log('endDate : ' + endDate);
 
     axios
       .post(`/lecture/${lectureId}/assignment`, {
         title: title,
         content: content,
         fileUrl: fileUrl,
-        startDt: startDate,
-        endDt: endDate,
+        startDt: period.start,
+        endDt: period.end,
         exposeDt: exposeDt,
       })
       .then((res) => {
@@ -113,23 +158,51 @@ const WriteAssignment = ({ history, match }) => {
   ];
 
   return (
-    <div>
-      <TitleInput onChange={getTitle} placeholder="제목" />
-      <ReactQuill
-        style={{ height: '650px' }}
-        theme="snow"
-        modules={modules}
-        formats={format}
-        value={content}
-        onChange={(content, delta, source, editor) => handleText(editor.getHTML())}
+    <Container>
+      <hr
+        style={{
+          width: '100%',
+          margin: '30px 0px',
+          marginTop: '50px',
+          display: 'block',
+          borderColor: '#ffffff',
+        }}
       />
-      <WriteAcitonButtonBlock>
-        <StyledButton cyan onClick={onSubmit}>
-          과제 및 시험 등록
-        </StyledButton>
-        <StyledButton onClick={onCancel}>취소</StyledButton>
-      </WriteAcitonButtonBlock>
-    </div>
+      <ListContainer>
+        <TitleInput onChange={getTitle} placeholder="제목" />
+        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+          <div style={{ paddingLeft: '5px', lineHeight: '31.6px' }}>과제 기한</div>
+          <div>
+            <RangePicker
+              showTime={{
+                hideDisabledOptions: true,
+                defaultValue: [moment('00:00:00', 'HH:mm:ss'), moment('23:59:59', 'HH:mm:ss')],
+              }}
+              format="YYYY-MM-DD HH:mm:ss"
+              onChange={onChangePeriod}
+            />
+          </div>
+        </div>
+        <div style={{ display: 'flex', justifyContent: 'space-between', margin: '5px 0' }}>
+          <div style={{ paddingLeft: '5px', lineHeight: '41.6px' }}>배점</div>
+          <ScoreInput type="number" onChange={(e) => setScore(e.target.value)} />
+        </div>
+        <ReactQuill
+          style={{ height: '650px' }}
+          theme="snow"
+          modules={modules}
+          formats={format}
+          value={content}
+          onChange={(content, delta, source, editor) => handleText(editor.getHTML())}
+        />
+        <WriteAcitonButtonBlock>
+          <StyledButton cyan onClick={onSubmit}>
+            과제 및 시험 등록
+          </StyledButton>
+          <StyledButton onClick={onCancel}>취소</StyledButton>
+        </WriteAcitonButtonBlock>
+      </ListContainer>
+    </Container>
   );
 };
 
