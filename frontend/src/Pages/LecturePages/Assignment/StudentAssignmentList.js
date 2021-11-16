@@ -106,9 +106,10 @@ const StudentAssignmentList = (props) => {
         setError(e);
         console.log(e);
       }
+      setLoading(false);
     };
-    return () => setLoading(false);
-    fetchAssignment();
+
+    return () => fetchAssignment();
   }, []);
 
   if (loading)
