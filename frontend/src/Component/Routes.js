@@ -37,8 +37,8 @@ const Routes = () => {
       <Route exact path="/Main/Lecture/:lectureId/Notice/WriteNotice" component={WriteNotice} />
       <Route path="/Main/Lecture/:lectureId/Attendance" component={LectureAttendance} />
       <Route path="/Main/Lecture/:lectureId/Score" component={LectureScore} />
-      <Route path="/Main/Lecture/:lectureId/Lesson" component={LecturePlan} />
-      <Route path="/Main/Lecture/:lectureId/Plan" component={LectureLesson} />
+      <Route path="/Main/Lecture/:lectureId/Lesson" component={LectureLesson} />
+      <Route path="/Main/Lecture/:lectureId/Plan" component={LecturePlan} />
       <Route exact path="/Main/Lecture/:lectureId/Assignment/:assignmentId" />
     </div>
   );
