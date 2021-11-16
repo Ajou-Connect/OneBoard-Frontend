@@ -86,6 +86,8 @@ const StudentAssignmentList = (props) => {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
   const [isEmpty, setIsEmpty] = useState(false);
+  const user = JSON.parse(sessionStorage.userInfo);
+  const userType = user.userType;
 
   useEffect(() => {
     const fetchAssignment = async () => {
@@ -142,8 +144,9 @@ const StudentAssignmentList = (props) => {
       </div>
     );
 
-  const goDetail = () => {
+  const goDetail = (e, assignmentId) => {
     //해당 assignment에 해당하는 페이지로 라우팅
+    return (window.location.href = `/Main/Lecture/${userType}/${lectureId}/Assignment/${assignmentId}/StudentDetail`);
   };
 
   return (
