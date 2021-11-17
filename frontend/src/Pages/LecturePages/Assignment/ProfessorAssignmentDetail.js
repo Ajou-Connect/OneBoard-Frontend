@@ -3,6 +3,7 @@ import axios from 'axios';
 import styled from 'styled-components';
 import moment from 'moment';
 import ReactHtmlParser from 'react-html-parser';
+import StudentSubmit from './StudentSubmit';
 
 const Container = styled.div`
   width: 100%;
@@ -115,7 +116,7 @@ const ProfessorAssignmentDetail = ({ match }) => {
         .get(`/lecture/${lectureId}/assignment/${assignmentId}/submits`)
         .then((res) => {
           const result = res.data.data;
-          console.log(result);
+
           setSubmitAssignments(result);
           if (today.isBefore(result.endDt) && today.isAfter(result.startDt)) {
             setOnGoing(true);
@@ -134,7 +135,7 @@ const ProfessorAssignmentDetail = ({ match }) => {
         .get(`/lecture/${lectureId}/assignment/${assignmentId}`)
         .then((res) => {
           const assignmentResult = res.data.data;
-          console.log(assignmentResult);
+
           setAssignments(assignmentResult);
         })
         .catch((error) => {
@@ -150,9 +151,43 @@ const ProfessorAssignmentDetail = ({ match }) => {
   }, []);
 
   return (
-    <div>
-      <div>something</div>
-    </div>
+    <Container>
+      <Title>Assignment</Title>
+      <hr
+        style={{
+          width: '100%',
+          margin: '30px 0px',
+          marginTop: '50px',
+          display: 'block',
+          borderColor: '#ffffff',
+        }}
+      />
+      <ProblemContainer>
+        <ProblemTitle>{assignments.title}</ProblemTitle>
+        <hr
+          style={{ width: '100%', margin: '10px 0px', display: 'block', borderColor: '#ffffff' }}
+        />
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            margin: '0',
+            padding: '0px 5px',
+            fontWeight: '700',
+          }}
+        >
+          <div>{stateDisplay(moment(assignments.startDt), moment(assignments.endDt))}</div>
+          <div>배점 {assignments.score}</div>
+        </div>
+        <ProblemContent>{ReactHtmlParser(assignments.content)}</ProblemContent>
+        <hr
+          style={{ width: '100%', margin: '10px 0px', display: 'block', borderColor: '#ffffff' }}
+        />
+      </ProblemContainer>
+      <StudentSubmit lectureId={lectureId} assignmentId={assignmentId}>
+        here is data
+      </StudentSubmit>
+    </Container>
   );
 };
 

@@ -47,7 +47,7 @@ const LectureNoticeContent = (props) => {
           .get('/lecture/' + lectureId + '/notices')
           .then((res) => {
             const result = res.data.data;
-
+            console.log(result);
             setNotices(result);
           })
           .catch((e) => {
