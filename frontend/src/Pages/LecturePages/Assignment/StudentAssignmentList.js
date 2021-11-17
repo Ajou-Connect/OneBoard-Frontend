@@ -238,7 +238,7 @@ const StudentAssignmentList = (props) => {
                       style={{
                         padding: '10px 0',
                         backgroundColor: 'white',
-                        paddingRight: '150px',
+                        paddingRight: '80px',
                         width: '20%',
                       }}
                     >
