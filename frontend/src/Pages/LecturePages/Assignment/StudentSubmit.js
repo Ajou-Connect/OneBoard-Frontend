@@ -64,7 +64,7 @@ const ScoreButton = styled.button`
   width: 20%;
   display: inline-block;
   padding: 3px;
-  background-color: blue;
+  background-color: #22e2cf;
   color: white;
   border-radius: 5px;
 `;
@@ -91,7 +91,7 @@ const StudentSubmit = ({ lectureId, assignmentId }) => {
         .then((res) => {
           const result = res.data.data;
           setSubmitAssignments(result);
-          console.log(result[0].userName);
+          console.log(result);
         })
         .catch((error) => {
           console.log(error);
@@ -139,7 +139,6 @@ const StudentSubmit = ({ lectureId, assignmentId }) => {
               style={{
                 borderRadius: '5px',
                 boxShadow: '0px 2px 2px 1px #eeeeee',
-                cursor: 'pointer',
               }}
             >
               <td
@@ -151,7 +150,16 @@ const StudentSubmit = ({ lectureId, assignmentId }) => {
               >
                 {submitAssignment.userName}
               </td>
-              <td style={{ padding: '10px 0', backgroundColor: 'white' }}>
+              <td
+                style={{
+                  padding: '10px 0',
+                  backgroundColor: 'white',
+                  cursor: 'pointer',
+                  fontWeight: 'bold',
+
+                  textDecoration: 'underline',
+                }}
+              >
                 {submitAssignment.content}
               </td>
               <td style={{ padding: '10px 0', backgroundColor: 'white' }}>
@@ -166,7 +174,7 @@ const StudentSubmit = ({ lectureId, assignmentId }) => {
                     padding: '0 5px',
                   }}
                 >
-                  <div>
+                  <div style={{ paddingLeft: '100px' }}>
                     <ScoreInput onChange={onChangeScore} placeholder={submitAssignment.score} />
                     <span style={{ width: '20%' }}> / 배점</span>
                   </div>
