@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import LectureSidebar from '../LectureSidebar';
 import './LectureAttendance.scss';
 import axios from 'axios';
@@ -97,7 +97,62 @@ const TabletrColor = styled.tr`
 `;
 
 const LectureAttendance = ({ match }) => {
+  const [attendances, setAttendances] = useState([]);
   const lectureId = match.params.lectureId;
+  const user = JSON.parse(sessionStorage.userInfo);
+  const userType = user.userType;
+  const [isProfessor, setIsProfessor] = useState(false);
+  const [count, setCount] = useState(0);
+  const [attendanceCountList, setAttendanceCountList] = useState([]);
+  const getData = async () => {
+    try {
+      await axios
+        .get(`/lecture/${lectureId}/attendance`)
+        .then((res) => {
+          const result = res.data.data;
+          setAttendances(result);
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  useEffect(() => {
+    getData();
+    if (userType === 'T') {
+      setIsProfessor(true);
+    }
+  }, []);
+
+  for (let i = 0; i < attendances.length; i++) {
+    console.log(i + '바퀴  ');
+    for (let j = 0; j < attendances[i].attendanceList.length; j++) {
+      console.log(attendances[i].attendanceList[j].status);
+    }
+  }
+
+  // attendances.map((attendance, index) => {
+  //   attendance.attendanceList.map((attendanceLists, index) => {
+  //     console.log(attendanceLists.status);
+  //   });
+  // });
+
+  console.log(count);
+  // const CountAttendance = ({ Counter }) => {
+  //   console.log('ELdyd : ' + Counter);
+  //   let attendanceCount = 0;
+  //   for (let i = 0; i < Counter; i++) {
+  //     if (attendances[i].attendanceList[i].status === 2) {
+  //       attendanceCount += 1;
+  //       console.log(attendanceCount);
+  //     }
+  //   }
+  //   return attendanceCount;
+  // };
+
   return (
     <div className="LectureAttendance">
       <nav className="lecture-sidebar">
@@ -120,32 +175,27 @@ const LectureAttendance = ({ match }) => {
             }}
           >
             <tr>
-              <th style={{ padding: '10px 0', width: '25%' }}>날짜</th>
+              <th style={{ padding: '10px 0', width: '25%' }}>강의명</th>
               <th style={{ padding: '10px 0', width: '25%' }}>학생 이름</th>
-              <th style={{ padding: '10px 0', width: '25%' }}>강의 시간</th>
-              <th style={{ padding: '10px 0', width: '25%' }}>출결 상태</th>
+              <th style={{ padding: '10px 0', width: '25%' }}>출석횟수</th>
+              <th style={{ padding: '10px 0', width: '25%' }}>전체 수업 수</th>
             </tr>
           </thead>
           <tbody>
-            {/* 여기에 map함수로 attendance List 뿌려주기 */}
-            <TabletrColor>
-              <td style={{ padding: '10px 0', borderBottom: '1px solid #D5D5D5' }}>test date</td>
-              <td style={{ padding: '10px 0', borderBottom: '1px solid #D5D5D5' }}>김동현</td>
-              <td style={{ padding: '10px 0', borderBottom: '1px solid #D5D5D5' }}>시간</td>
-              <td style={{ padding: '10px 0', borderBottom: '1px solid #D5D5D5' }}>결석</td>
-            </TabletrColor>
-            <TabletrColor>
-              <td style={{ padding: '10px 0', borderBottom: '1px solid #D5D5D5' }}>test date</td>
-              <td style={{ padding: '10px 0', borderBottom: '1px solid #D5D5D5' }}>김동현</td>
-              <td style={{ padding: '10px 0', borderBottom: '1px solid #D5D5D5' }}>시간</td>
-              <td style={{ padding: '10px 0', borderBottom: '1px solid #D5D5D5' }}>결석</td>
-            </TabletrColor>
-            <TabletrColor>
-              <td style={{ padding: '10px 0', borderBottom: '1px solid #D5D5D5' }}>test date</td>
-              <td style={{ padding: '10px 0', borderBottom: '1px solid #D5D5D5' }}>김동현</td>
-              <td style={{ padding: '10px 0', borderBottom: '1px solid #D5D5D5' }}>시간</td>
-              <td style={{ padding: '10px 0', borderBottom: '1px solid #D5D5D5' }}>결석</td>
-            </TabletrColor>
+            {attendances.map((attendance, index) => (
+              <TabletrColor key={index}>
+                <td
+                  style={{ padding: '10px 0', borderBottom: '1px solid #D5D5D5' }}
+                >{`${lectureId}`}</td>
+                <td style={{ padding: '10px 0', borderBottom: '1px solid #D5D5D5' }}>
+                  {attendance.studentName}
+                </td>
+                <td style={{ padding: '10px 0', borderBottom: '1px solid #D5D5D5' }}></td>
+                <td style={{ padding: '10px 0', borderBottom: '1px solid #D5D5D5' }}>
+                  {attendance.attendanceList.length}
+                </td>
+              </TabletrColor>
+            ))}
           </tbody>
         </table>
       </div>
