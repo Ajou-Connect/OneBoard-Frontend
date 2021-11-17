@@ -144,7 +144,7 @@ const StudentAssignmentDetail = ({ match }) => {
       )
       .then((res) => {
         console.log(res);
-        // return (window.location.href = `/Main/Lecture/${userType}/${lectureId}/Assignment/${assignmentId}/StudentDetail`);
+        return (window.location.href = `/Main/Lecture/${userType}/${lectureId}/Assignment`);
       })
       .catch((error) => {
         console.log(error);
