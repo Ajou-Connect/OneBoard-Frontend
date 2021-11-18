@@ -62,11 +62,9 @@ const Nav = () => {
               );
             })}
             <li className="nav-text">
-              <span className="menuList">
-                <Link to="/Login" onClick={logout}>
-                  Logout
-                </Link>
-              </span>
+              <Link to="/Login" onClick={logout}>
+                <span className="menuList">Logout</span>
+              </Link>
             </li>
           </ul>
         </nav>
