@@ -124,6 +124,10 @@ const ProfessorAttendance = (props) => {
     getAttendanceData();
   }, []);
 
+  const onDetail = () => {
+    console.log('1');
+  };
+
   return (
     <table
       style={{
@@ -150,17 +154,41 @@ const ProfessorAttendance = (props) => {
       <tbody>
         {attendances.map((attendance, index) => (
           <TabletrColor key={index}>
-            <td style={{ padding: '10px 0', borderBottom: '1px solid #D5D5D5' }}>
+            <td
+              style={{
+                padding: '10px 0',
+                borderBottom: '1px solid #D5D5D5',
+                cursor: 'pointer',
+                fontWeight: 'bold',
+                textDecoration: 'underline',
+              }}
+              onClick={onDetail}
+            >
               {attendance.studentName}
             </td>
             <td style={{ padding: '10px 0', borderBottom: '1px solid #D5D5D5' }}>
               {attendance.studentId}
             </td>
-            <td style={{ padding: '10px 0', borderBottom: '1px solid #D5D5D5' }}>
+            <td
+              style={{
+                padding: '10px 0',
+                borderBottom: '1px solid #D5D5D5',
+                color: '#50CF76',
+                fontWeight: 'bold',
+                fontSize: '1rem',
+              }}
+            >
               {attendance.attendanceList.filter((test) => test.status === 2).length}
             </td>
-            <td style={{ padding: '10px 0', borderBottom: '1px solid #D5D5D5' }}>
-              {attendance.attendanceList.length}
+            <td
+              style={{
+                padding: '10px 0',
+                borderBottom: '1px solid #D5D5D5',
+                fontWeight: 'bold',
+                fontSize: '1rem',
+              }}
+            >
+              / {attendance.attendanceList.length}
             </td>
           </TabletrColor>
         ))}
