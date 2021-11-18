@@ -60,7 +60,7 @@ const ProblemContent = styled.div`
   margin: 10px auto;
   padding: 0 5px;
 `;
-const AnswerInput = styled.textarea`
+const FeedbackInput = styled.textarea`
   height: 60px;
   width: 100%;
   resize: none;
@@ -72,12 +72,22 @@ const AnswerInput = styled.textarea`
   }
 `;
 
+const ScoreInput = styled.input`
+  width: 50px;
+  border: 1px solid #d9d9d9;
+  padding: 10px;
+  display: inline-block;
+`;
+
 const StudentSubmitDetail = ({ match }) => {
   const [score, setScore] = useState(0);
+  const [feedback, setFeedback] = useState('');
   const [submitAssignments, setSubmitAssignments] = useState([]);
   const [assignments, setAssignments] = useState([]);
   const lectureId = match.params.lectureId;
   const assignmentId = match.params.assignmentId;
+  const user = JSON.parse(sessionStorage.userInfo);
+  const userType = user.userType;
 
   // const submitId = match.params.submitId;
 
@@ -138,6 +148,42 @@ const StudentSubmitDetail = ({ match }) => {
     getAssignmentData();
   }, []);
 
+  const onCancel = () => {
+    return (window.location.href = `/Main/Lecture/${userType}/${lectureId}/Assignment/${assignmentId}/ProfessorDetail`);
+  };
+
+  const onSubmit = () => {
+    //post 함수
+    axios
+      .post(`/lecture/${lectureId}/assignment/${assignmentId}/submit/1`, {
+        score: score,
+        feedback: feedback,
+      })
+      .then((res) => {
+        console.log(res);
+        return (window.location.href = `/Main/Lecture/${userType}/${lectureId}/Assignment/${assignmentId}/ProfessorDetail`);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const getFeedback = (e) => {
+    setFeedback(e.target.value);
+
+    console.log(feedback);
+  };
+
+  const getScore = (e) => {
+    if (e.target.value > assignments.score) {
+      alert('배점보다 높게 점수를 입력할 수 없습니다.');
+      window.location.reload();
+    } else {
+      setScore(e.target.value);
+    }
+    console.log(score);
+  };
+
   return (
     <Container>
       <Title>Assignment</Title>
@@ -172,7 +218,16 @@ const StudentSubmitDetail = ({ match }) => {
           style={{ width: '100%', margin: '10px 0px', display: 'block', borderColor: '#ffffff' }}
         />
       </ProblemContainer>
+      <hr style={{ width: '100%', margin: '10px 0px', display: 'block', borderColor: '#ffffff' }} />
       {/* 여기에 이제 학생 제출물 수정하는 부분 들어가주면 됨  */}
+      <hr style={{ width: '100%', margin: '10px 0px', display: 'block', borderColor: '#ffffff' }} />
+      <div>
+        <ScoreInput onChange={getScore} /> / {assignments.score}
+      </div>
+      <hr style={{ width: '100%', margin: '10px 0px', display: 'block', borderColor: '#ffffff' }} />
+      <FeedbackInput onChange={getFeedback} placeholder="점수에 대한 피드백을 작성해주세요" />
+      <Btn onClick={onSubmit}>저장</Btn>
+      <Btn onClick={onCancel}>취소</Btn>
     </Container>
   );
 };
