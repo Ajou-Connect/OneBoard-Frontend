@@ -19,6 +19,7 @@ import WriteAssignment from '../Pages/LecturePages/Assignment/WriteAssignment';
 import ProfessorAssignmentDetail from '../Pages/LecturePages/Assignment/ProfessorAssignmentDetail';
 import UpdateAssignment from '../Pages/LecturePages/Assignment/UpdateAssignment';
 import StudentAssignmentDetail from '../Pages/LecturePages/Assignment/StudentAssignmentDetail';
+import ProfessorAttendanceDetail from '../Pages/LecturePages/Attendance/ProfessorAttendanceDetail';
 
 const Routes = () => {
   return (
@@ -46,6 +47,7 @@ const Routes = () => {
         path="/Main/Lecture/:type/:lectureId/Assignment/:assignmentId/StudentDetail"
         component={StudentAssignmentDetail}
       />
+      {/* <Route exact path="/Main/Lecture/:lectureId/Assignment/:assignmentId" />  아마도 studentDetail더 들어가는 부분일듯?*/}
       <Route exact path="/Main/Lecture/:lectureId/Assignment/Write" component={WriteAssignment} />
       <Route
         exact
@@ -53,11 +55,15 @@ const Routes = () => {
         component={UpdateAssignment}
       />
       <Route exact path="/Main/Lecture/:lectureId/Notice/WriteNotice" component={WriteNotice} />
-      <Route path="/Main/Lecture/:lectureId/Attendance" component={LectureAttendance} />
+      <Route exact path="/Main/Lecture/:lectureId/Attendance" component={LectureAttendance} />
+      <Route
+        exact
+        path="/Main/Lecture/:lectureId/Attendance/:studentId"
+        component={ProfessorAttendanceDetail}
+      />
       <Route path="/Main/Lecture/:lectureId/Score" component={LectureScore} />
       <Route path="/Main/Lecture/:lectureId/Lesson" component={LecturePlan} />
       <Route path="/Main/Lecture/:lectureId/Plan" component={LectureLesson} />
-      <Route exact path="/Main/Lecture/:lectureId/Assignment/:assignmentId" />
     </div>
   );
 };

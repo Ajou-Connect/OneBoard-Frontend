@@ -97,7 +97,7 @@ const ProfessorAttendance = (props) => {
   const lectureId = props.lectureId;
   const user = JSON.parse(sessionStorage.userInfo);
   const userType = user.userType;
-  let statusList;
+
   const getAttendanceData = () => {
     return new Promise((resolve, reject) => {
       axios
@@ -114,86 +114,85 @@ const ProfessorAttendance = (props) => {
     });
   };
 
-  const onCountAttendance = () => {
-    attendances.map(
-      (attendance) => attendance.attendanceList.filter((test) => test.status === 2).length,
-    );
-  };
-
   useEffect(() => {
     getAttendanceData();
   }, []);
 
-  const onDetail = () => {
-    console.log('1');
+  const onDetail = (e, studentId) => {
+    console.log(studentId);
+    return (window.location.href = `/Main/Lecture/${lectureId}/Attendance/${studentId}`);
   };
 
   return (
-    <table
-      style={{
-        width: '100%',
-        borderTop: '1px solid #D5D5D5',
-        textAlign: 'center',
-      }}
-    >
-      <thead
+    <div>
+      <Title>출석현황</Title>
+      <hr style={{ width: '100%', margin: '10px 0px', display: 'block', borderColor: '#ffffff' }} />
+      <table
         style={{
-          borderBottom: '1px solid #D5D5D5',
-          fontStyle: 'bold',
-          fontWeight: '500',
-          backgroundColor: '#f3f3f3',
+          width: '100%',
+          borderTop: '1px solid #D5D5D5',
+          textAlign: 'center',
         }}
       >
-        <tr>
-          <th style={{ padding: '10px 0', width: '25%' }}>학생 이름</th>
-          <th style={{ padding: '10px 0', width: '25%' }}>학번</th>
-          <th style={{ padding: '10px 0', width: '25%' }}>출석횟수</th>
-          <th style={{ padding: '10px 0', width: '25%' }}>전체 수업 수</th>
-        </tr>
-      </thead>
-      <tbody>
-        {attendances.map((attendance, index) => (
-          <TabletrColor key={index}>
-            <td
-              style={{
-                padding: '10px 0',
-                borderBottom: '1px solid #D5D5D5',
-                cursor: 'pointer',
-                fontWeight: 'bold',
-                textDecoration: 'underline',
-              }}
-              onClick={onDetail}
-            >
-              {attendance.studentName}
-            </td>
-            <td style={{ padding: '10px 0', borderBottom: '1px solid #D5D5D5' }}>
-              {attendance.studentId}
-            </td>
-            <td
-              style={{
-                padding: '10px 0',
-                borderBottom: '1px solid #D5D5D5',
-                color: '#50CF76',
-                fontWeight: 'bold',
-                fontSize: '1rem',
-              }}
-            >
-              {attendance.attendanceList.filter((test) => test.status === 2).length}
-            </td>
-            <td
-              style={{
-                padding: '10px 0',
-                borderBottom: '1px solid #D5D5D5',
-                fontWeight: 'bold',
-                fontSize: '1rem',
-              }}
-            >
-              / {attendance.attendanceList.length}
-            </td>
-          </TabletrColor>
-        ))}
-      </tbody>
-    </table>
+        <thead
+          style={{
+            borderBottom: '1px solid #D5D5D5',
+            fontStyle: 'bold',
+            fontWeight: '500',
+            backgroundColor: '#f3f3f3',
+          }}
+        >
+          <tr>
+            <th style={{ padding: '10px 0', width: '25%' }}>학생 이름</th>
+            <th style={{ padding: '10px 0', width: '25%' }}>학번</th>
+            <th style={{ padding: '10px 0', width: '25%' }}>출석횟수</th>
+            <th style={{ padding: '10px 0', width: '25%' }}>전체 수업 수</th>
+          </tr>
+        </thead>
+        <tbody>
+          {attendances.map((attendance, index) => (
+            <TabletrColor key={index}>
+              <td
+                style={{
+                  padding: '10px 0',
+                  borderBottom: '1px solid #D5D5D5',
+                  cursor: 'pointer',
+                  fontWeight: 'bold',
+                  textDecoration: 'underline',
+                }}
+                onClick={(e) => onDetail(e, attendance.studentId)}
+              >
+                {attendance.studentName}
+              </td>
+              <td style={{ padding: '10px 0', borderBottom: '1px solid #D5D5D5' }}>
+                {attendance.studentNumber}
+              </td>
+              <td
+                style={{
+                  padding: '10px 0',
+                  borderBottom: '1px solid #D5D5D5',
+                  color: '#50CF76',
+                  fontWeight: 'bold',
+                  fontSize: '1rem',
+                }}
+              >
+                {attendance.attendanceList.filter((test) => test.status === 2).length}
+              </td>
+              <td
+                style={{
+                  padding: '10px 0',
+                  borderBottom: '1px solid #D5D5D5',
+                  fontWeight: 'bold',
+                  fontSize: '1rem',
+                }}
+              >
+                / {attendance.attendanceList.length}
+              </td>
+            </TabletrColor>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 };
 
