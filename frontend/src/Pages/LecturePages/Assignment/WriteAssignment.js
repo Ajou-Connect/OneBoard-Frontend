@@ -82,7 +82,8 @@ const WriteAssignment = ({ history, match }) => {
   const lectureId = match.params.lectureId;
   const user = JSON.parse(sessionStorage.userInfo);
   const userType = user.userType;
-  const [score, setScore] = useState('');
+  const [score, setScore] = useState(0);
+  const today = moment();
 
   const getTitle = (e) => {
     setTitle(e.target.value);
@@ -97,6 +98,31 @@ const WriteAssignment = ({ history, match }) => {
     });
   };
 
+  const stateDisplay = (startDate, endDate) => {
+    if (today.isBefore(startDate)) {
+      return (
+        <div style={{ color: '#BFBFBF', fontWeight: '700' }}>
+          {moment(startDate).format('M월 D일 HH:mm')} - {moment(endDate).format('M월 D일 HH:mm')}{' '}
+          (예정)
+        </div>
+      );
+    } else if (today.isBefore(endDate)) {
+      return (
+        <div style={{ color: '#61C679', fontWeight: '700' }}>
+          {moment(startDate).format('M월 D일 HH:mm')} - {moment(endDate).format('M월 D일 HH:mm')}{' '}
+          (진행중)
+        </div>
+      );
+    } else {
+      return (
+        <div style={{ color: '#E24C4B', fontWeight: '700' }}>
+          {moment(startDate).format('M월 D일 HH:mm')} - {moment(endDate).format('M월 D일 HH:mm')}{' '}
+          (마감)
+        </div>
+      );
+    }
+  };
+
   const onSubmit = () => {
     console.log('title : ' + title);
     console.log('content : ' + content);
@@ -108,6 +134,7 @@ const WriteAssignment = ({ history, match }) => {
         fileUrl: fileUrl,
         startDt: period.start,
         endDt: period.end,
+        score: score,
         exposeDt: exposeDt,
       })
       .then((res) => {

@@ -99,7 +99,7 @@ const ProfessorAssignmentList = (props) => {
           .get(`/lecture/${lectureId}/assignments`)
           .then((res) => {
             const result = res.data.data;
-            console.log('몇번째 : ' + result);
+            console.log(result);
             setAssignments(result);
           })
           .catch((e) => {
@@ -113,7 +113,33 @@ const ProfessorAssignmentList = (props) => {
       }
     };
     fetchAssignment();
+    console.log(assignments[0].endDt);
   }, []);
+
+  const stateDisplay = (startDate, endDate) => {
+    let today = moment();
+
+    if (today.isBefore(startDate)) {
+      return (
+        <div style={{ color: '#BFBFBF', fontWeight: '700' }}>
+          {moment(startDate).format('M월 D일 HH:mm')} - {moment(endDate).format('M월 D일 HH:mm')}{' '}
+          (예정)
+        </div>
+      );
+    } else if (today.isBefore(endDate)) {
+      return (
+        <div style={{ color: '#61C679', fontWeight: '700' }}>
+          <StateColorCircle style={{ backgroundColor: '#66FF33' }} />
+        </div>
+      );
+    } else {
+      return (
+        <div style={{ color: '#E24C4B', fontWeight: '700' }}>
+          <StateColorCircle style={{ backgroundColor: '#E24C4B' }} />
+        </div>
+      );
+    }
+  };
 
   if (loading)
     return (
@@ -226,6 +252,7 @@ const ProfessorAssignmentList = (props) => {
                       boxShadow: '0px 2px 2px 1px #eeeeee',
                       cursor: 'pointer',
                     }}
+                    key={index}
                   >
                     <td
                       style={{
@@ -262,11 +289,7 @@ const ProfessorAssignmentList = (props) => {
                         width: '20%',
                       }}
                     >
-                      {assignmentList.endDt === 'endDate' ? (
-                        <StateColorCircle style={{ backgroundColor: '#E24C4B' }} />
-                      ) : (
-                        <StateColorCircle style={{ backgroundColor: '#66FF33' }} />
-                      )}
+                      {stateDisplay(moment(assignmentList.startDt), moment(assignmentList.endDt))}
                     </td>
                     <td
                       style={{
