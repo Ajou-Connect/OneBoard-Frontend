@@ -73,7 +73,7 @@ const Container = styled.div`
   margin-bottom: 50px;
 `;
 
-const WriteAssignment = ({ history, match }) => {
+const WriteAssignment = ({ match }) => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [period, setPeriod] = useState('');
@@ -83,7 +83,6 @@ const WriteAssignment = ({ history, match }) => {
   const user = JSON.parse(sessionStorage.userInfo);
   const userType = user.userType;
   const [score, setScore] = useState(0);
-  const today = moment();
 
   const getTitle = (e) => {
     setTitle(e.target.value);
@@ -96,31 +95,6 @@ const WriteAssignment = ({ history, match }) => {
       start: dateString[0],
       end: dateString[1],
     });
-  };
-
-  const stateDisplay = (startDate, endDate) => {
-    if (today.isBefore(startDate)) {
-      return (
-        <div style={{ color: '#BFBFBF', fontWeight: '700' }}>
-          {moment(startDate).format('M월 D일 HH:mm')} - {moment(endDate).format('M월 D일 HH:mm')}{' '}
-          (예정)
-        </div>
-      );
-    } else if (today.isBefore(endDate)) {
-      return (
-        <div style={{ color: '#61C679', fontWeight: '700' }}>
-          {moment(startDate).format('M월 D일 HH:mm')} - {moment(endDate).format('M월 D일 HH:mm')}{' '}
-          (진행중)
-        </div>
-      );
-    } else {
-      return (
-        <div style={{ color: '#E24C4B', fontWeight: '700' }}>
-          {moment(startDate).format('M월 D일 HH:mm')} - {moment(endDate).format('M월 D일 HH:mm')}{' '}
-          (마감)
-        </div>
-      );
-    }
   };
 
   const onSubmit = () => {
@@ -147,7 +121,7 @@ const WriteAssignment = ({ history, match }) => {
   };
 
   const onCancel = () => {
-    history.goback();
+    return (window.location.href = `/Main/Lecture/${userType}/${lectureId}/Assignment`);
   };
 
   const handleText = (editor) => {

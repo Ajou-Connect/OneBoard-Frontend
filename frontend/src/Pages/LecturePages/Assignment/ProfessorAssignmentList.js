@@ -113,7 +113,6 @@ const ProfessorAssignmentList = (props) => {
       }
     };
     fetchAssignment();
-    console.log(assignments[0].endDt);
   }, []);
 
   const stateDisplay = (startDate, endDate) => {
