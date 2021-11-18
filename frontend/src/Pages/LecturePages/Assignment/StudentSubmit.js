@@ -78,11 +78,15 @@ const CheckBtn = styled.button`
   border-radius: 5px;
 `;
 
-const StudentSubmit = ({ lectureId, assignmentId }) => {
+const StudentSubmit = ({ lectureId, assignmentId, assignmentsScore }) => {
   const [studentScore, setStudentScore] = useState(0);
   const [submitAssignments, setSubmitAssignments] = useState([]);
-  const [studentLists, setStudentLists] = useState([]);
-  const onChangeScore = (e) => {};
+  const user = JSON.parse(sessionStorage.userInfo);
+  const userType = user.userType;
+
+  const onChangeScore = (e) => {
+    //점수만 바꿔서 저장 해주기
+  };
 
   const getSubmitData = () => {
     return new Promise((resolve, reject) => {
@@ -103,6 +107,10 @@ const StudentSubmit = ({ lectureId, assignmentId }) => {
   useEffect(() => {
     getSubmitData();
   }, []);
+
+  const onSubmitAssignment = () => {
+    return (window.location.href = `/Main/Lecture/${userType}/${lectureId}/Assignment/${assignmentId}/ProfessorDetail/1`);
+  };
 
   return (
     <div>
@@ -156,9 +164,9 @@ const StudentSubmit = ({ lectureId, assignmentId }) => {
                   backgroundColor: 'white',
                   cursor: 'pointer',
                   fontWeight: 'bold',
-
                   textDecoration: 'underline',
                 }}
+                onClick={(e) => onSubmitAssignment(e, submitAssignment.submitId)}
               >
                 {submitAssignment.content}
               </td>
@@ -176,10 +184,10 @@ const StudentSubmit = ({ lectureId, assignmentId }) => {
                 >
                   <div style={{ paddingLeft: '100px' }}>
                     <ScoreInput onChange={onChangeScore} placeholder={submitAssignment.score} />
-                    <span style={{ width: '20%' }}> / 배점</span>
+                    <span style={{ width: '20%' }}> / {assignmentsScore}</span>
                   </div>
                   <ScoreButton onClick={(e) => onChangeScore(index, studentScore)}>
-                    저장
+                    수정
                   </ScoreButton>
                 </div>
               </td>

@@ -19,6 +19,7 @@ import WriteAssignment from '../Pages/LecturePages/Assignment/WriteAssignment';
 import ProfessorAssignmentDetail from '../Pages/LecturePages/Assignment/ProfessorAssignmentDetail';
 import UpdateAssignment from '../Pages/LecturePages/Assignment/UpdateAssignment';
 import StudentAssignmentDetail from '../Pages/LecturePages/Assignment/StudentAssignmentDetail';
+import StudentSubmitDetail from '../Pages/LecturePages/Assignment/StudentSubmitDetail';
 
 const Routes = () => {
   return (
@@ -40,6 +41,11 @@ const Routes = () => {
         exact
         path="/Main/Lecture/:type/:lectureId/Assignment/:assignmentId/ProfessorDetail"
         component={ProfessorAssignmentDetail}
+      />
+      <Route
+        exact
+        path="/Main/Lecture/:type/:lectureId/Assignment/:assignmentId/ProfessorDetail/1"
+        component={StudentSubmitDetail}
       />
       <Route
         exact

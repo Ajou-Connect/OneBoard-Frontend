@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
-import moment from 'moment';
-import ReactHtmlParser from 'react-html-parser';
 import StudentSubmit from './StudentSubmit';
+import ReactHtmlParser from 'react-html-parser';
+import moment from 'moment';
 
 const Container = styled.div`
   width: 100%;
@@ -71,17 +71,15 @@ const AnswerInput = styled.textarea`
     outline: 0;
   }
 `;
-//여기서의 match는 각각의 assignment에 대한 렌더링을 위해서
-const ProfessorAssignmentDetail = ({ match }) => {
-  const [submitAssignments, setSubmitAssignments] = useState({});
-  const [studentScore, setStudentScore] = useState(0);
-  const [assignments, setAssignments] = useState({});
-  const [onGoing, setOnGoing] = useState(false);
-  const today = moment();
-  const user = JSON.parse(sessionStorage.userInfo);
-  const userType = user.userType;
+
+const StudentSubmitDetail = ({ match }) => {
+  const [score, setScore] = useState(0);
+  const [submitAssignments, setSubmitAssignments] = useState([]);
+  const [assignments, setAssignments] = useState([]);
   const lectureId = match.params.lectureId;
   const assignmentId = match.params.assignmentId;
+
+  // const submitId = match.params.submitId;
 
   const stateDisplay = (startDate, endDate) => {
     const today = moment();
@@ -110,22 +108,14 @@ const ProfessorAssignmentDetail = ({ match }) => {
     }
   };
 
-  const getSubmitData = () => {
+  const getSubmitAssignmentData = () => {
     return new Promise((resolve, reject) => {
-      axios
-        .get(`/lecture/${lectureId}/assignment/${assignmentId}/submits`)
-        .then((res) => {
-          const result = res.data.data;
-
-          setSubmitAssignments(result);
-          if (today.isBefore(result.endDt) && today.isAfter(result.startDt)) {
-            setOnGoing(true);
-          }
-        })
-        .catch((error) => {
-          console.log(error);
-          reject(error);
-        });
+      //submit ID 수정해주기
+      axios.get(`/lecture/${lectureId}/assignment/${assignmentId}/submit/1`).then((res) => {
+        const result = res.data.data;
+        console.log(result);
+        setSubmitAssignments(result);
+      });
     });
   };
 
@@ -135,7 +125,6 @@ const ProfessorAssignmentDetail = ({ match }) => {
         .get(`/lecture/${lectureId}/assignment/${assignmentId}`)
         .then((res) => {
           const assignmentResult = res.data.data;
-
           setAssignments(assignmentResult);
         })
         .catch((error) => {
@@ -146,7 +135,6 @@ const ProfessorAssignmentDetail = ({ match }) => {
   };
 
   useEffect(() => {
-    getSubmitData();
     getAssignmentData();
   }, []);
 
@@ -184,13 +172,9 @@ const ProfessorAssignmentDetail = ({ match }) => {
           style={{ width: '100%', margin: '10px 0px', display: 'block', borderColor: '#ffffff' }}
         />
       </ProblemContainer>
-      <StudentSubmit
-        lectureId={lectureId}
-        assignmentId={assignmentId}
-        assignmentsScore={assignments.score}
-      />
+      {/* 여기에 이제 학생 제출물 수정하는 부분 들어가주면 됨  */}
     </Container>
   );
 };
 
-export default ProfessorAssignmentDetail;
+export default StudentSubmitDetail;
