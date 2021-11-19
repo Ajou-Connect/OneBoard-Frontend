@@ -93,7 +93,6 @@ const TabletrColor = styled.tr`
 
 const ProfessorAttendance = (props) => {
   const [attendances, setAttendances] = useState([]);
-  const [testCount, setTestCount] = useState([]);
   const lectureId = props.lectureId;
   const user = JSON.parse(sessionStorage.userInfo);
   const userType = user.userType;
@@ -143,10 +142,10 @@ const ProfessorAttendance = (props) => {
           }}
         >
           <tr>
-            <th style={{ padding: '10px 0', width: '25%' }}>학생 이름</th>
-            <th style={{ padding: '10px 0', width: '25%' }}>학번</th>
-            <th style={{ padding: '10px 0', width: '25%' }}>출석횟수</th>
-            <th style={{ padding: '10px 0', width: '25%' }}>전체 수업 수</th>
+            <th style={{ padding: '10px 0', width: 'auto' }}>학생 이름</th>
+            <th style={{ padding: '10px 0', width: 'auto' }}>학번</th>
+            <th style={{ padding: '10px 0', width: 'auto' }}>출석횟수</th>
+            <th style={{ padding: '10px 0', width: 'auto' }}>전체 수업 수</th>
           </tr>
         </thead>
         <tbody>
@@ -176,7 +175,7 @@ const ProfessorAttendance = (props) => {
                   fontSize: '1rem',
                 }}
               >
-                {attendance.attendanceList.filter((test) => test.status === 2).length}
+                {attendance.attendanceList.filter((list) => list.status === 2).length}
               </td>
               <td
                 style={{
