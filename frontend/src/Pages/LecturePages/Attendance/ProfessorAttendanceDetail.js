@@ -28,7 +28,6 @@ const SubTitle = styled.div`
 `;
 
 const Btn = styled.button`
-  font-size: 2px;
   padding: 5px;
   background-color: rgba(215, 226, 185, 0.596);
   color: #3e3e3e;
@@ -37,6 +36,7 @@ const Btn = styled.button`
     background-color: #bfbfbf;
   }
 `;
+
 const WriteBtn = styled.button`
   display: inline-block;
   float: left;
@@ -69,6 +69,13 @@ const ProfessorAttendanceDetail = ({ match }) => {
       studentNumber: '',
     },
   ]);
+  const [attendanceListInfo, setAttendanceListInfo] = useState([
+    {
+      lessonId: 0,
+      lessonDate: '',
+      status: 0,
+    },
+  ]);
 
   useEffect(() => {
     const fetchAttendance = async () => {
@@ -91,8 +98,47 @@ const ProfessorAttendanceDetail = ({ match }) => {
     fetchAttendance();
   }, []);
 
-  const onStatusChange = (e, data) => {
-    console.log(data);
+  const onStatusChange = (e, data, statusId) => {
+    setAttendanceListInfo([
+      {
+        lessonId: data.lessonId,
+        lessonDate: data.lessonDate,
+        status: statusId,
+      },
+    ]);
+
+    console.log(attendanceListInfo);
+  };
+
+  const onConfirm = () => {
+    console.log('lessonId : ' + studentDetailId);
+    axios
+      .put(`/lecture/${lectureId}/attendance`, {
+        updateDataList: [
+          {
+            studentId: studentDetailId,
+            lessonId: attendanceListInfo[0].lessonId,
+            status: attendanceListInfo[0].status,
+          },
+        ],
+      })
+      .then((res) => {
+        console.log(res);
+        return (window.location.href = `/Main/Lecture/${lectureId}/Attendance/${studentDetailId}`);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  };
+
+  const onCancel = () => {
+    return (window.location.href = `/Main/Lecture/${lectureId}/Attendance`);
+  };
+
+  const onSubmit = () => {
+    if (window.confirm('저장하시겠습니까?')) {
+      onConfirm();
+    }
   };
 
   return (
@@ -154,6 +200,7 @@ const ProfessorAttendanceDetail = ({ match }) => {
                       width: '30%',
                       backgroundColor: '#EADFD3',
                     }}
+                    onClick={(e) => onStatusChange(e, list, 2)}
                   >
                     출석
                   </Btn>
@@ -164,7 +211,7 @@ const ProfessorAttendanceDetail = ({ match }) => {
                       width: '30%',
                       backgroundColor: '#EADFD3',
                     }}
-                    onClick={(e) => onStatusChange(e, list)}
+                    onClick={(e) => onStatusChange(e, list, 1)}
                   >
                     지각
                   </Btn>
@@ -175,12 +222,13 @@ const ProfessorAttendanceDetail = ({ match }) => {
                       width: '30%',
                       backgroundColor: '#EADFD3',
                     }}
+                    onClick={(e) => onStatusChange(e, list, 0)}
                   >
                     결석
                   </Btn>
                 </td>
                 <td style={{ padding: '15px 0', borderBottom: '1px solid #D5D5D5' }}>
-                  <Btn>저장하기</Btn>
+                  <Btn onClick={onSubmit}>저장하기</Btn>
                 </td>
               </TabletrColor>
             )),
@@ -188,7 +236,7 @@ const ProfessorAttendanceDetail = ({ match }) => {
         </tbody>
       </table>
       <hr style={{ width: '100%', margin: '10px 0px', display: 'block', borderColor: '#ffffff' }} />
-      <WriteBtn>뒤로가기</WriteBtn>
+      <WriteBtn onClick={onCancel}>뒤로가기</WriteBtn>
     </Container>
   );
 };
