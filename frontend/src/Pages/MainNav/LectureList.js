@@ -14,8 +14,7 @@ const LectureList = () => {
       .then((res) => {
         const result = res.data.data;
         setLectures(result);
-        console.log('result 값 : ' + result);
-        console.log('lecture 값  : ' + lectures);
+        console.log(result);
       })
       .catch((e) => {
         console.log(e);
@@ -23,7 +22,7 @@ const LectureList = () => {
   };
 
   useEffect(() => {
-    console.log('너니? : ' + getLectureData());
+    getLectureData();
   }, []);
 
   return (

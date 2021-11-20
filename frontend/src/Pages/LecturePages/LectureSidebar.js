@@ -1,14 +1,48 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './LectureSidebar.scss';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 const LectureSidebar = (props) => {
   const user = JSON.parse(sessionStorage.userInfo);
   const userType = user.userType;
+  const lectureId = props.lectureId;
+  const [lectureInfo, setLectureInfo] = useState({});
+
+  const getLectureInfo = () => {
+    axios
+      .get(`/lecture/${lectureId}`)
+      .then((res) => {
+        const result = res.data.data;
+        setLectureInfo(result);
+        console.log(result);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  };
+
+  useEffect(() => {
+    getLectureInfo();
+  }, []);
+
   return (
     <div className="LecturePage">
       <nav className="menu">
         <ul className="menu-item-list">
-          <div className="Lecture-profile">Lecture profile something</div>
+          <div
+            className="Lecture-profile"
+            style={{
+              marginTop: '15px',
+              paddingBottom: '15px',
+              borderBottom: '1px solid #CDCDCD',
+              fontWeight: 'bold',
+              color: '#FFFFFF',
+            }}
+          >
+            교수 : {lectureInfo.professor}
+            <br />
+            과목 : {lectureInfo.title}
+          </div>
           <li className="menu-item">
             <div className="menu-text">
               <Link to={`/Main/Lecture/${props.lectureId}/Home`} className="menu-text">
