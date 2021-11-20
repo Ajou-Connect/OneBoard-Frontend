@@ -182,8 +182,17 @@ const ProfessorAssignmentList = (props) => {
   };
 
   const onDelete = (e, assignmentId) => {
-    axios.delete(`/lecture/${lectureId}/assignment/` + assignmentId);
-    window.location.href = `/Main/Lecture/${userType}/${lectureId}/Assignment`;
+    console.log(assignmentId);
+    console.log(lectureId);
+    axios
+      .delete(`/lecture/${lectureId}/assignment/${assignmentId}`)
+      .then((res) => {
+        // window.location.href = `/Main/Lecture/${userType}/${lectureId}/Assignment`;
+        console.log(res);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
   };
 
   return (
@@ -221,11 +230,12 @@ const ProfessorAssignmentList = (props) => {
             }}
           >
             <tr>
-              <th style={{ padding: '10px 0', width: '20%' }}>과제 명</th>
-              <th style={{ padding: '10px 0', width: '20%' }}>과제 기간</th>
-              <th style={{ padding: '10px 0', width: '20%' }}>진행 상태</th>
-              <th style={{ padding: '10px 0', width: '20%' }}>마감 완료</th>
-              <th style={{ padding: '10px 0', width: '20%' }}>수정/삭제</th>
+              <th style={{ padding: '10px 0', width: '10% ' }}>ID</th>
+              <th style={{ padding: '10px 0', width: '20% ' }}>과제 명</th>
+              <th style={{ padding: '10px 0', width: '40% ' }}>과제 기간</th>
+              <th style={{ padding: '10px 0', width: '10% ' }}>배점</th>
+              <th style={{ padding: '10px 0', width: '5% ' }}>진행 상태</th>
+              <th style={{ padding: '10px 0', width: '20% ' }}>수정/삭제</th>
             </tr>
           </thead>
           <tbody>
@@ -249,16 +259,21 @@ const ProfessorAssignmentList = (props) => {
                     style={{
                       borderRadius: '5px',
                       boxShadow: '0px 2px 2px 1px #eeeeee',
-                      cursor: 'pointer',
                     }}
                     key={index}
                   >
                     <td
                       style={{
-                        padding: '10px 0',
-                        backgroundColor: 'white',
-                        borderRadius: '5px 0 0 5px',
-                        width: '20%',
+                        padding: '15px 0',
+                        borderBottom: '1px solid #D5D5D5',
+                      }}
+                    >
+                      {index + 1}
+                    </td>
+                    <td
+                      style={{
+                        padding: '15px 0',
+                        borderBottom: '1px solid #D5D5D5',
                       }}
                     >
                       <div
@@ -268,45 +283,57 @@ const ProfessorAssignmentList = (props) => {
                           fontWeight: '700',
                           color: '#3E3E3E',
                           display: 'block',
+                          cursor: 'pointer',
+                          textDecoration: 'underline',
                         }}
                         onClick={(e) => goDetail(e, assignmentList.assignmentId)}
                       >
                         {assignmentList.title}
                       </div>
                     </td>
-                    <td style={{ padding: '10px 0', backgroundColor: 'white', width: '20%' }}>
-                      {assignmentList.startDt} ~ {assignmentList.endDt}
-                    </td>
-                    <td style={{ padding: '10px 0', backgroundColor: 'white', width: '20%' }}>
-                      몇일 남았는지
-                    </td>
                     <td
                       style={{
-                        padding: '10px 0',
-                        backgroundColor: 'white',
-                        paddingRight: '150px',
-                        width: '20%',
+                        padding: '15px 0',
+                        borderBottom: '1px solid #D5D5D5',
                       }}
                     >
-                      {stateDisplay(moment(assignmentList.startDt), moment(assignmentList.endDt))}
+                      {assignmentList.startDt} ~ {assignmentList.endDt}
                     </td>
                     <td
                       style={{
-                        padding: '10px 0',
-                        backgroundColor: 'white',
-                        width: '20%',
+                        padding: '15px 0',
+                        borderBottom: '1px solid #D5D5D5',
+                      }}
+                    >
+                      {assignmentList.score}
+                    </td>
+
+                    <td
+                      style={{
+                        padding: '20px',
+                        borderBottom: '1px solid #D5D5D5',
+                      }}
+                    >
+                      <center>
+                        {stateDisplay(moment(assignmentList.startDt), moment(assignmentList.endDt))}
+                      </center>
+                    </td>
+                    <td
+                      style={{
+                        padding: '15px 0',
+                        borderBottom: '1px solid #D5D5D5',
                       }}
                     >
                       <Btn
                         onClick={(e) => {
-                          goUpdate(e, assignmentList.id);
+                          goUpdate(e, assignmentList.assignmentId);
                         }}
                       >
                         수정하기
                       </Btn>
                       <Btn
                         onClick={(e) => {
-                          onDelete(e, assignmentList.id);
+                          onDelete(e, assignmentList.assignmentId);
                         }}
                       >
                         삭제하기

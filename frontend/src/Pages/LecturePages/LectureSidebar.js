@@ -14,7 +14,6 @@ const LectureSidebar = (props) => {
       .then((res) => {
         const result = res.data.data;
         setLectureInfo(result);
-        console.log(result);
       })
       .catch((e) => {
         console.log(e);

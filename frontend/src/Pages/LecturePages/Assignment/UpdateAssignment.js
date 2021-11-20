@@ -131,9 +131,11 @@ const WriteAssignment = ({ history, match }) => {
         startDt: period.start,
         endDt: period.end,
         exposeDt: exposeDt,
+        score: score,
       })
       .then((res) => {
         console.log(res);
+        console.log(score);
         return (window.location.href = `/Main/Lecture/${userType}/${lectureId}/Assignment`);
       })
       .catch((e) => {
