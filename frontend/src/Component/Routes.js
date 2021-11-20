@@ -21,6 +21,7 @@ import UpdateAssignment from '../Pages/LecturePages/Assignment/UpdateAssignment'
 import StudentAssignmentDetail from '../Pages/LecturePages/Assignment/StudentAssignmentDetail';
 import StudentSubmitDetail from '../Pages/LecturePages/Assignment/StudentSubmitDetail';
 import ProfessorAttendanceDetail from '../Pages/LecturePages/Attendance/ProfessorAttendanceDetail';
+import LessonDetail from '../Pages/LecturePages/Lesson/LessonDetail';
 
 const Routes = () => {
   return (
@@ -67,9 +68,10 @@ const Routes = () => {
         path="/Main/Lecture/:lectureId/Attendance/:studentId"
         component={ProfessorAttendanceDetail}
       />
-      <Route path="/Main/Lecture/:lectureId/Score" component={LectureScore} />
-      <Route path="/Main/Lecture/:lectureId/Lesson" component={LectureLesson} />
-      <Route path="/Main/Lecture/:lectureId/Plan" component={LecturePlan} />
+      <Route exact path="/Main/Lecture/:lectureId/Score" component={LectureScore} />
+      <Route exact path="/Main/Lecture/:lectureId/Lesson" component={LectureLesson} />
+      <Route exact path="/Main/Lecture/:lectureId/Lesson/:lessonId" component={LessonDetail} />
+      <Route exact path="/Main/Lecture/:lectureId/Plan" component={LecturePlan} />
     </div>
   );
 };

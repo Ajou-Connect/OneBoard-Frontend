@@ -82,6 +82,18 @@ const ProfessorLectureLesson = (props) => {
     getLessonData();
   }, []);
 
+  const onDetail = (e, lessonId) => {
+    console.log(lessonId);
+    return (window.location.href = `/Main/Lecture/${lectureId}/Lesson/${lessonId}`);
+  };
+
+  const onDelete = (e, lessonId) => {
+    axios.delete(`lecture/${lectureId}/lesson/${lessonId}`).then((res) => {
+      const result = res.data;
+      console.log(result);
+    });
+  };
+
   return (
     <div>
       <Title>수업</Title>
@@ -127,7 +139,9 @@ const ProfessorLectureLesson = (props) => {
                   fontWeight: 'bold',
                   textDecoration: 'underline',
                   fontSize: '1rem',
+                  cursor: 'pointer',
                 }}
+                onClick={(e) => onDetail(e, lessonList.id)}
               >
                 {lessonList.title}
               </td>
@@ -160,7 +174,7 @@ const ProfessorLectureLesson = (props) => {
                 }}
               >
                 <Btn>수정하기</Btn>
-                <Btn>삭제하기</Btn>
+                <Btn onClick={(e) => onDelete(e, lessonList.id)}>삭제하기</Btn>
               </td>
             </TabletrColor>
           ))}
