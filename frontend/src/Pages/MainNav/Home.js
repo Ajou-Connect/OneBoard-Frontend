@@ -3,7 +3,7 @@ import './Home.scss';
 import { Nav } from 'reactstrap';
 const Home = () => {
   return (
-    <div className="home">
+    <div className="home-main">
       <h1>
         {/* <Routes /> */}
         Home

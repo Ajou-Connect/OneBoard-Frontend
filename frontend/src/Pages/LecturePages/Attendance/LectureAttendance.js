@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import LectureSidebar from '../LectureSidebar';
 import './LectureAttendance.scss';
-
-import styled from 'styled-components';
 import ProfessorAttendance from './ProfessorAttendance';
 import StudentAttendance from './StudentAttendance';
 

@@ -68,8 +68,8 @@ const Routes = () => {
         component={ProfessorAttendanceDetail}
       />
       <Route path="/Main/Lecture/:lectureId/Score" component={LectureScore} />
-      <Route path="/Main/Lecture/:lectureId/Lesson" component={LecturePlan} />
-      <Route path="/Main/Lecture/:lectureId/Plan" component={LectureLesson} />
+      <Route path="/Main/Lecture/:lectureId/Lesson" component={LectureLesson} />
+      <Route path="/Main/Lecture/:lectureId/Plan" component={LecturePlan} />
     </div>
   );
 };

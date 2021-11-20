@@ -4,15 +4,13 @@ import './LectureHome.scss';
 
 const LectureHome = ({ match }) => {
   const lectureId = match.params.lectureId;
-  console.log(lectureId);
+
   return (
     <div className="home">
-      <div className="lecture-sidebar">
+      <nav className="lecture-sidebar">
         <LectureSidebar lectureId={lectureId} />
-      </div>
-      <div style={{ fontWeight: 'bold', fontSize: '150px' }} className="home-content">
-        Home
-      </div>
+      </nav>
+      <div className="home-content">Home</div>
     </div>
   );
 };
