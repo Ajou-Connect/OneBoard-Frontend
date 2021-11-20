@@ -17,9 +17,7 @@ const WriteBtn = styled.button`
   float: right;
 `;
 
-const Btn =
-  styled.button -
-  `
+const Btn = styled.button`
   font-size: 2px;
   padding: 5px;
   margin-top: 50px;
@@ -99,9 +97,8 @@ const StudentAssignmentList = (props) => {
           .get(`/lecture/${lectureId}/assignments`)
           .then((res) => {
             const result = res.data.data;
-            console.log('설마 너니? : ' + result);
+            console.log(result);
             setAssignments(result);
-            console.log('render : ' + result);
           })
           .catch((e) => {
             console.log(e);
@@ -145,7 +142,6 @@ const StudentAssignmentList = (props) => {
     );
 
   const goDetail = (e, assignmentId) => {
-    //해당 assignment에 해당하는 페이지로 라우팅
     return (window.location.href = `/Main/Lecture/${userType}/${lectureId}/Assignment/${assignmentId}/StudentDetail`);
   };
 
@@ -223,7 +219,7 @@ const StudentAssignmentList = (props) => {
                           color: '#3E3E3E',
                           display: 'block',
                         }}
-                        onClick={(e) => goDetail(e, assignmentList.id)}
+                        onClick={(e) => goDetail(e, assignmentList.assignmentId)}
                       >
                         {assignmentList.title}
                       </div>

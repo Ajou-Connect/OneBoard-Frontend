@@ -269,7 +269,7 @@ const ProfessorAssignmentList = (props) => {
                           color: '#3E3E3E',
                           display: 'block',
                         }}
-                        onClick={(e) => goDetail(e, assignmentList.id)}
+                        onClick={(e) => goDetail(e, assignmentList.assignmentId)}
                       >
                         {assignmentList.title}
                       </div>

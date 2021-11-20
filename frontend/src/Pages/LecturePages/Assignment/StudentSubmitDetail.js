@@ -121,11 +121,17 @@ const StudentSubmitDetail = ({ match }) => {
   const getSubmitAssignmentData = () => {
     return new Promise((resolve, reject) => {
       //submit ID 수정해주기
-      axios.get(`/lecture/${lectureId}/assignment/${assignmentId}/submit/1`).then((res) => {
-        const result = res.data.data;
-        console.log(result);
-        setSubmitAssignments(result);
-      });
+      axios
+        .get(`/lecture/${lectureId}/assignment/${assignmentId}/submit/1`)
+        .then((res) => {
+          const result = res.data.data;
+          console.log(result);
+          setSubmitAssignments(result);
+        })
+        .catch((error) => {
+          console.log(error);
+          reject(error);
+        });
     });
   };
 
