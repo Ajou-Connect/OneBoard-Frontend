@@ -121,6 +121,7 @@ const GenerateLesson = ({ match }) => {
   };
 
   const onSubmit = () => {
+    parseInt(radioValue);
     axios
       .post(`/lecture/${lectureId}/lesson`, {
         title: title,
