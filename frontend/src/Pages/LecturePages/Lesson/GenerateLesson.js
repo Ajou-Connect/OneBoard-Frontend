@@ -87,6 +87,7 @@ const GenerateLesson = ({ match }) => {
   const [room, setRoom] = useState(null);
   const [videoUrl, setVideoUrl] = useState(null);
   const [meetingId, setMeetingId] = useState(null);
+  const [note, setNote] = useState('');
   const getTitle = (e) => {
     setTitle(e.target.value);
   };
@@ -122,10 +123,12 @@ const GenerateLesson = ({ match }) => {
 
   const onSubmit = () => {
     parseInt(radioValue);
+    setNote('test file');
     axios
       .post(`/lecture/${lectureId}/lesson`, {
         title: title,
         date: period,
+        note: '12424',
         type: radioValue,
         room: room,
         meetingId: meetingId,
@@ -135,6 +138,7 @@ const GenerateLesson = ({ match }) => {
         console.log(res.data);
         console.log(title);
         console.log(period);
+        console.log(note);
         console.log(radioValue);
         console.log(room);
         console.log(meetingId);
