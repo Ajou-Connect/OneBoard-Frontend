@@ -59,11 +59,20 @@ const TabletrColor = styled.tr`
 const StudentAttendance = (props) => {
   const token = sessionStorage.getItem('token');
   const lectureId = props.lectureId;
-  const [attendances, setAttendances] = useState([]);
+  const [attendances, setAttendances] = useState({
+    attendanceList: [],
+    studentId: 0,
+    studentName: '',
+    studentNumber: '',
+  });
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const fetchAttendance = async () => {
       try {
+        setError(null);
+        setLoading(true);
         await axios
           .get(`/lecture/${lectureId}/attendance/my`, { headers: { 'X-AUTH-TOKEN': `${token}` } })
           .then((res) => {
@@ -73,13 +82,44 @@ const StudentAttendance = (props) => {
           })
           .catch((e) => {
             console.log(e);
+            setError(e);
           });
+        setLoading(false);
       } catch (e) {
+        setError(e);
         console.log(e);
       }
     };
     fetchAttendance();
   }, []);
+
+  if (loading)
+    return (
+      <div
+        style={{
+          textAlign: 'center',
+          fontSize: '30px',
+          fontStyle: 'italic',
+          fontWeight: 'bold',
+        }}
+      >
+        로딩중 ...
+      </div>
+    );
+
+  if (error)
+    return (
+      <div
+        style={{
+          textAlign: 'center',
+          fontSize: '30px',
+          fontStyle: 'italic',
+          fontWeight: 'bold',
+        }}
+      >
+        에러가 발생했습니다. 출석정보를 불러올수 없습니다.
+      </div>
+    );
 
   return (
     <Container>
