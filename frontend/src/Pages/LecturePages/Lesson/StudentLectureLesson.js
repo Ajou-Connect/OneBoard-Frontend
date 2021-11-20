@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
 import palette from '../../../lib/styles/palette';
-import Button from '../../../Component/common/Button';
 
 const Title = styled.div`
   font-size: 30px;

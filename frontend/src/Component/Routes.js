@@ -22,6 +22,7 @@ import StudentAssignmentDetail from '../Pages/LecturePages/Assignment/StudentAss
 import StudentSubmitDetail from '../Pages/LecturePages/Assignment/StudentSubmitDetail';
 import ProfessorAttendanceDetail from '../Pages/LecturePages/Attendance/ProfessorAttendanceDetail';
 import LessonDetail from '../Pages/LecturePages/Lesson/LessonDetail';
+import GenerateLesson from '../Pages/LecturePages/Lesson/GenerateLesson';
 
 const Routes = () => {
   return (
@@ -70,7 +71,17 @@ const Routes = () => {
       />
       <Route exact path="/Main/Lecture/:lectureId/Score" component={LectureScore} />
       <Route exact path="/Main/Lecture/:lectureId/Lesson" component={LectureLesson} />
-      <Route exact path="/Main/Lecture/:lectureId/Lesson/:lessonId" component={LessonDetail} />
+      <Route
+        exact
+        path="/Main/Lecture/:lectureId/Lesson/GenerateLesson"
+        component={GenerateLesson}
+      />
+      <Route
+        exact
+        path="/Main/Lecture/:lectureId/Lesson/:lessonId/LessonDetail"
+        component={LessonDetail}
+      />
+
       <Route exact path="/Main/Lecture/:lectureId/Plan" component={LecturePlan} />
     </div>
   );

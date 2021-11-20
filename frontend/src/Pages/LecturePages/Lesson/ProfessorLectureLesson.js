@@ -84,14 +84,19 @@ const ProfessorLectureLesson = (props) => {
 
   const onDetail = (e, lessonId) => {
     console.log(lessonId);
-    return (window.location.href = `/Main/Lecture/${lectureId}/Lesson/${lessonId}`);
+    return (window.location.href = `/Main/Lecture/${lectureId}/Lesson/${lessonId}/LessonDetail`);
   };
 
   const onDelete = (e, lessonId) => {
     axios.delete(`lecture/${lectureId}/lesson/${lessonId}`).then((res) => {
       const result = res.data;
       console.log(result);
+      window.location.href = `/Main/Lecture/${lectureId}/Lesson`;
     });
+  };
+
+  const onGenerate = () => {
+    return (window.location.href = `/Main/Lecture/${lectureId}/Lesson/GenerateLesson`);
   };
 
   return (
@@ -180,7 +185,7 @@ const ProfessorLectureLesson = (props) => {
           ))}
         </tbody>
       </table>
-      <WriteBtn>수업 생성하기</WriteBtn>
+      <WriteBtn onClick={onGenerate}>수업 생성하기</WriteBtn>
     </div>
   );
 };

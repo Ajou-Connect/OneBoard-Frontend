@@ -7,7 +7,7 @@ const LessonDetail = ({ match }) => {
 
   return (
     <div>
-      <div>hi</div>
+      <div>why?</div>
     </div>
   );
 };
