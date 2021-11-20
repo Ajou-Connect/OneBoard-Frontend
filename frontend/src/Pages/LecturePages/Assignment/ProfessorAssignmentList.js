@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
+import moment from 'moment';
 
 const WriteBtn = styled.button`
   font-size: 12px;
   padding: 5px;
   margin-top: 10px;
   margin-bottom: 5px;
+  margin-left: 30px auto;
   background-color: #ececec;
   color: #3e3e3e;
   border-radius: 5px;
@@ -80,7 +82,7 @@ const StateBox = styled.div`
 
 const ProfessorAssignmentList = (props) => {
   const user = JSON.parse(sessionStorage.userInfo);
-  const isProfessor = user.userType === 'T';
+  const userType = user.userType;
   const lectureId = props.lectureId;
   const [assignments, setAssignments] = useState([]);
   const [error, setError] = useState(null);
@@ -96,8 +98,8 @@ const ProfessorAssignmentList = (props) => {
         await axios
           .get(`/lecture/${lectureId}/assignments`)
           .then((res) => {
-            const result = res.data;
-            console.log(result);
+            const result = res.data.data;
+            console.log('몇번째 : ' + result);
             setAssignments(result);
           })
           .catch((e) => {
@@ -145,8 +147,18 @@ const ProfessorAssignmentList = (props) => {
     return (window.location.href = `/Main/Lecture/${lectureId}/Assignment/Write`);
   };
 
-  const goDetail = () => {
+  const goUpdate = (e, assignmentId) => {
+    return (window.location.href = `/Main/Lecture/${userType}/${lectureId}/Assignment/Update/${assignmentId}`);
+  };
+
+  const goDetail = (e, assignmentId) => {
     //해당 assignment에 해당하는 페이지로 라우팅
+    return (window.location.href = `/Main/Lecture/${userType}/${lectureId}/Assignment/${assignmentId}/ProfessorDetail`);
+  };
+
+  const onDelete = (e, assignmentId) => {
+    axios.delete(`/lecture/${lectureId}/assignment/` + assignmentId);
+    window.location.href = `/Main/Lecture/${userType}/${lectureId}/Assignment`;
   };
 
   return (
@@ -184,40 +196,104 @@ const ProfessorAssignmentList = (props) => {
             }}
           >
             <tr>
-              <th style={{ padding: '10px 0', width: '30%' }}>과제 내용</th>
-              <th style={{ padding: '10px 0', width: '30%' }}>과제 기간</th>
-              <th style={{ padding: '10px 0', width: '30%' }}>진행 상태</th>
-              <th style={{ padding: '10px 0', width: '30%' }}>채점 상태</th>
+              <th style={{ padding: '10px 0', width: '20%' }}>과제 명</th>
+              <th style={{ padding: '10px 0', width: '20%' }}>과제 기간</th>
+              <th style={{ padding: '10px 0', width: '20%' }}>진행 상태</th>
+              <th style={{ padding: '10px 0', width: '20%' }}>마감 완료</th>
+              <th style={{ padding: '10px 0', width: '20%' }}>수정/삭제</th>
             </tr>
           </thead>
           <tbody>
-            {/* map함수로 assignmentList 돌리기 */}
-            <tr
-              style={{
-                borderRadius: '5px',
-                boxShadow: '0px 2px 2px 1px #eeeeee',
-                cursor: 'pointer',
-              }}
-              onClick={goDetail}
-            >
-              <td
-                style={{ padding: '10px 0', backgroundColor: 'white', borderRadius: '5px 0 0 5px' }}
+            {assignments.length === 0 ? (
+              <div
+                style={{
+                  display: 'flex',
+                  textAlign: 'center',
+                  marginLeft: '400px',
+                  fontSize: '30px',
+                  fontStyle: 'italic',
+                  fontWeight: 'bold',
+                }}
               >
-                <div
-                  style={{
-                    fontSize: '20px',
-                    fontWeight: '700',
-                    color: '#3E3E3E',
-                    display: 'block',
-                  }}
-                >
-                  제목
-                </div>
-              </td>
-              <td style={{ padding: '10px 0', backgroundColor: 'white' }}>날짜 22~33</td>
-              <td style={{ padding: '10px 0', backgroundColor: 'white' }}>몇일 남았는지</td>
-              <td style={{ padding: '10px 0', backgroundColor: 'white' }}>채점 체크표시</td>
-            </tr>
+                등록된 과제가 없습니다.
+              </div>
+            ) : (
+              assignments.map((assignmentList, index) => {
+                return (
+                  <tr
+                    style={{
+                      borderRadius: '5px',
+                      boxShadow: '0px 2px 2px 1px #eeeeee',
+                      cursor: 'pointer',
+                    }}
+                  >
+                    <td
+                      style={{
+                        padding: '10px 0',
+                        backgroundColor: 'white',
+                        borderRadius: '5px 0 0 5px',
+                        width: '20%',
+                      }}
+                    >
+                      <div
+                        key={index}
+                        style={{
+                          fontSize: '20px',
+                          fontWeight: '700',
+                          color: '#3E3E3E',
+                          display: 'block',
+                        }}
+                        onClick={(e) => goDetail(e, assignmentList.id)}
+                      >
+                        {assignmentList.title}
+                      </div>
+                    </td>
+                    <td style={{ padding: '10px 0', backgroundColor: 'white', width: '20%' }}>
+                      {assignmentList.startDt} ~ {assignmentList.endDt}
+                    </td>
+                    <td style={{ padding: '10px 0', backgroundColor: 'white', width: '20%' }}>
+                      몇일 남았는지
+                    </td>
+                    <td
+                      style={{
+                        padding: '10px 0',
+                        backgroundColor: 'white',
+                        paddingRight: '150px',
+                        width: '20%',
+                      }}
+                    >
+                      {assignmentList.endDt === 'endDate' ? (
+                        <StateColorCircle style={{ backgroundColor: '#E24C4B' }} />
+                      ) : (
+                        <StateColorCircle style={{ backgroundColor: '#66FF33' }} />
+                      )}
+                    </td>
+                    <td
+                      style={{
+                        padding: '10px 0',
+                        backgroundColor: 'white',
+                        width: '20%',
+                      }}
+                    >
+                      <Btn
+                        onClick={(e) => {
+                          goUpdate(e, assignmentList.id);
+                        }}
+                      >
+                        수정하기
+                      </Btn>
+                      <Btn
+                        onClick={(e) => {
+                          onDelete(e, assignmentList.id);
+                        }}
+                      >
+                        삭제하기
+                      </Btn>
+                    </td>
+                  </tr>
+                );
+              })
+            )}
           </tbody>
         </table>
       </div>

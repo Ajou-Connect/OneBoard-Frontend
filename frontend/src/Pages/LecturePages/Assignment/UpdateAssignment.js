@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import moment from 'moment';
 import axios from 'axios';
 import palette from '../../../lib/styles/palette';
@@ -80,9 +80,31 @@ const WriteAssignment = ({ history, match }) => {
   const [fileUrl, setFileUrl] = useState('');
   const [exposeDt, setExposeDt] = useState('');
   const lectureId = match.params.lectureId;
+  const assignmentId = match.params.assignmentId;
   const user = JSON.parse(sessionStorage.userInfo);
   const userType = user.userType;
   const [score, setScore] = useState('');
+
+  useEffect(() => {
+    const fetchUpdateAssignment = async () => {
+      try {
+        await axios
+          .get(`/lecture/${lectureId}/assignment/` + assignmentId)
+          .then((res) => {
+            const result = res.data.data;
+            setTitle(result.title);
+            setContent(result.content);
+            console.log(result);
+          })
+          .catch((e) => {
+            console.log(e);
+          });
+      } catch (e) {
+        console.log(e);
+      }
+    };
+    fetchUpdateAssignment();
+  }, []);
 
   const getTitle = (e) => {
     setTitle(e.target.value);
@@ -102,7 +124,7 @@ const WriteAssignment = ({ history, match }) => {
     console.log('content : ' + content);
 
     axios
-      .post(`/lecture/${lectureId}/assignment`, {
+      .put(`/lecture/${lectureId}/assignment/` + assignmentId, {
         title: title,
         content: content,
         fileUrl: fileUrl,
@@ -169,7 +191,7 @@ const WriteAssignment = ({ history, match }) => {
         }}
       />
       <ListContainer>
-        <TitleInput onChange={getTitle} placeholder="제목" />
+        <TitleInput onChange={getTitle} value={title} />
         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
           <div style={{ paddingLeft: '5px', lineHeight: '31.6px' }}>과제 기한</div>
           <div>
@@ -197,7 +219,7 @@ const WriteAssignment = ({ history, match }) => {
         />
         <WriteAcitonButtonBlock>
           <StyledButton cyan onClick={onSubmit}>
-            과제 및 시험 등록
+            과제 및 시험 수정
           </StyledButton>
           <StyledButton onClick={onCancel}>취소</StyledButton>
         </WriteAcitonButtonBlock>
