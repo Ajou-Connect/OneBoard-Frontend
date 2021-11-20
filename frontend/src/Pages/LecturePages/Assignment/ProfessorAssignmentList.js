@@ -22,7 +22,6 @@ const WriteBtn = styled.button`
 const Btn = styled.button`
   font-size: 2px;
   padding: 5px;
-  margin-top: 50px;
   margin-right: 10px;
   background-color: rgba(215, 226, 185, 0.596);
   color: #3e3e3e;

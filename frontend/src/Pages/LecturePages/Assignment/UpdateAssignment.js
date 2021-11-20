@@ -79,11 +79,12 @@ const WriteAssignment = ({ history, match }) => {
   const [period, setPeriod] = useState('');
   const [fileUrl, setFileUrl] = useState('');
   const [exposeDt, setExposeDt] = useState('');
+  const [score, setScore] = useState('');
   const lectureId = match.params.lectureId;
   const assignmentId = match.params.assignmentId;
   const user = JSON.parse(sessionStorage.userInfo);
   const userType = user.userType;
-  const [score, setScore] = useState('');
+  const [assignmentScore, setAssignmentScore] = useState('');
 
   useEffect(() => {
     const fetchUpdateAssignment = async () => {
@@ -94,6 +95,7 @@ const WriteAssignment = ({ history, match }) => {
             const result = res.data.data;
             setTitle(result.title);
             setContent(result.content);
+            setAssignmentScore(result.score);
             console.log(result);
           })
           .catch((e) => {
@@ -131,7 +133,7 @@ const WriteAssignment = ({ history, match }) => {
         startDt: period.start,
         endDt: period.end,
         exposeDt: exposeDt,
-        score: score,
+        score: assignmentScore,
       })
       .then((res) => {
         console.log(res);
@@ -209,7 +211,11 @@ const WriteAssignment = ({ history, match }) => {
         </div>
         <div style={{ display: 'flex', justifyContent: 'space-between', margin: '5px 0' }}>
           <div style={{ paddingLeft: '5px', lineHeight: '41.6px' }}>배점</div>
-          <ScoreInput type="number" onChange={(e) => setScore(e.target.value)} />
+          <ScoreInput
+            type="number"
+            onChange={(e) => setScore(e.target.value)}
+            value={assignmentScore}
+          />
         </div>
         <ReactQuill
           style={{ height: '650px' }}
