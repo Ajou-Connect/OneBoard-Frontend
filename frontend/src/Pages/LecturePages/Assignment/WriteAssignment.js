@@ -73,7 +73,7 @@ const Container = styled.div`
   margin-bottom: 50px;
 `;
 
-const WriteAssignment = ({ history, match }) => {
+const WriteAssignment = ({ match }) => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [period, setPeriod] = useState('');
@@ -82,7 +82,7 @@ const WriteAssignment = ({ history, match }) => {
   const lectureId = match.params.lectureId;
   const user = JSON.parse(sessionStorage.userInfo);
   const userType = user.userType;
-  const [score, setScore] = useState('');
+  const [score, setScore] = useState(0);
 
   const getTitle = (e) => {
     setTitle(e.target.value);
@@ -108,6 +108,7 @@ const WriteAssignment = ({ history, match }) => {
         fileUrl: fileUrl,
         startDt: period.start,
         endDt: period.end,
+        score: score,
         exposeDt: exposeDt,
       })
       .then((res) => {
@@ -120,7 +121,7 @@ const WriteAssignment = ({ history, match }) => {
   };
 
   const onCancel = () => {
-    history.goback();
+    return (window.location.href = `/Main/Lecture/${userType}/${lectureId}/Assignment`);
   };
 
   const handleText = (editor) => {

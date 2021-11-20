@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
-import moment from 'moment';
-import ReactHtmlParser from 'react-html-parser';
 import StudentSubmit from './StudentSubmit';
+import ReactHtmlParser from 'react-html-parser';
+import moment from 'moment';
 
 const Container = styled.div`
   width: 100%;
@@ -60,7 +60,7 @@ const ProblemContent = styled.div`
   margin: 10px auto;
   padding: 0 5px;
 `;
-const AnswerInput = styled.textarea`
+const FeedbackInput = styled.textarea`
   height: 60px;
   width: 100%;
   resize: none;
@@ -71,17 +71,25 @@ const AnswerInput = styled.textarea`
     outline: 0;
   }
 `;
-//여기서의 match는 각각의 assignment에 대한 렌더링을 위해서
-const ProfessorAssignmentDetail = ({ match }) => {
-  const [submitAssignments, setSubmitAssignments] = useState({});
-  const [studentScore, setStudentScore] = useState(0);
-  const [assignments, setAssignments] = useState({});
-  const [onGoing, setOnGoing] = useState(false);
-  const today = moment();
-  const user = JSON.parse(sessionStorage.userInfo);
-  const userType = user.userType;
+
+const ScoreInput = styled.input`
+  width: 50px;
+  border: 1px solid #d9d9d9;
+  padding: 10px;
+  display: inline-block;
+`;
+
+const StudentSubmitDetail = ({ match }) => {
+  const [score, setScore] = useState(0);
+  const [feedback, setFeedback] = useState('');
+  const [submitAssignments, setSubmitAssignments] = useState([]);
+  const [assignments, setAssignments] = useState([]);
   const lectureId = match.params.lectureId;
   const assignmentId = match.params.assignmentId;
+  const user = JSON.parse(sessionStorage.userInfo);
+  const userType = user.userType;
+
+  // const submitId = match.params.submitId;
 
   const stateDisplay = (startDate, endDate) => {
     const today = moment();
@@ -110,17 +118,15 @@ const ProfessorAssignmentDetail = ({ match }) => {
     }
   };
 
-  const getSubmitData = () => {
+  const getSubmitAssignmentData = () => {
     return new Promise((resolve, reject) => {
+      //submit ID 수정해주기
       axios
-        .get(`/lecture/${lectureId}/assignment/${assignmentId}/submits`)
+        .get(`/lecture/${lectureId}/assignment/${assignmentId}/submit/1`)
         .then((res) => {
           const result = res.data.data;
-
+          console.log(result);
           setSubmitAssignments(result);
-          if (today.isBefore(result.endDt) && today.isAfter(result.startDt)) {
-            setOnGoing(true);
-          }
         })
         .catch((error) => {
           console.log(error);
@@ -135,7 +141,6 @@ const ProfessorAssignmentDetail = ({ match }) => {
         .get(`/lecture/${lectureId}/assignment/${assignmentId}`)
         .then((res) => {
           const assignmentResult = res.data.data;
-
           setAssignments(assignmentResult);
         })
         .catch((error) => {
@@ -146,9 +151,44 @@ const ProfessorAssignmentDetail = ({ match }) => {
   };
 
   useEffect(() => {
-    getSubmitData();
     getAssignmentData();
   }, []);
+
+  const onCancel = () => {
+    return (window.location.href = `/Main/Lecture/${userType}/${lectureId}/Assignment/${assignmentId}/ProfessorDetail`);
+  };
+
+  const onSubmit = () => {
+    //post 함수
+    axios
+      .post(`/lecture/${lectureId}/assignment/${assignmentId}/submit/1`, {
+        score: score,
+        feedback: feedback,
+      })
+      .then((res) => {
+        console.log(res);
+        return (window.location.href = `/Main/Lecture/${userType}/${lectureId}/Assignment/${assignmentId}/ProfessorDetail`);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const getFeedback = (e) => {
+    setFeedback(e.target.value);
+
+    console.log(feedback);
+  };
+
+  const getScore = (e) => {
+    if (e.target.value > assignments.score) {
+      alert('배점보다 높게 점수를 입력할 수 없습니다.');
+      window.location.reload();
+    } else {
+      setScore(e.target.value);
+    }
+    console.log(score);
+  };
 
   return (
     <Container>
@@ -184,13 +224,18 @@ const ProfessorAssignmentDetail = ({ match }) => {
           style={{ width: '100%', margin: '10px 0px', display: 'block', borderColor: '#ffffff' }}
         />
       </ProblemContainer>
-      <StudentSubmit
-        lectureId={lectureId}
-        assignmentId={assignmentId}
-        assignmentsScore={assignments.score}
-      />
+      <hr style={{ width: '100%', margin: '10px 0px', display: 'block', borderColor: '#ffffff' }} />
+      {/* 여기에 이제 학생 제출물 수정하는 부분 들어가주면 됨  */}
+      <hr style={{ width: '100%', margin: '10px 0px', display: 'block', borderColor: '#ffffff' }} />
+      <div>
+        <ScoreInput onChange={getScore} /> / {assignments.score}
+      </div>
+      <hr style={{ width: '100%', margin: '10px 0px', display: 'block', borderColor: '#ffffff' }} />
+      <FeedbackInput onChange={getFeedback} placeholder="점수에 대한 피드백을 작성해주세요" />
+      <Btn onClick={onSubmit}>저장</Btn>
+      <Btn onClick={onCancel}>취소</Btn>
     </Container>
   );
 };
 
-export default ProfessorAssignmentDetail;
+export default StudentSubmitDetail;
