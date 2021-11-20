@@ -86,7 +86,7 @@ const ProfessorAttendanceDetail = ({ match }) => {
             const result = res.data.data;
             setAttendances(result);
             setStudentInfo(result.filter((list) => list.studentId === studentDetailId));
-            console.log(result);
+            console.log(result.filter((list) => list.studentId === studentDetailId));
           })
           .catch((e) => {
             console.log(e);
@@ -155,7 +155,6 @@ const ProfessorAttendanceDetail = ({ match }) => {
           / {studentInfo[0].attendanceList.filter((list) => list.status === 1).length} 회 지각
         </div>
         <div style={{ paddingRight: '10px', fontSize: '20px', color: 'red' }}>
-          {' '}
           / {studentInfo[0].attendanceList.filter((list) => list.status === 0).length} 회 결석
         </div>
       </div>
