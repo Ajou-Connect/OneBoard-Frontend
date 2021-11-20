@@ -170,6 +170,7 @@ const ProfessorAttendanceDetail = ({ match }) => {
           }}
         >
           <tr>
+            <th style={{ padding: '10px 0', width: '10%' }}>ID</th>
             <th style={{ padding: '10px 0', width: '40%' }}>수강 날짜</th>
             <th style={{ padding: '10px 0', width: '20%' }}>출결 상태</th>
             <th style={{ padding: '10px 0', width: '20%' }}>출결 수정</th>
@@ -180,6 +181,9 @@ const ProfessorAttendanceDetail = ({ match }) => {
           {studentInfo.map((student) =>
             student.attendanceList.map((list, index) => (
               <TabletrColor key={index}>
+                <td style={{ padding: '15px 0', borderBottom: '1px solid #D5D5D5' }}>
+                  {index + 1}
+                </td>
                 <td style={{ padding: '15px 0', borderBottom: '1px solid #D5D5D5' }}>
                   {list.lessonDate}
                 </td>
@@ -236,7 +240,9 @@ const ProfessorAttendanceDetail = ({ match }) => {
         </tbody>
       </table>
       <hr style={{ width: '100%', margin: '10px 0px', display: 'block', borderColor: '#ffffff' }} />
-      <WriteBtn onClick={onCancel}>뒤로가기</WriteBtn>
+      <WriteBtn onClick={onCancel} style={{ cursor: 'pointer' }}>
+        뒤로가기
+      </WriteBtn>
     </Container>
   );
 };
