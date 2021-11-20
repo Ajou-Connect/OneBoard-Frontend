@@ -144,7 +144,7 @@ const GenerateLesson = ({ match }) => {
         console.log(meetingId);
         console.log(videoUrl);
 
-        // return (window.location.href = `/Main/Lecture/${lectureId}/Lesson`);
+        return (window.location.href = `/Main/Lecture/${lectureId}/Lesson`);
       })
 
       .catch((e) => {

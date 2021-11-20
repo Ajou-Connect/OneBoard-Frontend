@@ -63,6 +63,7 @@ const Routes = () => {
         component={UpdateAssignment}
       />
       <Route exact path="/Main/Lecture/:lectureId/Notice/WriteNotice" component={WriteNotice} />
+
       <Route exact path="/Main/Lecture/:lectureId/Attendance" component={LectureAttendance} />
       <Route
         exact
