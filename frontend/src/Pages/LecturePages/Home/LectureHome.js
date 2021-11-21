@@ -6,7 +6,7 @@ const LectureHome = ({ match }) => {
   const lectureId = match.params.lectureId;
 
   return (
-    <div className="home">
+    <div className="lecture-home">
       <nav className="lecture-sidebar">
         <LectureSidebar lectureId={lectureId} />
       </nav>

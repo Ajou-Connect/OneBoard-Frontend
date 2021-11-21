@@ -106,7 +106,7 @@ const LecturePlan = ({ match }) => {
         <LectureSidebar lectureId={lectureId} />
       </nav>
       <div className="plan-main">
-        <Box>
+        {/* <Box>
           <NoteBox>
             <NoteTitle>제목</NoteTitle>
             <NoteMenuBox>
@@ -120,8 +120,11 @@ const LecturePlan = ({ match }) => {
             <hr style={{ width: '100%', margin: '10px 0px', display: 'block' }} />
           </NoteBox>
         </Box>
-        <a href={FileURL}>파일 다운로드</a>
+        <a href={FileURL}>파일 다운로드</a> */}
+        <div style={{marginLeft:"100px"}}>
+        <iframe src="https://docs.google.com/gview?embedded=true&url=http://115.85.182.194:8080/lecture/2/plan" style={{width:"80%",height:"800px",marginTop:"50px"}} />
       </div>
+        </div>
     </div>
   );
 };

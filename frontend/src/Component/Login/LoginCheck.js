@@ -79,7 +79,7 @@ const LoginCheck = () => {
             message: '로그인 되었습니다! OneBoard에 오신것을 환영합니다',
           });
           setTimeout(() => {
-            history.push('/Main');
+            history.push('/Main/Home');
           }, 1500);
         } catch (error) {
           setError(error.message);
