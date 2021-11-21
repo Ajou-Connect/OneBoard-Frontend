@@ -47,7 +47,7 @@ const Routes = () => {
       />
       <Route
         exact
-        path="/Main/Lecture/:type/:lectureId/Assignment/:assignmentId/ProfessorDetail/1"
+        path="/Main/Lecture/:type/:lectureId/Assignment/:assignmentId/ProfessorDetail/:submitId"
         component={StudentSubmitDetail}
       />
       <Route

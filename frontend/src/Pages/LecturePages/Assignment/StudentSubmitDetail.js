@@ -85,6 +85,7 @@ const StudentSubmitDetail = ({ match }) => {
   const [submitAssignments, setSubmitAssignments] = useState([]);
   const [assignments, setAssignments] = useState([]);
   const lectureId = match.params.lectureId;
+  const submitId = match.params.submitId;
   const assignmentId = match.params.assignmentId;
   const user = JSON.parse(sessionStorage.userInfo);
   const userType = user.userType;
@@ -122,7 +123,7 @@ const StudentSubmitDetail = ({ match }) => {
     return new Promise((resolve, reject) => {
       //submit ID 수정해주기
       axios
-        .get(`/lecture/${lectureId}/assignment/${assignmentId}/submit/1`)
+        .get(`/lecture/${lectureId}/assignment/${assignmentId}/submit/${submitId}`)
         .then((res) => {
           const result = res.data.data;
           console.log(result);
@@ -151,7 +152,9 @@ const StudentSubmitDetail = ({ match }) => {
   };
 
   useEffect(() => {
+    getSubmitAssignmentData()
     getAssignmentData();
+    console.log(submitId);
   }, []);
 
   const onCancel = () => {
@@ -161,7 +164,7 @@ const StudentSubmitDetail = ({ match }) => {
   const onSubmit = () => {
     //post 함수
     axios
-      .post(`/lecture/${lectureId}/assignment/${assignmentId}/submit/1`, {
+      .post(`/lecture/${lectureId}/assignment/${assignmentId}/submit/${submitId}`, {
         score: score,
         feedback: feedback,
       })

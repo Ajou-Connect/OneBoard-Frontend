@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Header.scss';
-import logoimage from './img/OneBoard.png';
+import logoimage from './img/OneBoardLogo.png';
 
 class Header extends Component {
   constructor(props) {

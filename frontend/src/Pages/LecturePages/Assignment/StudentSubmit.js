@@ -108,8 +108,9 @@ const StudentSubmit = ({ lectureId, assignmentId, assignmentsScore }) => {
     getSubmitData();
   }, []);
 
-  const onSubmitAssignment = () => {
-    return (window.location.href = `/Main/Lecture/${userType}/${lectureId}/Assignment/${assignmentId}/ProfessorDetail/1`);
+  const onSubmitAssignment = (e,submitId) => {
+    
+    return (window.location.href = `/Main/Lecture/${userType}/${lectureId}/Assignment/${assignmentId}/ProfessorDetail/${submitId}`);
   };
 
   return (

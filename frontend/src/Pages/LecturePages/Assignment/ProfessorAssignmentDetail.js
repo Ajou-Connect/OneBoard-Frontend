@@ -82,6 +82,7 @@ const ProfessorAssignmentDetail = ({ match }) => {
   const userType = user.userType;
   const lectureId = match.params.lectureId;
   const assignmentId = match.params.assignmentId;
+  
 
   const stateDisplay = (startDate, endDate) => {
     const today = moment();
@@ -116,11 +117,12 @@ const ProfessorAssignmentDetail = ({ match }) => {
         .get(`/lecture/${lectureId}/assignment/${assignmentId}/submits`)
         .then((res) => {
           const result = res.data.data;
-
+          console.log(result);
           setSubmitAssignments(result);
           if (today.isBefore(result.endDt) && today.isAfter(result.startDt)) {
             setOnGoing(true);
           }
+          
         })
         .catch((error) => {
           console.log(error);
@@ -148,6 +150,7 @@ const ProfessorAssignmentDetail = ({ match }) => {
   useEffect(() => {
     getSubmitData();
     getAssignmentData();
+
   }, []);
 
   return (
@@ -188,6 +191,7 @@ const ProfessorAssignmentDetail = ({ match }) => {
         lectureId={lectureId}
         assignmentId={assignmentId}
         assignmentsScore={assignments.score}
+
       />
     </Container>
   );
