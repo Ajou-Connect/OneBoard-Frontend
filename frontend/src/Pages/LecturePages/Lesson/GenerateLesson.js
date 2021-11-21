@@ -184,10 +184,11 @@ const GenerateLesson = ({ match }) => {
             marginLeft: '15px',
           }}
         >
-          강의 날짜 / 수업 시작 시간 선택
+          강의 날짜  선택
         </div>
         <div>
-          <DatePicker format="YYYY-MM-DD" onChange={onChangePeriod} style={{ margin: '10px' }} />
+          <DatePicker 
+             format="YYYY-MM-DD" onChange={onChangePeriod} style={{ margin: '10px' }} />
         </div>
       </div>
       <div style={{ display: 'flex' }}>
@@ -228,19 +229,19 @@ const GenerateLesson = ({ match }) => {
         </div>
         <div style={{ margin: '15px' }}>
           <Radio.Group onChange={onChangeRadio} value={radioValue}>
-            <Radio value={2}>비대면 실시간 강의</Radio>
-            <Radio value={1}>대면 강의</Radio>
+            <Radio value={1}>비대면 실시간 강의</Radio>
+            <Radio value={2}>대면 강의</Radio>
             <Radio value={0}>녹화 강의</Radio>
           </Radio.Group>
         </div>
       </div>
       <div>
-        {radioValue === 2 ? (
+        {radioValue === 1 ? (
           <div style={{ fontSize: '1rem', marginLeft: '50px', fontWeight: 'bold' }}>
             zoom session link를 입력 해주세요 :
             <TitleInput onChange={getMeetingId} placeholder="zoom link를 입력해주세요" />
           </div>
-        ) : radioValue === 1 ? (
+        ) : radioValue === 2 ? (
           <div style={{ fontSize: '1rem', marginLeft: '50px', fontWeight: 'bold' }}>
             대면 강의실 정보를 입력 해주세요 :
             <RoomInput onChange={getRoom} placeholder="강의실 정보를 입력해주세요" />

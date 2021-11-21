@@ -165,9 +165,9 @@ const ProfessorLectureLesson = (props) => {
                 }}
               >
                 {lessonList.type === 2 ? (
-                  <div>비대면 실시간 강의</div>
-                ) : lessonList.type === 1 ? (
                   <div>대면 강의</div>
+                ) : lessonList.type === 1 ? (
+                  <div>비대면 실시간 강의</div>
                 ) : (
                   <div>녹화 강의</div>
                 )}

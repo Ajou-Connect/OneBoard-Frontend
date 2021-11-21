@@ -74,7 +74,7 @@ const StudentAttendance = (props) => {
         setError(null);
         setLoading(true);
         await axios
-          .get(`/lecture/${lectureId}/attendance/my`, { headers: { 'X-AUTH-TOKEN': `${token}` } })
+          .get(`/lecture/${lectureId}/attendances/my`, { headers: { 'X-AUTH-TOKEN': `${token}` } })
           .then((res) => {
             const result = res.data.data;
             setAttendances(result);

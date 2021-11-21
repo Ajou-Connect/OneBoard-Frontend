@@ -100,7 +100,7 @@ const ProfessorAttendance = (props) => {
   const getAttendanceData = () => {
     return new Promise((resolve, reject) => {
       axios
-        .get(`lecture/${lectureId}/attendance`)
+        .get(`lecture/${lectureId}/attendances`)
         .then((res) => {
           const result = res.data.data;
           setAttendances(result);

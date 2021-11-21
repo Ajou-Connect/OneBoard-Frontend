@@ -81,7 +81,7 @@ const ProfessorAttendanceDetail = ({ match }) => {
     const fetchAttendance = async () => {
       try {
         await axios
-          .get(`/lecture/${lectureId}/attendance`)
+          .get(`/lecture/${lectureId}/attendances`)
           .then((res) => {
             const result = res.data.data;
             setAttendances(result);
@@ -113,7 +113,7 @@ const ProfessorAttendanceDetail = ({ match }) => {
   const onConfirm = () => {
     console.log('lessonId : ' + studentDetailId);
     axios
-      .put(`/lecture/${lectureId}/attendance`, {
+      .put(`/lecture/${lectureId}/attendances`, {
         updateDataList: [
           {
             studentId: studentDetailId,

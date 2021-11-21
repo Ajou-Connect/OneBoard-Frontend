@@ -73,13 +73,13 @@ const Container = styled.div`
   margin-bottom: 50px;
 `;
 
-const WriteAssignment = ({ history, match }) => {
+const UpdateAssignment = ({ history, match }) => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [period, setPeriod] = useState('');
   const [fileUrl, setFileUrl] = useState('');
   const [exposeDt, setExposeDt] = useState('');
-  const [score, setScore] = useState('');
+  const [score, setScore] = useState(0);
   const lectureId = match.params.lectureId;
   const assignmentId = match.params.assignmentId;
   const user = JSON.parse(sessionStorage.userInfo);
@@ -236,4 +236,4 @@ const WriteAssignment = ({ history, match }) => {
   );
 };
 
-export default withRouter(WriteAssignment);
+export default withRouter(UpdateAssignment);

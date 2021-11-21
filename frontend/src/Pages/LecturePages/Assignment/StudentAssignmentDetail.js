@@ -104,6 +104,9 @@ const StudentAssignmentDetail = ({ match }) => {
   };
 
   const getSubmitData = () => {
+    console.log(token);
+    console.log(lectureId);
+    console.log(assignmentId);
     return new Promise((resolve, reject) => {
       axios.get(`/lecture/${lectureId}/assignment/${assignmentId}/submit`,{headers:{"X-AUTH-TOKEN":`${token}`}})
         .then((res) => {

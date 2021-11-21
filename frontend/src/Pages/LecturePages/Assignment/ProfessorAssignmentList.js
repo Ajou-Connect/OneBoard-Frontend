@@ -186,7 +186,7 @@ const ProfessorAssignmentList = (props) => {
     axios
       .delete(`/lecture/${lectureId}/assignment/${assignmentId}`)
       .then((res) => {
-        // window.location.href = `/Main/Lecture/${userType}/${lectureId}/Assignment`;
+        window.location.href = `/Main/Lecture/${userType}/${lectureId}/Assignment`;
         console.log(res);
       })
       .catch((e) => {

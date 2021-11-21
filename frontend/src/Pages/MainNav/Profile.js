@@ -38,7 +38,7 @@ const Profile = () => {
           </li>
           <li className="data-row">
             <div className="data-container">
-              <span className="data-title">학번</span>
+              <span className="data-title">사번</span>
               <div className="data-value">{users.studentNumber}</div>
             </div>
           </li>
