@@ -80,6 +80,7 @@ export const WriteLecturePlan = ({ match }) => {
       })
       .then((res) => {
         console.log(res);
+        return (window.location.href = `/Main/lecture/${lectureId}/Plan`);
       })
       .catch((e) => {
         console.log(e);
