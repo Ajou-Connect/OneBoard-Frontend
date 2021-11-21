@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import React from 'react';
 import styled from 'styled-components';
 
 const WriteBtn = styled.button`
@@ -26,32 +25,27 @@ const Title = styled.div`
   font-style: italic;
   text-align: left;
 `;
-
-export const UpLoadPlan = (props) => {
+export const LoadLecturePlan = (props) => {
   const lectureId = props.lectureId;
-  const user = JSON.parse(sessionStorage.userInfo);
-  const userType = user.userType;
-
-  const onUploadPlan = () => {
-    return (window.location.href = `/Main/Lecture/${lectureId}/Plan/UpLoadPlan`);
-  };
+  const Url = `https://docs.google.com/gview?embedded=true&url=http://115.85.182.194:8080/lecture/${lectureId}/plan`;
 
   return (
     <div>
       <Title>강의 계획서</Title>
       <hr style={{ width: '100%', margin: '10px 0px', display: 'block', borderColor: '#ffffff' }} />
-      <div style={{ textAlign: 'center', margin: '50px', fontWeight: 'bold', fontSize: '2rem' }}>
-        현재 등록된 강의노트가 없습니다.
+      <div
+        style={{
+          textAlign: 'center',
+          margin: '30px',
+          marginTop: '10px',
+          fontWeight: 'bold',
+          fontSize: '2rem',
+        }}
+      >
+        <iframe id="plan" src={Url} style={{ width: '80%', height: '600px', marginTop: '10px' }} />
       </div>
-      {userType === 'T' ? (
-        <WriteBtn style={{ marginLeft: '20px' }} onClick={onUploadPlan}>
-          강의노트 등록하기
-        </WriteBtn>
-      ) : (
-        <div></div>
-      )}
     </div>
   );
 };
 
-export default UpLoadPlan;
+export default LoadLecturePlan;

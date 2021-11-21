@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import axios from 'axios';
 import UpLoadPlan from './UpLoadPlan';
 import './LecturePlan.scss';
+import LoadLecturePlan from './LoadLecturePlan';
 
 const Container = styled.div`
   width: 97%;
@@ -132,7 +133,11 @@ const LecturePlan = ({ match }) => {
         <LectureSidebar lectureId={lectureId} />
       </nav>
       <div className="plan-main">
-        {isPlan !== true ? <UpLoadPlan lectureId={lectureId} /> : <div>render lecture plan</div>}
+        {isPlan !== true ? (
+          <UpLoadPlan lectureId={lectureId} />
+        ) : (
+          <LoadLecturePlan lectureId={lectureId} />
+        )}
       </div>
     </div>
   );

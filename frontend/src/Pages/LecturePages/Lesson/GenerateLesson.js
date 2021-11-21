@@ -82,7 +82,7 @@ const GenerateLesson = ({ match }) => {
   const lectureId = match.params.lectureId;
   const [title, setTitle] = useState('');
   const [period, setPeriod] = useState('');
-  const [lessonFile, setLessonFile] = useState('');
+  const [lessonFile, setLessonFile] = useState(null);
   const [radioValue, setRadioValue] = useState(0);
   const [room, setRoom] = useState(null);
   const [videoUrl, setVideoUrl] = useState(null);
@@ -184,11 +184,10 @@ const GenerateLesson = ({ match }) => {
             marginLeft: '15px',
           }}
         >
-          강의 날짜  선택
+          강의 날짜 선택
         </div>
         <div>
-          <DatePicker 
-             format="YYYY-MM-DD" onChange={onChangePeriod} style={{ margin: '10px' }} />
+          <DatePicker format="YYYY-MM-DD" onChange={onChangePeriod} style={{ margin: '10px' }} />
         </div>
       </div>
       <div style={{ display: 'flex' }}>
