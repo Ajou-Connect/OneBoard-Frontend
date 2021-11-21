@@ -41,11 +41,11 @@ export const UpLoadPlan = (props) => {
       <Title>강의 계획서</Title>
       <hr style={{ width: '100%', margin: '10px 0px', display: 'block', borderColor: '#ffffff' }} />
       <div style={{ textAlign: 'center', margin: '50px', fontWeight: 'bold', fontSize: '2rem' }}>
-        현재 등록된 강의노트가 없습니다.
+        현재 등록된 강의계획서가 없습니다.
       </div>
       {userType === 'T' ? (
         <WriteBtn style={{ marginLeft: '20px' }} onClick={onUploadPlan}>
-          강의노트 등록하기
+          강의계획서 등록하기
         </WriteBtn>
       ) : (
         <div></div>
