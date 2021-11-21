@@ -23,6 +23,7 @@ import StudentSubmitDetail from '../Pages/LecturePages/Assignment/StudentSubmitD
 import ProfessorAttendanceDetail from '../Pages/LecturePages/Attendance/ProfessorAttendanceDetail';
 import LessonDetail from '../Pages/LecturePages/Lesson/LessonDetail';
 import GenerateLesson from '../Pages/LecturePages/Lesson/GenerateLesson';
+import WriteLecturePlan from '../Pages/LecturePages/Plan/WriteLecturePlan';
 
 const Routes = () => {
   return (
@@ -84,6 +85,7 @@ const Routes = () => {
       />
 
       <Route exact path="/Main/Lecture/:lectureId/Plan" component={LecturePlan} />
+      <Route exact path="/Main/Lecture/:lectureId/Plan/UpLoadPlan" component={WriteLecturePlan} />
     </div>
   );
 };

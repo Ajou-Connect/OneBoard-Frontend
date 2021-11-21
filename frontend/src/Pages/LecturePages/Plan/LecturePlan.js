@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import LectureSidebar from '../LectureSidebar';
-import './LecturePlan.scss';
 import styled from 'styled-components';
 import axios from 'axios';
+import UpLoadPlan from './UpLoadPlan';
+import './LecturePlan.scss';
 
 const Container = styled.div`
   width: 97%;
@@ -97,8 +98,33 @@ const SmallBtn = styled.button`
 
 const LecturePlan = ({ match }) => {
   const lectureId = match.params.lectureId;
-
+  const [isPlan, setIsPlan] = useState(false);
+  const [planFile, setPlanFile] = useState(null);
   const FileURL = `http://115.85.182.194:8080/lecture/${lectureId}/plan`;
+
+  const getPlan = () => {
+    return new Promise((resolve, reject) => {
+      axios
+        .get(`/lecture/${lectureId}/plan`)
+        .then((res) => {
+          const result = res.data;
+          console.log(result);
+          setPlanFile(result);
+          if (result.data !== null) {
+            setIsPlan(true);
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+          reject(error);
+        });
+    });
+  };
+
+  useEffect(() => {
+    getPlan();
+    console.log(isPlan);
+  }, []);
 
   return (
     <div className="plan">
@@ -106,25 +132,8 @@ const LecturePlan = ({ match }) => {
         <LectureSidebar lectureId={lectureId} />
       </nav>
       <div className="plan-main">
-        {/* <Box>
-          <NoteBox>
-            <NoteTitle>제목</NoteTitle>
-            <NoteMenuBox>
-              <SmallBtn>수정</SmallBtn>
-              <SmallBtn>삭제</SmallBtn>
-            </NoteMenuBox>
-            <NoteContent>
-              날짜 <br />
-              파일리스트 파일 내용
-            </NoteContent>
-            <hr style={{ width: '100%', margin: '10px 0px', display: 'block' }} />
-          </NoteBox>
-        </Box>
-        <a href={FileURL}>파일 다운로드</a> */}
-        <div style={{marginLeft:"100px"}}>
-        <iframe src="https://docs.google.com/gview?embedded=true&url=http://115.85.182.194:8080/lecture/19/plan" style={{width:"80%",height:"800px",marginTop:"50px"}} />
+        {isPlan !== true ? <UpLoadPlan lectureId={lectureId} /> : <div>render lecture plan</div>}
       </div>
-        </div>
     </div>
   );
 };

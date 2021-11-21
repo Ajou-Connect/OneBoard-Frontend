@@ -101,7 +101,7 @@ const LecturePlan = ({ match }) => {
   const userType = user.userType;
   const [isProfessor, setIsProfessor] = useState(false);
 
-  setIsProfessor(userType)
+  setIsProfessor(userType);
   const FileURL = `http://115.85.182.194:8080/lecture/${lectureId}/plan`;
 
   return (
@@ -110,15 +110,37 @@ const LecturePlan = ({ match }) => {
         <LectureSidebar lectureId={lectureId} />
       </nav>
       <div className="plan-main">
-        {isProfessor === "T" ? (
-          
-            <div style={{marginLeft:"100px"}}>
-        <iframe src="https://docs.google.com/gview?embedded=true&url=http://115.85.182.194:8080/lecture/2/plan" style={{width:"80%",height:"800px",marginTop:"50px"}} />
+        {isProfessor === 'T' ? (
+          <div style={{ marginLeft: '100px' }}>
+            <iframe
+              src="https://docs.google.com/gview?embedded=true&url=http://115.85.182.194:8080/lecture/2/plan"
+              style={{ width: '80%', height: '800px', marginTop: '50px' }}
+            />
+          </div>
+        ) : (
+          <div>
+            {/* <Box>
+          <NoteBox>
+            <NoteTitle>제목</NoteTitle>
+            <NoteMenuBox>
+              <SmallBtn>수정</SmallBtn>
+              <SmallBtn>삭제</SmallBtn>
+            </NoteMenuBox>
+            <NoteContent>
+              날짜 <br />
+              파일리스트 파일 내용
+            </NoteContent>
+            <hr style={{ width: '100%', margin: '10px 0px', display: 'block' }} />
+          </NoteBox>
+        </Box>
+        <a href={FileURL}>파일 다운로드</a> */}
+            {/* <div style={{marginLeft:"100px"}}>
+        <iframe src="https://docs.google.com/gview?embedded=true&url=http://115.85.182.194:8080/lecture/19/plan" style={{width:"80%",height:"800px",marginTop:"50px"}} />
+      </div> */}
+          </div>
+        )}
       </div>
-          
-        ) : (<div>qwr</div>)}
-      </div>
-      </div>
+    </div>
   );
 };
 
