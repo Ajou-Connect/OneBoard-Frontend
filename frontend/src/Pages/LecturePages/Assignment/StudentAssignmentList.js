@@ -175,7 +175,7 @@ const StudentAssignmentList = (props) => {
             <tr>
               <th style={{ padding: '10px 0', width: '30%' }}>과제 명</th>
               <th style={{ padding: '10px 0', width: '30%' }}>과제 기간</th>
-              <th style={{ padding: '10px 0', width: '30%' }}>진행 상태</th>
+              <th style={{ padding: '10px 0', width: '30%' }}>오늘 날짜</th>
               <th style={{ padding: '10px 0', width: '30%' }}>마감 완료</th>
             </tr>
           </thead>
@@ -228,7 +228,7 @@ const StudentAssignmentList = (props) => {
                       {assignmentList.startDt} ~ {assignmentList.endDt}
                     </td>
                     <td style={{ padding: '10px 0', backgroundColor: 'white', width: '20%' }}>
-                      몇일 남았는지
+                      2021-11-21
                     </td>
                     <td
                       style={{

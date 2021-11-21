@@ -83,7 +83,7 @@ const StudentAssignmentDetail = ({ match }) => {
   const assignmentId = match.params.assignmentId;
   const lectureId = match.params.lectureId;
   const [onGoing, setOnGoing] = useState(false);
-
+  const [submitData,setSubmitData] = useState({})
   const getData = () => {
     return new Promise((resolve, reject) => {
       axios
@@ -102,6 +102,21 @@ const StudentAssignmentDetail = ({ match }) => {
         });
     });
   };
+
+  const getSubmitData = () => {
+    return new Promise((resolve, reject) => {
+      axios.get(`/lecture/${lectureId}/assignment/${assignmentId}/submit`,{headers:{"X-AUTH-TOKEN":`${token}`}})
+        .then((res) => {
+          const result = res.data.data;
+          console.log(result);
+          setSubmitData(result);
+        })
+        .catch((e) => {
+          console.log(e);
+          reject(e);
+      })
+    })
+  }
 
   const stateDisplay = (startDate, endDate) => {
     if (today.isBefore(startDate)) {
@@ -130,6 +145,7 @@ const StudentAssignmentDetail = ({ match }) => {
 
   useEffect(() => {
     getData();
+    getSubmitData();
   }, []);
 
   const submitAssignment = () => {
@@ -219,8 +235,14 @@ const StudentAssignmentDetail = ({ match }) => {
               <input type="file" onChange={getFile} style={{ height: '41.6px', padding: '5px' }} />
             </div>
           </div>
-        ) : (
-          <div>제출 된 페이지</div>
+        ) : (<div>
+            <div style={{display:"flex"}}>
+              <ProblemTitle>{assignments.title}</ProblemTitle>
+              <div style={{ fontWeight: "600", fontSize: "20px", marginLeft:"20px"}}>점수 : {submitData.score}</div>
+              
+            </div>
+            <div style={{ fontWeight: "600", fontSize: "20px", marginLeft:"20px",color:"skyblue"}}>피드백 : {submitData.feedback}</div>
+        </div>
         )}
       </ProblemContainer>
     </div>
