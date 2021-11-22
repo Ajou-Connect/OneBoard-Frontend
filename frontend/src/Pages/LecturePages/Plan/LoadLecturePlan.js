@@ -1,12 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const WriteBtn = styled.button`
-  font-size: 12px;
+  font-size: 5px;
   padding: 5px;
-  margin-top: 10px;
-  margin-bottom: 15px;
-  margin-right: 5px;
   background-color: #ececec;
   color: #3e3e3e;
   border-radius: 5px;
@@ -26,25 +23,31 @@ const Title = styled.div`
   text-align: left;
 `;
 export const LoadLecturePlan = (props) => {
+  const [files, setFiles] = useState(null);
+
   const lectureId = props.lectureId;
   const Url = `https://docs.google.com/gview?embedded=true&url=http://115.85.182.194:8080/lecture/${lectureId}/plan`;
   const FileURL = `http://115.85.182.194:8080/lecture/${lectureId}/plan`;
+  const user = JSON.parse(sessionStorage.userInfo);
+  const userType = user.userType;
 
   return (
     <div>
       <Title>강의 계획서</Title>
       <hr style={{ width: '100%', margin: '10px 0px', display: 'block', borderColor: '#ffffff' }} />
-      <a
-        href={FileURL}
-        style={{
-          width: '30px',
-          marginLeft: '20px',
-          textDecoration: 'underline',
-          fontWeight: 'bold',
-        }}
-      >
-        강의노트 다운로드
-      </a>
+      <div style={{ display: 'flex' }}>
+        <a
+          href={FileURL}
+          style={{
+            marginLeft: '20px',
+            textDecoration: 'underline',
+            fontWeight: 'bold',
+          }}
+        >
+          강의노트 다운로드
+        </a>
+        <WriteBtn style={{ marginLeft: 'auto', marginRight: '30px' }}>수정하기</WriteBtn>
+      </div>
       <hr style={{ width: '100%', margin: '10px 0px', display: 'block', borderColor: '#ffffff' }} />
       <div
         style={{

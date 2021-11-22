@@ -97,6 +97,7 @@ export const WriteLecturePlan = ({ match }) => {
         <input type="file" onChange={onFileChange} />
         <button type="submit">등록</button>
       </form>
+      <WriteBtn onClick={onCancel}>뒤로가기</WriteBtn>
     </div>
   );
 };
