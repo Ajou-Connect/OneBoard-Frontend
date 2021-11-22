@@ -28,10 +28,23 @@ const Title = styled.div`
 export const LoadLecturePlan = (props) => {
   const lectureId = props.lectureId;
   const Url = `https://docs.google.com/gview?embedded=true&url=http://115.85.182.194:8080/lecture/${lectureId}/plan`;
+  const FileURL = `http://115.85.182.194:8080/lecture/${lectureId}/plan`;
 
   return (
     <div>
       <Title>강의 계획서</Title>
+      <hr style={{ width: '100%', margin: '10px 0px', display: 'block', borderColor: '#ffffff' }} />
+      <a
+        href={FileURL}
+        style={{
+          width: '30px',
+          marginLeft: '20px',
+          textDecoration: 'underline',
+          fontWeight: 'bold',
+        }}
+      >
+        강의노트 다운로드
+      </a>
       <hr style={{ width: '100%', margin: '10px 0px', display: 'block', borderColor: '#ffffff' }} />
       <div
         style={{

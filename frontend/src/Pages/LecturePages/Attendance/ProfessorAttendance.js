@@ -170,9 +170,9 @@ const ProfessorAttendance = (props) => {
                 style={{
                   padding: '10px 0',
                   borderBottom: '1px solid #D5D5D5',
-                  color: '#50CF76',
+                  color: '#0C7E82',
                   fontWeight: 'bold',
-                  fontSize: '1rem',
+                  fontSize: '1.2rem',
                 }}
               >
                 {attendance.attendanceList.filter((list) => list.status === 2).length}
