@@ -91,13 +91,17 @@ export const WriteLecturePlan = ({ match }) => {
     <div>
       <Title>강의 계획서</Title>
       <hr style={{ width: '100%', margin: '10px 0px', display: 'block', borderColor: '#ffffff' }} />
-      <SubTitle>{lectureTitle}</SubTitle>
+      <SubTitle style={{ marginLeft: '20px' }}>{lectureTitle}</SubTitle>
       <hr style={{ width: '100%', margin: '10px 0px', display: 'block', borderColor: '#ffffff' }} />
       <form name="planfile" encType="multipart/form-data" onSubmit={onSubmit}>
-        <input type="file" onChange={onFileChange} />
-        <button type="submit">등록</button>
+        <input style={{ margin: '20px' }} type="file" onChange={onFileChange} />
+        <button type="submit" style={{ borderRadius: '5px' }}>
+          등록
+        </button>
       </form>
-      <WriteBtn onClick={onCancel}>뒤로가기</WriteBtn>
+      <WriteBtn onClick={onCancel} style={{ marginLeft: '20px' }}>
+        뒤로가기
+      </WriteBtn>
     </div>
   );
 };
