@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
+import palette from '../../../lib/styles/palette';
+import 'antd/dist/antd.css';
+import { Radio } from 'antd';
 
 const Container = styled.div`
   width: 97%;
@@ -99,6 +102,7 @@ const ProfessorAttendanceDetail = ({ match }) => {
   }, []);
 
   const onStatusChange = (e, data, statusId) => {
+    alert('해당 사항으로 변경합니다 저장하기를 눌러주세요');
     setAttendanceListInfo([
       {
         lessonId: data.lessonId,
