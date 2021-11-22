@@ -31,6 +31,10 @@ export const LoadLecturePlan = (props) => {
   const user = JSON.parse(sessionStorage.userInfo);
   const userType = user.userType;
 
+  const onUploadPlan = () => {
+    return (window.location.href = `/Main/Lecture/${lectureId}/Plan/UpLoadPlan`);
+  };
+
   return (
     <div>
       <Title>강의 계획서</Title>
@@ -46,7 +50,9 @@ export const LoadLecturePlan = (props) => {
         >
           강의노트 다운로드
         </a>
-        <WriteBtn style={{ marginLeft: 'auto', marginRight: '30px' }}>수정하기</WriteBtn>
+        <WriteBtn style={{ marginLeft: 'auto', marginRight: '30px' }} onClick={onUploadPlan}>
+          수정하기
+        </WriteBtn>
       </div>
       <hr style={{ width: '100%', margin: '10px 0px', display: 'block', borderColor: '#ffffff' }} />
       <div
