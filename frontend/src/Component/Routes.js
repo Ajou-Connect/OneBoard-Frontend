@@ -77,7 +77,7 @@ const Routes = () => {
       <Route exact path="/Main/Lecture/:lectureId/Score" component={LectureScore} />
       <Route
         exact
-        path="/Main/Lecture/:lectureId/Score/ScoreDetail/:userId"
+        path="/Main/Lecture/:lectureId/Score/ScoreDetail/:studentId"
         component={ProfessorScoreDetail}
       />
       <Route exact path="/Main/Lecture/:lectureId/Lesson" component={LectureLesson} />

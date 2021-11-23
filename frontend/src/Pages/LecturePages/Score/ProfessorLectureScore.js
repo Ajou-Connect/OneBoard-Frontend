@@ -49,8 +49,8 @@ const ProfessorLectureScore = (props) => {
   const [studentsScore, setStudentScore] = useState([]);
   const lectureId = props.lectureId;
 
-  const onDetail = (e, userId) => {
-    return (window.location.href = `/Main/Lecture/${lectureId}/Score/ScoreDetail/${userId}`);
+  const onDetail = (e, studentId) => {
+    return (window.location.href = `/Main/Lecture/${lectureId}/Score/ScoreDetail/${studentId}`);
   };
 
   const getScoreDate = () => {
