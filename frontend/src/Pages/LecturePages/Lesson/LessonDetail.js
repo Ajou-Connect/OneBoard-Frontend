@@ -75,6 +75,9 @@ const LessonDetail = ({ match }) => {
   const [lessonDetails, setLessonDetails] = useState([]);
   const user = JSON.parse(sessionStorage.userInfo);
   const userType = user.userType;
+  const Url = `https://docs.google.com/gview?embedded=true&url=http://115.85.182.194:8080/lecture/${lectureId}/lesson/${lessonId}/note`;
+  const FileURL = `http://115.85.182.194:8080/lecture/${lectureId}/lesson/${lessonId}/note`;
+
   const getLessonData = () => {
     return new Promise((resolve, reject) => {
       axios
@@ -164,40 +167,76 @@ const LessonDetail = ({ match }) => {
           {lessonDetails.noteUrl === null ? (
             <div style={{ color: 'red', marginLeft: '1rem' }}>등록된 강의노트가 없습니다</div>
           ) : (
-            <div style={{ textDecoration: 'underline', color: 'skyblue', marginLeft: '1rem' }}>
-              {lessonDetails.noteUrl}
+            <div
+              style={{
+                textDecoration: 'underline',
+                color: 'skyblue',
+                marginLeft: '1rem',
+              }}
+            >
+              <a href={FileURL}>{lessonDetails.title} 강의노트 다운로드</a>
+              <div>
+                <iframe
+                  style={{ marginRight: 'auto', width: '700px', height: '400px' }}
+                  src={Url}
+                />
+              </div>
             </div>
           )}
         </div>
-      </div>
-      <div>
-        <iframe style={{ marginLeft: '1.5rem', width: '50%', height: '400px' }}></iframe>
+        {lessonDetails.type === 1 ? (
+          <div
+            style={{
+              fontSize: '1rem',
+              paddingBottom: '0.5rem',
+              marginBottom: '2rem',
+              marginTop: '15px',
+              marginRight: '15px',
+              fontWeight: 'bold',
+              marginLeft: '15px',
+              display: 'flex',
+            }}
+          >
+            실시간 수업 입장 : {lessonDetails.meetingId}
+          </div>
+        ) : lessonDetails.type === 2 ? (
+          <div
+            style={{
+              fontSize: '1rem',
+              paddingBottom: '0.5rem',
+              marginBottom: '2rem',
+              marginTop: '15px',
+              marginRight: '15px',
+              fontWeight: 'bold',
+              marginLeft: '15px',
+              display: 'flex',
+            }}
+          >
+            강의실 정보 : {lessonDetails.room}
+          </div>
+        ) : (
+          <div
+            style={{
+              fontSize: '1rem',
+              paddingBottom: '0.5rem',
+              marginBottom: '2rem',
+              marginTop: '15px',
+              marginRight: '15px',
+              fontWeight: 'bold',
+              marginLeft: '15px',
+              display: 'flex',
+            }}
+          >
+            녹화 강의 : {lessonDetails.videoUrl}
+          </div>
+        )}
       </div>
 
       <hr style={{ width: '100%', margin: '10px 0px', display: 'block', borderColor: '#ffffff' }} />
-      <div style={{ display: 'flex' }}>
-        <div
-          style={{
-            fontSize: '1rem',
-            paddingBottom: '0.5rem',
-            marginBottom: '2rem',
-            marginTop: '15px',
-            marginRight: '15px',
-            fontWeight: 'bold',
-            marginLeft: '15px',
-            display: 'flex',
-          }}
-        >
-          {lessonDetails.type === 2 ? (
-            <div>실시간 수업 입장 : {lessonDetails.meetingId}</div>
-          ) : lessonDetails.type === 1 ? (
-            <div>강의실 정보 : {lessonDetails.room}</div>
-          ) : (
-            <div>녹화 강의 : {lessonDetails.videoUrl}</div>
-          )}
-        </div>
-      </div>
-      <WriteBtn onClick={onCancel}>뒤로가기</WriteBtn>
+
+      <WriteBtn onClick={onCancel} style={{ cursor: 'pointer' }}>
+        뒤로가기
+      </WriteBtn>
     </div>
   );
 };

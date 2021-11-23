@@ -48,7 +48,7 @@ export const LoadLecturePlan = (props) => {
             fontWeight: 'bold',
           }}
         >
-          강의노트 다운로드
+          강의계획서 다운로드
         </a>
         <WriteBtn style={{ marginLeft: 'auto', marginRight: '30px' }} onClick={onUploadPlan}>
           수정하기
