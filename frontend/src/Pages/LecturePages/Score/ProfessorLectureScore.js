@@ -47,13 +47,14 @@ const UpdateBtn = styled.button`
 
 const ProfessorLectureScore = (props) => {
   const [studentsScore, setStudentScore] = useState([]);
+  const [scoreRatio, setScoreRatio] = useState(0);
   const lectureId = props.lectureId;
 
   const onDetail = (e, studentId) => {
     return (window.location.href = `/Main/Lecture/${lectureId}/Score/ScoreDetail/${studentId}`);
   };
 
-  const getScoreDate = () => {
+  const getScoreData = () => {
     return new Promise((resolve, reject) => {
       axios
         .get(`/lecture/${lectureId}/grade/list`)
@@ -69,14 +70,37 @@ const ProfessorLectureScore = (props) => {
     });
   };
 
+  const getScoreRatioData = () => {
+    return new Promise((resolve, reject) => {
+      axios
+        .get(`/lecture/${lectureId}/grade/ratio`)
+        .then((res) => {
+          const result = res.data.data;
+          console.log(res);
+          setScoreRatio(result);
+        })
+        .catch((error) => {
+          console.log(error);
+          reject(error);
+        });
+    });
+  };
+
   useEffect(() => {
-    getScoreDate();
+    getScoreData();
+    getScoreRatioData();
   }, []);
 
   return (
     <div>
       <div>
         <Title>성적 확인</Title>
+      </div>
+      <div style={{ display: 'flex' }}>
+        <SubTitle>학점 비율 </SubTitle>
+        <SubTitle style={{ marginLeft: 'auto', marginRight: '1rem' }}>
+          A : {scoreRatio.aratio}% B : {scoreRatio.bratio}%
+        </SubTitle>
       </div>
       <Line />
       <table style={{ width: '100%', borderTop: '1px solid #D5D5D5', textAlign: 'center' }}>
