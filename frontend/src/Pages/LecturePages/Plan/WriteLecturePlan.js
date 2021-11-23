@@ -73,14 +73,14 @@ export const WriteLecturePlan = ({ match }) => {
     e.preventDefault();
     const formData = new FormData();
     formData.append('file', files, files.name);
-
+    console.log(formData);
     axios
       .post(`/lecture/${lectureId}/plan`, formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       })
       .then((res) => {
         console.log(res);
-        return (window.location.href = `/Main/lecture/${lectureId}/Plan`);
+        // return (window.location.href = `/Main/lecture/${lectureId}/Plan`);
       })
       .catch((e) => {
         console.log(e);

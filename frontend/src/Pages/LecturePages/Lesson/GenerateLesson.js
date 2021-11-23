@@ -82,12 +82,12 @@ const GenerateLesson = ({ match }) => {
   const lectureId = match.params.lectureId;
   const [title, setTitle] = useState('');
   const [period, setPeriod] = useState('');
-  const [lessonFile, setLessonFile] = useState(null);
+  const [lessonFile, setLessonFile] = useState('');
   const [radioValue, setRadioValue] = useState(0);
   const [room, setRoom] = useState(null);
   const [videoUrl, setVideoUrl] = useState(null);
   const [meetingId, setMeetingId] = useState(null);
-  const [note, setNote] = useState('');
+
   const getTitle = (e) => {
     setTitle(e.target.value);
   };
@@ -108,42 +108,45 @@ const GenerateLesson = ({ match }) => {
     setPeriod(dateString);
   };
 
-  const getFile = (e) => {
-    console.log(e.target);
-    const formData = new FormData();
-    formData.append('file', e.target.files[0]);
-    formData.append('fileName', e.target.files[0].name);
-    setLessonFile(formData);
-    console.log(formData);
+  const onFileChange = (e) => {
+    e.preventDefault();
+    console.log(e.target.files);
+    setLessonFile(e.target.files[0]);
   };
 
   const onChangeRadio = (e) => {
     setRadioValue(e.target.value);
   };
 
-  const onSubmit = () => {
+  const onCancel = () => {
+    return (window.location.href = `/Main/Lecture/${lectureId}/Lesson`);
+  };
+
+  const onSubmit = (e) => {
     parseInt(radioValue);
-    setNote('test file');
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append('file', lessonFile, lessonFile.name);
+    formData.append('title', title);
+    formData.append('date', period);
+    formData.append('type', radioValue);
+    formData.append('videoUrl', videoUrl);
+    formData.append('room', room);
+    formData.append('meetingId', meetingId);
+
+    console.log(lessonFile);
+    console.log(title);
+    console.log(period);
+    console.log(formData);
+    console.log(radioValue);
+    console.log(room);
+    console.log(meetingId);
+    console.log(videoUrl);
     axios
-      .post(`/lecture/${lectureId}/lesson`, {
-        title: title,
-        date: period,
-        note: '12424',
-        type: radioValue,
-        room: room,
-        meetingId: meetingId,
-        videoUrl: videoUrl,
+      .post(`/lecture/${lectureId}/lesson`, formData, {
+        headers: { 'Content-Type': 'multipart/form-data' },
       })
       .then((res) => {
-        console.log(res.data);
-        console.log(title);
-        console.log(period);
-        console.log(note);
-        console.log(radioValue);
-        console.log(room);
-        console.log(meetingId);
-        console.log(videoUrl);
-
         return (window.location.href = `/Main/Lecture/${lectureId}/Lesson`);
       })
 
@@ -205,11 +208,13 @@ const GenerateLesson = ({ match }) => {
           강의 노트 업로드
         </div>
         <div>
-          <input
-            type="file"
-            onChange={getFile}
-            style={{ height: '41.6px', padding: '5px', margin: '10px', cursor: 'pointer' }}
-          />
+          <form name="noteFile" encType="multipart/form-data">
+            <input
+              type="file"
+              onChange={onFileChange}
+              style={{ height: '41.6px', padding: '5px', margin: '10px', cursor: 'pointer' }}
+            />
+          </form>
         </div>
       </div>
       <div style={{ display: 'flex' }}>
@@ -256,6 +261,7 @@ const GenerateLesson = ({ match }) => {
         />
       </div>
       <WriteBtn onClick={onSubmit}>수업 생성하기</WriteBtn>
+      <WriteBtn onClick={onCancel}>뒤로가기</WriteBtn>
     </div>
   );
 };
