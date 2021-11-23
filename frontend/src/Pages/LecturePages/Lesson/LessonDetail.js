@@ -147,31 +147,33 @@ const LessonDetail = ({ match }) => {
         )}
       </div>
       <hr style={{ width: '100%', margin: '10px 0px', display: 'block', borderColor: '#ffffff' }} />
-      <div style={{ display: 'flex' }}>
-        <div style={{ display: 'flex', marginLeft: '50px' }}>
-          <div
-            style={{
-              fontSize: '1rem',
-              paddingBottom: '0.5rem',
-              marginBottom: '2rem',
-              marginTop: '15px',
-              marginRight: '15px',
-              fontWeight: 'bold',
-              marginLeft: '15px',
-              display: 'flex',
-            }}
-          >
-            강의 노트 :{' '}
-            {lessonDetails.noteUrl === null ? (
-              <div style={{ color: 'red' }}>등록된 강의노트가 없습니다</div>
-            ) : (
-              <div style={{ textDecoration: 'underline', color: 'skyblue' }}>
-                {lessonDetails.noteUrl}
-              </div>
-            )}
-          </div>
+
+      <div style={{ display: 'flex', marginLeft: '1rem' }}>
+        <div
+          style={{
+            fontSize: '1rem',
+            paddingBottom: '0.5rem',
+            marginBottom: '2rem',
+            marginTop: '15px',
+            marginRight: '15px',
+            fontWeight: 'bold',
+            display: 'flex',
+          }}
+        >
+          강의 노트 :{' '}
+          {lessonDetails.noteUrl === null ? (
+            <div style={{ color: 'red', marginLeft: '1rem' }}>등록된 강의노트가 없습니다</div>
+          ) : (
+            <div style={{ textDecoration: 'underline', color: 'skyblue', marginLeft: '1rem' }}>
+              {lessonDetails.noteUrl}
+            </div>
+          )}
         </div>
       </div>
+      <div>
+        <iframe style={{ marginLeft: '1.5rem', width: '50%', height: '400px' }}></iframe>
+      </div>
+
       <hr style={{ width: '100%', margin: '10px 0px', display: 'block', borderColor: '#ffffff' }} />
       <div style={{ display: 'flex' }}>
         <div
