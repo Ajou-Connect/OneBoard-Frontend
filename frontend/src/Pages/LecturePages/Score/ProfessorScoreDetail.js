@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
+import { Radio } from 'antd';
+import Button from '@restart/ui/esm/Button';
 
 const Title = styled.div`
   margin-top: 10px;
@@ -45,9 +47,34 @@ const UpdateBtn = styled.button`
   padding: 5px;
 `;
 
+const BackBtn = styled.button`
+  background-color: #6e1345;
+  color: #f2e9ee;
+  font-size: 12px;
+  margin: 1.3rem;
+  margin-right: 5px;
+  border-radius: 5px;
+  margin-left: 1.3rem;
+  padding: 5px;
+  cursor: pointer;
+`;
+
+const WriteBtn = styled.button`
+  font-size: 10px;
+  margin-left: 10px;
+  background-color: #c3cbc2;
+  color: #3e3e3e;
+  border-radius: 5px;
+  &:hover {
+    background-color: #bfbfbf;
+  }
+`;
+
 const ProfessorScoreDetail = ({ match }) => {
   const lectureId = match.params.lectureId;
   const studentId = match.params.studentId;
+  const [isUpdate, setIsUpdate] = useState(false);
+  const [radioValue, setRadioValue] = useState('A+');
   const [studentScoreInfo, setStudentScoreInfo] = useState({});
   const [studentAttendanceLists, setStudentAttendanceLists] = useState([
     {
@@ -88,11 +115,39 @@ const ProfessorScoreDetail = ({ match }) => {
   useEffect(() => {
     getStudentScoreData();
   }, []);
+
+  const onUpdateScore = () => {
+    setIsUpdate(true);
+  };
+
+  const onChangeRadio = (e) => {
+    setRadioValue(e.target.value);
+  };
+
+  const onChangeScore = () => {
+    console.log(radioValue);
+    axios
+      .post(`/lecture/${lectureId}/grade/${studentId}`, {
+        result: radioValue,
+      })
+      .then((res) => {
+        console.log(res);
+        return (window.location.href = `/Main/Lecture/${lectureId}/Score/ScoreDetail/${studentId}`);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const onCancel = () => {
+    return (window.location.href = `/Main/Lecture/${lectureId}/Score`);
+  };
+
   return (
     <div>
       <Title>개인성적 </Title>
       <div style={{ display: 'flex' }}>
-        <UpdateBtn>학점 수정하기</UpdateBtn>
+        <UpdateBtn onClick={onUpdateScore}>학점 수정하기</UpdateBtn>
       </div>
       <div style={{ display: 'flex' }}>
         <SubTitle style={{ display: 'flex' }}>
@@ -111,7 +166,26 @@ const ProfessorScoreDetail = ({ match }) => {
         </SubTitle>
         <SubTitle style={{ display: 'flex', marginLeft: 'auto', marginRight: '1rem' }}>
           학점 :{' '}
-          <div style={{ fontWeight: 'bold', marginLeft: '5px' }}>{studentScoreInfo.result}</div>
+          {isUpdate === false ? (
+            <div style={{ fontWeight: 'bold', marginLeft: '5px' }}>{studentScoreInfo.result}</div>
+          ) : (
+            <div>
+              <Radio.Group
+                style={{ marginLeft: '1rem' }}
+                onChange={onChangeRadio}
+                defaultValue="A+"
+              >
+                <Radio value="A+">A+</Radio>
+                <Radio value="A">A</Radio>
+                <Radio value="B+">B+</Radio>
+                <Radio value="B">B</Radio>
+                <Radio value="C+">C+</Radio>
+                <Radio value="C">C</Radio>
+                <Radio value="F">F</Radio>
+              </Radio.Group>
+              <WriteBtn onClick={onChangeScore}>저장하기</WriteBtn>
+            </div>
+          )}
         </SubTitle>
       </div>
       <Line />
@@ -191,6 +265,7 @@ const ProfessorScoreDetail = ({ match }) => {
           </tbody>
         </table>
       </div>
+      <BackBtn onClick={onCancel}>뒤로가기</BackBtn>
     </div>
   );
 };
