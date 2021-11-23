@@ -24,6 +24,7 @@ import ProfessorAttendanceDetail from '../Pages/LecturePages/Attendance/Professo
 import LessonDetail from '../Pages/LecturePages/Lesson/LessonDetail';
 import GenerateLesson from '../Pages/LecturePages/Lesson/GenerateLesson';
 import WriteLecturePlan from '../Pages/LecturePages/Plan/WriteLecturePlan';
+import UpdateLesson from '../Pages/LecturePages/Lesson/UpdateLesson';
 
 const Routes = () => {
   return (
@@ -73,10 +74,16 @@ const Routes = () => {
       />
       <Route exact path="/Main/Lecture/:lectureId/Score" component={LectureScore} />
       <Route exact path="/Main/Lecture/:lectureId/Lesson" component={LectureLesson} />
+
       <Route
         exact
         path="/Main/Lecture/:lectureId/Lesson/GenerateLesson"
         component={GenerateLesson}
+      />
+      <Route
+        exact
+        path="/Main/Lecture/:lectureId/Lesson/Update/:lessonId"
+        component={UpdateLesson}
       />
       <Route
         exact

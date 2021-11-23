@@ -99,6 +99,9 @@ const ProfessorLectureLesson = (props) => {
     return (window.location.href = `/Main/Lecture/${lectureId}/Lesson/GenerateLesson`);
   };
 
+  const onUpdate = (e, lessonId) => {
+    return (window.location.href = `/Main/Lecture/${lectureId}/Lesson/Update/${lessonId}`);
+  };
   return (
     <div>
       <Title>수업</Title>
@@ -178,7 +181,7 @@ const ProfessorLectureLesson = (props) => {
                   borderBottom: '1px solid #D5D5D5',
                 }}
               >
-                <Btn>수정하기</Btn>
+                <Btn onClick={(e) => onUpdate(e, lessonList.id)}>수정하기</Btn>
                 <Btn onClick={(e) => onDelete(e, lessonList.id)}>삭제하기</Btn>
               </td>
             </TabletrColor>
