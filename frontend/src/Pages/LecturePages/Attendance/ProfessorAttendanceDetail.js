@@ -4,7 +4,7 @@ import axios from 'axios';
 import palette from '../../../lib/styles/palette';
 import 'antd/dist/antd.css';
 import { Radio } from 'antd';
-
+import Button from 'react-bootstrap/Button';
 const Container = styled.div`
   width: 97%;
   display: block;
@@ -40,6 +40,18 @@ const Btn = styled.button`
   }
 `;
 
+const StatusBtn = styled.button`
+  padding: 5px;
+  margin: 2px;
+  width: 30%;
+  background-color: #eadfd3;
+  color: #3e3e3e;
+  border-radius: 7px;
+  &:hover {
+    background-color: #bfbfbf;
+  }
+`;
+
 const WriteBtn = styled.button`
   display: inline-block;
   float: left;
@@ -48,6 +60,7 @@ const WriteBtn = styled.button`
   font-size: 16px;
   width: 80px;
   margin-right: 5px;
+  margin-bottom: 20px;
   padding: 5px;
   border-radius: 5px;
   &:hover {
@@ -201,39 +214,9 @@ const ProfessorAttendanceDetail = ({ match }) => {
                   )}
                 </td>
                 <td style={{ padding: '15px 0', borderBottom: '1px solid #D5D5D5' }}>
-                  <Btn
-                    style={{
-                      padding: '5px',
-                      margin: '2px',
-                      width: '30%',
-                      backgroundColor: '#EADFD3',
-                    }}
-                    onClick={(e) => onStatusChange(e, list, 2)}
-                  >
-                    출석
-                  </Btn>
-                  <Btn
-                    style={{
-                      padding: '5px',
-                      margin: '2px',
-                      width: '30%',
-                      backgroundColor: '#EADFD3',
-                    }}
-                    onClick={(e) => onStatusChange(e, list, 1)}
-                  >
-                    지각
-                  </Btn>
-                  <Btn
-                    style={{
-                      padding: '5px',
-                      margin: '2px',
-                      width: '30%',
-                      backgroundColor: '#EADFD3',
-                    }}
-                    onClick={(e) => onStatusChange(e, list, 0)}
-                  >
-                    결석
-                  </Btn>
+                  <StatusBtn onClick={(e) => onStatusChange(e, list, 2)}>출석</StatusBtn>
+                  <StatusBtn onClick={(e) => onStatusChange(e, list, 1)}>지각</StatusBtn>
+                  <StatusBtn onClick={(e) => onStatusChange(e, list, 0)}>결석</StatusBtn>
                 </td>
                 <td style={{ padding: '15px 0', borderBottom: '1px solid #D5D5D5' }}>
                   <Btn onClick={onSubmit}>저장하기</Btn>

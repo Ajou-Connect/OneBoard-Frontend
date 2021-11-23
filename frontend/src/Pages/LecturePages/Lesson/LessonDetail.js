@@ -69,17 +69,16 @@ const WriteBtn = styled.button`
   }
 `;
 
-
-
-
 const LessonDetail = ({ match }) => {
   const lessonId = match.params.lessonId;
   const lectureId = match.params.lectureId;
   const [lessonDetails, setLessonDetails] = useState([]);
-
+  const user = JSON.parse(sessionStorage.userInfo);
+  const userType = user.userType;
   const getLessonData = () => {
     return new Promise((resolve, reject) => {
-      axios.get(`lecture/${lectureId}/lesson/${lessonId}`)
+      axios
+        .get(`lecture/${lectureId}/lesson/${lessonId}`)
         .then((res) => {
           const result = res.data.data;
           setLessonDetails(result);
@@ -87,75 +86,93 @@ const LessonDetail = ({ match }) => {
         })
         .catch((error) => {
           console.log(error);
-          reject(error)
-      })
-    })
-  }
+          reject(error);
+        });
+    });
+  };
 
   useEffect(() => {
     getLessonData();
-  }, [])
-  
+  }, []);
+
   const onCancel = () => {
-    return window.location.href = `/Main/Lecture/${lectureId}/Lesson`
-  }
+    return (window.location.href = `/Main/Lecture/${lectureId}/Lesson`);
+  };
 
   return (
     <div>
-      <Title>{lessonDetails.title}</Title>
-      <hr style={{ width: '100%', margin: '10px 0px', display: 'block', borderColor: '#ffffff' }} />
       <div style={{ display: 'flex' }}>
-      <div style={{ display: 'flex' }}>
+        <Title>{lessonDetails.title}</Title>
         <div
           style={{
-            fontSize: '1rem',
-            paddingBottom: '0.5rem',
-            marginBottom: '2rem',
-            marginTop: '15px',
+            fontSize: '1.3rem',
+            marginTop: '1.5rem',
             marginRight: '15px',
-            fontWeight: 'bold',
-            marginLeft: '15px',
+            marginLeft: '2rem',
           }}
         >
           강의 날짜 : {lessonDetails.date}
         </div>
-      </div>
-      
-      <div style={{ display: 'flex', marginLeft:"50px"}}>
         <div
           style={{
-            fontSize: '1rem',
-            paddingBottom: '0.5rem',
-            marginBottom: '2rem',
-            marginTop: '15px',
+            fontSize: '1.3rem',
+            marginTop: '1.5rem',
             marginRight: '15px',
-            fontWeight: 'bold',
-            marginLeft: '15px',
-            display:"flex"
+            marginLeft: '2rem',
+            display: 'flex',
           }}
         >
-          강의 노트 : {lessonDetails.noteUrl === null ? (<div style={{color:"red"}}>등록된 강의노트가 없습니다</div>) : (<div style={{textDecoration:"underline",color:"skyblue"}}>{lessonDetails.noteUrl}</div>)}
+          수업 타입 :
+          {lessonDetails.type === 2 ? (
+            <div style={{ marginLeft: '15px' }}>비대면 실시간 수업</div>
+          ) : lessonDetails.type === 1 ? (
+            <div style={{ marginLeft: '15px' }}>대면 수업</div>
+          ) : (
+            <div style={{ marginLeft: '15px' }}>녹화 강의</div>
+          )}
         </div>
-        </div>
-        </div>
+        {userType === 'S' ? (
+          <div
+            style={{
+              fontSize: '1.3rem',
+              marginTop: '1.5rem',
+              marginRight: '50px',
+              marginLeft: 'auto',
+            }}
+          >
+            출석 정보
+          </div>
+        ) : (
+          <div></div>
+        )}
+      </div>
       <hr style={{ width: '100%', margin: '10px 0px', display: 'block', borderColor: '#ffffff' }} />
-
       <div style={{ display: 'flex' }}>
-        <div
-          style={{
-            fontSize: '1rem',
-            paddingBottom: '0.5rem',
-            marginBottom: '2rem',
-            marginTop: '15px',
-            marginRight: '15px',
-            fontWeight: 'bold',
-            marginLeft: '15px',
-            display: "flex"
-          }}
-        >
-          수업 타입 : {lessonDetails.type===2 ? (<div style={{marginLeft:"15px"}}>비대면 실시간 수업</div>):(lessonDetails.type===1 ? (<div style={{marginLeft:"15px"}}>대면 수업</div>):(<div style={{marginLeft:"15px"}}>녹화 강의</div>))}
+        <div style={{ display: 'flex', marginLeft: '50px' }}>
+          <div
+            style={{
+              fontSize: '1rem',
+              paddingBottom: '0.5rem',
+              marginBottom: '2rem',
+              marginTop: '15px',
+              marginRight: '15px',
+              fontWeight: 'bold',
+              marginLeft: '15px',
+              display: 'flex',
+            }}
+          >
+            강의 노트 :{' '}
+            {lessonDetails.noteUrl === null ? (
+              <div style={{ color: 'red' }}>등록된 강의노트가 없습니다</div>
+            ) : (
+              <div style={{ textDecoration: 'underline', color: 'skyblue' }}>
+                {lessonDetails.noteUrl}
+              </div>
+            )}
+          </div>
         </div>
       </div>
+      <hr style={{ width: '100%', margin: '10px 0px', display: 'block', borderColor: '#ffffff' }} />
       <div style={{ display: 'flex' }}>
         <div
           style={{
@@ -166,16 +183,21 @@ const LessonDetail = ({ match }) => {
             marginRight: '15px',
             fontWeight: 'bold',
             marginLeft: '15px',
-            display: "flex",
+            display: 'flex',
           }}
         >
-          {lessonDetails.type === 2 ? (<div>실시간 수업 입장 : {lessonDetails.meetingId}</div>) : (lessonDetails.type === 1 ? (<div>강의실 정보 : {lessonDetails.room}</div>) : (<div>녹화 강의 : {lessonDetails.videoUrl}</div>))}
+          {lessonDetails.type === 2 ? (
+            <div>실시간 수업 입장 : {lessonDetails.meetingId}</div>
+          ) : lessonDetails.type === 1 ? (
+            <div>강의실 정보 : {lessonDetails.room}</div>
+          ) : (
+            <div>녹화 강의 : {lessonDetails.videoUrl}</div>
+          )}
         </div>
       </div>
       <WriteBtn onClick={onCancel}>뒤로가기</WriteBtn>
     </div>
   );
 };
-
 
 export default LessonDetail;
