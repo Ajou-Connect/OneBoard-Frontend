@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
-
+import moment from 'moment';
 const WriteBtn = styled.button`
   font-size: 12px;
   padding: 5px;
@@ -145,12 +145,43 @@ const StudentAssignmentList = (props) => {
     return (window.location.href = `/Main/Lecture/${userType}/${lectureId}/Assignment/${assignmentId}/StudentDetail`);
   };
 
+  const stateDisplay = (startDate, endDate) => {
+    let today = moment();
+
+    if (today.isBefore(startDate)) {
+      return (
+        <div style={{ color: '#BFBFBF', fontWeight: '700' }}>
+          {moment(startDate).format('M월 D일 HH:mm')} - {moment(endDate).format('M월 D일 HH:mm')}{' '}
+          (예정)
+        </div>
+      );
+    } else if (today.isBefore(endDate)) {
+      return (
+        <div style={{ color: '#61C679', fontWeight: '700' }}>
+          <StateColorCircle style={{ backgroundColor: '#66FF33' }} />
+        </div>
+      );
+    } else {
+      return (
+        <div style={{ color: '#E24C4B', fontWeight: '700' }}>
+          <StateColorCircle style={{ backgroundColor: '#E24C4B' }} />
+        </div>
+      );
+    }
+  };
+
   return (
     <div>
       <Container>
         <Title>Assignment</Title>
         <div style={{ width: '100%', display: 'block' }}>
           <SubTitle>과제</SubTitle>
+        </div>
+        <div style={{ width: '100%', display: 'block', height: '20px' }}>
+          <StateDescript>마감</StateDescript>{' '}
+          <StateColorCircle style={{ backgroundColor: '#E24C4B' }} />
+          <StateDescript>진행 중</StateDescript>{' '}
+          <StateColorCircle style={{ backgroundColor: '#66FF33' }} />
         </div>
       </Container>
       <div>
@@ -173,10 +204,11 @@ const StudentAssignmentList = (props) => {
             }}
           >
             <tr>
-              <th style={{ padding: '10px 0', width: '30%' }}>과제 명</th>
-              <th style={{ padding: '10px 0', width: '30%' }}>과제 기간</th>
-              <th style={{ padding: '10px 0', width: '30%' }}>오늘 날짜</th>
-              <th style={{ padding: '10px 0', width: '30%' }}>마감 완료</th>
+              <th style={{ padding: '10px 0', width: '10% ' }}>ID</th>
+              <th style={{ padding: '10px 0', width: '20% ' }}>과제 명</th>
+              <th style={{ padding: '10px 0', width: '40% ' }}>과제 기간</th>
+              <th style={{ padding: '10px 0', width: '10% ' }}>배점</th>
+              <th style={{ padding: '10px 0', width: '5% ' }}>진행 상태</th>
             </tr>
           </thead>
           <tbody>
@@ -201,14 +233,22 @@ const StudentAssignmentList = (props) => {
                       borderRadius: '5px',
                       boxShadow: '0px 2px 2px 1px #eeeeee',
                       cursor: 'pointer',
+                      backgroundColor: 'white',
                     }}
+                    key={index}
                   >
                     <td
                       style={{
-                        padding: '10px 0',
-                        backgroundColor: 'white',
-                        borderRadius: '5px 0 0 5px',
-                        width: '20%',
+                        padding: '15px 0',
+                        borderBottom: '1px solid #D5D5D5',
+                      }}
+                    >
+                      {index + 1}
+                    </td>
+                    <td
+                      style={{
+                        padding: '15px 0',
+                        borderBottom: '1px solid #D5D5D5',
                       }}
                     >
                       <div
@@ -218,31 +258,40 @@ const StudentAssignmentList = (props) => {
                           fontWeight: '700',
                           color: '#3E3E3E',
                           display: 'block',
+                          cursor: 'pointer',
+                          textDecoration: 'underline',
                         }}
                         onClick={(e) => goDetail(e, assignmentList.assignmentId)}
                       >
                         {assignmentList.title}
                       </div>
                     </td>
-                    <td style={{ padding: '10px 0', backgroundColor: 'white', width: '20%' }}>
+                    <td
+                      style={{
+                        padding: '15px 0',
+                        borderBottom: '1px solid #D5D5D5',
+                      }}
+                    >
                       {assignmentList.startDt} ~ {assignmentList.endDt}
-                    </td>
-                    <td style={{ padding: '10px 0', backgroundColor: 'white', width: '20%' }}>
-                      2021-11-21
                     </td>
                     <td
                       style={{
-                        padding: '10px 0',
-                        backgroundColor: 'white',
-                        paddingRight: '80px',
-                        width: '20%',
+                        padding: '15px 0',
+                        borderBottom: '1px solid #D5D5D5',
                       }}
                     >
-                      {assignmentList.endDt === 'endDate' ? (
-                        <StateColorCircle style={{ backgroundColor: '#E24C4B' }} />
-                      ) : (
-                        <StateColorCircle style={{ backgroundColor: '#66FF33' }} />
-                      )}
+                      {assignmentList.score}
+                    </td>
+
+                    <td
+                      style={{
+                        padding: '20px',
+                        borderBottom: '1px solid #D5D5D5',
+                      }}
+                    >
+                      <center>
+                        {stateDisplay(moment(assignmentList.startDt), moment(assignmentList.endDt))}
+                      </center>
                     </td>
                   </tr>
                 );

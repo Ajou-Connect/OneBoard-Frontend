@@ -13,6 +13,25 @@ const Container = styled.div`
   //align-items : center;
   //justify-content : center;
 `;
+
+const WriteBtn = styled.button`
+  display: flex;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 5px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  margin-left: auto;
+  margin-right: 30px;
+  background-color: #d3d31c;
+  color: #3e3e3e;
+  border-radius: 5px;
+  cursor: pointer;
+  &:hover {
+    background-color: #bfbfbf;
+  }
+`;
+
 const Title = styled.div`
   margin-top: 20px;
   margin-left: 20px;
@@ -83,7 +102,7 @@ const StudentAssignmentDetail = ({ match }) => {
   const assignmentId = match.params.assignmentId;
   const lectureId = match.params.lectureId;
   const [onGoing, setOnGoing] = useState(false);
-  const [submitData,setSubmitData] = useState({})
+  const [submitData, setSubmitData] = useState({});
   const getData = () => {
     return new Promise((resolve, reject) => {
       axios
@@ -108,7 +127,10 @@ const StudentAssignmentDetail = ({ match }) => {
     console.log(lectureId);
     console.log(assignmentId);
     return new Promise((resolve, reject) => {
-      axios.get(`/lecture/${lectureId}/assignment/${assignmentId}/submit`,{headers:{"X-AUTH-TOKEN":`${token}`}})
+      axios
+        .get(`/lecture/${lectureId}/assignment/${assignmentId}/submit`, {
+          headers: { 'X-AUTH-TOKEN': `${token}` },
+        })
         .then((res) => {
           const result = res.data.data;
           console.log(result);
@@ -117,9 +139,9 @@ const StudentAssignmentDetail = ({ match }) => {
         .catch((e) => {
           console.log(e);
           reject(e);
-      })
-    })
-  }
+        });
+    });
+  };
 
   const stateDisplay = (startDate, endDate) => {
     if (today.isBefore(startDate)) {
@@ -151,6 +173,7 @@ const StudentAssignmentDetail = ({ match }) => {
     getSubmitData();
   }, []);
 
+  //수정 필요
   const submitAssignment = () => {
     axios
       .post(
@@ -182,6 +205,10 @@ const StudentAssignmentDetail = ({ match }) => {
     formData.append('fileName', e.target.files[0].name);
     setStudentFile(formData);
     console.log(formData);
+  };
+
+  const onCancel = () => {
+    return (window.location.href = `/Main/Lecture/${userType}/${lectureId}/Assignment`);
   };
 
   return (
@@ -221,11 +248,13 @@ const StudentAssignmentDetail = ({ match }) => {
       <ProblemContainer style={{ margin: '10px auto' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
           {onGoing ? (
-            <ProblemTitle>과제 제출 작성</ProblemTitle>
+            <div>
+              <ProblemTitle>과제 제출 작성</ProblemTitle>
+              <Btn onClick={submitAssignment}>제출하기</Btn>
+            </div>
           ) : (
             <ProblemTitle>제출물</ProblemTitle>
           )}
-          <Btn onClick={submitAssignment}>제출하기</Btn>
         </div>
         <hr
           style={{ width: '100%', margin: '10px 0px', display: 'block', borderColor: '#ffffff' }}
@@ -238,16 +267,32 @@ const StudentAssignmentDetail = ({ match }) => {
               <input type="file" onChange={getFile} style={{ height: '41.6px', padding: '5px' }} />
             </div>
           </div>
-        ) : (<div>
-            <div style={{display:"flex"}}>
+        ) : (
+          <div>
+            <div style={{ display: 'flex' }}>
               <ProblemTitle>{assignments.title}</ProblemTitle>
-              <div style={{ fontWeight: "600", fontSize: "20px", marginLeft:"20px"}}>점수 : {submitData.score}</div>
-              
+              <div style={{ fontWeight: '600', fontSize: '20px', marginLeft: 'auto' }}>
+                점수 : {submitData.score} / {assignments.score}
+              </div>
             </div>
-            <div style={{ fontWeight: "600", fontSize: "20px", marginLeft:"20px",color:"skyblue"}}>피드백 : {submitData.feedback}</div>
-        </div>
+            <hr
+              style={{
+                width: '100%',
+                margin: '10px 0px',
+                display: 'block',
+                borderColor: '#ffffff',
+              }}
+            />
+            <div style={{ fontWeight: '600', fontSize: '20px', color: 'skyblue' }}>
+              피드백 :
+              <br />
+              <br />
+              <div style={{ color: 'black' }}>{submitData.feedback}</div>
+            </div>
+          </div>
         )}
       </ProblemContainer>
+      <WriteBtn onClick={onCancel}>뒤로가기</WriteBtn>
     </div>
   );
 };

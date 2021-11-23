@@ -83,7 +83,7 @@ const StudentLectureLesson = (props) => {
 
   const onDetail = (e, lessonId) => {
     console.log(lessonId);
-    return (window.location.href = `/Main/Lecture/${lectureId}/Lesson/${lessonId}`);
+    return (window.location.href = `/Main/Lecture/${lectureId}/Lesson/${lessonId}/LessonDetail`);
   };
 
   return (
@@ -130,7 +130,9 @@ const StudentLectureLesson = (props) => {
                   fontWeight: 'bold',
                   textDecoration: 'underline',
                   fontSize: '1rem',
+                  cursor: 'pointer',
                 }}
+                onClick={(e) => onDetail(e, lessonList.id)}
               >
                 {lessonList.title}
               </td>
