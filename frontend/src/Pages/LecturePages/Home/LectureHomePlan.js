@@ -10,7 +10,7 @@ const Container = styled.div`
   height: 450px;
 `;
 
-export const LectureHomePlan = (props) => {
+const LectureHomePlan = (props) => {
   const lectureId = props.lectureId;
   const [isPlan, setIsPlan] = useState(false);
   const Url = `https://docs.google.com/gview?embedded=true&url=http://115.85.182.194:8080/lecture/${lectureId}/plan`;

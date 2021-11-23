@@ -7,9 +7,11 @@ const Container = styled.div`
   margin: 10px;
   width: 90%;
   height: 450px;
+  background-color: #eef8f7;
+  border-radius: 5px;
 `;
 
-export const LectureHomeNotice = (props) => {
+const LectureHomeNotice = (props) => {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
   const lectureId = props.lectureId;
