@@ -96,34 +96,57 @@ const LoginCheck = () => {
 
   return (
     <Container className="SignInContainer">
-      <Row>
-        <Col className="InputContainer">
-          <input
-            className="signInInput"
-            name="email"
-            type="email"
-            placeholder="ID"
-            required
-            value={sessionStorage.getItem('email')}
-            onChange={(e) => onChangehandler(e)}
-            onKeyPress={(e) => enterEvent(e)}
-          />
-          <input
-            className="signInInput"
-            name="password"
-            type="password"
-            placeholder="Password"
-            required
-            value={password}
-            onKeyPress={(e) => enterEvent(e)}
-            onChange={(e) => onChangehandler(e)}
-          />
-        </Col>
-        <Col className="SignInBtnContainer">
-          <button className="DoSignIn" onClick={(e) => onSubmit(e)}>
-            로그인
-          </button>
-        </Col>
+      <Row style={{ marginTop: '5rem' }}>
+        <center>
+          <Col className="InputContainer">
+            <input
+              style={{ borderRadius: '7px', width: '40%', height: '100px', fontSize: '2rem' }}
+              className="signInInput"
+              name="email"
+              type="email"
+              placeholder="ID"
+              required
+              value={sessionStorage.getItem('email')}
+              onChange={(e) => onChangehandler(e)}
+              onKeyPress={(e) => enterEvent(e)}
+            />
+          </Col>
+          <Col className="InputContainer">
+            <input
+              style={{
+                marginTop: '10px',
+                borderRadius: '7px',
+                width: '40%',
+                height: '100px',
+                fontSize: '2rem',
+              }}
+              className="signInInput"
+              name="password"
+              type="password"
+              placeholder="Password"
+              required
+              value={password}
+              onKeyPress={(e) => enterEvent(e)}
+              onChange={(e) => onChangehandler(e)}
+            />
+          </Col>
+
+          <Col className="SignInBtnContainer">
+            <button
+              style={{
+                marginTop: '10px',
+                borderRadius: '7px',
+                width: '40%',
+                height: '100px',
+                fontSize: '2rem',
+              }}
+              className="DoSignIn"
+              onClick={(e) => onSubmit(e)}
+            >
+              로그인
+            </button>
+          </Col>
+        </center>
       </Row>
 
       <ModalHeader style={{ height: '70px', textAlign: 'center' }}></ModalHeader>
