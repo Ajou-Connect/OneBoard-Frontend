@@ -6,7 +6,7 @@ const Container = styled.div`
   border: 1px solid #cdcdcd;
   margin: 10px;
   width: 90%;
-  height: 500px;
+  height: 450px;
 `;
 
 export const LectureHomeNotice = (props) => {
