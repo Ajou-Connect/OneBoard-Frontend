@@ -26,7 +26,12 @@ const LectureHome = ({ match }) => {
       <div className="home-content">
         <Title>Home</Title>
         <hr
-          style={{ width: '100%', margin: '10px 0px', display: 'block', borderColor: '#ffffff' }}
+          style={{
+            width: '100%',
+            margin: '10px 0px',
+            display: 'block',
+            borderColor: '#ffffff',
+          }}
         />
         <div style={{ display: 'flex' }}>
           <LectureHomeNotice lectureId={lectureId} />

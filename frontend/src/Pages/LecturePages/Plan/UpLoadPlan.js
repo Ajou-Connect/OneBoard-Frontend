@@ -44,7 +44,7 @@ export const UpLoadPlan = (props) => {
         현재 등록된 강의계획서가 없습니다.
       </div>
       {userType === 'T' ? (
-        <WriteBtn style={{ marginLeft: '20px' }} onClick={onUploadPlan}>
+        <WriteBtn style={{ marginLeft: '20px', cursor: 'pointer' }} onClick={onUploadPlan}>
           강의계획서 등록하기
         </WriteBtn>
       ) : (

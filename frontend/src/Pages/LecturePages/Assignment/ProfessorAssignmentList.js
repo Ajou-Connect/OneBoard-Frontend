@@ -12,6 +12,7 @@ const WriteBtn = styled.button`
   background-color: #ececec;
   color: #3e3e3e;
   border-radius: 5px;
+  cursor: pointer;
   &:hover {
     background-color: #bfbfbf;
   }
@@ -26,6 +27,7 @@ const Btn = styled.button`
   background-color: rgba(215, 226, 185, 0.596);
   color: #3e3e3e;
   border-radius: 7px;
+  cursor: pointer;
   &:hover {
     background-color: #bfbfbf;
   }

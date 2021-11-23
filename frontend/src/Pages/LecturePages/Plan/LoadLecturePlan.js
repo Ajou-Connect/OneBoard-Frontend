@@ -50,7 +50,10 @@ export const LoadLecturePlan = (props) => {
         >
           강의계획서 다운로드
         </a>
-        <WriteBtn style={{ marginLeft: 'auto', marginRight: '30px' }} onClick={onUploadPlan}>
+        <WriteBtn
+          style={{ marginLeft: 'auto', marginRight: '30px', cursor: 'pointer' }}
+          onClick={onUploadPlan}
+        >
           수정하기
         </WriteBtn>
       </div>

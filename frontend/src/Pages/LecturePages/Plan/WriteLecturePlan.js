@@ -99,7 +99,7 @@ export const WriteLecturePlan = ({ match }) => {
           등록
         </button>
       </form>
-      <WriteBtn onClick={onCancel} style={{ marginLeft: '20px' }}>
+      <WriteBtn onClick={onCancel} style={{ marginLeft: '20px', cursor: 'pointer' }}>
         뒤로가기
       </WriteBtn>
     </div>

@@ -45,6 +45,7 @@ const UpdateBtn = styled.button`
   border-radius: 5px;
   margin-left: auto;
   padding: 5px;
+  cursor: pointer;
 `;
 
 const BackBtn = styled.button`
@@ -65,6 +66,7 @@ const WriteBtn = styled.button`
   background-color: #c3cbc2;
   color: #3e3e3e;
   border-radius: 5px;
+  cursor: pointer;
   &:hover {
     background-color: #bfbfbf;
   }

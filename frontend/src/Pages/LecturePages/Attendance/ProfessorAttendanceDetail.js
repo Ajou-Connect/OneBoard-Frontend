@@ -35,6 +35,7 @@ const Btn = styled.button`
   background-color: rgba(215, 226, 185, 0.596);
   color: #3e3e3e;
   border-radius: 7px;
+  cursor: pointer;
   &:hover {
     background-color: #bfbfbf;
   }
@@ -47,6 +48,7 @@ const StatusBtn = styled.button`
   background-color: #eadfd3;
   color: #3e3e3e;
   border-radius: 7px;
+  cursor: pointer;
   &:hover {
     background-color: #bfbfbf;
   }
@@ -63,6 +65,7 @@ const WriteBtn = styled.button`
   margin-bottom: 20px;
   padding: 5px;
   border-radius: 5px;
+  cursor: pointer;
   &:hover {
     background-color: #bfbfbf;
   }

@@ -46,7 +46,7 @@ const LectureHomePlan = (props) => {
         {isPlan !== true ? (
           <div>현재 등록된 강의계획서가 없습니다</div>
         ) : (
-          <iframe id="plan" src={Url} style={{ width: '85%', height: '100%' }} />
+          <iframe id="plan" src={Url} style={{ width: '100%', height: '100%' }} />
         )}
       </Container>
     </div>
