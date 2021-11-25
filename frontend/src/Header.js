@@ -9,10 +9,13 @@ class Header extends Component {
   }
 
   render() {
+    const goMain = () => {
+      return (window.location.href = `/Main/Home`);
+    };
     return (
       <div className="header-head">
         <div className="header-image">
-          <img src={logoimage} alt="OneBoard" />
+          <img src={logoimage} alt="OneBoard" onClick={goMain} style={{ cursor: 'pointer' }} />
         </div>
       </div>
     );
