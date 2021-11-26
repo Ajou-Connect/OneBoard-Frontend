@@ -1,0 +1,67 @@
+{
+  "_from": "@zoom/videosdk@^1.1.6",
+  "_id": "@zoom/videosdk@1.1.6",
+  "_inBundle": false,
+  "_integrity": "sha512-R0APBncmtqkPskN/8E/4hZPl9YzqIvKnHruq8KdPC7Px7NH9t+6MzPzBtpYkpWYHUZgFUCNv3CaKSDVMVAUE4Q==",
+  "_location": "/@zoom/videosdk",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "@zoom/videosdk@^1.1.6",
+    "name": "@zoom/videosdk",
+    "escapedName": "@zoom%2fvideosdk",
+    "scope": "@zoom",
+    "rawSpec": "^1.1.6",
+    "saveSpec": null,
+    "fetchSpec": "^1.1.6"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/@zoom/videosdk/-/videosdk-1.1.6.tgz",
+  "_shasum": "110e3d55897d3002cabd985575109eea891d6c5a",
+  "_spec": "@zoom/videosdk@^1.1.6",
+  "_where": "/mnt/f/zoomtest/sample-app-videosdk/react-demo",
+  "author": {
+    "name": "Zoom Video Communications"
+  },
+  "browser": "dist/index.umd.js",
+  "bugs": {
+    "url": "https://github.com/zoom/videosdk-web/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "Zoom Web Video SDK",
+  "directories": {
+    "doc": "docs"
+  },
+  "files": [
+    "/docs",
+    "/dist",
+    "oss_attribution.txt",
+    "readme.md",
+    "CHANGELOG.md"
+  ],
+  "homepage": "https://github.com/zoom/videosdk-web#readme",
+  "keywords": [
+    "zoom",
+    "video",
+    "sdk",
+    "web"
+  ],
+  "license": "ISC",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "name": "@zoom/videosdk",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zoom/videosdk-web.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "types": "dist/types/index.d.ts",
+  "version": "1.1.6"
+}
