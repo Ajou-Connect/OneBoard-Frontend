@@ -100,7 +100,7 @@ const Routes = () => {
 
       <Route exact path="/Main/Lecture/:lectureId/Plan" component={LecturePlan} />
       <Route exact path="/Main/Lecture/:lectureId/Plan/UpLoadPlan" component={WriteLecturePlan} />
-    </div>
+]    </div>
   );
 };
 

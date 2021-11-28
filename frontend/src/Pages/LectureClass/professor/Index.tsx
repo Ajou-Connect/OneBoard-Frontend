@@ -281,11 +281,11 @@ function Index(props: TestProps) {
 
   async function zoomInit() {
     setisLoading(true);
-    const client = ZoomInstant.createClient();
+    const client = ZoomVideo.createClient();
     await client.init("en-US", `${window.location.origin}/lib`);
     const token = generateInstantToken(
-      "BkxDIpVzJ3wIa0Wwt7HIGg9hdMeit8qtg5BL",
-      "RgEUnU0BDoSEozxsw8ySNWs8C0WvTfpDsUxA",
+      "MoRylmD2jBq9NfbZXbSVmvZcGYOFkDCeJc3e",
+      "NewabYwGXIFrOlPRf4dZBKeqFECESIkdlLrq",
       "harry"
     );
     console.log('joining...');

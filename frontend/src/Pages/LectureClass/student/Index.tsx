@@ -6,7 +6,7 @@ import { RenderCanvas, ToggleCanvas, SetCanvasSize } from '../utils/SetCanvas/In
 import MediaController from '../utils/MediaController/Index'
 import Loading from '../utils/Loading/Index'
 import { generateInstantToken } from '../utils/Auth/Index';
-import ZoomVideo from '@zoom/videosdk';
+import ZoomVideo from "@zoom/videosdk";
 import Chat from '../utils/Contents/Chat/Index';
 import Participant from '../utils/Contents/Participant/Index';
 import Question from '../utils/Contents/Question/Index'
@@ -256,8 +256,8 @@ function Index(props: TestProps) {
       const client = ZoomVideo.createClient();
       await client.init("en-US", `${window.location.origin}/lib`);
       const token = generateInstantToken(
-        "BkxDIpVzJ3wIa0Wwt7HIGg9hdMeit8qtg5BL",
-        "RgEUnU0BDoSEozxsw8ySNWs8C0WvTfpDsUxA",
+        "MoRylmD2jBq9NfbZXbSVmvZcGYOFkDCeJc3e",
+        "NewabYwGXIFrOlPRf4dZBKeqFECESIkdlLrq",
         "harry"
       );
       await client.join("harry", token, user.email)
@@ -447,7 +447,7 @@ function Index(props: TestProps) {
   }, [Active2Num])
 
   useEffect(() => {
-    console.log(socket, "afasd");
+    console.log(socketio, "afasd");
   }, [])
 
   useEffect(() => {
@@ -467,7 +467,7 @@ function Index(props: TestProps) {
       <LeftCnt>
         <ZoomScreen id="zoomScreen">
           <ScreenMenuCnt id="screenMenuCnt">
-            {/* {RenderMenuBtns()} */}
+            RenderMenuBtns()
           </ScreenMenuCnt>
           {RenderCanvas()}
           <MediaController socket={socket} client={client} />
@@ -477,8 +477,8 @@ function Index(props: TestProps) {
         <Active1Cnt>
           <Active1ContentCnt>
             <ContentWrapper className="content1 active" id="content1"><Participant students={students} socket={socket} /></ContentWrapper>
-            <ContentWrapper className="content1" id="content2"><Chat socket={socket} user={user.name} /></ContentWrapper>
-            <ContentWrapper className="content1" id="content3"><Question lecture_id={lecture_id} socket={socket} /></ContentWrapper>
+            <ContentWrapper className="content1" id="content2"><Chat  user={user.name} /></ContentWrapper>
+            <ContentWrapper className="content1" id="content3"><Question lecture_id={lecture_id}  /></ContentWrapper>
           </Active1ContentCnt>
           <Active1Menu>
             <ParticipantsBtn className="Active1Btn active" id="1" onClick={Active1BtnHandler}>참가자</ParticipantsBtn>
