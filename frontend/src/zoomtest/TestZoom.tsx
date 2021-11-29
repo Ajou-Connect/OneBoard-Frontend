@@ -3,29 +3,80 @@ import ZoomContext from './ZoomClientContext';
 import ZoomVideo from '@zoom/videosdk';
 import { generateVideoToken } from './GenerateToken';
 import ConnectionState from "@zoom/videosdk";
+import produce from "immer";
 
-const client = ZoomVideo.createClient();
+
+
+const mediaShape = {
+  audio: {
+    encode: false,
+    decode: false,
+  },
+  video: {
+    encode: false,
+    decode: false,
+  },
+  share: {
+    encode: false,
+    decode: false,
+  },
+};
+const mediaReducer = produce((draft, action) => {
+  switch (action.type) {
+    case "audio-encode": {
+      draft.audio.encode = action.payload;
+      break;
+    }
+    case "audio-decode": {
+      draft.audio.decode = action.payload;
+      break;
+    }
+    case "video-encode": {
+      draft.video.encode = action.payload;
+      break;
+    }
+    case "video-decode": {
+      draft.video.decode = action.payload;
+      break;
+    }
+    case "share-encode": {
+      draft.share.encode = action.payload;
+      break;
+    }
+    case "share-decode": {
+      draft.share.decode = action.payload;
+      break;
+    }
+    default:
+      break;
+  }
+}, mediaShape);
+
+
+function TestZoom() {
+  const client = ZoomVideo.createClient();
 const token = generateVideoToken(
     "MoRylmD2jBq9NfbZXbSVmvZcGYOFkDCeJc3e",
     "NewabYwGXIFrOlPRf4dZBKeqFECESIkdlLrq",
-    "tony"
+  "tony",
+  "",
+  "jack",
+    "jack4"
   );
-function TestZoom() {
-  
   useEffect(() => {
     const init = async () => {
       await client.init("en-US", `${window.location.origin}/lib`, 'zoom.us');
-      try {
-        console.log("join session");
-        await client.join("topic", token, "tony");
-        console.log(token);
-        
-      }
-      catch (e) {
-        console.log(e);
-        
-      }
+      // try { 
+      //   await client.join("tony", token, "name","");
+      //   console.log("join session");
+      // }
+      // catch (e) {
+      //   console.log(e);
+      // }
     }
+    init();
+},)
+  
   //   const client = ZoomVideo.createClient();
   // client.init("en-US", `${window.location.origin}/lib`);
   // const token = generateVideoToken(
@@ -52,8 +103,7 @@ function TestZoom() {
       
   //   }
   // })
-  })
-  
+ 
   return (
     <div>
       hello this is zoom test page

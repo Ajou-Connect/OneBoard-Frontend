@@ -8,16 +8,17 @@ import Header from './Header';
 import axios from 'axios';
 import ZoomContext from './zoomtest/ZoomClientContext';
 import ZoomVideo from '@zoom/videosdk';
+import { generateVideoToken } from './zoomtest/GenerateToken';
+import { devConfig } from './zoomtest/dev';
 
-axios.defaults.baseURL = 'http://115.85.182.194:8080';
+axios.defaults.baseURL = 'https://115.85.182.194:8080';
 // axios.defaults.withCredentials = true;
-
 
 ReactDOM.render(
   <React.StrictMode>
     <Header />
     <BrowserRouter>
-        <App />
+      <App />
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root'),

@@ -41,7 +41,6 @@ display : flex;
 justify-content : left;
 align-items : center;
 background-color : transparent;
-/* background-color : ${props => props.theme.color.background_gray}; */
 transition : all 0.1s linear;
 transform : translateY(-100px);
 `
@@ -331,7 +330,7 @@ function Index(props: TestProps) {
         const parent = canvas.parentElement as HTMLElement;
         const stream = client.getMediaStream();
         stream.updateVideoCanvasDimension(canvas, parent.offsetWidth, parent.offsetHeight);
-        //stream.adjustRenderedVideoPosition(canvas, client.getCurrentUserInfo().userId, canvas.width, canvas.height, 0, 0);
+        stream.adjustRenderedVideoPosition(canvas, client.getCurrentUserInfo().userId, canvas.width, canvas.height, 0, 0);
       });
     } catch (err) {
       console.log(err);
@@ -368,39 +367,39 @@ function Index(props: TestProps) {
     !isLoading && ToggleCanvas(screenNum);
   }, [screenNum, isLoading])
 
-  useEffect(() => {
-    !isLoading && SetCanvasSize();
-  }, [isLoading])
+  // useEffect(() => {
+  //   !isLoading && SetCanvasSize();
+  // }, [isLoading])
 
-  //for Active 1 
-  useEffect(() => {
-    const contents: NodeListOf<Element> = document.querySelectorAll('.Active1Content');
-    contents.forEach((content: Element, idx) => {
-      content.setAttribute("style", "display : none;")
-      if (parseInt(content.id) === Active1Num)
-        content.setAttribute("style", "display : block;")
-    })
-    const buttons = document.querySelectorAll('.Active1Btn');
-    buttons.forEach((button: Element, idx) => {
-      button.classList.remove('active');
-      if (parseInt(button.id) === Active1Num) button.classList.add('active');
-    })
-  }, [Active1Num])
+  // //for Active 1 
+  // useEffect(() => {
+  //   const contents: NodeListOf<Element> = document.querySelectorAll('.Active1Content');
+  //   contents.forEach((content: Element, idx) => {
+  //     content.setAttribute("style", "display : none;")
+  //     if (parseInt(content.id) === Active1Num)
+  //       content.setAttribute("style", "display : block;")
+  //   })
+  //   const buttons = document.querySelectorAll('.Active1Btn');
+  //   buttons.forEach((button: Element, idx) => {
+  //     button.classList.remove('active');
+  //     if (parseInt(button.id) === Active1Num) button.classList.add('active');
+  //   })
+  // }, [Active1Num])
 
-  //for Active 2
-  useEffect(() => {
-    const contents = document.querySelectorAll('.Active2Content');
-    contents.forEach((content, idx) => {
-      content.setAttribute("style", "display : none;")
-      if (parseInt(content.id) === Active2Num)
-        content.setAttribute("style", "display : block;")
-    })
-    const buttons = document.querySelectorAll('.Active2Btn');
-    buttons.forEach((button, idx) => {
-      button.classList.remove('active');
-      if (parseInt(button.id) === Active2Num) button.classList.add('active');
-    })
-  }, [Active2Num])
+  // //for Active 2
+  // useEffect(() => {
+  //   const contents = document.querySelectorAll('.Active2Content');
+  //   contents.forEach((content, idx) => {
+  //     content.setAttribute("style", "display : none;")
+  //     if (parseInt(content.id) === Active2Num)
+  //       content.setAttribute("style", "display : block;")
+  //   })
+  //   const buttons = document.querySelectorAll('.Active2Btn');
+  //   buttons.forEach((button, idx) => {
+  //     button.classList.remove('active');
+  //     if (parseInt(button.id) === Active2Num) button.classList.add('active');
+  //   })
+  // }, [Active2Num])
 
   //------rendering------
   //render screen button handler
@@ -419,34 +418,34 @@ function Index(props: TestProps) {
 
   //------handler------
   //change screen handler
-  const changeScrenBtn = (e: any) => {
-    setscreenNum(parseInt(e.target.id));
-  }
+  // const changeScrenBtn = (e: any) => {
+  //   setscreenNum(parseInt(e.target.id));
+  // }
 
-  //change active1 content
-  const Active1BtnHandler = (e: any) => {
-    setActive1Num(parseInt(e.target.id));
-  }
-  //change active2 content
-  const Active2BtnHandler = (e: any) => {
-    setActive2Num(parseInt(e.target.id));
-  }
+  // //change active1 content
+  // const Active1BtnHandler = (e: any) => {
+  //   setActive1Num(parseInt(e.target.id));
+  // }
+  // //change active2 content
+  // const Active2BtnHandler = (e: any) => {
+  //   setActive2Num(parseInt(e.target.id));
+  // }
 
-  useEffect(() => {
-    const contents = document.querySelectorAll('.content1') as NodeListOf<HTMLElement>;
-    contents.forEach((content, index) => {
-      content.classList.remove('active');
-      if (index == Active1Num - 1) content.classList.add('active');
-    })
-  }, [Active1Num])
+  // useEffect(() => {
+  //   const contents = document.querySelectorAll('.content1') as NodeListOf<HTMLElement>;
+  //   contents.forEach((content, index) => {
+  //     content.classList.remove('active');
+  //     if (index == Active1Num - 1) content.classList.add('active');
+  //   })
+  // }, [Active1Num])
 
-  useEffect(() => {
-    const contents = document.querySelectorAll('.content2') as NodeListOf<HTMLElement>;
-    contents.forEach((content, index) => {
-      content.classList.remove('active');
-      if (index == Active2Num - 1) content.classList.add('active');
-    })
-  }, [Active2Num])
+  // useEffect(() => {
+  //   const contents = document.querySelectorAll('.content2') as NodeListOf<HTMLElement>;
+  //   contents.forEach((content, index) => {
+  //     content.classList.remove('active');
+  //     if (index == Active2Num - 1) content.classList.add('active');
+  //   })
+  // }, [Active2Num])
 
   // useEffect(() => {
   //   console.log(socket, "afasd");
@@ -462,7 +461,7 @@ function Index(props: TestProps) {
   //     console.log(data);
   //   });
   // }, [])
-  if (isLoading) return <Loading type="spin" color='orange'></Loading>
+  // if (isLoading) return <Loading type="spin" color='orange'></Loading>
 
   return (
     <MainCnt>
@@ -475,33 +474,34 @@ function Index(props: TestProps) {
           <MediaController  client={client} />
         </ZoomScreen>
       </LeftCnt>
-      <RightCnt>
-        <Active1Cnt>
-          <Active1ContentCnt>
-            <ContentWrapper className="content1 active" id="content1"></ContentWrapper>
-            <ContentWrapper className="content1" id="content2"><Chat user={user.name} /></ContentWrapper>
-            <ContentWrapper className="content1" id="content3"><Question lecture_id={lecture_id}  /></ContentWrapper>
-          </Active1ContentCnt>
-          <Active1Menu>
-            <ParticipantsBtn className="Active1Btn active" id="1" onClick={Active1BtnHandler}>참가자</ParticipantsBtn>
-            <ChatBtn className="Active1Btn" id="2" onClick={Active1BtnHandler}>채팅</ChatBtn>
-            <QuestionBtn className="Active1Btn" id="3" onClick={Active1BtnHandler}>질문</QuestionBtn>
-          </Active1Menu>
-        </Active1Cnt>
-        <Active2Cnt>
-          <Active2ContentCnt>
-            {/* <ContentWrapper className="content2 active" id="content1"><Comp lecture_info={lecture_info} lecture_id={lecture_id} /></ContentWrapper> */}
-            <ContentWrapper className="content2" id="content2"><Sub lecture_id={lecture_id}  /></ContentWrapper>
-            <ContentWrapper className="content2" id="content3"></ContentWrapper>
-          </Active2ContentCnt>
-          <Active2Menu>
-            <UnderstoodsBtn className="Active2Btn active" id="1" onClick={Active2BtnHandler}>이해도</UnderstoodsBtn>
-            <SubtitleBtn className="Active2Btn" id="2" onClick={Active2BtnHandler}>자막</SubtitleBtn>
-            <EtcBtn className="Active2Btn" id="3" onClick={Active2BtnHandler}>작업</EtcBtn>
-          </Active2Menu>
-        </Active2Cnt>
-      </RightCnt>
+    {/* //   <RightCnt>
+    //     <Active1Cnt>
+    //       <Active1ContentCnt>
+    //         <ContentWrapper className="content1 active" id="content1"></ContentWrapper>
+    //         <ContentWrapper className="content1" id="content2"><Chat user={user.name} /></ContentWrapper>
+    //         <ContentWrapper className="content1" id="content3"><Question lecture_id={lecture_id}  /></ContentWrapper>
+    //       </Active1ContentCnt>
+    //       <Active1Menu>
+    //         <ParticipantsBtn className="Active1Btn active" id="1" onClick={Active1BtnHandler}>참가자</ParticipantsBtn>
+    //         <ChatBtn className="Active1Btn" id="2" onClick={Active1BtnHandler}>채팅</ChatBtn>
+    //         <QuestionBtn className="Active1Btn" id="3" onClick={Active1BtnHandler}>질문</QuestionBtn>
+    //       </Active1Menu>
+    //     </Active1Cnt>
+    //     <Active2Cnt>
+    //       <Active2ContentCnt>
+    //         {/* <ContentWrapper className="content2 active" id="content1"><Comp lecture_info={lecture_info} lecture_id={lecture_id} /></ContentWrapper> */}
+    {/* //         <ContentWrapper className="content2" id="content2"><Sub lecture_id={lecture_id}  /></ContentWrapper>
+    //         <ContentWrapper className="content2" id="content3"></ContentWrapper>
+    //       </Active2ContentCnt> */}
+    {/* //       <Active2Menu>
+    //         <UnderstoodsBtn className="Active2Btn active" id="1" onClick={Active2BtnHandler}>이해도</UnderstoodsBtn>
+    //         <SubtitleBtn className="Active2Btn" id="2" onClick={Active2BtnHandler}>자막</SubtitleBtn>
+    //         <EtcBtn className="Active2Btn" id="3" onClick={Active2BtnHandler}>작업</EtcBtn>
+    //       </Active2Menu>
+    //     </Active2Cnt> */}
+    {/* //   </RightCnt> */} 
     </MainCnt>
+   
   )
 }
 

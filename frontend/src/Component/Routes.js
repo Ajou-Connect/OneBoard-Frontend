@@ -27,7 +27,6 @@ import WriteLecturePlan from '../Pages/LecturePages/Plan/WriteLecturePlan';
 import UpdateLesson from '../Pages/LecturePages/Lesson/UpdateLesson';
 import ProfessorLectureScore from '../Pages/LecturePages/Score/ProfessorLectureScore';
 import ProfessorScoreDetail from '../Pages/LecturePages/Score/ProfessorScoreDetail';
-import TestZoom from '../zoomtest/TestZoom';
 
 const Routes = () => {
   return (
