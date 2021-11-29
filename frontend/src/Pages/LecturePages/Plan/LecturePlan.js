@@ -101,7 +101,7 @@ const LecturePlan = ({ match }) => {
   const lectureId = match.params.lectureId;
   const [isPlan, setIsPlan] = useState(false);
   const [planFile, setPlanFile] = useState(null);
-  const FileURL = `http://115.85.182.194:8080/lecture/${lectureId}/plan`;
+  const FileURL = `https://115.85.182.194:8080/lecture/${lectureId}/plan`;
 
   const getPlan = () => {
     return new Promise((resolve, reject) => {
