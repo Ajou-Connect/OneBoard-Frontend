@@ -1,6 +1,6 @@
 import { KJUR } from 'jsrsasign';
 
-export function generateVideoToken(sdkKey, sdkSecret, topic, password = '') {
+export function generateInstantToken(sdkKey, sdkSecret, topic, password = '') {
   let signature = '';
   const iat = Math.round(new Date().getTime() / 1000);
   const exp = iat + 60 * 60 * 2;

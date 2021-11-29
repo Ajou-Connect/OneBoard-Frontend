@@ -11,11 +11,11 @@ import Chat from '../utils/Contents/Chat/Index';
 import Participant from '../utils/Contents/Participant/Index1';
 import Question from '../utils/Contents/Question/Index'
 import Etc from './util/Etc/Index'
-import Comp from './util/Comp/Index.js'
+import Comp from './util/Comp/Index';
 import Sub from './util/Sub/Index'
-import My from '../../../../images/utils/myscreen.png'
-import Part from '../../../../images/utils/part.png'
-import Share from '../../../../images/utils/share.png'
+// import My from '../../../../images/utils/myscreen.png'
+// import Part from '../../../../images/utils/part.png'
+// import Share from '../../../../images/utils/share.png'
 import './Index.css'
 /* import StartAnim from './util/Animation/Index' */
 
@@ -255,12 +255,12 @@ interface TestProps {
 });
 console.log(socket); */
 
-const socket = socketio('https://disboard13.kro.kr', {
-  transports: ['polling'],
-  withCredentials: true,
-  path: '/socket'
-});
-console.log(socket);
+// const socket = socketio('https://disboard13.kro.kr', {
+//   transports: ['polling'],
+//   withCredentials: true,
+//   path: '/socket'
+// });
+// console.log(socket);
 
 const user = sessionStorage.userInfo && JSON.parse(window.sessionStorage.userInfo);
 function Index(props: TestProps) {
@@ -281,11 +281,11 @@ function Index(props: TestProps) {
 
   async function zoomInit() {
     setisLoading(true);
-    const client = ZoomInstant.createClient();
+    const client = ZoomVideo.createClient();
     await client.init("en-US", `${window.location.origin}/lib`);
     const token = generateInstantToken(
-      "BkxDIpVzJ3wIa0Wwt7HIGg9hdMeit8qtg5BL",
-      "RgEUnU0BDoSEozxsw8ySNWs8C0WvTfpDsUxA",
+      "MoRylmD2jBq9NfbZXbSVmvZcGYOFkDCeJc3e",
+      "NewabYwGXIFrOlPRf4dZBKeqFECESIkdlLrq",
       "harry"
     );
     console.log('joining...');
@@ -409,18 +409,18 @@ function Index(props: TestProps) {
 
   //------rendering------
   //render screen button handler
-  const RenderMenuBtns = () => {
-    const screens = ['내화면', '공유화면'];
-    const links = [My, Share]
-    const result = screens.map((value, index) => {
-      return (
-        <Fuck>
-          <ScreenMenu style={{ backgroundImage: `url(${links[index]})` }} onClick={changeScrenBtn} id={index.toString()}></ScreenMenu>
-          <span style={{ color: 'white' }}>{value}</span>
-        </Fuck>);
-    })
-    return result;
-  }
+  // const RenderMenuBtns = () => {
+  //   const screens = ['내화면', '공유화면'];
+  //   const links = [My, Share]
+  //   const result = screens.map((value, index) => {
+  //     return (
+  //       <Fuck>
+  //         <ScreenMenu style={{ backgroundImage: `url(${links[index]})` }} onClick={changeScrenBtn} id={index.toString()}></ScreenMenu>
+  //         <span style={{ color: 'white' }}>{value}</span>
+  //       </Fuck>);
+  //   })
+  //   return result;
+  // }
 
   //------handler------
   //change screen handler
@@ -453,36 +453,36 @@ function Index(props: TestProps) {
     })
   }, [Active2Num])
 
-  useEffect(() => {
-    const payload: aaa =
-    {
-      subjectId: parseInt(props.match.params.subject_id),
-      options: {
-        subtitle: true,
-        record: false,
-        attendance: true,
-        limit: 5
-      }
-    }
-    axios.post('/api/lecture/start', payload).then(res => {
-      setlecture_id(res.data.lecture._id);
-      console.log(res.data.lecture._id);
-    })
-    socket.emit('user', {
-      name: user ? user.name : "default",
-      code: props.match.params.subject_code,
-      email: user ? user.email : "default"
-    });
-    socket.on('newUser', (data: any) => {
-      console.log(data);
-    });
-    socket.on('disConnected', (data: any) => {
-      console.log(data);
-    })
-    /*     setTimeout(() => {
-          StartAnim();
-        }, 5000); */
-  }, [])
+  // useEffect(() => {
+  //   const payload: aaa =
+  //   {
+  //     subjectId: parseInt(props.match.params.subject_id),
+  //     options: {
+  //       subtitle: true,
+  //       record: false,
+  //       attendance: true,
+  //       limit: 5
+  //     }
+  //   }
+  //   axios.post('/api/lecture/start', payload).then(res => {
+  //     setlecture_id(res.data.lecture._id);
+  //     console.log(res.data.lecture._id);
+  //   })
+  //   socket.emit('user', {
+  //     name: user ? user.name : "default",
+  //     code: props.match.params.subject_code,
+  //     email: user ? user.email : "default"
+  //   });
+  //   socket.on('newUser', (data: any) => {
+  //     console.log(data);
+  //   });
+  //   socket.on('disConnected', (data: any) => {
+  //     console.log(data);
+  //   })
+  //   /*     setTimeout(() => {
+  //         StartAnim();
+  //       }, 5000); */
+  // }, [])
 
   if (isLoading) return <Loading type="spin" color='orange'></Loading>
 
@@ -506,18 +506,19 @@ function Index(props: TestProps) {
       <LeftCnt>
         <ZoomScreen id="zoomScreen">
           <ScreenMenuCnt id="screenMenuCnt">
-            {RenderMenuBtns()}
+            {/* {RenderMenuBtns()} */}
+            메뉴
           </ScreenMenuCnt>
           {RenderCanvas()}
-          <MediaController socket={socket} client={client} />
+          {/* <MediaController socket={socket} client={client} /> */}
         </ZoomScreen>
       </LeftCnt>
       <RightCnt>
         <Active1Cnt>
           <Active1ContentCnt>
-            <ContentWrapper className="content1 active" id="content1"><Participant socket={socket} /></ContentWrapper>
-            <ContentWrapper className="content1" id="content2"><Chat socket={socket} user={user.name} /></ContentWrapper>
-            <ContentWrapper className="content1" id="content3"><Question lecture_id={lecture_id} socket={socket} /></ContentWrapper>
+            <ContentWrapper className="content1 active" id="content1"></ContentWrapper>
+            <ContentWrapper className="content1" id="content2"><Chat user={user.name} /></ContentWrapper>
+            <ContentWrapper className="content1" id="content3"><Question lecture_id={lecture_id}  /></ContentWrapper>
           </Active1ContentCnt>
           <Active1Menu>
             <ParticipantsBtn className="Active1Btn active" id="1" onClick={Active1BtnHandler}>참가자</ParticipantsBtn>
@@ -527,9 +528,9 @@ function Index(props: TestProps) {
         </Active1Cnt>
         <Active2Cnt>
           <Active2ContentCnt>
-            <ContentWrapper2 className="content2 active" id="content1"><Comp setColor={setColor} socket={socket} /></ContentWrapper2>
+            {/* <ContentWrapper2 className="content2 active" id="content1"><Comp setColor={setColor} socket={socket} /></ContentWrapper2>
             <ContentWrapper2 className="content2" id="content2"><Sub socket={socket} type={subType} /></ContentWrapper2>
-            <ContentWrapper2 className="content2" id="content3"><Etc socket={socket} /></ContentWrapper2>
+            <ContentWrapper2 className="content2" id="content3"><Etc socket={socket} /></ContentWrapper2> */}
           </Active2ContentCnt>
           <Active2Menu>
             <UnderstoodsBtn className="Active2Btn active" id="1" onClick={Active2BtnHandler}>이해도</UnderstoodsBtn>

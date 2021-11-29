@@ -5,7 +5,7 @@ import socketio from 'socket.io-client'
 import { RenderCanvas, ToggleCanvas, SetCanvasSize } from '../utils/SetCanvas/Index'
 import MediaController from '../utils/MediaController/Index'
 import Loading from '../utils/Loading/Index'
-import { generateInstantToken } from '../utils/Auth/Index';
+import { generateVideoToken } from '../utils/Auth/Index';
 import ZoomVideo from '@zoom/videosdk';
 import Chat from '../utils/Contents/Chat/Index';
 import Participant from '../utils/Contents/Participant/Index';
@@ -227,11 +227,11 @@ interface TestProps {
 }
 
 
-const socket = socketio('https://disboard13.kro.kr', {
-  transports: ['polling'],
-  withCredentials: true,
-  path: '/socket'
-});
+// const socket = socketio('https://disboard13.kro.kr', {
+//   transports: ['polling'],
+//   withCredentials: true,
+//   path: '/socket'
+// });
 
 
 const user = sessionStorage && sessionStorage.userInfo && JSON.parse(window.sessionStorage.userInfo);
@@ -255,7 +255,7 @@ function Index(props: TestProps) {
       setisLoading(true);
       const client = ZoomVideo.createClient();
       await client.init("en-US", `${window.location.origin}/lib`);
-      const token = generateInstantToken(
+      const token = generateVideoToken(
         "BkxDIpVzJ3wIa0Wwt7HIGg9hdMeit8qtg5BL",
         "RgEUnU0BDoSEozxsw8ySNWs8C0WvTfpDsUxA",
         "harry"
@@ -446,20 +446,20 @@ function Index(props: TestProps) {
     })
   }, [Active2Num])
 
-  useEffect(() => {
-    console.log(socket, "afasd");
-  }, [])
+  // useEffect(() => {
+  //   console.log(socket, "afasd");
+  // }, [])
 
-  useEffect(() => {
-    socket.emit('user', {
-      name: user ? user.name : "default",
-      code: props.match.params.subject_code,
-      email: user ? user.email : "default"
-    });
-    socket.on('newUser', (data: any) => {
-      console.log(data);
-    });
-  }, [])
+  // useEffect(() => {
+  //   socket.emit('user', {
+  //     name: user ? user.name : "default",
+  //     code: props.match.params.subject_code,
+  //     email: user ? user.email : "default"
+  //   });
+  //   socket.on('newUser', (data: any) => {
+  //     console.log(data);
+  //   });
+  // }, [])
   if (isLoading) return <Loading type="spin" color='orange'></Loading>
 
   return (
@@ -470,15 +470,15 @@ function Index(props: TestProps) {
             {/* {RenderMenuBtns()} */}
           </ScreenMenuCnt>
           {RenderCanvas()}
-          <MediaController socket={socket} client={client} />
+          <MediaController  client={client} />
         </ZoomScreen>
       </LeftCnt>
       <RightCnt>
         <Active1Cnt>
           <Active1ContentCnt>
-            <ContentWrapper className="content1 active" id="content1"><Participant students={students} socket={socket} /></ContentWrapper>
-            <ContentWrapper className="content1" id="content2"><Chat socket={socket} user={user.name} /></ContentWrapper>
-            <ContentWrapper className="content1" id="content3"><Question lecture_id={lecture_id} socket={socket} /></ContentWrapper>
+            <ContentWrapper className="content1 active" id="content1"></ContentWrapper>
+            <ContentWrapper className="content1" id="content2"><Chat user={user.name} /></ContentWrapper>
+            <ContentWrapper className="content1" id="content3"><Question lecture_id={lecture_id}  /></ContentWrapper>
           </Active1ContentCnt>
           <Active1Menu>
             <ParticipantsBtn className="Active1Btn active" id="1" onClick={Active1BtnHandler}>참가자</ParticipantsBtn>
@@ -488,9 +488,9 @@ function Index(props: TestProps) {
         </Active1Cnt>
         <Active2Cnt>
           <Active2ContentCnt>
-            <ContentWrapper className="content2 active" id="content1"><Comp lecture_info={lecture_info} lecture_id={lecture_id} socket={socket} /></ContentWrapper>
-            <ContentWrapper className="content2" id="content2"><Sub lecture_id={lecture_id} socket={socket} /></ContentWrapper>
-            <ContentWrapper className="content2" id="content3"><Etc socket={socket} /></ContentWrapper>
+            <ContentWrapper className="content2 active" id="content1"><Comp lecture_info={lecture_info} lecture_id={lecture_id} /></ContentWrapper>
+            <ContentWrapper className="content2" id="content2"><Sub lecture_id={lecture_id}  /></ContentWrapper>
+            <ContentWrapper className="content2" id="content3"></ContentWrapper>
           </Active2ContentCnt>
           <Active2Menu>
             <UnderstoodsBtn className="Active2Btn active" id="1" onClick={Active2BtnHandler}>이해도</UnderstoodsBtn>

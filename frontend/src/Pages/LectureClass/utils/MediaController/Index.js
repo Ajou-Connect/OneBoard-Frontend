@@ -2,11 +2,10 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import Micoff from '../../../../img/micoff.png';
 import Micon from '../../../../img/micon.png';
-import Videooff from '../../../../img/Videooff.png';
-import Videoon from '../../../../img/Videoon.png';
+import Videooff from '../../../../img/videooff.png';
+import Videoon from '../../../../img/videoon.png';
 import Screenoff from '../../../../img/screenoff.png';
 import Screenon from '../../../../img/screenon.png';
-import { Stream } from '../../../../zoom/videosdk/dist/lib/types';
 const MediaController = styled.div`
   width: 100%;
   background-color: black;

@@ -197,7 +197,8 @@ const LessonDetail = ({ match }) => {
               display: 'flex',
             }}
           >
-            실시간 수업 입장 : {lessonDetails.meetingId}
+            <a href="/class/st">실시간 수업입장</a>
+            {/* 실시간 수업 입장 : {lessonDetails.meetingId} */}
           </div>
         ) : lessonDetails.type === 2 ? (
           <div
