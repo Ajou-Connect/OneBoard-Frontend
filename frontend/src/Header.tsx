@@ -3,7 +3,7 @@ import './Header.scss';
 import logoimage from './img/OneBoardLogo.png';
 
 class Header extends Component {
-  constructor(props) {
+  constructor(props: any) {
     super(props);
     this.state = {};
   }

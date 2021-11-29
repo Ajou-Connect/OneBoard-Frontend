@@ -5,7 +5,7 @@ import socketio from 'socket.io-client'
 import { RenderCanvas, ToggleCanvas, SetCanvasSize } from '../utils/SetCanvas/Index'
 import MediaController from '../utils/MediaController/Index'
 import Loading from '../utils/Loading/Index'
-import { generateInstantToken } from '../utils/Auth/Index'
+import { generateVideoToken } from '../utils/Auth/Index'
 import ZoomVideo from '@zoom/videosdk';
 import Chat from '../utils/Contents/Chat/Index';
 import Participant from '../utils/Contents/Participant/Index1';
@@ -283,7 +283,7 @@ function Index(props: TestProps) {
     setisLoading(true);
     const client = ZoomVideo.createClient();
     await client.init("en-US", `${window.location.origin}/lib`);
-    const token = generateInstantToken(
+    const token = generateVideoToken(
       "MoRylmD2jBq9NfbZXbSVmvZcGYOFkDCeJc3e",
       "NewabYwGXIFrOlPRf4dZBKeqFECESIkdlLrq",
       "harry"

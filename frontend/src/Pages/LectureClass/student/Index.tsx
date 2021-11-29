@@ -234,7 +234,7 @@ interface TestProps {
 // });
 
 
-const user = sessionStorage && sessionStorage.userInfo && JSON.parse(window.sessionStorage.userInfo);
+
 function Index(props: TestProps) {
   //------states------
   const [isLoading, setisLoading] = useState<boolean>(true);
@@ -250,17 +250,19 @@ function Index(props: TestProps) {
 
   //------useeffect------
 
+  const user = JSON.parse(window.sessionStorage.userInfo);
+
   async function zoomInit() {
     try {
       setisLoading(true);
       const client = ZoomVideo.createClient();
       await client.init("en-US", `${window.location.origin}/lib`);
       const token = generateVideoToken(
-        "BkxDIpVzJ3wIa0Wwt7HIGg9hdMeit8qtg5BL",
-        "RgEUnU0BDoSEozxsw8ySNWs8C0WvTfpDsUxA",
+         "MoRylmD2jBq9NfbZXbSVmvZcGYOFkDCeJc3e",
+    "NewabYwGXIFrOlPRf4dZBKeqFECESIkdlLrq",
         "harry"
       );
-      await client.join("harry", token, user.email)
+      await client.join("harry", token, user.name)
         .then(() => {
           console.log("Successfully joined a session.");
           setclient(client);
@@ -336,30 +338,30 @@ function Index(props: TestProps) {
     }
   }
 
-  const joinLecture = () => {
-    console.log('joinlecture');
-    axios.get(`/api/lecture/get/inProgress/subject/${subject_id}`)
-      .then(res => {
-        console.log(res);
-        setlecture_id(res.data.lecture._id);
-        axios.put(`/api/lecture/join/${res.data.lecture._id}`).then((res) => {
-          console.log(res);
-          setstudents(res.data.lecture.students);
-          setlecture_info(res.data.lecture);
-        })
-      }).catch(err => console.log(err));
-  }
+  // const joinLecture = () => {
+  //   console.log('joinlecture');
+  //   axios.get(`/api/lecture/get/inProgress/subject/${subject_id}`)
+  //     .then(res => {
+  //       console.log(res);
+  //       setlecture_id(res.data.lecture._id);
+  //       axios.put(`/api/lecture/join/${res.data.lecture._id}`).then((res) => {
+  //         console.log(res);
+  //         setstudents(res.data.lecture.students);
+  //         setlecture_info(res.data.lecture);
+  //       })
+  //     }).catch(err => console.log(err));
+  // }
 
-  interface ccc {
-    subjectId: String
-  }
+  // interface ccc {
+  //   subjectId: String
+  // }
 
   //수업중인 lecture 받아오기
 
   //zoom init
   useEffect(() => {
     zoomInit();
-    joinLecture();
+    
   }, [])
 
   useEffect(() => {
@@ -488,7 +490,7 @@ function Index(props: TestProps) {
         </Active1Cnt>
         <Active2Cnt>
           <Active2ContentCnt>
-            <ContentWrapper className="content2 active" id="content1"><Comp lecture_info={lecture_info} lecture_id={lecture_id} /></ContentWrapper>
+            {/* <ContentWrapper className="content2 active" id="content1"><Comp lecture_info={lecture_info} lecture_id={lecture_id} /></ContentWrapper> */}
             <ContentWrapper className="content2" id="content2"><Sub lecture_id={lecture_id}  /></ContentWrapper>
             <ContentWrapper className="content2" id="content3"></ContentWrapper>
           </Active2ContentCnt>
