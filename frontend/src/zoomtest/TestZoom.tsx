@@ -61,41 +61,41 @@ const token = generateVideoToken(
   "tony",
   "",
   "jack",
-    "jack4"
+  "jack4"
   );
-//   useEffect(() => {
-//     const init = async () => {
-//       await client.init("en-US", `${window.location.origin}/lib`, 'zoom.us');
-//       try { 
-//         await client.join("tony", token, "name","");
-//         console.log("join session");
-//       }
-//       catch (e) {
-//         console.log(e);
-//       }
-//     }
-//     init();
-// })
+  useEffect(() => {
+    const init = async () => {
+      await client.init('en-US', 'Global');
+      try { 
+        await client.join("tony", token, "name","");
+        console.log("join session");
+      }
+      catch (e) {
+        console.log(e);
+      }
+    }
+    init();
+})
   
    
-  client.init("en-US", `${window.location.origin}/lib`, 'zoom.us');
-  console.log(token);
-  client.join("tony", token, "name","").then(() => {
-    console.log("join meeting session");
-  }).catch(error => {
-    console.log("disconnect");
+  // client.init("en-US", `${window.location.origin}/lib`, 'zoom.us');
+  // console.log(token);
+  // client.join("tony", token, "name","").then(() => {
+  //   console.log("join meeting session");
+  // }).catch(error => {
+  //   console.log("disconnect");
     
-  });
-  client.on("connection-change", (payload) => {
-    if (payload.state === "Connected") {
-      console.log("connect!");
+  // });
+  // client.on("connection-change", (payload) => {
+  //   if (payload.state === "Connected") {
+  //     console.log("connect!");
       
-    }
-    else {
-      console.log("disconnected");
+  //   }
+  //   else {
+  //     console.log("disconnected");
       
-    }
-  })
+  //   }
+  // })
  
   return (
     <div>
