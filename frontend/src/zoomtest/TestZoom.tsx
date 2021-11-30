@@ -63,46 +63,39 @@ const token = generateVideoToken(
   "jack",
     "jack4"
   );
-  useEffect(() => {
-    const init = async () => {
-      await client.init("en-US", `${window.location.origin}/lib`, 'zoom.us');
-      // try { 
-      //   await client.join("tony", token, "name","");
-      //   console.log("join session");
-      // }
-      // catch (e) {
-      //   console.log(e);
-      // }
+//   useEffect(() => {
+//     const init = async () => {
+//       await client.init("en-US", `${window.location.origin}/lib`, 'zoom.us');
+//       try { 
+//         await client.join("tony", token, "name","");
+//         console.log("join session");
+//       }
+//       catch (e) {
+//         console.log(e);
+//       }
+//     }
+//     init();
+// })
+  
+   
+  client.init("en-US", `${window.location.origin}/lib`, 'zoom.us');
+  console.log(token);
+  client.join("tony", token, "name","").then(() => {
+    console.log("join meeting session");
+  }).catch(error => {
+    console.log("disconnect");
+    
+  });
+  client.on("connection-change", (payload) => {
+    if (payload.state === "Connected") {
+      console.log("connect!");
+      
     }
-    init();
-},)
-  
-  //   const client = ZoomVideo.createClient();
-  // client.init("en-US", `${window.location.origin}/lib`);
-  // const token = generateVideoToken(
-  //   "MoRylmD2jBq9NfbZXbSVmvZcGYOFkDCeJc3e",
-  //   "NewabYwGXIFrOlPRf4dZBKeqFECESIkdlLrq",
-  //   "tony"
-  // );
-  // console.log(token);
-  
-  // client.join("tony", token, "name").then(() => {
-  //   console.log("join meeting session");
-    
-  // }).catch(error => {
-  //   console.log(error);
-    
-  // });
-  // client.on("connection-change", (payload) => {
-  //   if (payload.state === "Connected") {
-  //     console.log("connect!");
+    else {
+      console.log("disconnected");
       
-  //   }
-  //   else {
-  //     console.log("disconnected");
-      
-  //   }
-  // })
+    }
+  })
  
   return (
     <div>
