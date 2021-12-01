@@ -77,9 +77,10 @@ const UpdateAssignment = ({ history, match }) => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [period, setPeriod] = useState('');
-  const [fileUrl, setFileUrl] = useState('');
+  const [files, setFiles] = useState('');
   const [exposeDt, setExposeDt] = useState('');
   const [score, setScore] = useState(0);
+
   const lectureId = match.params.lectureId;
   const assignmentId = match.params.assignmentId;
   const user = JSON.parse(sessionStorage.userInfo);
@@ -124,16 +125,17 @@ const UpdateAssignment = ({ history, match }) => {
   const onSubmit = () => {
     console.log('title : ' + title);
     console.log('content : ' + content);
-
+    const formData = new FormData();
+    formData.append('title', title);
+    formData.append('content', content);
+    formData.append('file', files);
+    formData.append('startDt', period.start);
+    formData.append('endDt', period.end);
+    formData.append('score', score);
+    formData.append('exposeDt', exposeDt);
     axios
-      .put(`/lecture/${lectureId}/assignment/` + assignmentId, {
-        title: title,
-        content: content,
-        fileUrl: fileUrl,
-        startDt: period.start,
-        endDt: period.end,
-        exposeDt: exposeDt,
-        score: assignmentScore,
+      .put(`/lecture/${lectureId}/assignment/` + assignmentId, formData, {
+        headers: { 'Content-Type': 'multipart/form-data' },
       })
       .then((res) => {
         console.log(res);
@@ -152,6 +154,12 @@ const UpdateAssignment = ({ history, match }) => {
   const handleText = (editor) => {
     console.log(editor);
     setContent(editor);
+  };
+
+  const onFileChange = (e) => {
+    e.preventDefault();
+    console.log(e.target.files);
+    setFiles(e.target.files[0]);
   };
 
   const modules = {
@@ -217,6 +225,19 @@ const UpdateAssignment = ({ history, match }) => {
             value={assignmentScore}
           />
         </div>
+        <hr
+          style={{
+            width: '100%',
+            margin: '30px 0px',
+            marginTop: '50px',
+            display: 'block',
+            borderColor: '#ffffff',
+          }}
+        />
+        <div>과제 파일 선택 </div>
+        <form name="planfile" encType="multipart/form-data" onSubmit={onSubmit}>
+          <input style={{ margin: '5px' }} type="file" onChange={onFileChange} />
+        </form>
         <ReactQuill
           style={{ height: '650px' }}
           theme="snow"

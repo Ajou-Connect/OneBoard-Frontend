@@ -106,6 +106,9 @@ const StudentAssignmentDetail = ({ match }) => {
   const [onGoing, setOnGoing] = useState(false);
   const [submitData, setSubmitData] = useState({});
   const [submitFile, setSubmitFile] = useState('');
+  const [studentSubmitFile, setStudentSubmitFile] = useState('');
+  const [onSubmit, setOnSubmit] = useState(false);
+  const Url = `https://docs.google.com/gview?embedded=true&url=https://oneboard.connect.o-r.kr:8080/lecture/${lectureId}/assignment/${assignmentId}/file`;
   const getData = () => {
     return new Promise((resolve, reject) => {
       axios
@@ -137,8 +140,13 @@ const StudentAssignmentDetail = ({ match }) => {
         .then((res) => {
           const result = res.data.data;
           console.log(result);
-          setSubmitFile(result.fileUrl);
-          setSubmitData(result);
+          if (result !== null) {
+            setSubmitData(result);
+            setSubmitFile(result.fileUrl);
+            setOnSubmit(true);
+          } else {
+            console.log(result);
+          }
         })
         .catch((e) => {
           console.log(e);
@@ -177,17 +185,21 @@ const StudentAssignmentDetail = ({ match }) => {
     getSubmitData();
   }, []);
 
+  const headersConfig = {
+    'X-AUTH-TOKEN': `${token}`,
+    'Content-Type': 'multipart/form-data',
+  };
+
   //수정 필요
-  const submitAssignment = () => {
+  const submitAssignment = (e) => {
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append('content', studentAnswer);
+    formData.append('file', studentSubmitFile);
     axios
-      .post(
-        `/lecture/${lectureId}/assignment/${assignmentId}/submit`,
-        {
-          content: studentAnswer,
-          fileUrl: '',
-        },
-        { headers: { 'X-AUTH-TOKEN': `${token}` } },
-      )
+      .post(`/lecture/${lectureId}/assignment/${assignmentId}/submit`, formData, {
+        headers: headersConfig,
+      })
       .then((res) => {
         console.log(res);
         return (window.location.href = `/Main/Lecture/${userType}/${lectureId}/Assignment`);
@@ -202,17 +214,14 @@ const StudentAssignmentDetail = ({ match }) => {
     console.log(e.target.value);
   };
 
-  const getFile = (e) => {
-    console.log(e.target);
-    const formData = new FormData();
-    formData.append('file', e.target.files[0]);
-    formData.append('fileName', e.target.files[0].name);
-    setStudentFile(formData);
-    console.log(formData);
-  };
-
   const onCancel = () => {
     return (window.location.href = `/Main/Lecture/${userType}/${lectureId}/Assignment`);
+  };
+
+  const onFileChange = (e) => {
+    e.preventDefault();
+    console.log(e.target.files);
+    setStudentSubmitFile(e.target.files[0]);
   };
 
   return (
@@ -251,27 +260,21 @@ const StudentAssignmentDetail = ({ match }) => {
       </ProblemContainer>
       <ProblemContainer style={{ margin: '10px auto' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-          {onGoing ? (
+          {onGoing === false ? (
+            <ProblemTitle>제출물</ProblemTitle>
+          ) : onSubmit ? (
+            <ProblemTitle>제출물</ProblemTitle>
+          ) : (
             <div>
               <ProblemTitle>과제 제출 작성</ProblemTitle>
               <Btn onClick={submitAssignment}>제출하기</Btn>
             </div>
-          ) : (
-            <ProblemTitle>제출물</ProblemTitle>
           )}
         </div>
         <hr
           style={{ width: '100%', margin: '10px 0px', display: 'block', borderColor: '#ffffff' }}
         />
-        {onGoing ? (
-          <div>
-            <AnswerInput placeholder="과제 답안 작성" onChange={onChangeAnswer} />
-            <div style={{ display: 'flex', justifyContent: 'space-between', margin: '5px 0' }}>
-              <div style={{ paddingLeft: '5px', lineHeight: '41.6px' }}>파일 첨부</div>
-              <input type="file" onChange={getFile} style={{ height: '41.6px', padding: '5px' }} />
-            </div>
-          </div>
-        ) : (
+        {onGoing === false ? (
           <div>
             <div style={{ display: 'flex' }}>
               <ProblemTitle>{assignments.title}</ProblemTitle>
@@ -296,8 +299,20 @@ const StudentAssignmentDetail = ({ match }) => {
                   </div>
                 ) : (
                   <div style={{ display: 'flex' }}>
-                    <a href={submitFile}>제출된 과제파일</a>
-                    <div>iframe 걸어주기</div>
+                    <a
+                      href={submitFile}
+                      style={{
+                        marginTop: '10px',
+                        fontWeight: 'bold',
+                        fontSize: '1.1rem',
+                        textDecoration: 'underline',
+                      }}
+                    >
+                      제출된 과제파일
+                    </a>
+                    <div style={{ marginLeft: 'auto' }}>
+                      <Iframe url={Url} width="500px" height="500px" />
+                    </div>
                   </div>
                 )}
               </div>
@@ -315,6 +330,78 @@ const StudentAssignmentDetail = ({ match }) => {
               <br />
               <br />
               <div style={{ color: 'black' }}>{submitData.feedback}</div>
+            </div>
+          </div>
+        ) : onSubmit ? (
+          <div>
+            <div style={{ display: 'flex' }}>
+              <ProblemTitle>{assignments.title}</ProblemTitle>
+              <div style={{ fontWeight: '600', fontSize: '20px', marginLeft: 'auto' }}>
+                점수 : {submitData.score} / {assignments.score}
+              </div>
+            </div>
+            <hr
+              style={{
+                width: '100%',
+                margin: '10px 0px',
+                display: 'block',
+                borderColor: '#ffffff',
+              }}
+            />
+            <div>
+              <div style={{ fontSize: '1.0rem' }}>{submitData.content}</div>
+              <div>
+                {submitFile === null ? (
+                  <div style={{ marginTop: '10px', fontWeight: 'bold', fontSize: '1.1rem' }}>
+                    제출된 과제파일이 없습니다
+                  </div>
+                ) : (
+                  <div style={{ display: 'flex' }}>
+                    <div style={{ marginRight: 'auto' }}>
+                      <Iframe url={Url} width="500px" height="500px" />
+                    </div>
+                    <a
+                      href={submitFile}
+                      style={{
+                        marginTop: '10px',
+                        fontWeight: 'bold',
+                        fontSize: '1.1rem',
+                        textDecoration: 'underline',
+                      }}
+                    >
+                      제출된 과제파일
+                    </a>
+                  </div>
+                )}
+              </div>
+            </div>
+            <hr
+              style={{
+                width: '100%',
+                margin: '10px 0px',
+                display: 'block',
+                borderColor: '#ffffff',
+              }}
+            />
+            <div style={{ fontWeight: '600', fontSize: '20px', color: 'skyblue' }}>
+              피드백 :
+              <br />
+              <br />
+              <div style={{ color: 'black' }}>{submitData.feedback}</div>
+            </div>
+          </div>
+        ) : (
+          <div>
+            <AnswerInput placeholder="과제 답안 작성" onChange={onChangeAnswer} />
+            <div style={{ display: 'flex', justifyContent: 'space-between', margin: '5px 0' }}>
+              <div style={{ paddingLeft: '5px', lineHeight: '41.6px' }}>파일 첨부</div>
+              <form name="noteFile" encType="multipart/form-data">
+                <input
+                  type="file"
+                  onChange={onFileChange}
+                  style={{ height: '41.6px', padding: '5px', margin: '10px', cursor: 'pointer' }}
+                />
+              </form>
             </div>
           </div>
         )}
