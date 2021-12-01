@@ -6,6 +6,8 @@ import Videooff from '../../../../img/videooff.png';
 import Videoon from '../../../../img/videoon.png';
 import Screenoff from '../../../../img/screenoff.png';
 import Screenon from '../../../../img/screenon.png';
+import ZoomVideo from '@zoom/videosdk';
+
 const MediaController = styled.div`
   width: 100%;
   background-color: black;
@@ -123,8 +125,8 @@ const Index = (props) => {
         const canvas1 = document.getElementById('canvas0');
         const parent1 = canvas1.parentElement;
         stream.updateVideoCanvasDimension(canvas1, parent1.offsetWidth, parent1.offsetHeight);
-      } catch (err) {
-        console.log(err);
+      } catch (error) {
+        console.log(error);
       }
     }, 500);
   }, [cnt]);
@@ -153,6 +155,7 @@ const Index = (props) => {
       }
     } catch (error) {
       console.error(error);
+      console.log('error');
     }
   }
 

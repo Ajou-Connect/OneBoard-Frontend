@@ -3,7 +3,8 @@ import axios from 'axios'
 import styled, { css } from 'styled-components'
 import socketio from 'socket.io-client'
 import { RenderCanvas, ToggleCanvas, SetCanvasSize } from '../utils/SetCanvas/Index'
-import MediaController from '../utils/MediaController/Index'
+import MediaController from "../utils/MediaController/Index";
+
 import Loading from '../utils/Loading/Index'
 import { generateVideoToken } from '../utils/Auth/Index'
 import ZoomVideo from '@zoom/videosdk';

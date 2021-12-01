@@ -13,8 +13,8 @@ import Question from '../utils/Contents/Question/Index'
 import Etc from '../utils/Contents/Etc/Index'
 import Comp from '../utils/Contents/Comp/Index'
 import Sub from '../utils/Contents/Sub/Index.js'
-// import My from '../../../img/myscreen.png';
-// import Share from "../../../img/share.png";
+import My from '../../../img/myscreen.png';
+ import Share from "../../../img/share.png";
 import './Index.css'
 
 const MainCnt = styled.div`

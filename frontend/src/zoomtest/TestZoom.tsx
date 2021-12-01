@@ -74,7 +74,7 @@ display : flex;
 flex-direction : column;
 padding : 1vh 1rem;
 justify-content : space-between;
-background-color : ${props => props.theme.color.background_gray};
+background-color : gray;
 `
 
 const ActiveStyle = css`
@@ -164,11 +164,11 @@ const constActiveBtnStyle = css`
 border-radius : 5px;
 flex-basis : 30%;
 font-size :1.05rem;
-background-color : ${props => props.theme.color.light_gray};
-color : ${props => props.theme.color.font_light_gray};
+background-color : whitesmoke;
+color : black;
 &.active{
-  background-color : ${props => props.theme.color.dark_gray};
-  color : ${props => props.theme.color.font_dark_gray};
+  background-color : whitesmoke;
+  color : black;
 }
 `
 
@@ -336,14 +336,36 @@ const [isLoading, setisLoading] = useState<boolean>(true);
     zoomInit();
   }, [])
   
-  //   useEffect(() => {
-  //   !isLoading && ToggleCanvas(screenNum);
-  // }, [screenNum, isLoading])
+    useEffect(() => {
+    !isLoading && ToggleCanvas(screenNum);
+  }, [screenNum, isLoading])
 
   useEffect(() => {
     !isLoading && SetCanvasSize();
   }, [isLoading])
 
+  //for Active 1 
+    useEffect(() => {
+    const contents: NodeListOf<Element> = document.querySelectorAll('.Active1Content');
+    contents.forEach((content: Element, idx) => {
+      content.setAttribute("style", "display : none;")
+      if (parseInt(content.id) === Active1Num)
+        content.setAttribute("style", "display : block;")
+    })
+    const buttons = document.querySelectorAll('.Active1Btn');
+    buttons.forEach((button: Element, idx) => {
+      button.classList.remove('active');
+      if (parseInt(button.id) === Active1Num) button.classList.add('active');
+    })
+  }, [Active1Num])
+
+    useEffect(() => {
+    const contents = document.querySelectorAll('.content1') as NodeListOf<HTMLElement>;
+    contents.forEach((content, index) => {
+      content.classList.remove('active');
+      if (index == Active1Num - 1) content.classList.add('active');
+    })
+  }, [Active1Num])
 
 //   const client = ZoomVideo.createClient();
 // const token = generateVideoToken(
@@ -409,7 +431,15 @@ const [isLoading, setisLoading] = useState<boolean>(true);
         </ZoomScreen>
       </LeftCnt>
       <RightCnt>
-        여기에 채팅방 만들어야됨
+        <Active1Cnt>
+          <Active1ContentCnt>
+            <ContentWrapper></ContentWrapper>
+          </Active1ContentCnt>
+          <Active1Menu>
+            <ParticipantsBtn className="Active1Btn active" id="1" onClick={Active1BtnHandler}>참가자</ParticipantsBtn>
+            <ChatBtn className="Active1Btn active" id="2" onClick={Active1BtnHandler}>채팅</ChatBtn>
+          </Active1Menu>
+        </Active1Cnt>
       </RightCnt>
    </MainCnt>
   )
