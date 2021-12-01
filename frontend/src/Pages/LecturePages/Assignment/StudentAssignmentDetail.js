@@ -16,15 +16,30 @@ const Container = styled.div`
 `;
 
 const WriteBtn = styled.button`
-  display: flex;
   font-size: 12px;
   font-weight: bold;
   padding: 5px;
   margin-top: 10px;
   margin-bottom: 5px;
-  margin-left: auto;
   margin-right: 30px;
+  margin-left: 20px;
   background-color: #d3d31c;
+  color: #3e3e3e;
+  border-radius: 5px;
+  cursor: pointer;
+  &:hover {
+    background-color: #bfbfbf;
+  }
+`;
+
+const UpdateBtn = styled.button`
+  font-size: 12px;
+  font-weight: bold;
+  padding: 5px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  margin-right: 30px;
+  background-color: #f83636;
   color: #3e3e3e;
   border-radius: 5px;
   cursor: pointer;
@@ -202,7 +217,7 @@ const StudentAssignmentDetail = ({ match }) => {
       })
       .then((res) => {
         console.log(res);
-        // return (window.location.href = `/Main/Lecture/${userType}/${lectureId}/Assignment`);
+        return (window.location.href = `/Main/Lecture/${userType}/${lectureId}/Assignment`);
       })
       .catch((error) => {
         console.log(error);
@@ -222,6 +237,10 @@ const StudentAssignmentDetail = ({ match }) => {
     e.preventDefault();
     console.log(e.target.files);
     setStudentSubmitFile(e.target.files[0]);
+  };
+
+  const onUpdate = () => {
+    return (window.location.href = `/Main/Lecture/${userType}/${lectureId}/Assignment/${assignmentId}/StudentDetail/Update`);
   };
 
   return (
@@ -406,7 +425,10 @@ const StudentAssignmentDetail = ({ match }) => {
           </div>
         )}
       </ProblemContainer>
-      <WriteBtn onClick={onCancel}>뒤로가기</WriteBtn>
+      <div style={{ display: 'flex' }}>
+        <WriteBtn onClick={onCancel}>뒤로가기</WriteBtn>
+        {onSubmit ? <UpdateBtn onClick={onUpdate}>수정하기</UpdateBtn> : <div></div>}
+      </div>
     </div>
   );
 };
