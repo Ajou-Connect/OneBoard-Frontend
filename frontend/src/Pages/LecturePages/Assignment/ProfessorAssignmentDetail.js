@@ -71,6 +71,24 @@ const AnswerInput = styled.textarea`
     outline: 0;
   }
 `;
+
+const WriteBtn = styled.button`
+  display: flex;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 5px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  margin-left: auto;
+  margin-right: 30px;
+  background-color: #d3d31c;
+  color: #3e3e3e;
+  border-radius: 5px;
+  cursor: pointer;
+  &:hover {
+    background-color: #bfbfbf;
+  }
+`;
 //여기서의 match는 각각의 assignment에 대한 렌더링을 위해서
 const ProfessorAssignmentDetail = ({ match }) => {
   const [submitAssignments, setSubmitAssignments] = useState({});
@@ -144,6 +162,10 @@ const ProfessorAssignmentDetail = ({ match }) => {
     });
   };
 
+  const onCancel = () => {
+    return (window.location.href = `/Main/Lecture/${userType}/${lectureId}/Assignment`);
+  };
+
   useEffect(() => {
     getSubmitData();
     getAssignmentData();
@@ -198,6 +220,7 @@ const ProfessorAssignmentDetail = ({ match }) => {
         assignmentId={assignmentId}
         assignmentsScore={assignments.score}
       />
+      <WriteBtn onClick={onCancel}>뒤로가기</WriteBtn>
     </Container>
   );
 };

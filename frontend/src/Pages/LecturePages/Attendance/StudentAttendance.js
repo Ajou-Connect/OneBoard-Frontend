@@ -157,7 +157,6 @@ const StudentAttendance = (props) => {
             <th style={{ padding: '10px 0', width: '10%' }}>회차</th>
             <th style={{ padding: '10px 0', width: '40%' }}>수강 날짜</th>
             <th style={{ padding: '10px 0', width: '20%' }}>출결 상태</th>
-            <th style={{ padding: '10px 0', width: '20%' }}>수업 이름</th>
           </tr>
         </thead>
         <tbody>

@@ -202,7 +202,7 @@ const StudentAssignmentDetail = ({ match }) => {
       })
       .then((res) => {
         console.log(res);
-        return (window.location.href = `/Main/Lecture/${userType}/${lectureId}/Assignment`);
+        // return (window.location.href = `/Main/Lecture/${userType}/${lectureId}/Assignment`);
       })
       .catch((error) => {
         console.log(error);
@@ -299,6 +299,9 @@ const StudentAssignmentDetail = ({ match }) => {
                   </div>
                 ) : (
                   <div style={{ display: 'flex' }}>
+                    <div style={{ marginRight: 'auto' }}>
+                      <Iframe url={Url} width="500px" height="500px" />
+                    </div>
                     <a
                       href={submitFile}
                       style={{
@@ -310,9 +313,6 @@ const StudentAssignmentDetail = ({ match }) => {
                     >
                       제출된 과제파일
                     </a>
-                    <div style={{ marginLeft: 'auto' }}>
-                      <Iframe url={Url} width="500px" height="500px" />
-                    </div>
                   </div>
                 )}
               </div>
