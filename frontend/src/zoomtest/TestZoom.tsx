@@ -12,10 +12,11 @@ import Chat from "../Pages/LectureClass/utils/Contents/Chat/Index";
 import Participant from "../Pages/LectureClass/utils/Contents/Participant/Index";
 import MediaController from "../Pages/LectureClass/utils/MediaController/Index";
 import Loading from "../Pages/LectureClass/utils/Loading/Index";
-
+import My from '../img/myscreen.png';
+ import Share from "../img/share.png";
 
 const MainCnt = styled.div`
-background-color : ${props => props.theme.color.background_gray};
+background-color : gray;
 padding : 0.5vh;
 display : flex;
 height : 100%;
@@ -38,7 +39,6 @@ display : flex;
 justify-content : left;
 align-items : center;
 background-color : transparent;
-/* background-color : ${props => props.theme.color.background_gray}; */
 transition : all 0.1s linear;
 transform : translateY(-100px);
 `
@@ -51,14 +51,14 @@ height : 50px;
 width : 50px;
 margin : 10px;
 &.active{
-  background-color : ${props => props.theme.color.blue};
+  background-color : blue;
   color : white;
-  border : 1px solid ${props => props.theme.color.blue};
+  border : 1px solid blue;
 }
 `
 
 const ZoomScreen = styled.div`
-height : 100%;
+height : 800px;
 position : relative;
 &:hover{
   #mediaController, #screenMenuCnt{
@@ -254,24 +254,78 @@ const [isLoading, setisLoading] = useState<boolean>(true);
       );
       await client.join("tony", token, "name", "")
         .then(() => {
-        console.log("join session complete");
+          console.log("join session complete");
           setclient(client);
           setisLoading(false);
         })
         .catch((error) => {
-        console.log(error);
-        })
+          console.log(error);
+        });
+      
       await client.getMediaStream().startAudio();
+
       client.on("connection-change", (payload) => {
         if (payload.state === "Connected") {
           console.log("connected to mediaStream");
-          
         }
         else {
           console.log("failed to connect");
-          
+        }
+      });
+
+      client.on("active-share-change", async (payload) => {
+        console.log("active-share-change");
+        const canvas = document.getElementById("canvas1") as HTMLCanvasElement;
+        const stream = client.getMediaStream();
+        console.log(payload);
+        if (payload.state === "Active") {
+          stream.startShareView(canvas, payload.userId);
+          console.log("share view active");
+        }
+        else if (payload.state === "Inactive") {
+          await stream.stopShareView().then(res => {
+            console.log(res);
+          })
         }
       })
+
+      client.on("share-content-dimension-change", payload => {
+        console.log("share-content-dimension-change");
+        const canvas1 = document.getElementById("canvas1") as HTMLCanvasElement;
+        const arr = [canvas1];
+        arr.forEach((value, index) => {
+          const canvas = value;
+          const parent = canvas.parentElement as HTMLElement;
+          const contentWidth = payload.width;
+          const contentHeight = payload.height;
+          const cntWidth = parent.offsetWidth;
+          const cntHeight = parent.offsetHeight;
+          console.log(canvas.style);
+           if (cntWidth / contentWidth > cntHeight / contentHeight) {
+            canvas.style.height = `${cntHeight}px`;
+            canvas.style.width = `${cntHeight * contentWidth / contentHeight}px`;
+          } else {
+            canvas.style.width = `${cntWidth}px`;
+            canvas.style.height = `${cntWidth * contentHeight / contentWidth}px`;
+          }
+        })
+      })
+
+       client.on("event_share_content_change", async (payload) => {
+        console.log("event_share_content_change");
+      });
+
+      client.on("event_passively_stop_share", async (payload) => {
+        console.log("event_passively_stop_share");
+      });
+
+      window.addEventListener('resize', () => {
+        const canvas = document.getElementById("canvas0") as HTMLCanvasElement;;
+        const parent = canvas.parentElement as HTMLElement;
+        const stream = client.getMediaStream();
+        stream.updateVideoCanvasDimension(canvas, parent.offsetWidth, parent.offsetHeight);
+        //stream.adjustRenderedVideoPosition(canvas, client.getCurrentUserInfo().userId, canvas.width, canvas.height, 0, 0);
+      });
     }
     catch (error) {
       console.log(error);
@@ -280,7 +334,16 @@ const [isLoading, setisLoading] = useState<boolean>(true);
 
   useEffect(() => {
     zoomInit();
-  },[])
+  }, [])
+  
+  //   useEffect(() => {
+  //   !isLoading && ToggleCanvas(screenNum);
+  // }, [screenNum, isLoading])
+
+  useEffect(() => {
+    !isLoading && SetCanvasSize();
+  }, [isLoading])
+
 
 //   const client = ZoomVideo.createClient();
 // const token = generateVideoToken(
@@ -306,12 +369,49 @@ const [isLoading, setisLoading] = useState<boolean>(true);
 // })
   
    
+  const RenderMenuBtns = () => {
+    const screens = ['내화면', '공유화면'];
+    const links = [My, Share]
+    const result = screens.map((value, index) => {
+      return (
+        <Fuck>
+          <ScreenMenu style={{ backgroundImage: `url(${links[index]})` }} onClick={changeScrenBtn} id={index.toString()}></ScreenMenu>
+          <span style={{ color: 'white' }}>{value}</span>
+        </Fuck>);
+    })
+    return result;
+  }
 
+  //------handler------
+  //change screen handler
+  const changeScrenBtn = (e: any) => {
+    setscreenNum(parseInt(e.target.id));
+  }
+
+  //change active1 content
+  const Active1BtnHandler = (e: any) => {
+    setActive1Num(parseInt(e.target.id));
+  }
+  //change active2 content
+  const Active2BtnHandler = (e: any) => {
+    setActive2Num(parseInt(e.target.id));
+  }
  
   return (
-    <div>
-      hello this is zoom test page
-    </div>
+    <MainCnt>
+      <LeftCnt>
+        <ZoomScreen id="zoomScreen">
+          <ScreenMenuCnt id="screenMenuCnt">
+            {RenderMenuBtns()}
+          </ScreenMenuCnt>
+          {RenderCanvas()}
+          <MediaController client={client}/>
+        </ZoomScreen>
+      </LeftCnt>
+      <RightCnt>
+        여기에 채팅방 만들어야됨
+      </RightCnt>
+   </MainCnt>
   )
 };
 

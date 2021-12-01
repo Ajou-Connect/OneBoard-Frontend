@@ -81,7 +81,7 @@ const LeaveBtn = styled.button`
 `;
 
 const Index = (props) => {
-  const socket = props.socket;
+  // const socket = props.socket;
   const [isVideoOn, setIsVideoOn] = useState(false);
   const [isAudioOn, setIsAudioOn] = useState(false);
   const [isShareOn, setIsShareOn] = useState(false);
@@ -263,9 +263,9 @@ const Index = (props) => {
   }, [isVideoOn]);
 
   const getOut = () => {
-    socket.disconnect({
-      test: 'test',
-    });
+    // socket.disconnect({
+    //   test: 'test',
+    // });
     window.location.href = '/main';
   };
 
