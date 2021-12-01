@@ -427,7 +427,13 @@ const StudentAssignmentDetail = ({ match }) => {
       </ProblemContainer>
       <div style={{ display: 'flex' }}>
         <WriteBtn onClick={onCancel}>뒤로가기</WriteBtn>
-        {onSubmit ? <UpdateBtn onClick={onUpdate}>수정하기</UpdateBtn> : <div></div>}
+        {onSubmit === false ? (
+          <div></div>
+        ) : onGoing ? (
+          <UpdateBtn onClick={onUpdate}>수정하기</UpdateBtn>
+        ) : (
+          <div></div>
+        )}
       </div>
     </div>
   );
