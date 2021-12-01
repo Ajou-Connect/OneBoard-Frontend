@@ -75,8 +75,8 @@ const LessonDetail = ({ match }) => {
   const [lessonDetails, setLessonDetails] = useState([]);
   const user = JSON.parse(sessionStorage.userInfo);
   const userType = user.userType;
-  const Url = `https://docs.google.com/gview?embedded=true&url=http://115.85.182.194:8080/lecture/${lectureId}/lesson/${lessonId}/note`;
-  const FileURL = `http://115.85.182.194:8080/lecture/${lectureId}/lesson/${lessonId}/note`;
+  const Url = `https://docs.google.com/gview?embedded=true&url=https://115.85.182.194:8080/lecture/${lectureId}/lesson/${lessonId}/note`;
+  const FileURL = `https://115.85.182.194:8080/lecture/${lectureId}/lesson/${lessonId}/note`;
 
   const getLessonData = () => {
     return new Promise((resolve, reject) => {
@@ -127,9 +127,9 @@ const LessonDetail = ({ match }) => {
         >
           수업 타입 :
           {lessonDetails.type === 2 ? (
-            <div style={{ marginLeft: '15px' }}>비대면 실시간 수업</div>
-          ) : lessonDetails.type === 1 ? (
             <div style={{ marginLeft: '15px' }}>대면 수업</div>
+          ) : lessonDetails.type === 1 ? (
+            <div style={{ marginLeft: '15px' }}>비대면 실시간 수업</div>
           ) : (
             <div style={{ marginLeft: '15px' }}>녹화 강의</div>
           )}
