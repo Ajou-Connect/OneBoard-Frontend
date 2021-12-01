@@ -3,6 +3,7 @@ import axios from 'axios';
 import styled from 'styled-components';
 import moment from 'moment';
 import ReactHtmlParser from 'react-html-parser';
+import Iframe from 'react-iframe';
 
 const Container = styled.div`
   width: 100%;
@@ -57,6 +58,7 @@ const Btn = styled.button`
   background-color: rgba(215, 226, 185, 0.596);
   color: #3e3e3e;
   border-radius: 7px;
+  cursor: pointer;
   &:hover {
     background-color: #bfbfbf;
   }
@@ -103,6 +105,7 @@ const StudentAssignmentDetail = ({ match }) => {
   const lectureId = match.params.lectureId;
   const [onGoing, setOnGoing] = useState(false);
   const [submitData, setSubmitData] = useState({});
+  const [submitFile, setSubmitFile] = useState('');
   const getData = () => {
     return new Promise((resolve, reject) => {
       axios
@@ -134,6 +137,7 @@ const StudentAssignmentDetail = ({ match }) => {
         .then((res) => {
           const result = res.data.data;
           console.log(result);
+          setSubmitFile(result.fileUrl);
           setSubmitData(result);
         })
         .catch((e) => {
@@ -273,6 +277,29 @@ const StudentAssignmentDetail = ({ match }) => {
               <ProblemTitle>{assignments.title}</ProblemTitle>
               <div style={{ fontWeight: '600', fontSize: '20px', marginLeft: 'auto' }}>
                 점수 : {submitData.score} / {assignments.score}
+              </div>
+            </div>
+            <hr
+              style={{
+                width: '100%',
+                margin: '10px 0px',
+                display: 'block',
+                borderColor: '#ffffff',
+              }}
+            />
+            <div>
+              <div>{submitData.content}</div>
+              <div>
+                {submitFile === null ? (
+                  <div style={{ marginTop: '10px', fontWeight: 'bold', fontSize: '1.1rem' }}>
+                    제출된 과제파일이 없습니다
+                  </div>
+                ) : (
+                  <div style={{ display: 'flex' }}>
+                    <a href={submitFile}>제출된 과제파일</a>
+                    <div>iframe 걸어주기</div>
+                  </div>
+                )}
               </div>
             </div>
             <hr

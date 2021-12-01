@@ -82,7 +82,7 @@ const ProfessorAssignmentDetail = ({ match }) => {
   const userType = user.userType;
   const lectureId = match.params.lectureId;
   const assignmentId = match.params.assignmentId;
-
+  const fileUrl = `https://oneboard.connect.o-r.kr:8080/lecture/${lectureId}/assignment/${assignmentId}/file`;
   const stateDisplay = (startDate, endDate) => {
     const today = moment();
 
@@ -116,7 +116,6 @@ const ProfessorAssignmentDetail = ({ match }) => {
         .get(`/lecture/${lectureId}/assignment/${assignmentId}/submits`)
         .then((res) => {
           const result = res.data.data;
-          console.log(result);
           setSubmitAssignments(result);
           if (today.isBefore(result.endDt) && today.isAfter(result.startDt)) {
             setOnGoing(true);
@@ -135,7 +134,7 @@ const ProfessorAssignmentDetail = ({ match }) => {
         .get(`/lecture/${lectureId}/assignment/${assignmentId}`)
         .then((res) => {
           const assignmentResult = res.data.data;
-
+          console.log(res);
           setAssignments(assignmentResult);
         })
         .catch((error) => {
@@ -180,8 +179,15 @@ const ProfessorAssignmentDetail = ({ match }) => {
           <div>배점 {assignments.score}</div>
         </div>
         <ProblemContent>
-          {ReactHtmlParser(assignments.content)}
+          <a
+            href={fileUrl}
+            style={{ fontWeight: 'bold', textDecoration: 'underline', fontSize: '1.2rem' }}
+          >
+            과제 파일 다운로드
+          </a>
           <br />
+          <br />
+          {ReactHtmlParser(assignments.content)}
         </ProblemContent>
         <hr
           style={{ width: '100%', margin: '10px 0px', display: 'block', borderColor: '#ffffff' }}
