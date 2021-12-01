@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-
+import Iframe from 'react-iframe';
 const WriteBtn = styled.button`
   font-size: 5px;
   padding: 5px;
@@ -67,7 +67,9 @@ export const LoadLecturePlan = (props) => {
           fontSize: '2rem',
         }}
       >
-        <iframe id="plan" src={Url} style={{ width: '80%', height: '600px', marginTop: '10px' }} />
+        <div style={{ margin: '10px' }}>
+          <Iframe id="plan" url={Url} width="80%" height="600px" />
+        </div>
       </div>
     </div>
   );

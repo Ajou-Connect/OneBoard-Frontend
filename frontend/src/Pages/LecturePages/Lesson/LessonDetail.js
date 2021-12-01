@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
 import palette from '../../../lib/styles/palette';
-
+import Iframe from 'react-iframe';
 const Title = styled.div`
   font-size: 30px;
   margin-left: 15px;
@@ -176,10 +176,7 @@ const LessonDetail = ({ match }) => {
             >
               <a href={FileURL}>{lessonDetails.title} 강의노트 다운로드</a>
               <div>
-                <iframe
-                  style={{ marginRight: 'auto', width: '700px', height: '400px' }}
-                  src={Url}
-                />
+                <Iframe url={Url} width="700px" height="400px" />
               </div>
             </div>
           )}

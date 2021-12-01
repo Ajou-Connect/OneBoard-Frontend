@@ -82,7 +82,6 @@ const ProfessorAssignmentDetail = ({ match }) => {
   const userType = user.userType;
   const lectureId = match.params.lectureId;
   const assignmentId = match.params.assignmentId;
-  
 
   const stateDisplay = (startDate, endDate) => {
     const today = moment();
@@ -122,7 +121,6 @@ const ProfessorAssignmentDetail = ({ match }) => {
           if (today.isBefore(result.endDt) && today.isAfter(result.startDt)) {
             setOnGoing(true);
           }
-          
         })
         .catch((error) => {
           console.log(error);
@@ -150,7 +148,6 @@ const ProfessorAssignmentDetail = ({ match }) => {
   useEffect(() => {
     getSubmitData();
     getAssignmentData();
-
   }, []);
 
   return (
@@ -182,7 +179,10 @@ const ProfessorAssignmentDetail = ({ match }) => {
           <div>{stateDisplay(moment(assignments.startDt), moment(assignments.endDt))}</div>
           <div>배점 {assignments.score}</div>
         </div>
-        <ProblemContent>{ReactHtmlParser(assignments.content)}</ProblemContent>
+        <ProblemContent>
+          {ReactHtmlParser(assignments.content)}
+          <br />
+        </ProblemContent>
         <hr
           style={{ width: '100%', margin: '10px 0px', display: 'block', borderColor: '#ffffff' }}
         />
@@ -191,7 +191,6 @@ const ProfessorAssignmentDetail = ({ match }) => {
         lectureId={lectureId}
         assignmentId={assignmentId}
         assignmentsScore={assignments.score}
-
       />
     </Container>
   );
