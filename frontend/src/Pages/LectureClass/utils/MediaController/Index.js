@@ -190,7 +190,7 @@ const Index = (props) => {
     const stream = client.getMediaStream();
     try {
       const canvas = document.getElementById('canvas1');
-      await stream.startShareView(canvas, client.getCurrentUserInfo().userId);
+      await stream.startShareScreen(canvas);
       console.log(canvas.getContext('2d'));
     } catch (error) {
       console.log(error);
@@ -201,7 +201,7 @@ const Index = (props) => {
     const client = props.client;
     const stream = client.getMediaStream();
     try {
-      await stream.stopShareView();
+      await stream.stopShareScreen();
       let canvas1 = document.getElementById('canvas1');
       const canvas0 = document.getElementById('canvas0');
       canvas1.parentNode.removeChild(canvas1);

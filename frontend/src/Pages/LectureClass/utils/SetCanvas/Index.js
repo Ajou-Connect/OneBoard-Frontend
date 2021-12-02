@@ -1,9 +1,21 @@
 import React from 'react';
-
+import { isSupportWebCodecs } from '../../../../zoomtest/platform';
 export function RenderCanvas() {
   const arr = [0, 1, 2, 3];
   const result = arr.map((value, index) => {
-    return (
+    return isSupportWebCodecs() ? (
+      <video
+        style={{
+          position: 'absolute',
+          left: '0',
+          top: '0',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+        id={'canvas' + index}
+      />
+    ) : (
       <canvas
         style={{
           position: 'absolute',
@@ -14,7 +26,7 @@ export function RenderCanvas() {
           alignItems: 'center',
         }}
         id={'canvas' + index}
-      ></canvas>
+      />
     );
   });
   return result;
