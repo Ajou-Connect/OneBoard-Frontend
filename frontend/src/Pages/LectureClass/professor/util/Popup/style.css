@@ -1,0 +1,21 @@
+.ant-modal {
+  min-width: 300px !important;
+  width: fit-content !important;
+}
+.ant-btn:nth-child(1) {
+  display: none;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+
+ul > li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+ul > li > span {
+  margin-right: 20px;
+}

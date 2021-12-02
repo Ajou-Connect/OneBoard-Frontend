@@ -1,0 +1,27 @@
+.ant-modal-wrap.quiz > div {
+  min-width: 600px !important;
+  width: fit-content !important;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.addContainer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.addQ {
+  width: 50px;
+  height: 30px;
+  background-color: #1890ff;
+  color: white;
+  border-radius: 10px;
+}
+
+.qSpan {
+  margin-right: 15px;
+}

@@ -1,0 +1,24 @@
+#canvas0 {
+  background-color: #222222;
+  width: 100%;
+  height: 100%;
+}
+
+#canvas1 {
+  background-color: #222222;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#canvas3 {
+  display: none;
+}
+
+button {
+  display: block;
+}
+
+/* .content2.active#content1{
+    background-color: pink;
+} */
