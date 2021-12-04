@@ -2,17 +2,19 @@ import React from 'react';
 import LectureSidebar from '../LectureSidebar';
 import './LectureNotice.scss';
 import LectureNoticeContent from './LectureNoticeContent';
+import Nav from '../../../Sidebar/Nav';
 
 const LectureNotice = ({ match }) => {
   const Id = match.params.lectureId;
 
   return (
-    <div className="notice">
-      <nav className="lecture-menu">
-        <LectureSidebar lectureId={Id} />
-      </nav>
+    <div className="lecture-notice">
+      <Nav />
       <div className="notice-main">
-        <LectureNoticeContent lectureId={Id} />
+        <LectureSidebar lectureId={Id} />
+        <div style={{ width: '100%' }}>
+          <LectureNoticeContent lectureId={Id} />
+        </div>
       </div>
     </div>
   );

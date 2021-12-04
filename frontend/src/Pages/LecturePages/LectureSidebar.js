@@ -38,9 +38,10 @@ const LectureSidebar = (props) => {
               color: 'black',
             }}
           >
-            교수 : {lectureInfo.professor}
-            <br />
-            과목 : {lectureInfo.title}
+            <center>
+              <div style={{ fontSize: '17px' }}>{lectureInfo.title}</div>
+              <div style={{ marginTop: '0px' }}>{lectureInfo.professor}</div>
+            </center>
           </div>
           <li className="menu-item">
             <div className="menu-text">
