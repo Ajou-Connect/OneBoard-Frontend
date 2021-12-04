@@ -33,42 +33,29 @@ const Nav = () => {
 
   return (
     <div className="navbar-container">
-      <IconContext.Provider value={{ color: '#131111' }}>
-        <div className="navbar">
-          <Link to="#" className="menu-bars">
-            <FaIcons.FaBars onClick={showSidebar} />
+      <div
+        className="navbar"
+        style={{ boxShadow: '5px 5px 10px gray', backgroundColor: '#1c5ba4', color: 'white' }}
+      >
+        <div className="icons" style={{ marginLeft: '1.1rem', display: 'flex', color: 'white' }}>
+          <Link to="/Main/Home" className="menu-bars" style={{ color: 'white' }}>
+            HOME
+          </Link>
+          <Link to="/Main/Profile" className="menu-bars" style={{ color: 'white' }}>
+            프로필
+          </Link>
+          <Link to="/Main/Lecture" className="menu-bars" style={{ color: 'white' }}>
+            강의목록
           </Link>
         </div>
-        <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
-          <ul className="nav-menu-items" onClick={showSidebar}>
-            <li className="navbar-toggle">
-              <Link to="#" className="menu-bars">
-                <AiIcons.AiOutlineClose />
-              </Link>
-              <div className="navbar-toggle-text">
-                <div className="navbar-toggle-profile-name">
-                  {name} {studentNumber}
-                </div>
-              </div>
-            </li>
-            {SidebarData.map((item, index) => {
-              return (
-                <li key={index} className={item.cName}>
-                  <Link to={item.path}>
-                    {item.icon}
-                    <span className="menuList">{item.title}</span>
-                  </Link>
-                </li>
-              );
-            })}
-            <li className="nav-text">
-              <Link to="/Login" onClick={logout}>
-                <span className="menuList">Logout</span>
-              </Link>
-            </li>
-          </ul>
-        </nav>
-      </IconContext.Provider>
+        <div style={{ display: 'flex', marginLeft: 'auto', color: 'white' }}>
+          <Link to="/Login" className="menu-bars">
+            <div onClick={logout} style={{ color: 'white' }}>
+              로그아웃
+            </div>
+          </Link>
+        </div>
+      </div>
     </div>
   );
 };
