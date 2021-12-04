@@ -1,5 +1,6 @@
 import React from 'react';
 import * as BsIcons from 'react-icons/bs';
+import * as FcIcons from "react-icons/fc";
 export const SidebarData = [
   {
     title: '프로필',

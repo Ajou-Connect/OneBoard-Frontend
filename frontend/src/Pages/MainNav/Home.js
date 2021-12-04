@@ -4,6 +4,8 @@ import './Home.scss';
 import mainimage from "../../img/MainImage.png";
 import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
+import * as FcIcons from "react-icons/fc";
+import * as BsIcons from "react-icons/bs";
 import { Link } from 'react-router-dom';
 import { IconContext } from 'react-icons';
 import { SidebarData } from '../../Sidebar/SidebarData';
@@ -35,50 +37,29 @@ const Home = () => {
       }
     };
     fetchUser();
-  }, [user]);
+   }, [user]);
+  
+  
 
   return (
-    <div className="home" style={{ height: "810px", justifyContent: "center" }}>
-       <IconContext.Provider value={{ color: '#131111' }}>
-        <div className="navbar">
-          <Link to="#" className="menu-bars">
-            <FaIcons.FaBars onClick={showSidebar} />
-          </Link>
-        </div>
-        <div style={{display:"flex"}}>
-        <nav className={isSidebar ? 'nav-menu active' : 'nav-menu'}>
-          <ul className="nav-menu-items" onClick={showSidebar}>
-            <li className="navbar-toggle">
-              <Link to="#" className="menu-bars">
-                <AiIcons.AiOutlineClose />
-              </Link>
-              <div className="navbar-toggle-text">
-                <div className="navbar-toggle-profile-name">
-                  {name} {studentNumber}
+    <div className="home" style={{ height: "810px", justifyContent: "center", backgroundColor: "#486096" }} >
+      
+        <div className="navbar" >
+          <div className="icons" style={{ marginLeft:"1rem", display: "flex" }}>
+            <Link to="/Main/Home" className="menu-bars">HOME</Link>  
+            <Link to="/Main/Profile" className="menu-bars">프로필</Link>
+          <Link to="/Main/Lecture" className="menu-bars">강의 목록으로 가기</Link>
+          </div>
+          <div style={{display:"flex",marginLeft:"auto"}}>
+            <Link to="/Login" className="menu-bars" >
+              <div onClick={logout} >
+                로그아웃
                 </div>
-              </div>
-            </li>
-            {SidebarData.map((item, index) => {
-              return (
-                <li key={index} className={item.cName}>
-                  <Link to={item.path}>
-                    {item.icon}
-                    <span className="menuList">{item.title}</span>
-                  </Link>
-                </li>
-              );
-            })}
-            <li className="nav-text">
-              <Link to="/Login" onClick={logout}>
-                <span className="menuList">Logout</span>
               </Link>
-            </li>
-          </ul>
-            </nav>
-     
+            </div>
+          
+        </div>
       <div style={{ width: "100%", height: "700px" }} className="home-main" />
-      </div>
-       </IconContext.Provider>
     </div>
   );
 };

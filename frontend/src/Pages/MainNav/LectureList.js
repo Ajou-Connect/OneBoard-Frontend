@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './LectureList.scss';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const LectureList = () => {
   const token = sessionStorage.getItem('token');
@@ -25,8 +26,29 @@ const LectureList = () => {
     getLectureData();
   }, []);
 
+  const logout = () => {
+    sessionStorage.removeItem('email');
+    sessionStorage.removeItem('token');
+    sessionStorage.removeItem('userInfo');
+  };
+
+
   return (
     <div>
+      <div className="navbar" >
+          <div className="icons" style={{ marginLeft:"1rem", display: "flex" }}>
+            <Link to="/Main/Home" className="menu-bars">HOME</Link>  
+            <Link to="/Main/Profile" className="menu-bars">프로필</Link>
+            <Link to="/Main/Lecture" className="menu-bars">강의 목록으로 가기</Link>
+        </div>
+        <div style={{display:"flex",marginLeft:"auto"}}>
+            <Link to="/Login" className="menu-bars" >
+              <div onClick={logout} >
+                로그아웃
+                </div>
+              </Link>
+            </div>
+        </div>
       <div className="term">
         <h2 className="semester active-term">2021-2학기</h2>
       </div>
@@ -52,6 +74,7 @@ const LectureList = () => {
                   <div
                     key={index}
                     className="element-card course-element-card highlight pointer bar js-course-details child-is-invokable course-color-classic"
+                    style={{marginBottom:"10px"}}
                   >
                     <div className="element-details summary">
                       <div className="small-12">
