@@ -29,7 +29,7 @@ const LectureList = () => {
   return (
     <div>
       <Nav />
-      <div className="term">
+      <div className="term" style={{ marginTop: '20px' }}>
         <h2 className="semester active-term">2021-2학기</h2>
       </div>
       <div id="course-columns-current" className="course-columns list-columns-view">

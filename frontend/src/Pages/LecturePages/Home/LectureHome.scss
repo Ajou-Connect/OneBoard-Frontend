@@ -1,9 +1,7 @@
 .lecture-home {
   padding-bottom: 12px;
-  position: relative;
-  zoom: 1;
   min-width: 100%;
-  height: auto;
+  overflow: hidden;
 }
 
 .lecture-sidebar {
@@ -13,9 +11,8 @@
   top: 0px;
   left: 0;
   margin-left: 0;
-  position: absolute;
 }
 
 .home-content {
-  margin: 10px 0 0 200px;
+  display: flex;
 }

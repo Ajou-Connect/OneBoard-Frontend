@@ -28,12 +28,11 @@ import UpdateLesson from '../Pages/LecturePages/Lesson/UpdateLesson';
 import ProfessorLectureScore from '../Pages/LecturePages/Score/ProfessorLectureScore';
 import ProfessorScoreDetail from '../Pages/LecturePages/Score/ProfessorScoreDetail';
 import UpdateStudentAssignment from '../Pages/LecturePages/Assignment/UpdateStudentAssignment';
-import Header from "../Header";
+import Header from '../Header';
 const Routes = () => {
   return (
     <div className="Routes-container">
-      <Header/>
-
+      <Header />
       <Route exact path="/Main/Home" component={Home} />
       <Route path="/Main/Profile" component={Profile} />
       <Route exact path="/Main/Lecture" component={LectureList} />

@@ -9,10 +9,6 @@ const Home = () => {
   const [name, setName] = useState('');
   const [studentNumber, setStudentNumber] = useState('');
 
-  const showSidebar = () => {
-    setIsSidebar(!isSidebar);
-  };
-
   useEffect(() => {
     const fetchUser = async () => {
       try {
@@ -28,7 +24,7 @@ const Home = () => {
   return (
     <div className="home">
       <Nav />
-      <div style={{ width: '100%', height: '700px' }} className="home-main" />
+      <div style={{ width: '100%', height: '700px', marginTop: '20px' }} className="home-main" />
     </div>
   );
 };

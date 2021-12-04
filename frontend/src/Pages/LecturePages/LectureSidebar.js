@@ -35,7 +35,7 @@ const LectureSidebar = (props) => {
               paddingBottom: '15px',
               borderBottom: '1px solid #CDCDCD',
               fontWeight: 'bold',
-              color: '#FFFFFF',
+              color: 'black',
             }}
           >
             교수 : {lectureInfo.professor}
@@ -45,7 +45,7 @@ const LectureSidebar = (props) => {
           <li className="menu-item">
             <div className="menu-text">
               <Link to={`/Main/Lecture/${props.lectureId}/Home`} className="menu-text">
-                홈
+                과목 홈
               </Link>
             </div>
           </li>
