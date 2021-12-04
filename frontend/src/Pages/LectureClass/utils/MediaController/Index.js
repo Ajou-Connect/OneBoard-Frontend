@@ -143,7 +143,6 @@ const Index = (props) => {
     const canvas = document.getElementById('canvas0');
     try {
       if (!stream.isCapturingVideo()) {
-        console.log(stream);
         setCnt(cnt + 1);
         await stream.startVideo();
         await stream
@@ -154,10 +153,10 @@ const Index = (props) => {
             canvas.height,
             0,
             0,
-            1,
+            3,
           )
           .then((response) => {
-            console.log(response);
+            console.log('renderVideo');
           });
         setCnt(cnt + 1);
       }

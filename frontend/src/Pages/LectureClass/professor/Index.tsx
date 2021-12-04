@@ -282,7 +282,7 @@ function Index(props: TestProps) {
   async function zoomInit() {
     setisLoading(true);
     const client = ZoomVideo.createClient();
-    await client.init("en-US", `${window.location.origin}/lib`);
+    await client.init("en-US", "Global");
     const token = generateVideoToken(
       "MoRylmD2jBq9NfbZXbSVmvZcGYOFkDCeJc3e",
       "NewabYwGXIFrOlPRf4dZBKeqFECESIkdlLrq",

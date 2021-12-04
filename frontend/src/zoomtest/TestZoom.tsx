@@ -258,8 +258,6 @@ const [isLoading, setisLoading] = useState<boolean>(true);
           console.log("join session complete");
           setUserClient(client);
           setisLoading(false);
-          console.log("hi " + client);
-          console.log(userClient);
           
           
         })
@@ -293,6 +291,20 @@ const [isLoading, setisLoading] = useState<boolean>(true);
             console.log(res);
           })
         }
+      })
+
+      client.on("peer-video-state-change", async (payload) => {
+        console.log("video state change");
+        const canvas = document.getElementById("canvas0") as HTMLCanvasElement;
+        const stream = client.getMediaStream();
+        console.log("payload");
+        if (payload.action === "Start") {
+          stream.renderVideo(canvas, user.userId, 300, 500, 0, 0, 3);
+        } else if (payload.action === "Stop") {
+          stream.stopRenderVideo(canvas,user.userId);
+        }
+        
+        
       })
 
       client.on("share-content-dimension-change", payload => {
