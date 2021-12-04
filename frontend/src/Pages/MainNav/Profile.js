@@ -34,7 +34,7 @@ const Profile = () => {
   if (!users) return null;
   return (
     <div className="user-information">
-      <div className="navbar" style={{boxShadow:"5px 5px 10px gray",backgroundColor:"black",color:"white"}}>
+      <div className="navbar" style={{boxShadow:"5px 5px 10px gray",backgroundColor:"#1c5ba4",color:"white"}}>
           <div className="icons" style={{ marginLeft:"1.1rem", display: "flex" , color:"white"}}>
             <Link to="/Main/Home" className="menu-bars" style={{color:"white"}}>HOME</Link>  
             <Link to="/Main/Profile" className="menu-bars" style={{color:"white"}}>프로필</Link>
