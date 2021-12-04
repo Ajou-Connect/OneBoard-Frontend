@@ -1,5 +1,5 @@
 import React from 'react';
-import Nav from '../Sidebar/Nav';
+
 import { Route } from 'react-router-dom';
 import Home from '../Pages/MainNav/Home';
 import Profile from '../Pages/MainNav/Profile';
@@ -28,11 +28,12 @@ import UpdateLesson from '../Pages/LecturePages/Lesson/UpdateLesson';
 import ProfessorLectureScore from '../Pages/LecturePages/Score/ProfessorLectureScore';
 import ProfessorScoreDetail from '../Pages/LecturePages/Score/ProfessorScoreDetail';
 import UpdateStudentAssignment from '../Pages/LecturePages/Assignment/UpdateStudentAssignment';
-
+import Header from "../Header";
 const Routes = () => {
   return (
     <div className="Routes-container">
-      <Nav />
+      <Header/>
+
       <Route exact path="/Main/Home" component={Home} />
       <Route path="/Main/Profile" component={Profile} />
       <Route exact path="/Main/Lecture" component={LectureList} />

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Container, Row, Col, Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
 import axios from 'axios';
 import { useHistory } from 'react-router';
+import MainLogo from "../../img/OneBoardLogo.png";
 const LoginCheck = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -95,12 +96,18 @@ const LoginCheck = () => {
   };
 
   return (
-    <Container className="SignInContainer">
-      <Row style={{ marginTop: '5rem' }}>
+    <div style={{ marginTop: "1.2rem" }}>
+
+      <center>
+      <div>
+        <img src={MainLogo} style={{width:"50%" , height:"300px"}} />
+      </div>
+      </center>
+      <Row >
         <center>
-          <Col className="InputContainer">
+          <Col className="InputContainer"  style={{marginTop:"5rem"}}>
             <input
-              style={{ borderRadius: '7px', width: '40%', height: '100px', fontSize: '2rem' }}
+              style={{ borderRadius: '7px', width: '40%', height: '100px', fontSize: '2rem' , marginTop:"5rem",paddingLeft:"10px"}}
               className="signInInput"
               name="email"
               type="email"
@@ -114,11 +121,12 @@ const LoginCheck = () => {
           <Col className="InputContainer">
             <input
               style={{
-                marginTop: '10px',
+                marginTop: '15px',
                 borderRadius: '7px',
                 width: '40%',
                 height: '100px',
                 fontSize: '2rem',
+                paddingLeft:"10px"
               }}
               className="signInInput"
               name="password"
@@ -134,11 +142,16 @@ const LoginCheck = () => {
           <Col className="SignInBtnContainer">
             <button
               style={{
-                marginTop: '10px',
+                marginTop: '3rem',
                 borderRadius: '7px',
                 width: '40%',
                 height: '100px',
-                fontSize: '2rem',
+                fontSize: '1.5rem',
+                backgroundColor: "#E6F4F1",
+                color: "black",
+                fontWeight: "bold",
+                cursor: "pointer",
+
               }}
               className="DoSignIn"
               onClick={(e) => onSubmit(e)}
@@ -148,8 +161,6 @@ const LoginCheck = () => {
           </Col>
         </center>
       </Row>
-
-      <ModalHeader style={{ height: '70px', textAlign: 'center' }}></ModalHeader>
       <ModalBody style={{ height: '90px' }}>
         <div
           style={{
@@ -165,7 +176,7 @@ const LoginCheck = () => {
           {getAlert.message}
         </div>
       </ModalBody>
-    </Container>
+    </div>
   );
 };
 
