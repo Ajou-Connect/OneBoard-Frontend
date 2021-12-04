@@ -14,13 +14,13 @@ const WriteBtn = styled.button`
 `;
 
 const Title = styled.div`
+  margin-top: 1.5rem;
+  margin-left: 20px;
   font-size: 30px;
-  margin-left: 15px;
   border-bottom: 1px solid #f7f9fc;
   height: 40px;
   line-height: 40px;
-  font-style: italic;
-  text-align: left;
+  font-weight: bold;
 `;
 export const LoadLecturePlan = (props) => {
   const [files, setFiles] = useState(null);
@@ -67,8 +67,8 @@ export const LoadLecturePlan = (props) => {
           fontSize: '2rem',
         }}
       >
-        <div style={{ margin: '10px' }}>
-          <Iframe id="plan" url={Url} width="80%" height="600px" />
+        <div style={{ margin: '10px', boxShadow: '5px 5px 10px gray', width: '100%' }}>
+          <Iframe id="plan" url={Url} width="100%" height="500px" />
         </div>
       </div>
     </div>

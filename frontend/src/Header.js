@@ -13,9 +13,9 @@ class Header extends Component {
       return (window.location.href = `/Main/Home`);
     };
     return (
-      <div className="header-head">
-        <div className="header-image">
-          <img src={logoimage} alt="OneBoard" onClick={goMain} style={{ cursor: 'pointer' }} />
+      <div className="header-head" >
+        <div className="header-image" >
+          <img src={logoimage} alt="OneBoard" onClick={goMain} style={{ cursor: 'pointer'  }} />
         </div>
       </div>
     );

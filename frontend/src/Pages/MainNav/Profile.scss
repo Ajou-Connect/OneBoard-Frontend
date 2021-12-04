@@ -1,12 +1,7 @@
 h2 {
   font-weight: 200, bold;
   line-height: 1.4;
-  display: block;
-  margin-block-start: 0.83em;
-  margin-block-end: 0.83em;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
-  text-align: center;
+  margin-left: 20px;
 }
 
 section {
@@ -15,7 +10,6 @@ section {
 
 .user-information {
   display: inline;
-  padding: 0 0.75rem;
   ul {
     list-style: none;
     text-align: center;
@@ -26,6 +20,7 @@ section {
     border: solid 0.0625rem #cdcdcd;
     margin: 0.625rem 0 0 0;
     padding: 0;
+    width: 70%;
     li {
       margin: 0;
       padding: 0;
@@ -76,5 +71,24 @@ section {
   &.div {
     margin: 0;
     padding: 0;
+  }
+}
+
+.navbar {
+  background-color: #1c5ba4;
+  width: 100%;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  padding: 0px;
+}
+.menu-bars {
+  margin-right: 1.1rem;
+  font-size: 20px;
+  color: white;
+  margin-top: center;
+  font-weight: bold;
+  :hover {
+    cursor: pointer;
   }
 }

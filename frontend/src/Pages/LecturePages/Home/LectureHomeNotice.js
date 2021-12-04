@@ -9,6 +9,7 @@ const Container = styled.div`
   height: 450px;
   background-color: #eef8f7;
   border-radius: 5px;
+  box-shadow: 3px 3px 3px gray;
 `;
 
 const LectureHomeNotice = (props) => {

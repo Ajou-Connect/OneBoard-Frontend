@@ -14,22 +14,33 @@ const WriteBtn = styled.button`
   &:hover {
     background-color: #bfbfbf;
   }
-  display: inline-block;
-  float: right;
 `;
 
 const Btn = styled.button`
-  font-size: 2px;
+  font-size: 5px;
   padding: 5px;
-  margin-top: 50px;
+  padding-left: 15px;
+  padding-right: 15px;
+  font-weight: bold;
+  margin-bottom: 0;
   margin-right: 10px;
-  background-color: rgba(215, 226, 185, 0.596);
+  background-color: #a8c0ea;
   color: #3e3e3e;
   border-radius: 7px;
   cursor: pointer;
   &:hover {
-    background-color: #bfbfbf;
+    background-color: #f4f9ff;
   }
+`;
+
+const Title = styled.div`
+  margin-top: 1.5rem;
+  margin-left: 20px;
+  font-size: 30px;
+  border-bottom: 1px solid #f7f9fc;
+  height: 40px;
+  line-height: 40px;
+  font-weight: bold;
 `;
 
 const LectureNoticeContent = (props) => {
@@ -115,13 +126,7 @@ const LectureNoticeContent = (props) => {
 
   return (
     <div id="content" className="contentBox">
-      <div id="pageTitleDiv" className="pageTitle clearfix">
-        <div id="pageTitleBar" className="pageTitleIcon">
-          <h1 id="pageTitleHeader">
-            <span id="pageTitleText">공지사항</span>
-          </h1>
-        </div>
-      </div>
+      <Title>공지사항</Title>
       <div className="container clearfix" id="containerdiv">
         <form name="noticeForm" id="noticeForm">
           <ul id="announcementList" className="announcementList announcementList-read">
@@ -152,18 +157,14 @@ const LectureNoticeContent = (props) => {
                       ></div>
                     </div>
                     <div className="noticeInfo">
-                      <p>
-                        <span>작성자 : {notice.id}</span>
-                      </p>
+                      <div style={{ fontWeight: 'bold', marginBottom: '1rem' }}>
+                        작성자 : {user.name}
+                      </div>
                       {isProfessor ? (
-                        <p>
-                          <span>
-                            <Btn onClick={(e) => onUpdateClick(e, notice.id)}>수정하기</Btn>
-                          </span>
-                          <span>
-                            <Btn onClick={(e) => onDeleteClick(e, notice.id)}>삭제하기</Btn>
-                          </span>
-                        </p>
+                        <div style={{ display: 'flex' }}>
+                          <Btn onClick={(e) => onUpdateClick(e, notice.id)}>수정</Btn>
+                          <Btn onClick={(e) => onDeleteClick(e, notice.id)}>삭제</Btn>
+                        </div>
                       ) : (
                         <p></p>
                       )}
@@ -172,7 +173,9 @@ const LectureNoticeContent = (props) => {
                 );
               })
             )}
-            {isProfessor ? <WriteBtn onClick={onWriteClick}>글쓰기</WriteBtn> : <div></div>}
+            <div style={{ marginBottom: '30px' }}>
+              {isProfessor ? <WriteBtn onClick={onWriteClick}>글쓰기</WriteBtn> : <div></div>}
+            </div>
           </ul>
         </form>
       </div>

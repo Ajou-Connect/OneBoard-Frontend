@@ -11,12 +11,13 @@ const Container = styled.div`
   padding: 0 20px;
 `;
 const Title = styled.div`
+  margin-top: 1.5rem;
+  margin-left: 20px;
   font-size: 30px;
   border-bottom: 1px solid #f7f9fc;
   height: 40px;
   line-height: 40px;
-  font-style: italic;
-  text-alignment: left;
+  font-weight: bold;
 `;
 const SubTitle = styled.div`
   float: left;

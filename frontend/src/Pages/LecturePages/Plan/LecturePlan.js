@@ -5,6 +5,7 @@ import axios from 'axios';
 import UpLoadPlan from './UpLoadPlan';
 import './LecturePlan.scss';
 import LoadLecturePlan from './LoadLecturePlan';
+import Nav from '../../../Sidebar/Nav';
 
 const Container = styled.div`
   width: 97%;
@@ -128,16 +129,17 @@ const LecturePlan = ({ match }) => {
   }, []);
 
   return (
-    <div className="plan">
-      <nav className="lecture-menu">
-        <LectureSidebar lectureId={lectureId} />
-      </nav>
+    <div className="lecture-plan">
+      <Nav />
       <div className="plan-main">
-        {isPlan !== true ? (
-          <UpLoadPlan lectureId={lectureId} />
-        ) : (
-          <LoadLecturePlan lectureId={lectureId} />
-        )}
+        <LectureSidebar lectureId={lectureId} />
+        <div style={{ width: '100%' }}>
+          {isPlan !== true ? (
+            <UpLoadPlan lectureId={lectureId} />
+          ) : (
+            <LoadLecturePlan lectureId={lectureId} />
+          )}
+        </div>
       </div>
     </div>
   );

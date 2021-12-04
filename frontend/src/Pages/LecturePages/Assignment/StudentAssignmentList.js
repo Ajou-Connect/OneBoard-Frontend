@@ -39,11 +39,13 @@ const Container = styled.div`
   padding: 0 20px;
 `;
 const Title = styled.div`
+  margin-top: 1.5rem;
+  margin-left: 20px;
   font-size: 30px;
   border-bottom: 1px solid #f7f9fc;
   height: 40px;
   line-height: 40px;
-  font-style: italic;
+  font-weight: bold;
 `;
 const SubTitle = styled.div`
   float: left;
@@ -172,18 +174,14 @@ const StudentAssignmentList = (props) => {
 
   return (
     <div>
-      <Container>
-        <Title>Assignment</Title>
-        <div style={{ width: '100%', display: 'block' }}>
-          <SubTitle>과제</SubTitle>
-        </div>
-        <div style={{ width: '100%', display: 'block', height: '20px' }}>
-          <StateDescript>마감</StateDescript>{' '}
-          <StateColorCircle style={{ backgroundColor: '#E24C4B' }} />
-          <StateDescript>진행 중</StateDescript>{' '}
-          <StateColorCircle style={{ backgroundColor: '#66FF33' }} />
-        </div>
-      </Container>
+      <Title>Assignment</Title>
+      <div style={{ width: '100%', display: 'block', height: '20px', marginRight: '20px' }}>
+        <StateDescript>마감</StateDescript>{' '}
+        <StateColorCircle style={{ backgroundColor: '#E24C4B' }} />
+        <StateDescript>진행 중</StateDescript>{' '}
+        <StateColorCircle style={{ backgroundColor: '#66FF33' }} />
+      </div>
+
       <div>
         <table
           style={{
@@ -287,11 +285,11 @@ const StudentAssignmentList = (props) => {
                       style={{
                         padding: '20px',
                         borderBottom: '1px solid #D5D5D5',
+                        display: 'flex',
+                        justifyContent: 'center',
                       }}
                     >
-                      <center>
-                        {stateDisplay(moment(assignmentList.startDt), moment(assignmentList.endDt))}
-                      </center>
+                      {stateDisplay(moment(assignmentList.startDt), moment(assignmentList.endDt))}
                     </td>
                   </tr>
                 );

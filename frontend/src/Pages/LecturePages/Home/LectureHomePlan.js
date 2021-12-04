@@ -8,6 +8,7 @@ const Container = styled.div`
   margin-left: 0px;
   width: 90%;
   height: 450px;
+  box-shadow: 3px 3px 3px gray;
 `;
 
 const LectureHomePlan = (props) => {

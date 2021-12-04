@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import './LectureList.scss';
 import axios from 'axios';
-
+import { Link } from 'react-router-dom';
+import Nav from '../../Sidebar/Nav';
 const LectureList = () => {
   const token = sessionStorage.getItem('token');
   const [lectures, setLectures] = useState([]);
@@ -27,7 +28,8 @@ const LectureList = () => {
 
   return (
     <div>
-      <div className="term">
+      <Nav />
+      <div className="term" style={{ marginTop: '20px' }}>
         <h2 className="semester active-term">2021-2학기</h2>
       </div>
       <div id="course-columns-current" className="course-columns list-columns-view">
@@ -52,6 +54,7 @@ const LectureList = () => {
                   <div
                     key={index}
                     className="element-card course-element-card highlight pointer bar js-course-details child-is-invokable course-color-classic"
+                    style={{ marginBottom: '10px' }}
                   >
                     <div className="element-details summary">
                       <div className="small-12">

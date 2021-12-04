@@ -1,0 +1,13 @@
+.subBox {
+  font-size: 0.9rem;
+  color: gray;
+}
+
+.subBox > span:nth-child(1) {
+  color: #a6c5f3;
+  margin-right: 10px;
+}
+
+.subBox > span:nth-child(2) {
+  text-align: left;
+}

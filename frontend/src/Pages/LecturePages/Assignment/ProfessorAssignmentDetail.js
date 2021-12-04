@@ -79,7 +79,7 @@ const WriteBtn = styled.button`
   padding: 5px;
   margin-top: 10px;
   margin-bottom: 5px;
-  margin-left: auto;
+  margin-left: 10px;
   margin-right: 30px;
   background-color: #d3d31c;
   color: #3e3e3e;

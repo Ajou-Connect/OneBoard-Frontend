@@ -9,6 +9,7 @@ const WriteBtn = styled.button`
   margin-top: 10px;
   margin-bottom: 5px;
   margin-left: 30px auto;
+  margin-right: 30px;
   background-color: #ececec;
   color: #3e3e3e;
   border-radius: 5px;
@@ -23,6 +24,8 @@ const WriteBtn = styled.button`
 const Btn = styled.button`
   font-size: 2px;
   padding: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
   margin-right: 10px;
   background-color: rgba(215, 226, 185, 0.596);
   color: #3e3e3e;
@@ -41,13 +44,17 @@ const Container = styled.div`
   margin: 10px auto;
   padding: 0 20px;
 `;
+
 const Title = styled.div`
+  margin-top: 1.5rem;
+  margin-left: 20px;
   font-size: 30px;
   border-bottom: 1px solid #f7f9fc;
   height: 40px;
   line-height: 40px;
-  font-style: italic;
+  font-weight: bold;
 `;
+
 const SubTitle = styled.div`
   float: left;
   margin-top: 3px;
@@ -198,19 +205,17 @@ const ProfessorAssignmentList = (props) => {
 
   return (
     <div>
-      <Container>
-        <Title>Assignment</Title>
-        <div style={{ width: '100%', display: 'block' }}>
-          <SubTitle>과제</SubTitle>
-          <WriteBtn onClick={(e) => goWrite(e)}>작성하기</WriteBtn>
-        </div>
+      <Title>Assignment</Title>
+      <div style={{ width: '100%', display: 'block' }}>
+        <WriteBtn onClick={(e) => goWrite(e)}>작성하기</WriteBtn>
         <div style={{ width: '100%', display: 'block', height: '20px' }}>
           <StateDescript>마감</StateDescript>{' '}
           <StateColorCircle style={{ backgroundColor: '#E24C4B' }} />
           <StateDescript>진행 중</StateDescript>{' '}
           <StateColorCircle style={{ backgroundColor: '#66FF33' }} />
         </div>
-      </Container>
+      </div>
+
       <div>
         <table
           style={{
@@ -313,16 +318,17 @@ const ProfessorAssignmentList = (props) => {
                       style={{
                         padding: '20px',
                         borderBottom: '1px solid #D5D5D5',
+                        justifyContent: 'center',
                       }}
                     >
-                      <center>
-                        {stateDisplay(moment(assignmentList.startDt), moment(assignmentList.endDt))}
-                      </center>
+                      {stateDisplay(moment(assignmentList.startDt), moment(assignmentList.endDt))}
                     </td>
                     <td
                       style={{
                         padding: '15px 0',
                         borderBottom: '1px solid #D5D5D5',
+                        display: 'flex',
+                        justifyContent: 'center',
                       }}
                     >
                       <Btn
@@ -330,14 +336,14 @@ const ProfessorAssignmentList = (props) => {
                           goUpdate(e, assignmentList.assignmentId);
                         }}
                       >
-                        수정하기
+                        수정
                       </Btn>
                       <Btn
                         onClick={(e) => {
                           onDelete(e, assignmentList.assignmentId);
                         }}
                       >
-                        삭제하기
+                        삭제
                       </Btn>
                     </td>
                   </tr>

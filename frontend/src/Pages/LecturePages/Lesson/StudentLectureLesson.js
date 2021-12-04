@@ -4,13 +4,13 @@ import axios from 'axios';
 import palette from '../../../lib/styles/palette';
 
 const Title = styled.div`
+  margin-top: 1.5rem;
+  margin-left: 20px;
   font-size: 30px;
-  margin-left: 15px;
   border-bottom: 1px solid #f7f9fc;
   height: 40px;
   line-height: 40px;
-  font-style: italic;
-  text-align: left;
+  font-weight: bold;
 `;
 
 const TitleInput = styled.input`

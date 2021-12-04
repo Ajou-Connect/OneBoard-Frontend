@@ -11,20 +11,22 @@ const Container = styled.div`
   padding: 0 20px;
 `;
 const Title = styled.div`
+  margin-top: 1.5rem;
+  margin-left: 20px;
   font-size: 30px;
   border-bottom: 1px solid #f7f9fc;
   height: 40px;
   line-height: 40px;
-  font-style: italic;
-  text-align: left;
-  display: flex;
+  font-weight: bold;
 `;
+
 const SubTitle = styled.div`
   font-size: 20px;
   border-bottom: 1px solid #f7f9fc;
   height: 30px;
   line-height: 30px;
   text-align: left;
+  margin-left: 20px;
 `;
 
 const Btn = styled.button`
@@ -122,10 +124,10 @@ const StudentAttendance = (props) => {
     );
 
   return (
-    <Container>
+    <div>
       <Title>개인 출석부</Title>
       <hr style={{ width: '100%', margin: '10px 0px', display: 'block', borderColor: '#ffffff' }} />
-      <SubTitle style={{ display: 'flex' }}>
+      <SubTitle style={{ display: 'flex', marginLeft: '20px' }}>
         이름 : {attendances.studentName} 학번 : {attendances.studentNumber}
       </SubTitle>
       <hr style={{ width: '100%', margin: '10px 0px', display: 'block', borderColor: '#ffffff' }} />
@@ -180,7 +182,7 @@ const StudentAttendance = (props) => {
         </tbody>
       </table>
       <hr style={{ width: '100%', margin: '10px 0px', display: 'block', borderColor: '#ffffff' }} />
-    </Container>
+    </div>
   );
 };
 
