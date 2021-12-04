@@ -1,17 +1,14 @@
 body {
-  background: #ebebeb;
   color: #262626;
   font-size: 0.875rem;
   line-height: 1.6;
   cursor: auto;
+  height: 100%;
+  background-color: #f4f9ff;
 }
 
 div {
   margin: 0;
   padding: 0;
   display: block;
-}
-
-span {
-  margin: 0;
 }

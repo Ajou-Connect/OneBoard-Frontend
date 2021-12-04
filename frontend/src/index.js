@@ -1,13 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import 'bootstrap/dist/css/bootstrap.css';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter } from 'react-router-dom';
+import Header from '../src/Header';
+import axios from 'axios';
+
+axios.defaults.baseURL = 'https://oneboard.connect.o-r.kr:8080';
+// axios.defaults.withCredentials = true;
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Header />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root'),
 );
