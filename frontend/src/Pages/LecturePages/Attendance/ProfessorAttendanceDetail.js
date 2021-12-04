@@ -216,13 +216,22 @@ const ProfessorAttendanceDetail = ({ match }) => {
                     <div style={{ color: 'red', fontWeight: 'bold' }}>결석</div>
                   )}
                 </td>
-                <td style={{ padding: '15px 0', borderBottom: '1px solid #D5D5D5' }}>
+                <td
+                  style={{ padding: '15px 0', borderBottom: '1px solid #D5D5D5', display: 'flex' }}
+                >
                   <StatusBtn onClick={(e) => onStatusChange(e, list, 2)}>출석</StatusBtn>
                   <StatusBtn onClick={(e) => onStatusChange(e, list, 1)}>지각</StatusBtn>
                   <StatusBtn onClick={(e) => onStatusChange(e, list, 0)}>결석</StatusBtn>
                 </td>
-                <td style={{ padding: '15px 0', borderBottom: '1px solid #D5D5D5' }}>
-                  <Btn onClick={onSubmit}>저장하기</Btn>
+                <td
+                  style={{
+                    padding: '15px 0',
+                    borderBottom: '1px solid #D5D5D5',
+                  }}
+                >
+                  <center>
+                    <Btn onClick={onSubmit}>저장하기</Btn>
+                  </center>
                 </td>
               </TabletrColor>
             )),
