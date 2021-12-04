@@ -19,10 +19,12 @@ const WriteBtn = styled.button`
 const Btn = styled.button`
   font-size: 5px;
   padding: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
   font-weight: bold;
   margin-bottom: 0;
   margin-right: 10px;
-  background-color: #5a87d6;
+  background-color: #a8c0ea;
   color: #3e3e3e;
   border-radius: 7px;
   cursor: pointer;
@@ -160,8 +162,8 @@ const LectureNoticeContent = (props) => {
                       </div>
                       {isProfessor ? (
                         <div style={{ display: 'flex' }}>
-                          <Btn onClick={(e) => onUpdateClick(e, notice.id)}>수정하기</Btn>
-                          <Btn onClick={(e) => onDeleteClick(e, notice.id)}>삭제하기</Btn>
+                          <Btn onClick={(e) => onUpdateClick(e, notice.id)}>수정</Btn>
+                          <Btn onClick={(e) => onDeleteClick(e, notice.id)}>삭제</Btn>
                         </div>
                       ) : (
                         <p></p>

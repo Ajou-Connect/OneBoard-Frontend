@@ -287,11 +287,11 @@ const StudentAssignmentList = (props) => {
                       style={{
                         padding: '20px',
                         borderBottom: '1px solid #D5D5D5',
+                        display: 'flex',
+                        justifyContent: 'center',
                       }}
                     >
-                      <center>
-                        {stateDisplay(moment(assignmentList.startDt), moment(assignmentList.endDt))}
-                      </center>
+                      {stateDisplay(moment(assignmentList.startDt), moment(assignmentList.endDt))}
                     </td>
                   </tr>
                 );
