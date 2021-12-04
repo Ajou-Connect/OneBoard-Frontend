@@ -87,6 +87,10 @@ const Index = (props) => {
   const [isAudioOn, setIsAudioOn] = useState(false);
   const [isShareOn, setIsShareOn] = useState(false);
   const [cnt, setCnt] = useState(0);
+  const {
+    mediaStream,
+    video: { decode: isVideoDecodeReady },
+  } = props.mediaState;
 
   //useEffect
 
@@ -157,6 +161,7 @@ const Index = (props) => {
           )
           .then((response) => {
             console.log('renderVideo');
+            console.log(stream.isCapturingVideo());
           });
         setCnt(cnt + 1);
       }

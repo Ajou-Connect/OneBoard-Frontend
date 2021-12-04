@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect ,useCallback,useReducer} from 'react'
 import axios from 'axios'
 import styled, { css } from 'styled-components'
 // import socketio from 'socket.io-client'
@@ -16,6 +16,8 @@ import Sub from './util/Sub/Index'
 import My from '../../../../images/utils/myscreen.png'
 import Part from '../../../../images/utils/part.png'
 import Share from '../../../../images/utils/share.png'
+import produce from "immer";
+
 import './Index.css'
 /* import StartAnim from './util/Animation/Index' */
 
@@ -250,6 +252,8 @@ interface TestProps {
   }
 }
 
+
+
 /* const socket = socketio('http://disboard13.kro.kr:3000', {
   transports : ['polling']
 });
@@ -275,6 +279,7 @@ function Index(props: TestProps) {
   const [compRef, setcompRef] = useState(React.createRef());
   const [subject_id, setSubject_id] = useState(props.match.params.subject_id);
   const [lecture_id, setlecture_id] = useState<number>(1);
+
 
   //------useeffect------
 
@@ -323,6 +328,8 @@ function Index(props: TestProps) {
       }
     })
 
+   
+
     client.on('share-content-dimension-change', payload => {
       console.log('share-content-dimension-change');
       const canvas1 = document.getElementById("canvas1") as HTMLCanvasElement;
@@ -363,6 +370,7 @@ function Index(props: TestProps) {
     });
   }
 
+   
   //zoom init
   useEffect(() => {
     zoomInit();

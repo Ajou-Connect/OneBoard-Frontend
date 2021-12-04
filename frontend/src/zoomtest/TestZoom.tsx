@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState ,useCallback,useReducer} from 'react';
 import ZoomContext from './ZoomClientContext';
 import ZoomVideo from '@zoom/videosdk';
 import { generateVideoToken } from './GenerateToken';
@@ -15,6 +15,7 @@ import Loading from "../Pages/LectureClass/utils/Loading/Index";
 import My from "../img/myscreen.png";
 import Share from "../img/share.png";
 import "./test.css";
+
 
 const MainCnt = styled.div`
 background-color : gray;
@@ -224,6 +225,50 @@ interface TestProps {
   }
 }
 
+const mediaShape = {
+  audio: {
+    encode: false,
+    decode: false,
+  },
+  video: {
+    encode: false,
+    decode: false,
+  },
+  share: {
+    encode: false,
+    decode: false,
+  },
+};
+const mediaReducer = produce((draft, action) => {
+  switch (action.type) {
+    case "audio-encode": {
+      draft.audio.encode = action.payload;
+      break;
+    }
+    case "audio-decode": {
+      draft.audio.decode = action.payload;
+      break;
+    }
+    case "video-encode": {
+      draft.video.encode = action.payload;
+      break;
+    }
+    case "video-decode": {
+      draft.video.decode = action.payload;
+      break;
+    }
+    case "share-encode": {
+      draft.share.encode = action.payload;
+      break;
+    }
+    case "share-decode": {
+      draft.share.decode = action.payload;
+      break;
+    }
+    default:
+      break;
+  }
+}, mediaShape);
 
 
 function TestZoom(props: TestProps) {
@@ -237,6 +282,8 @@ const [isLoading, setisLoading] = useState<boolean>(true);
   const [lecture_id, setlecture_id] = useState<number>(1);
   const [lecture_info, setlecture_info] = useState(null);
   const [students, setstudents] = useState(null);
+  const [mediaState, dispatch] = useReducer(mediaReducer, mediaShape);
+
 
  const user = JSON.parse(window.sessionStorage.userInfo);
 
@@ -350,6 +397,11 @@ const [isLoading, setisLoading] = useState<boolean>(true);
     }
   }
 
+  const onMediaSDKChange = useCallback((payload) => {
+    const { action, type, result } = payload;
+    dispatch({ type: `${type}-${action}`, payload: result === "success" });
+  }, []);
+
   useEffect(() => {
     zoomInit();
     console.log("hi" + userClient);
@@ -387,7 +439,15 @@ const [isLoading, setisLoading] = useState<boolean>(true);
 //     }
 //     init();
 // })
-  
+  useEffect(() => {
+    
+    userClient.on("media-sdk-change", onMediaSDKChange);
+    
+    return () => {
+      
+      userClient.off("media-sdk-change", onMediaSDKChange);
+    };
+  }, [userClient, onMediaSDKChange]);
    
   const RenderMenuBtns = () => {
     const screens = ['내화면', '공유화면'];
@@ -425,7 +485,7 @@ const [isLoading, setisLoading] = useState<boolean>(true);
             {RenderMenuBtns()}
           </ScreenMenuCnt>
           {RenderCanvas()}
-          <MediaController client={userClient}/>
+          <MediaController client={userClient} state={mediaState}/>
         </ZoomScreen>
       </LeftCnt>
       <RightCnt>
