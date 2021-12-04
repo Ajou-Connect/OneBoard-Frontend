@@ -3,13 +3,13 @@ import styled from 'styled-components';
 import axios from 'axios';
 
 const Title = styled.div`
-  margin-top: 10px;
+  margin-top: 1.5rem;
   margin-left: 20px;
   font-size: 30px;
   border-bottom: 1px solid #f7f9fc;
   height: 40px;
   line-height: 40px;
-  font-style: italic;
+  font-weight: bold;
 `;
 
 const SubTitle = styled.div`

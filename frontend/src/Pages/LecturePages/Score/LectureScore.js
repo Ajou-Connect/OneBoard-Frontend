@@ -4,22 +4,23 @@ import './LectureScore.scss';
 import styled from 'styled-components';
 import ProfessorLectureScore from './ProfessorLectureScore';
 import StudentLectureScore from './StudentLectureScore';
-
+import Nav from '../../../Sidebar/Nav';
 const LectureScore = ({ match }) => {
   const user = JSON.parse(sessionStorage.userInfo);
   const userType = user.userType;
   const lectureId = match.params.lectureId;
   return (
     <div className="score">
-      <nav className="lecture-menu">
-        <LectureSidebar lectureId={lectureId} />
-      </nav>
+      <Nav />
       <div className="score-main">
-        {userType === 'T' ? (
-          <ProfessorLectureScore lectureId={lectureId} />
-        ) : (
-          <StudentLectureScore lectureId={lectureId} />
-        )}
+        <LectureSidebar lectureId={lectureId} />
+        <div style={{ width: '100%' }}>
+          {userType === 'T' ? (
+            <ProfessorLectureScore lectureId={lectureId} />
+          ) : (
+            <StudentLectureScore lectureId={lectureId} />
+          )}
+        </div>
       </div>
     </div>
   );
