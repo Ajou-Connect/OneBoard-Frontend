@@ -132,7 +132,7 @@ const StudentLectureLesson = (props) => {
                   fontSize: '1rem',
                   cursor: 'pointer',
                 }}
-                onClick={(e) => onDetail(e, lessonList.id)}
+                onClick={(e) => onDetail(e, lessonList.lessonId)}
               >
                 {lessonList.title}
               </td>
