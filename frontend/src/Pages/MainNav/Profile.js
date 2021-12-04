@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './Profile.scss';
+import { Link } from 'react-router-dom';
 
 const Profile = () => {
   const [users, setUsers] = useState(null);
@@ -22,12 +23,33 @@ const Profile = () => {
     fetchUsers();
   }, []);
 
+    const logout = () => {
+    sessionStorage.removeItem('email');
+    sessionStorage.removeItem('token');
+    sessionStorage.removeItem('userInfo');
+  };
+
   if (loading) return <div>로딩중..</div>;
   if (error) return <div>에러가 발생했습니다</div>;
   if (!users) return null;
   return (
     <div className="user-information">
-      <section>
+      <div className="navbar" style={{boxShadow:"5px 5px 10px gray",backgroundColor:"#1c5ba4",color:"white"}}>
+          <div className="icons" style={{ marginLeft:"1.1rem", display: "flex" , color:"white"}}>
+            <Link to="/Main/Home" className="menu-bars" style={{color:"white"}}>HOME</Link>  
+            <Link to="/Main/Profile" className="menu-bars" style={{color:"white"}}>프로필</Link>
+          <Link to="/Main/Lecture" className="menu-bars" style={{color:"white"}}>강의목록</Link>
+          </div>  
+            <div style={{display:"flex",marginLeft:"auto",color:"white"}}>
+            <Link to="/Login" className="menu-bars" >
+              <div onClick={logout} style={{color:"white"}}>
+                로그아웃
+                </div>
+              </Link>
+            </div>
+          
+        </div>
+      <section style={{marginTop:"1rem"}}>
         <h2>사용자정보</h2>
         <ul>
           <li className="data-row">

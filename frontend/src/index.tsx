@@ -4,7 +4,10 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
+<<<<<<< HEAD:frontend/src/index.tsx
 import Header from './Header';
+=======
+>>>>>>> 185e55f45ad0ed38efe10fc20ded0506074e7cd4:frontend/src/index.js
 import axios from 'axios';
 
 axios.defaults.baseURL = 'https://oneboard.connect.o-r.kr:8080';
@@ -12,7 +15,6 @@ axios.defaults.baseURL = 'https://oneboard.connect.o-r.kr:8080';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Header />
     <BrowserRouter>
       <App />
     </BrowserRouter>

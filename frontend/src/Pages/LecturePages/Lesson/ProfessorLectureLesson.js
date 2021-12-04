@@ -151,7 +151,7 @@ const ProfessorLectureLesson = (props) => {
                   fontSize: '1rem',
                   cursor: 'pointer',
                 }}
-                onClick={(e) => onDetail(e, lessonList.id)}
+                onClick={(e) => onDetail(e, lessonList.lessonId)}
               >
                 {lessonList.title}
               </td>
@@ -183,8 +183,8 @@ const ProfessorLectureLesson = (props) => {
                   borderBottom: '1px solid #D5D5D5',
                 }}
               >
-                <Btn onClick={(e) => onUpdate(e, lessonList.id)}>수정하기</Btn>
-                <Btn onClick={(e) => onDelete(e, lessonList.id)}>삭제하기</Btn>
+                <Btn onClick={(e) => onUpdate(e, lessonList.lessonId)}>수정하기</Btn>
+                <Btn onClick={(e) => onDelete(e, lessonList.lessonId)}>삭제하기</Btn>
               </td>
             </TabletrColor>
           ))}

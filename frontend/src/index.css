@@ -5,6 +5,8 @@ body {
   cursor: auto;
   height: 100%;
   background-color: #f4f9ff;
+  width: 100%;
+  position: relative;
 }
 
 div {
