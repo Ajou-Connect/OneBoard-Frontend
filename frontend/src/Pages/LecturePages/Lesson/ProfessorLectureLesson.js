@@ -5,13 +5,13 @@ import Button from '../../../Component/common/Button';
 import axios from 'axios';
 
 const Title = styled.div`
+  margin-top: 1.5rem;
+  margin-left: 20px;
   font-size: 30px;
-  margin-left: 15px;
   border-bottom: 1px solid #f7f9fc;
   height: 40px;
   line-height: 40px;
-  font-style: italic;
-  text-align: left;
+  font-weight: bold;
 `;
 
 const TitleInput = styled.input`
@@ -181,6 +181,8 @@ const ProfessorLectureLesson = (props) => {
                 style={{
                   padding: '10px 0',
                   borderBottom: '1px solid #D5D5D5',
+                  display: 'flex',
+                  justifyContent: 'center',
                 }}
               >
                 <Btn onClick={(e) => onUpdate(e, lessonList.lessonId)}>수정하기</Btn>

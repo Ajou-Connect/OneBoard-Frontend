@@ -3,7 +3,7 @@ import LectureSidebar from '../LectureSidebar';
 import './LectureLesson.scss';
 import ProfessorLectureLesson from './ProfessorLectureLesson';
 import StudentLectureLesson from './StudentLectureLesson';
-
+import Nav from '../../../Sidebar/Nav';
 const LectureLesson = ({ match }) => {
   const lectureId = match.params.lectureId;
   const user = JSON.parse(sessionStorage.userInfo);
@@ -15,16 +15,17 @@ const LectureLesson = ({ match }) => {
   }, []);
 
   return (
-    <div className="lesson">
-      <nav className="lecture-sidebar">
-        <LectureSidebar lectureId={lectureId} />
-      </nav>
+    <div className="lecture-lesson">
+      <Nav />
       <div className="lesson-content">
-        {isProfessor === 'T' ? (
-          <ProfessorLectureLesson lectureId={lectureId} />
-        ) : (
-          <StudentLectureLesson lectureId={lectureId} />
-        )}
+        <LectureSidebar lectureId={lectureId} />
+        <div style={{ width: '100%' }}>
+          {isProfessor === 'T' ? (
+            <ProfessorLectureLesson lectureId={lectureId} />
+          ) : (
+            <StudentLectureLesson lectureId={lectureId} />
+          )}
+        </div>
       </div>
     </div>
   );
