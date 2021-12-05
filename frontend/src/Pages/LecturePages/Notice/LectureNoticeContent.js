@@ -118,10 +118,14 @@ const LectureNoticeContent = (props) => {
 
   const onDeleteClick = (e, noticeid) => {
     //delete눌렀을때 axios.delete로 공지사항 목록 하나 삭제
-    axios.delete(`/lecture/${lectureId}/notice/` + noticeid).then((res) => {
-      const result = res.data;
-      console.log(result);
-    });
+    if (window.confirm('정말 삭제하시겠습니까?')) {
+      axios.delete(`/lecture/${lectureId}/notice/` + noticeid).then((res) => {
+        const result = res.data;
+        console.log(result);
+      });
+    } else {
+      e.preventDefault();
+    }
   };
 
   return (

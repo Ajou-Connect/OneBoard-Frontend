@@ -39,24 +39,41 @@ export const LoadLecturePlan = (props) => {
     <div>
       <Title>강의 계획서</Title>
       <hr style={{ width: '100%', margin: '10px 0px', display: 'block', borderColor: '#ffffff' }} />
-      <div style={{ display: 'flex' }}>
-        <a
-          href={FileURL}
-          style={{
-            marginLeft: '20px',
-            textDecoration: 'underline',
-            fontWeight: 'bold',
-          }}
-        >
-          강의계획서 다운로드
-        </a>
-        <WriteBtn
-          style={{ marginLeft: 'auto', marginRight: '30px', cursor: 'pointer' }}
-          onClick={onUploadPlan}
-        >
-          수정하기
-        </WriteBtn>
-      </div>
+      {userType === 'T' ? (
+        <div style={{ display: 'flex' }}>
+          <a
+            href={FileURL}
+            style={{
+              marginLeft: '20px',
+              textDecoration: 'underline',
+              fontWeight: 'bold',
+            }}
+          >
+            강의계획서 다운로드
+          </a>
+
+          <WriteBtn
+            style={{ marginLeft: 'auto', marginRight: '30px', cursor: 'pointer' }}
+            onClick={onUploadPlan}
+          >
+            수정하기
+          </WriteBtn>
+        </div>
+      ) : (
+        <div style={{ display: 'flex' }}>
+          <a
+            href={FileURL}
+            style={{
+              marginLeft: '20px',
+              textDecoration: 'underline',
+              fontWeight: 'bold',
+            }}
+          >
+            강의계획서 다운로드
+          </a>
+        </div>
+      )}
+
       <hr style={{ width: '100%', margin: '10px 0px', display: 'block', borderColor: '#ffffff' }} />
       <div
         style={{
