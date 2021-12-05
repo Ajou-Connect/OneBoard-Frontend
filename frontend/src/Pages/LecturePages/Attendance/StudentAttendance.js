@@ -69,7 +69,7 @@ const StudentAttendance = (props) => {
   });
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
-
+  const [lectureInfo, setLectureInfo] = useState({});
   useEffect(() => {
     const fetchAttendance = async () => {
       try {
@@ -85,6 +85,16 @@ const StudentAttendance = (props) => {
           .catch((e) => {
             console.log(e);
             setError(e);
+          });
+        await axios
+          .get(`/lecture/${lectureId}`)
+          .then((result) => {
+            const data = result.data.data;
+            setLectureInfo(data);
+            console.log(data);
+          })
+          .catch((e) => {
+            console.log(e);
           });
         setLoading(false);
       } catch (e) {
@@ -131,7 +141,7 @@ const StudentAttendance = (props) => {
         이름 : {attendances.studentName} 학번 : {attendances.studentNumber}
       </SubTitle>
       <hr style={{ width: '100%', margin: '10px 0px', display: 'block', borderColor: '#ffffff' }} />
-      <SubTitle>강의 이름</SubTitle>
+      <SubTitle>{lectureInfo.title}</SubTitle>
       <hr style={{ width: '100%', margin: '10px 0px', display: 'block', borderColor: '#ffffff' }} />
 
       <div style={{ display: 'flex', justifyContent: 'flex-end' }}>

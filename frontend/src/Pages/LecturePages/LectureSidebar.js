@@ -40,7 +40,7 @@ const LectureSidebar = (props) => {
           >
             <center>
               <div style={{ fontSize: '17px' }}>{lectureInfo.title}</div>
-              <div style={{ marginTop: '0px' }}>{lectureInfo.professor}</div>
+              <div style={{ marginTop: '0px' }}>강의자 : {lectureInfo.professor}</div>
             </center>
           </div>
           <li className="menu-item">
