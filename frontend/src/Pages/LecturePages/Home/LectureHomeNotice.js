@@ -43,6 +43,7 @@ const LectureHomeNotice = (props) => {
     fetchNotice();
   }, []);
 
+  console.log('qwr' + latestNotice);
   if (loading)
     return (
       <div
@@ -74,17 +75,31 @@ const LectureHomeNotice = (props) => {
   return (
     <div style={{ width: '50%', height: '500px' }}>
       <div style={{ margin: '10px', fontWeight: 'bold', fontSize: '1.3rem' }}>최신 공지사항</div>
-      <Container>
-        <div style={{ margin: '5px', display: 'flex', fontSize: '1.3rem' }}>
-          제목 : <div style={{ marginLeft: '5px', fontWeight: 'bold' }}>{latestNotice.title}</div>
-        </div>
-        <div style={{ margin: '5px' }}>작성 날짜 : {latestNotice.exposeDt}</div>
-        <hr style={{ width: '97%', borderColor: '#ffffff' }} />
-        <div
-          dangerouslySetInnerHTML={{ __html: latestNotice.content }}
-          style={{ margin: '5px' }}
-        ></div>
-      </Container>
+      {latestNotice === undefined ? (
+        <Container>
+          <div
+            style={{
+              fontSize: '20px',
+              fontWeight: 'bold',
+              margin: '2rem 0 3rem 2rem',
+            }}
+          >
+            등록된 공지사항이 없습니다
+          </div>
+        </Container>
+      ) : (
+        <Container>
+          <div style={{ margin: '5px', display: 'flex', fontSize: '1.3rem' }}>
+            제목 : <div style={{ marginLeft: '5px', fontWeight: 'bold' }}>{latestNotice.title}</div>
+          </div>
+          <div style={{ margin: '5px' }}>작성 날짜 : {latestNotice.exposeDt}</div>
+          <hr style={{ width: '97%', borderColor: '#ffffff' }} />
+          <div
+            dangerouslySetInnerHTML={{ __html: latestNotice.content }}
+            style={{ margin: '5px' }}
+          ></div>
+        </Container>
+      )}
     </div>
   );
 };

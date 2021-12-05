@@ -51,28 +51,28 @@ const LectureList = () => {
             ) : (
               lectures.map((lecture, index) => {
                 return (
-                  <div
-                    key={index}
-                    className="element-card course-element-card highlight pointer bar js-course-details child-is-invokable course-color-classic"
-                    style={{ marginBottom: '10px' }}
-                  >
-                    <div className="element-details summary">
-                      <div className="small-12">
-                        <div className="course-id">
-                          <span>
-                            {lecture.id}
-                            &nbsp;&nbsp; {lecture.semester}학기
-                          </span>
+                  <a href={`/Main/Lecture/${lecture.id}/Home`}>
+                    <div
+                      key={index}
+                      className="element-card course-element-card highlight pointer bar js-course-details child-is-invokable course-color-classic"
+                      style={{ marginBottom: '10px' }}
+                    >
+                      <div className="element-details summary">
+                        <div className="small-12">
+                          <div className="course-id">
+                            <span>
+                              과목 ID : {lecture.id}
+                              &nbsp;&nbsp; &nbsp; {lecture.semester}학기
+                            </span>
+                          </div>
+                        </div>
+                        <div className="a-tag later">{lecture.title}</div>
+                        <div className="small-status">
+                          <div className="basic-info">담당 교수 : {lecture.professor}</div>
                         </div>
                       </div>
-                      <div className="a-tag later">
-                        <a href={`/Main/Lecture/${lecture.id}/Home`}>{lecture.title}</a>
-                      </div>
-                      <div className="small-status">
-                        <div className="basic-info">담당 교수 : {lecture.professor}</div>
-                      </div>
                     </div>
-                  </div>
+                  </a>
                 );
               })
             )}
