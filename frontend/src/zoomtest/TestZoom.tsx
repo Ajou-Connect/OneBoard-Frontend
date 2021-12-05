@@ -439,15 +439,6 @@ const [isLoading, setisLoading] = useState<boolean>(true);
 //     }
 //     init();
 // })
-  useEffect(() => {
-    
-    userClient.on("media-sdk-change", onMediaSDKChange);
-    
-    return () => {
-      
-      userClient.off("media-sdk-change", onMediaSDKChange);
-    };
-  }, [userClient, onMediaSDKChange]);
    
   const RenderMenuBtns = () => {
     const screens = ['내화면', '공유화면'];
