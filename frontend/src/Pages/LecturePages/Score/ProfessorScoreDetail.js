@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
 import { Radio } from 'antd';
-import Button from '@restart/ui/esm/Button';
+import Button from '../../../Component/common/Button';
 
 const Title = styled.div`
   margin-top: 10px;
@@ -32,6 +32,22 @@ const Line = styled.hr`
 const TabletrColor = styled.tr`
   &:nth-child(even) {
     background: #f7f9fc;
+  }
+`;
+
+const WriteAcitonButtonBlock = styled.div`
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  display: flex;
+  button + button {
+    margin-left: 0.5rem;
+  }
+`;
+
+const StyledButton = styled(Button)`
+  height: 2.125rem;
+  & + & {
+    margin-left: 0.5rem;
   }
 `;
 
@@ -146,10 +162,16 @@ const ProfessorScoreDetail = ({ match }) => {
   };
 
   return (
-    <div>
+    <div style={{ overflowX: 'hidden' }}>
       <Title>개인성적 </Title>
       <div style={{ display: 'flex' }}>
-        <UpdateBtn onClick={onUpdateScore}>학점 수정하기</UpdateBtn>
+        <StyledButton
+          cyan
+          onClick={onUpdateScore}
+          style={{ marginLeft: 'auto', marginRight: '1rem' }}
+        >
+          학점 수정하기
+        </StyledButton>
       </div>
       <div style={{ display: 'flex' }}>
         <SubTitle style={{ display: 'flex' }}>
@@ -267,7 +289,13 @@ const ProfessorScoreDetail = ({ match }) => {
           </tbody>
         </table>
       </div>
-      <BackBtn onClick={onCancel}>뒤로가기</BackBtn>
+      <StyledButton
+        cyan
+        onClick={onCancel}
+        style={{ marginTop: '0.5rem', marginBottom: '5rem', marginLeft: '1rem' }}
+      >
+        뒤로가기
+      </StyledButton>
     </div>
   );
 };

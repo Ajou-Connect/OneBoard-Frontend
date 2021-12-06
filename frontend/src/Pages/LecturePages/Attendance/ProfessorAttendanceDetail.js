@@ -4,13 +4,31 @@ import axios from 'axios';
 import palette from '../../../lib/styles/palette';
 import 'antd/dist/antd.css';
 import { Radio } from 'antd';
-import Button from 'react-bootstrap/Button';
+import Button from '../../../Component/common/Button';
+
+const WriteAcitonButtonBlock = styled.div`
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  display: flex;
+  button + button {
+    margin-left: 0.5rem;
+  }
+`;
+
+const StyledButton = styled(Button)`
+  height: 2.125rem;
+  & + & {
+    margin-left: 0.5rem;
+  }
+`;
+
 const Container = styled.div`
   width: 97%;
   display: block;
   justify-content: center;
   align-items: center;
-  margin: 10px auto;
+  margin: 10px;
+  margin-bottom: 5rem;
   padding: 0 20px;
 `;
 const Title = styled.div`
@@ -239,9 +257,9 @@ const ProfessorAttendanceDetail = ({ match }) => {
         </tbody>
       </table>
       <hr style={{ width: '100%', margin: '10px 0px', display: 'block', borderColor: '#ffffff' }} />
-      <WriteBtn onClick={onCancel} style={{ cursor: 'pointer' }}>
+      <StyledButton cyan onClick={onCancel}>
         뒤로가기
-      </WriteBtn>
+      </StyledButton>
     </Container>
   );
 };

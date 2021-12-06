@@ -6,6 +6,25 @@ import moment from 'moment';
 import { DatePicker } from 'antd';
 import 'antd/dist/antd.css';
 import { Radio } from 'antd';
+import Button from '../../../Component/common/Button';
+
+const WriteAcitonButtonBlock = styled.div`
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  margin-left: 1rem;
+  display: flex;
+  button + button {
+    margin-left: 0.5rem;
+  }
+`;
+
+const StyledButton = styled(Button)`
+  height: 2.125rem;
+  & + & {
+    margin-left: 0.5rem;
+  }
+`;
+
 const Title = styled.div`
   font-size: 30px;
   margin-left: 15px;
@@ -261,8 +280,14 @@ const GenerateLesson = ({ match }) => {
           style={{ width: '100%', margin: '10px 0px', display: 'block', borderColor: '#ffffff' }}
         />
       </div>
-      <WriteBtn onClick={onSubmit}>수업 생성하기</WriteBtn>
-      <WriteBtn onClick={onCancel}>뒤로가기</WriteBtn>
+      <WriteAcitonButtonBlock>
+        <StyledButton cyan onClick={onSubmit}>
+          수업 생성
+        </StyledButton>
+        <StyledButton cyan onClick={onCancel}>
+          뒤로가기
+        </StyledButton>
+      </WriteAcitonButtonBlock>
     </div>
   );
 };
