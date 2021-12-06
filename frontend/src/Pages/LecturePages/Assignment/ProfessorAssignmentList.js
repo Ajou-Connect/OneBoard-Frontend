@@ -4,39 +4,6 @@ import axios from 'axios';
 import moment from 'moment';
 import Button from '../../../Component/common/Button';
 
-const WriteBtn = styled.button`
-  font-size: 12px;
-  padding: 5px;
-  margin-top: 10px;
-  margin-bottom: 5px;
-  margin-left: 30px auto;
-  margin-right: 30px;
-  background-color: #ececec;
-  color: #3e3e3e;
-  border-radius: 5px;
-  cursor: pointer;
-  &:hover {
-    background-color: #bfbfbf;
-  }
-  display: inline-block;
-  float: right;
-`;
-
-const Btn = styled.button`
-  font-size: 2px;
-  padding: 5px;
-  padding-left: 20px;
-  padding-right: 20px;
-  margin-right: 10px;
-  background-color: rgba(215, 226, 185, 0.596);
-  color: #3e3e3e;
-  border-radius: 7px;
-  cursor: pointer;
-  &:hover {
-    background-color: #bfbfbf;
-  }
-`;
-
 const WriteAcitonButtonBlock = styled.div`
   margin-top: 2rem;
   margin-bottom: 2rem;
