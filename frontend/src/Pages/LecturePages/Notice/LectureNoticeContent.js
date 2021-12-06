@@ -2,34 +2,21 @@ import React, { useEffect, useState } from 'react';
 import './LectureNoticeContent.scss';
 import axios from 'axios';
 import styled from 'styled-components';
+import Button from '../../../Component/common/Button';
 
-const WriteBtn = styled.button`
-  font-size: 12px;
-  padding: 5px;
-  margin-top: 10px;
-  background-color: #ececec;
-  color: #3e3e3e;
-  border-radius: 5px;
-  cursor: pointer;
-  &:hover {
-    background-color: #bfbfbf;
+const WriteAcitonButtonBlock = styled.div`
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  display: flex;
+  button + button {
+    margin-left: 0.5rem;
   }
 `;
 
-const Btn = styled.button`
-  font-size: 5px;
-  padding: 5px;
-  padding-left: 15px;
-  padding-right: 15px;
-  font-weight: bold;
-  margin-bottom: 0;
-  margin-right: 10px;
-  background-color: #a8c0ea;
-  color: #3e3e3e;
-  border-radius: 7px;
-  cursor: pointer;
-  &:hover {
-    background-color: #f4f9ff;
+const StyledButton = styled(Button)`
+  height: 2.125rem;
+  & + & {
+    margin-left: 0.5rem;
   }
 `;
 
@@ -166,8 +153,14 @@ const LectureNoticeContent = (props) => {
                       </div>
                       {isProfessor ? (
                         <div style={{ display: 'flex' }}>
-                          <Btn onClick={(e) => onUpdateClick(e, notice.id)}>수정</Btn>
-                          <Btn onClick={(e) => onDeleteClick(e, notice.id)}>삭제</Btn>
+                          <WriteAcitonButtonBlock>
+                            <StyledButton cyan onClick={(e) => onUpdateClick(e, notice.id)}>
+                              수정
+                            </StyledButton>
+                            <StyledButton cyan onClick={(e) => onDeleteClick(e, notice.id)}>
+                              삭제
+                            </StyledButton>
+                          </WriteAcitonButtonBlock>
                         </div>
                       ) : (
                         <p></p>
@@ -178,7 +171,19 @@ const LectureNoticeContent = (props) => {
               })
             )}
             <div style={{ marginBottom: '30px' }}>
-              {isProfessor ? <WriteBtn onClick={onWriteClick}>글쓰기</WriteBtn> : <div></div>}
+              {isProfessor ? (
+                <StyledButton
+                  cyan
+                  style={{
+                    marginTop: '0.5rem',
+                  }}
+                  onClick={onWriteClick}
+                >
+                  글쓰기
+                </StyledButton>
+              ) : (
+                <div></div>
+              )}
             </div>
           </ul>
         </form>

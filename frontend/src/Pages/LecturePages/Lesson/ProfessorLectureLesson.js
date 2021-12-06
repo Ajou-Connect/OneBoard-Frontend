@@ -14,15 +14,20 @@ const Title = styled.div`
   font-weight: bold;
 `;
 
-const TitleInput = styled.input`
-  font-size: 2rem;
-  outline: none;
-  padding-bottom: 0.5rem;
-  border: none;
-  border-bottom: 1px solid ${palette.gray[4]};
+const WriteAcitonButtonBlock = styled.div`
+  margin-top: 2rem;
   margin-bottom: 2rem;
-  margin-top: 10px;
-  width: 100%;
+  display: flex;
+  button + button {
+    margin-left: 0.5rem;
+  }
+`;
+
+const StyledButton = styled(Button)`
+  height: 2.125rem;
+  & + & {
+    margin-left: 0.5rem;
+  }
 `;
 
 const Btn = styled.button`
@@ -105,7 +110,7 @@ const ProfessorLectureLesson = (props) => {
     return (window.location.href = `/Main/Lecture/${lectureId}/Lesson/Update/${lessonId}`);
   };
   return (
-    <div>
+    <div style={{ marginBottom: '5rem' }}>
       <Title>수업</Title>
       <hr style={{ width: '100%', margin: '10px 0px', display: 'block', borderColor: '#ffffff' }} />
       <table
@@ -185,14 +190,22 @@ const ProfessorLectureLesson = (props) => {
                   justifyContent: 'center',
                 }}
               >
-                <Btn onClick={(e) => onUpdate(e, lessonList.lessonId)}>수정하기</Btn>
-                <Btn onClick={(e) => onDelete(e, lessonList.lessonId)}>삭제하기</Btn>
+                <WriteAcitonButtonBlock>
+                  <StyledButton cyan onClick={(e) => onUpdate(e, lessonList.lessonId)}>
+                    수정하기
+                  </StyledButton>
+                  <StyledButton cyan onClick={(e) => onDelete(e, lessonList.lessonId)}>
+                    삭제하기
+                  </StyledButton>
+                </WriteAcitonButtonBlock>
               </td>
             </TabletrColor>
           ))}
         </tbody>
       </table>
-      <WriteBtn onClick={onGenerate}>수업 생성하기</WriteBtn>
+      <StyledButton cyan style={{ marginTop: '0.5rem' }} onClick={onGenerate}>
+        수업 생성하기
+      </StyledButton>
     </div>
   );
 };

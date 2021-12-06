@@ -12,7 +12,9 @@ const TitleInput = styled.input`
   font-size: 2rem;
   outline: none;
   padding-bottom: 0.5rem;
+  padding-left: 1rem;
   border: none;
+  border-radius: 5px;
   border-bottom: 1px solid ${palette.gray[4]};
   margin-bottom: 2rem;
   margin-top: 10px;
@@ -21,7 +23,8 @@ const TitleInput = styled.input`
 
 const WriteAcitonButtonBlock = styled.div`
   margin-top: 3rem;
-  margin-bottom: 3rem;
+  margin-bottom: 5rem;
+  display: flex;
   button + button {
     margin-left: 0.5rem;
   }
@@ -32,6 +35,15 @@ const StyledButton = styled(Button)`
   & + & {
     margin-left: 0.5rem;
   }
+`;
+const Container = styled.div`
+  width: 97%;
+  display: block;
+  justify-content: center;
+  align-items: center;
+  margin: 10px auto;
+  padding: 0 20px;
+  margin-bottom: 50px;
 `;
 
 const WriteNotice = ({ history, match }) => {
@@ -103,24 +115,26 @@ const WriteNotice = ({ history, match }) => {
   };
 
   return (
-    <div>
+    <Container>
       <TitleInput onChange={getTitle} placeholder="제목" />
-      <ReactQuill
-        style={{ height: '650px' }}
-        theme="snow"
-        modules={modules}
-        formats={format}
-        value={content}
-        onChange={(content, delta, source, editor) => handleText(editor.getHTML())}
-      />
+      <div style={{ backgroundColor: 'white' }}>
+        <ReactQuill
+          style={{ height: '650px' }}
+          theme="snow"
+          modules={modules}
+          formats={format}
+          value={content}
+          onChange={(content, delta, source, editor) => handleText(editor.getHTML())}
+        />
 
-      <WriteAcitonButtonBlock>
-        <StyledButton cyan onClick={onSubmit}>
-          공지사항 등록
-        </StyledButton>
-        <StyledButton onClick={onCancel}>취소</StyledButton>
-      </WriteAcitonButtonBlock>
-    </div>
+        <WriteAcitonButtonBlock>
+          <StyledButton cyan onClick={onSubmit}>
+            공지사항 등록
+          </StyledButton>
+          <StyledButton onClick={onCancel}>취소</StyledButton>
+        </WriteAcitonButtonBlock>
+      </div>
+    </Container>
   );
 };
 

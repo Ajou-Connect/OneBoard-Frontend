@@ -22,6 +22,7 @@ const TitleInput = styled.input`
 const WriteAcitonButtonBlock = styled.div`
   margin-top: 3rem;
   margin-bottom: 3rem;
+  display: flex;
   button + button {
     margin-left: 0.5rem;
   }

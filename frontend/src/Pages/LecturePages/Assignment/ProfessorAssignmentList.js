@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
 import moment from 'moment';
+import Button from '../../../Component/common/Button';
 
 const WriteBtn = styled.button`
   font-size: 12px;
@@ -36,13 +37,20 @@ const Btn = styled.button`
   }
 `;
 
-const Container = styled.div`
-  width: 97%;
-  display: block;
-  justify-content: center;
-  align-items: center;
-  margin: 10px auto;
-  padding: 0 20px;
+const WriteAcitonButtonBlock = styled.div`
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  display: flex;
+  button + button {
+    margin-left: 0.5rem;
+  }
+`;
+
+const StyledButton = styled(Button)`
+  height: 2.125rem;
+  & + & {
+    margin-left: 0.5rem;
+  }
 `;
 
 const Title = styled.div`
@@ -78,14 +86,6 @@ const StateDescript = styled.div`
   font-size: 14px;
   margin-left: 5px;
   margin-right: 10px;
-`;
-const StateBox = styled.div`
-  justify-content: center;
-  margin: 0px auto;
-  display: block;
-  border-radius: 50px;
-  padding: 10px;
-  width: 50%;
 `;
 
 const ProfessorAssignmentList = (props) => {
@@ -207,7 +207,6 @@ const ProfessorAssignmentList = (props) => {
     <div>
       <Title>Assignment</Title>
       <div style={{ width: '100%', display: 'block' }}>
-        <WriteBtn onClick={(e) => goWrite(e)}>작성하기</WriteBtn>
         <div style={{ width: '100%', display: 'block', height: '20px' }}>
           <StateDescript>마감</StateDescript>{' '}
           <StateColorCircle style={{ backgroundColor: '#E24C4B' }} />
@@ -331,20 +330,24 @@ const ProfessorAssignmentList = (props) => {
                         justifyContent: 'center',
                       }}
                     >
-                      <Btn
-                        onClick={(e) => {
-                          goUpdate(e, assignmentList.assignmentId);
-                        }}
-                      >
-                        수정
-                      </Btn>
-                      <Btn
-                        onClick={(e) => {
-                          onDelete(e, assignmentList.assignmentId);
-                        }}
-                      >
-                        삭제
-                      </Btn>
+                      <WriteAcitonButtonBlock>
+                        <StyledButton
+                          cyan
+                          onClick={(e) => {
+                            goUpdate(e, assignmentList.assignmentId);
+                          }}
+                        >
+                          수정
+                        </StyledButton>
+                        <StyledButton
+                          cyan
+                          onClick={(e) => {
+                            onDelete(e, assignmentList.assignmentId);
+                          }}
+                        >
+                          삭제
+                        </StyledButton>
+                      </WriteAcitonButtonBlock>
                     </td>
                   </tr>
                 );
@@ -352,6 +355,11 @@ const ProfessorAssignmentList = (props) => {
             )}
           </tbody>
         </table>
+      </div>
+      <div style={{ marginLeft: '1rem' }}>
+        <StyledButton cyan onClick={(e) => goWrite(e)}>
+          작성하기
+        </StyledButton>
       </div>
     </div>
   );

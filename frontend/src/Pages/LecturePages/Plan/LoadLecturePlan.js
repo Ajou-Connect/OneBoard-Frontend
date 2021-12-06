@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import Iframe from 'react-iframe';
+import Button from '../../../Component/common/Button';
+
 const WriteBtn = styled.button`
   font-size: 5px;
   padding: 5px;
@@ -10,6 +12,13 @@ const WriteBtn = styled.button`
   font-weight: bold;
   &:hover {
     background-color: #bfbfbf;
+  }
+`;
+
+const StyledButton = styled(Button)`
+  height: 2.125rem;
+  & + & {
+    margin-left: 0.5rem;
   }
 `;
 
@@ -52,12 +61,13 @@ export const LoadLecturePlan = (props) => {
             강의계획서 다운로드
           </a>
 
-          <WriteBtn
-            style={{ marginLeft: 'auto', marginRight: '30px', cursor: 'pointer' }}
+          <StyledButton
+            cyan
+            style={{ marginLeft: 'auto', marginRight: '30px' }}
             onClick={onUploadPlan}
           >
             수정하기
-          </WriteBtn>
+          </StyledButton>
         </div>
       ) : (
         <div style={{ display: 'flex' }}>
