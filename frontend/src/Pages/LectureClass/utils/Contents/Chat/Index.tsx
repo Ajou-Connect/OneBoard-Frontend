@@ -2,7 +2,7 @@ import React, { useEffect, useState, FC } from 'react'
 import styled, { css } from 'styled-components'
 import MyChat from './utils/MyChat'
 import OtherChat from './utils/OtherChat'
-import socketio from 'socket.io-client'
+// import socketio from 'socket.io-client'
 import axios from 'axios'
 const ChatCnt = styled.div`
 width : 100%;
