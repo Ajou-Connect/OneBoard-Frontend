@@ -39,20 +39,6 @@ const Btn = styled.button`
   }
 `;
 
-const WriteBtn = styled.button`
-  display: inline-block;
-  float: left;
-  background-color: whitesmoke;
-  color: black;
-  font-size: 16px;
-  width: 80px;
-  margin-right: 5px;
-  padding: 5px;
-  border-radius: 5px;
-  &:hover {
-    background-color: #bfbfbf;
-  }
-`;
 const TabletrColor = styled.tr`
   &:nth-child(even) {
     background: #f7f9fc;

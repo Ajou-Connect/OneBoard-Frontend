@@ -1,11 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
-import palette from '../../../lib/styles/palette';
 import Iframe from 'react-iframe';
 import Button from '../../../Component/common/Button';
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend,
+} from 'chart.js';
+import { Bar } from 'react-chartjs-2';
+import faker from 'faker';
 
-const Title = styled.div`
+const TTitle = styled.div`
   font-size: 30px;
   margin-left: 15px;
   margin-top: 15px;
@@ -24,15 +34,18 @@ const StyledButton = styled(Button)`
   }
 `;
 
+ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
+
 const LessonDetail = ({ match }) => {
   const lessonId = match.params.lessonId;
   const lectureId = match.params.lectureId;
   const [lessonDetails, setLessonDetails] = useState([]);
+
   const user = JSON.parse(sessionStorage.userInfo);
   const userType = user.userType;
   const Url = `https://docs.google.com/gview?embedded=true&url=https://115.85.182.194:8080/lecture/${lectureId}/lesson/${lessonId}/note`;
   const FileURL = `https://115.85.182.194:8080/lecture/${lectureId}/lesson/${lessonId}/note`;
-
+  const labels = ['출석', '결석', '지각'];
   const getLessonData = () => {
     return new Promise((resolve, reject) => {
       axios
@@ -49,8 +62,53 @@ const LessonDetail = ({ match }) => {
     });
   };
 
+  const getLessonAttendanceData = () => {
+    return new Promise((resolve, reject) => {
+      axios
+        .get(`lecture/${lectureId}/lesson/${lessonId}/attendances`)
+        .then((res) => {
+          const result = res.data.data;
+          console.log(result);
+        })
+        .catch((error) => {
+          console.log(error);
+          reject(error);
+        });
+    });
+  };
+
+  const options = {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: 'top',
+      },
+      title: {
+        display: true,
+        text: 'Chart.js Bar chart example',
+      },
+    },
+  };
+
+  const data = {
+    labels,
+    datasets: [
+      {
+        label: 'dataset 1',
+        data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
+        backgroundColor: 'red',
+      },
+      {
+        label: 'dataset 2',
+        data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
+        backgroundColor: 'blue',
+      },
+    ],
+  };
+
   useEffect(() => {
     getLessonData();
+    getLessonAttendanceData();
   }, []);
 
   const onCancel = () => {
@@ -60,7 +118,7 @@ const LessonDetail = ({ match }) => {
   return (
     <div>
       <div style={{ display: 'flex' }}>
-        <Title>{lessonDetails.title}</Title>
+        <TTitle>{lessonDetails.title}</TTitle>
         <div
           style={{
             fontSize: '1.3rem',
@@ -185,6 +243,10 @@ const LessonDetail = ({ match }) => {
         )}
       </div>
 
+      <hr style={{ width: '100%', margin: '10px 0px', display: 'block', borderColor: '#ffffff' }} />
+      <div>
+        <Bar options={options} data={data} />
+      </div>
       <hr style={{ width: '100%', margin: '10px 0px', display: 'block', borderColor: '#ffffff' }} />
 
       <StyledButton cyan onClick={onCancel}>
