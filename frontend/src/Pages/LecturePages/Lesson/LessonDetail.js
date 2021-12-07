@@ -47,7 +47,6 @@ const LessonDetail = ({ match }) => {
   const lectureId = match.params.lectureId;
   const [lessonDetails, setLessonDetails] = useState([]);
   const [studentInfo, setStudentInfo] = useState([]);
-  const [attend, setAttend] = useState(0);
   const user = JSON.parse(sessionStorage.userInfo);
   const userType = user.userType;
   const Url = `https://docs.google.com/gview?embedded=true&url=https://115.85.182.194:8080/lecture/${lectureId}/lesson/${lessonId}/note`;
@@ -109,7 +108,7 @@ const LessonDetail = ({ match }) => {
           studentInfo.filter((ex) => ex.attendanceList[0].status === 0).length,
           studentInfo.filter((ex) => ex.attendanceList[0].status === 1).length,
         ],
-        backgroundColor: 'red',
+        backgroundColor: 'rgba(53, 162, 235, 0.5)',
       },
     ],
   };
@@ -253,58 +252,66 @@ const LessonDetail = ({ match }) => {
       </div>
 
       <hr style={{ width: '100%', margin: '10px 0px', display: 'block', borderColor: '#ffffff' }} />
-      <div style={{ display: 'flex' }}>
-        <div style={{ width: '50%' }}>
-          <Bar options={options} data={data} />
-        </div>
-        <div style={{ width: '50%', marginLeft: '1rem' }}>
-          <table
-            style={{
-              width: '100%',
-              textAlign: 'center',
-              marginRight: '5px',
-              borderRight: '1px solid #D5D5D5',
-            }}
-          >
-            <thead
-              style={{
-                borderBottom: '1px solid #D5D5D5',
-                fontWeight: 'bold',
-                fontWeight: '500',
-                backgroundColor: '#f3f3f3',
-              }}
-            >
-              <tr>
-                <th style={{ padding: '10px 0', width: 'auto' }}>이름</th>
-                <th style={{ padding: '10px 0', width: 'auto' }}>학번</th>
-                <th style={{ padding: '10px 0', width: 'auto' }}>출결</th>
-              </tr>
-            </thead>
-            <tbody>
-              {studentInfo.map((studentList, index) => (
-                <TabletrColor key={index}>
-                  <td style={{ padding: '10px 0', borderBottom: '1px solid #D5D5D5' }}>
-                    {studentList.studentName}
-                  </td>
-                  <td style={{ padding: '10px 0', borderBottom: '1px solid #D5D5D5' }}>
-                    {studentList.studentNumber}
-                  </td>
-                  <td style={{ padding: '10px 0', borderBottom: '1px solid #D5D5D5' }}>
-                    {studentList.attendanceList[0].status === 2 ? (
-                      <div style={{ color: 'green', fontWeight: 'bold' }}>출석</div>
-                    ) : studentList.attendanceList[0].status === 1 ? (
-                      <div style={{ color: 'yellowgreen', fontWeight: 'bold' }}>지각</div>
-                    ) : (
-                      <div style={{ color: 'red', fontWeight: 'bold' }}>결석</div>
-                    )}
-                  </td>
-                </TabletrColor>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <hr style={{ width: '100%', margin: '10px 0px', display: 'block', borderColor: '#ffffff' }} />
+      {userType === 'S' ? (
+        <div></div>
+      ) : (
+        <>
+          <div style={{ display: 'flex' }}>
+            <div style={{ width: '50%' }}>
+              <Bar options={options} data={data} />
+            </div>
+            <div style={{ width: '50%', marginLeft: '1rem' }}>
+              <table
+                style={{
+                  width: '100%',
+                  textAlign: 'center',
+                  marginRight: '5px',
+                  borderRight: '1px solid #D5D5D5',
+                }}
+              >
+                <thead
+                  style={{
+                    borderBottom: '1px solid #D5D5D5',
+                    fontWeight: 'bold',
+                    fontWeight: '500',
+                    backgroundColor: '#f3f3f3',
+                  }}
+                >
+                  <tr>
+                    <th style={{ padding: '10px 0', width: 'auto' }}>이름</th>
+                    <th style={{ padding: '10px 0', width: 'auto' }}>학번</th>
+                    <th style={{ padding: '10px 0', width: 'auto' }}>출결</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {studentInfo.map((studentList, index) => (
+                    <TabletrColor key={index}>
+                      <td style={{ padding: '10px 0', borderBottom: '1px solid #D5D5D5' }}>
+                        {studentList.studentName}
+                      </td>
+                      <td style={{ padding: '10px 0', borderBottom: '1px solid #D5D5D5' }}>
+                        {studentList.studentNumber}
+                      </td>
+                      <td style={{ padding: '10px 0', borderBottom: '1px solid #D5D5D5' }}>
+                        {studentList.attendanceList[0].status === 2 ? (
+                          <div style={{ color: 'green', fontWeight: 'bold' }}>출석</div>
+                        ) : studentList.attendanceList[0].status === 1 ? (
+                          <div style={{ color: 'yellowgreen', fontWeight: 'bold' }}>지각</div>
+                        ) : (
+                          <div style={{ color: 'red', fontWeight: 'bold' }}>결석</div>
+                        )}
+                      </td>
+                    </TabletrColor>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <hr
+            style={{ width: '100%', margin: '10px 0px', display: 'block', borderColor: '#ffffff' }}
+          />
+        </>
+      )}
 
       <StyledButton cyan onClick={onCancel}>
         뒤로가기
