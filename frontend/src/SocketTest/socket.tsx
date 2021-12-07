@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import socketIOClient from 'socket.io-client';
+import socketIOClient from "socket.io-client";
 const ENDPOINT = 'http://127.0.0.1:4001';
 
 const Socket = () => {
@@ -7,7 +7,7 @@ const Socket = () => {
 
   useEffect(() => {
     const socket = socketIOClient(ENDPOINT);
-    socket.on('FromAPI', (data) => {
+    socket.on('FromAPI', (data:any) => {
       setResponse(data);
     });
   }, []);
