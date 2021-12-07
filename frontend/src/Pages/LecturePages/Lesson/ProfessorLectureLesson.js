@@ -30,35 +30,6 @@ const StyledButton = styled(Button)`
   }
 `;
 
-const Btn = styled.button`
-  font-size: 2px;
-  padding: 5px;
-  margin-right: 10px;
-  background-color: rgba(215, 226, 185, 0.596);
-  color: #3e3e3e;
-  border-radius: 7px;
-  cursor: pointer;
-  &:hover {
-    background-color: #bfbfbf;
-  }
-`;
-
-const WriteBtn = styled.button`
-  font-size: 12px;
-  padding: 5px;
-  margin-top: 10px;
-  margin-right: 5px;
-  background-color: #ececec;
-  color: #3e3e3e;
-  border-radius: 5px;
-  cursor: pointer;
-  &:hover {
-    background-color: #bfbfbf;
-  }
-  display: inline-block;
-  float: right;
-`;
-
 const TabletrColor = styled.tr`
   &:nth-child(even) {
     background: #f7f9fc;

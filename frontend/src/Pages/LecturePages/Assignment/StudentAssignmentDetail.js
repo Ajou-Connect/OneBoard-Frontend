@@ -4,15 +4,14 @@ import styled from 'styled-components';
 import moment from 'moment';
 import ReactHtmlParser from 'react-html-parser';
 import Iframe from 'react-iframe';
+import Button from '../../../Component/common/Button';
 
-const Container = styled.div`
-  width: 100%;
-  display: inline-block;
-  margin: 10px auto;
-  padding: 0px 20px;
-  //overflow-y: auto;
-  //align-items : center;
-  //justify-content : center;
+const StyledButton = styled(Button)`
+  height: 2.125rem;
+  margin: 1rem 0;
+  & + & {
+    margin-left: 0.5rem;
+  }
 `;
 
 const WriteBtn = styled.button`
@@ -57,14 +56,7 @@ const Title = styled.div`
   line-height: 40px;
   font-style: italic;
 `;
-const SubTitle = styled.div`
-  float: left;
-  margin-top: 3px;
-  margin-right: 20px;
-  color: #8b8b8b;
-  font-size: 13px;
-  font-weight: 400;
-`;
+
 const Btn = styled.button`
   font-size: 2px;
   padding: 5px;
@@ -286,7 +278,9 @@ const StudentAssignmentDetail = ({ match }) => {
           ) : (
             <div>
               <ProblemTitle>과제 제출 작성</ProblemTitle>
-              <Btn onClick={submitAssignment}>제출하기</Btn>
+              <StyledButton cyan onClick={submitAssignment}>
+                제출하기
+              </StyledButton>
             </div>
           )}
         </div>
@@ -426,11 +420,13 @@ const StudentAssignmentDetail = ({ match }) => {
         )}
       </ProblemContainer>
       <div style={{ display: 'flex' }}>
-        <WriteBtn onClick={onCancel}>뒤로가기</WriteBtn>
+        <StyledButton cyan onClick={onCancel} style={{ marginLeft: '1rem' }}>
+          뒤로가기
+        </StyledButton>
         {onSubmit === false ? (
           <div></div>
         ) : onGoing ? (
-          <UpdateBtn onClick={onUpdate}>수정하기</UpdateBtn>
+          <StyledButton onClick={onUpdate}>수정하기</StyledButton>
         ) : (
           <div></div>
         )}

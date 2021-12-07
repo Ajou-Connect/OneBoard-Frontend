@@ -13,44 +13,6 @@ const Title = styled.div`
   font-weight: bold;
 `;
 
-const TitleInput = styled.input`
-  font-size: 2rem;
-  outline: none;
-  padding-bottom: 0.5rem;
-  border: none;
-  border-bottom: 1px solid ${palette.gray[4]};
-  margin-bottom: 2rem;
-  margin-top: 10px;
-  width: 100%;
-`;
-
-const Btn = styled.button`
-  font-size: 2px;
-  padding: 5px;
-  margin-right: 10px;
-  background-color: rgba(215, 226, 185, 0.596);
-  color: #3e3e3e;
-  border-radius: 7px;
-  &:hover {
-    background-color: #bfbfbf;
-  }
-`;
-
-const WriteBtn = styled.button`
-  font-size: 12px;
-  padding: 5px;
-  margin-top: 10px;
-  margin-right: 5px;
-  background-color: #ececec;
-  color: #3e3e3e;
-  border-radius: 5px;
-  &:hover {
-    background-color: #bfbfbf;
-  }
-  display: inline-block;
-  float: right;
-`;
-
 const TabletrColor = styled.tr`
   &:nth-child(even) {
     background: #f7f9fc;

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import axios from 'axios';
 import palette from '../../../lib/styles/palette';
 import moment from 'moment';
-import { DatePicker } from 'antd';
+import { DatePicker, TimePicker } from 'antd';
 import 'antd/dist/antd.css';
 import { Radio } from 'antd';
 import Button from '../../../Component/common/Button';
@@ -67,46 +67,16 @@ const MeetInput = styled.input`
   width: 70%;
 `;
 
-const Btn = styled.button`
-  font-size: 2px;
-  padding: 5px;
-  margin-right: 10px;
-  background-color: rgba(215, 226, 185, 0.596);
-  color: #3e3e3e;
-  border-radius: 7px;
-  &:hover {
-    background-color: #bfbfbf;
-  }
-`;
-
-const WriteBtn = styled.button`
-  font-size: 12px;
-  padding: 5px;
-  margin-left: 50px;
-  background-color: #ececec;
-  color: #3e3e3e;
-  border-radius: 5px;
-  cursor: pointer;
-  &:hover {
-    background-color: #bfbfbf;
-  }
-`;
-
-const TabletrColor = styled.tr`
-  &:nth-child(even) {
-    background: #f7f9fc;
-  }
-`;
-
 const GenerateLesson = ({ match }) => {
   const lectureId = match.params.lectureId;
   const [title, setTitle] = useState('');
   const [period, setPeriod] = useState('');
-  const [lessonFile, setLessonFile] = useState('');
+  const [lessonFile, setLessonFile] = useState('등록된 강의노트가 없습니다');
   const [radioValue, setRadioValue] = useState(0);
   const [room, setRoom] = useState(null);
   const [videoUrl, setVideoUrl] = useState(null);
   const [meetingId, setMeetingId] = useState(null);
+  const [time, setTime] = useState('');
 
   const getTitle = (e) => {
     setTitle(e.target.value);
@@ -142,13 +112,17 @@ const GenerateLesson = ({ match }) => {
     return (window.location.href = `/Main/Lecture/${lectureId}/Lesson`);
   };
 
+  const onTimeChange = (time, timeString) => {
+    setTime(timeString);
+  };
+
   const onSubmit = (e) => {
     parseInt(radioValue);
-    e.preventDefault();
+    const date = period + ' ' + time;
     const formData = new FormData();
-    formData.append('file', lessonFile, lessonFile.name);
+    formData.append('file', lessonFile);
     formData.append('title', title);
-    formData.append('date', period);
+    formData.append('date', date);
     formData.append('type', radioValue);
     formData.append('videoUrl', videoUrl);
     formData.append('room', room);
@@ -172,6 +146,8 @@ const GenerateLesson = ({ match }) => {
 
       .catch((e) => {
         console.log(e);
+        alert('수업 생성에 실패했습니다. 다시 작성 후 시도해주세요');
+        return (window.location.href = `/Main/Lecture/${lectureId}/Lesson/GenerateLesson`);
       });
   };
 
@@ -211,6 +187,28 @@ const GenerateLesson = ({ match }) => {
         </div>
         <div>
           <DatePicker format="YYYY-MM-DD" onChange={onChangePeriod} style={{ margin: '10px' }} />
+        </div>
+      </div>
+      <div style={{ display: 'flex' }}>
+        <div
+          style={{
+            fontSize: '1rem',
+            paddingBottom: '0.5rem',
+            marginBottom: '2rem',
+            marginTop: '15px',
+            marginRight: '15px',
+            fontWeight: 'bold',
+            marginLeft: '15px',
+          }}
+        >
+          강의 시간 선택
+        </div>
+        <div>
+          <TimePicker
+            onChange={onTimeChange}
+            defaultOpenValue={moment('00:00:00', 'HH:mm:ss')}
+            style={{ margin: '10px' }}
+          />
         </div>
       </div>
       <div style={{ display: 'flex' }}>

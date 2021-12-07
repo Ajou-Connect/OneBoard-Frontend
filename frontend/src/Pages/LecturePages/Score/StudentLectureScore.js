@@ -33,42 +33,6 @@ const TabletrColor = styled.tr`
   }
 `;
 
-const UpdateBtn = styled.button`
-  background-color: #ececec;
-  color: #3e3e3e;
-  font-size: 12px;
-  width: auto;
-  margin: 0px;
-  margin-right: 5px;
-  border-radius: 5px;
-  margin-left: auto;
-  padding: 5px;
-  cursor: pointer;
-`;
-
-const BackBtn = styled.button`
-  background-color: #6e1345;
-  color: #f2e9ee;
-  font-size: 12px;
-  margin: 1.3rem;
-  margin-right: 5px;
-  border-radius: 5px;
-  margin-left: 1.3rem;
-  padding: 5px;
-  cursor: pointer;
-`;
-
-const WriteBtn = styled.button`
-  font-size: 10px;
-  margin-left: 10px;
-  background-color: #c3cbc2;
-  color: #3e3e3e;
-  border-radius: 5px;
-  cursor: pointer;
-  &:hover {
-    background-color: #bfbfbf;
-  }
-`;
 const StudentLectureScore = (props) => {
   const lectureId = props.lectureId;
   const [studentScoreInfo, setStudentScoreInfo] = useState({});
@@ -125,6 +89,12 @@ const StudentLectureScore = (props) => {
           학번 :{' '}
           <div style={{ fontWeight: 'bold', marginLeft: '5px' }}>
             {studentScoreInfo.studentNumber}
+          </div>
+        </SubTitle>
+        <SubTitle style={{ display: 'flex' }}>
+          출결 점수 :{' '}
+          <div style={{ fontWeight: 'bold', marginLeft: '5px' }}>
+            {studentScoreInfo.attendScore}
           </div>
         </SubTitle>
         <SubTitle style={{ display: 'flex' }}>

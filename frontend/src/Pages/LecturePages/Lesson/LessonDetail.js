@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import axios from 'axios';
 import palette from '../../../lib/styles/palette';
 import Iframe from 'react-iframe';
+import Button from '../../../Component/common/Button';
 
 const Title = styled.div`
   font-size: 30px;
@@ -15,58 +16,11 @@ const Title = styled.div`
   text-align: left;
 `;
 
-const TitleInput = styled.input`
-  font-size: 1rem;
-  outline: none;
-  padding-bottom: 0.5rem;
-  border: none;
-  border-bottom: 1px solid ${palette.gray[4]};
-  margin-bottom: 2rem;
-  margin-top: 10px;
-  width: 70%;
-`;
-const RoomInput = styled.input`
-  font-size: 1rem;
-  outline: none;
-  padding-bottom: 0.5rem;
-  border: none;
-  border-bottom: 1px solid ${palette.gray[4]};
-  margin-bottom: 2rem;
-  margin-top: 10px;
-  width: 70%;
-`;
-const MeetInput = styled.input`
-  font-size: 1rem;
-  outline: none;
-  padding-bottom: 0.5rem;
-  border: none;
-  border-bottom: 1px solid ${palette.gray[4]};
-  margin-bottom: 2rem;
-  margin-top: 10px;
-  width: 70%;
-`;
-
-const Btn = styled.button`
-  font-size: 2px;
-  padding: 5px;
-  margin-right: 10px;
-  background-color: rgba(215, 226, 185, 0.596);
-  color: #3e3e3e;
-  border-radius: 7px;
-  &:hover {
-    background-color: #bfbfbf;
-  }
-`;
-
-const WriteBtn = styled.button`
-  font-size: 20px;
-  padding: 5px;
-  margin-left: 20px;
-  background-color: #ececec;
-  color: #3e3e3e;
-  border-radius: 5px;
-  &:hover {
-    background-color: #bfbfbf;
+const StyledButton = styled(Button)`
+  height: 2.3rem;
+  margin-left: 1rem;
+  & + & {
+    margin-left: 0.5rem;
   }
 `;
 
@@ -233,9 +187,9 @@ const LessonDetail = ({ match }) => {
 
       <hr style={{ width: '100%', margin: '10px 0px', display: 'block', borderColor: '#ffffff' }} />
 
-      <WriteBtn onClick={onCancel} style={{ cursor: 'pointer' }}>
+      <StyledButton cyan onClick={onCancel}>
         뒤로가기
-      </WriteBtn>
+      </StyledButton>
     </div>
   );
 };
