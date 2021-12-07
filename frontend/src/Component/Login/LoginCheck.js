@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Container, Row, Col, Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
 import axios from 'axios';
 import { useHistory } from 'react-router';
-import MainLogo from "../../img/OneBoardLogo.png";
+import MainLogo from '../../img/OneBoardLogo.png';
 const LoginCheck = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -96,18 +96,24 @@ const LoginCheck = () => {
   };
 
   return (
-    <div style={{ marginTop: "1.2rem" }}>
-
+    <div style={{ marginTop: '1.2rem' }}>
       <center>
-      <div>
-        <img src={MainLogo} style={{width:"50%" , height:"300px"}} />
-      </div>
+        <div>
+          <img src={MainLogo} style={{ width: '40%', height: '200px' }} />
+        </div>
       </center>
-      <Row >
+      <Row>
         <center>
-          <Col className="InputContainer"  style={{marginTop:"5rem"}}>
+          <Col className="InputContainer">
             <input
-              style={{ borderRadius: '7px', width: '40%', height: '100px', fontSize: '2rem' , marginTop:"5rem",paddingLeft:"10px"}}
+              style={{
+                borderRadius: '7px',
+                width: '40%',
+                height: '80px',
+                fontSize: '2rem',
+                marginTop: '5rem',
+                paddingLeft: '10px',
+              }}
               className="signInInput"
               name="email"
               type="email"
@@ -124,9 +130,9 @@ const LoginCheck = () => {
                 marginTop: '15px',
                 borderRadius: '7px',
                 width: '40%',
-                height: '100px',
+                height: '80px',
                 fontSize: '2rem',
-                paddingLeft:"10px"
+                paddingLeft: '10px',
               }}
               className="signInInput"
               name="password"
@@ -145,13 +151,12 @@ const LoginCheck = () => {
                 marginTop: '3rem',
                 borderRadius: '7px',
                 width: '40%',
-                height: '100px',
+                height: '80px',
                 fontSize: '1.5rem',
-                backgroundColor: "#E6F4F1",
-                color: "black",
-                fontWeight: "bold",
-                cursor: "pointer",
-
+                backgroundColor: '#E6F4F1',
+                color: 'black',
+                fontWeight: 'bold',
+                cursor: 'pointer',
               }}
               className="DoSignIn"
               onClick={(e) => onSubmit(e)}
