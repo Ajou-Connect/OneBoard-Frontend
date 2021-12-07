@@ -7,6 +7,8 @@ import { withRouter } from 'react-router';
 import styled from 'styled-components';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
+import { DatePicker } from 'antd';
+import 'antd/dist/antd.css';
 
 const TitleInput = styled.input`
   font-size: 2rem;
@@ -49,8 +51,20 @@ const Container = styled.div`
 const WriteNotice = ({ history, match }) => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
-  const exposeDt = moment().format('YYYY-MM-DD HH:mm:ss');
+  const [exposeDt, setExposeDt] = useState('');
   const lectureId = match.params.lectureId;
+  const { RangePicker } = DatePicker;
+
+  const onChange = (value, dateString) => {
+    console.log(value);
+    console.log(dateString);
+    setExposeDt(dateString);
+  };
+
+  const onOk = (value) => {
+    console.log(value);
+  };
+
   const getTitle = (e) => {
     setTitle(e.target.value);
     console.log(title);
@@ -60,6 +74,7 @@ const WriteNotice = ({ history, match }) => {
     /// 무언가 들어갈거
     console.log('title : ' + title);
     console.log('content : ' + content);
+
     axios
       .post(`/lecture/${lectureId}/notice`, {
         title: title,
@@ -117,6 +132,11 @@ const WriteNotice = ({ history, match }) => {
   return (
     <Container>
       <TitleInput onChange={getTitle} placeholder="제목" />
+      <div style={{ display: 'flex' }}>
+        <div style={{ fontWeight: 'bold', fontSize: '1rem', marginRight: '1rem' }}>개시 날짜 :</div>{' '}
+        <DatePicker showTime onChange={onChange} onOk={onOk} />
+      </div>
+      <br />
       <div style={{ backgroundColor: 'white' }}>
         <ReactQuill
           style={{ height: '650px' }}

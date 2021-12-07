@@ -8,7 +8,7 @@ import styled from 'styled-components';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import 'antd/dist/antd.css';
-import { DatePicker, Space } from 'antd';
+import { DatePicker } from 'antd';
 
 const { RangePicker } = DatePicker;
 

@@ -3,6 +3,7 @@ import './LectureNoticeContent.scss';
 import axios from 'axios';
 import styled from 'styled-components';
 import Button from '../../../Component/common/Button';
+import moment from 'moment';
 
 const WriteAcitonButtonBlock = styled.div`
   margin-top: 2rem;
@@ -37,6 +38,7 @@ const LectureNoticeContent = (props) => {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
   const lectureId = props.lectureId;
+  const today = moment();
   useEffect(() => {
     const fetchNotice = async () => {
       try {
@@ -135,7 +137,39 @@ const LectureNoticeContent = (props) => {
               </div>
             ) : (
               notices.map((notice, index) => {
-                return (
+                return moment(notice.exposeDt) <= today ? (
+                  <li key={index} className="claerfix">
+                    <h3 className="notice-title">{notice.title}</h3>
+                    <div className="details">
+                      <p>
+                        <span>작성일 : {notice.exposeDt}</span>
+                      </p>
+                      <div
+                        className="notice-content"
+                        dangerouslySetInnerHTML={{ __html: notice.content }}
+                      ></div>
+                    </div>
+                    <div className="noticeInfo">
+                      <div style={{ fontWeight: 'bold', marginBottom: '1rem' }}>
+                        작성자 : {user.name}
+                      </div>
+                      {isProfessor ? (
+                        <div style={{ display: 'flex' }}>
+                          <WriteAcitonButtonBlock>
+                            <StyledButton cyan onClick={(e) => onUpdateClick(e, notice.id)}>
+                              수정
+                            </StyledButton>
+                            <StyledButton cyan onClick={(e) => onDeleteClick(e, notice.id)}>
+                              삭제
+                            </StyledButton>
+                          </WriteAcitonButtonBlock>
+                        </div>
+                      ) : (
+                        <p></p>
+                      )}
+                    </div>
+                  </li>
+                ) : (
                   <li key={index} className="claerfix">
                     <h3 className="notice-title">{notice.title}</h3>
                     <div className="details">
