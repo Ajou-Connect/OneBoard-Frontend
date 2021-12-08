@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
+import moment from 'moment';
 
 const Container = styled.div`
   border: 1px solid #cdcdcd;
@@ -15,8 +16,9 @@ const Container = styled.div`
 const LectureHomeNotice = (props) => {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
-  const lectureId = props.lectureId;
   const [latestNotice, setLatestNotice] = useState({});
+  const lectureId = props.lectureId;
+  const today = moment();
   useEffect(() => {
     const fetchNotice = async () => {
       try {
@@ -27,8 +29,7 @@ const LectureHomeNotice = (props) => {
           .get('/lecture/' + lectureId + '/notices')
           .then((res) => {
             const result = res.data.data;
-            console.log(result.length);
-            setLatestNotice(result[0]);
+            setLatestNotice(result.filter((list) => moment(list.exposeDt) <= today)[0]);
           })
           .catch((e) => {
             console.log(e);
@@ -41,9 +42,9 @@ const LectureHomeNotice = (props) => {
       }
     };
     fetchNotice();
+    console.log(latestNotice.filter((list) => moment(list.exposeDt) < today)[0]);
   }, []);
 
-  console.log('qwr' + latestNotice);
   if (loading)
     return (
       <div
@@ -97,7 +98,7 @@ const LectureHomeNotice = (props) => {
           <div
             dangerouslySetInnerHTML={{ __html: latestNotice.content }}
             style={{ margin: '5px' }}
-          ></div>
+          />
         </Container>
       )}
     </div>

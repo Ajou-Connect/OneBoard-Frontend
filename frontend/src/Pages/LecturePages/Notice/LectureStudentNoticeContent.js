@@ -5,22 +5,6 @@ import styled from 'styled-components';
 import Button from '../../../Component/common/Button';
 import moment from 'moment';
 
-const WriteAcitonButtonBlock = styled.div`
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-  display: flex;
-  button + button {
-    margin-left: 0.5rem;
-  }
-`;
-
-const StyledButton = styled(Button)`
-  height: 2.125rem;
-  & + & {
-    margin-left: 0.5rem;
-  }
-`;
-
 const Title = styled.div`
   margin-top: 1.5rem;
   margin-left: 20px;
@@ -33,7 +17,7 @@ const Title = styled.div`
 
 const LectureStudentNoticeContent = (props) => {
   const user = JSON.parse(sessionStorage.userInfo);
-  const isProfessor = user.userType === 'T';
+
   const [notices, setNotices] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);

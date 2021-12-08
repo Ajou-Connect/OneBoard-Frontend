@@ -6,15 +6,6 @@ import 'antd/dist/antd.css';
 import { Radio } from 'antd';
 import Button from '../../../Component/common/Button';
 
-const WriteAcitonButtonBlock = styled.div`
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-  display: flex;
-  button + button {
-    margin-left: 0.5rem;
-  }
-`;
-
 const StyledButton = styled(Button)`
   height: 2.125rem;
   & + & {
@@ -72,22 +63,6 @@ const StatusBtn = styled.button`
   }
 `;
 
-const WriteBtn = styled.button`
-  display: inline-block;
-  float: left;
-  background-color: whitesmoke;
-  color: black;
-  font-size: 16px;
-  width: 80px;
-  margin-right: 5px;
-  margin-bottom: 20px;
-  padding: 5px;
-  border-radius: 5px;
-  cursor: pointer;
-  &:hover {
-    background-color: #bfbfbf;
-  }
-`;
 const TabletrColor = styled.tr`
   &:nth-child(even) {
     background: #f7f9fc;

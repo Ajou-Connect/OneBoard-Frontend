@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
+import moment from 'moment';
 
 const Container = styled.div`
   border: 1px solid #cdcdcd;
@@ -16,6 +17,7 @@ const LectureHomePlan = (props) => {
   const [isPlan, setIsPlan] = useState(false);
   const Url = `https://docs.google.com/gview?embedded=true&url=https://115.85.182.194:8080/lecture/${lectureId}/plan`;
   const FileURL = `https://115.85.182.194:8080/lecture/${lectureId}/plan`;
+  const today = moment();
   const getPlan = () => {
     return new Promise((resolve, reject) => {
       axios
