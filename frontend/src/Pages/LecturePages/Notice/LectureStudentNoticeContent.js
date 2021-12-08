@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './LectureNoticeContent.scss';
+import './LectureStudentNoticeContent.scss';
 import axios from 'axios';
 import styled from 'styled-components';
 import Button from '../../../Component/common/Button';
@@ -153,20 +153,6 @@ const LectureStudentNoticeContent = (props) => {
                       <div style={{ fontWeight: 'bold', marginBottom: '1rem' }}>
                         작성자 : {user.name}
                       </div>
-                      {isProfessor ? (
-                        <div style={{ display: 'flex' }}>
-                          <WriteAcitonButtonBlock>
-                            <StyledButton cyan onClick={(e) => onUpdateClick(e, notice.id)}>
-                              수정
-                            </StyledButton>
-                            <StyledButton cyan onClick={(e) => onDeleteClick(e, notice.id)}>
-                              삭제
-                            </StyledButton>
-                          </WriteAcitonButtonBlock>
-                        </div>
-                      ) : (
-                        <p></p>
-                      )}
                     </div>
                   </li>
                 ) : (
@@ -174,21 +160,6 @@ const LectureStudentNoticeContent = (props) => {
                 );
               })
             )}
-            <div style={{ marginBottom: '30px' }}>
-              {isProfessor ? (
-                <StyledButton
-                  cyan
-                  style={{
-                    marginTop: '0.5rem',
-                  }}
-                  onClick={onWriteClick}
-                >
-                  글쓰기
-                </StyledButton>
-              ) : (
-                <div></div>
-              )}
-            </div>
           </ul>
         </form>
       </div>

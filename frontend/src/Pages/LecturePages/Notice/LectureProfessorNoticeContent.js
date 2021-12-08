@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './LectureNoticeContent.scss';
+import './LectureProfessorNoticeContent.scss';
 import axios from 'axios';
 import styled from 'styled-components';
 import Button from '../../../Component/common/Button';
@@ -137,7 +137,7 @@ const LectureProfessorNoticeContent = (props) => {
               </div>
             ) : (
               notices.map((notice, index) => {
-                return moment(notice.exposeDt) <= today ? (
+                return (
                   <li key={index} className="claerfix">
                     <h3 className="notice-title">{notice.title}</h3>
                     <div className="details">
@@ -153,41 +153,31 @@ const LectureProfessorNoticeContent = (props) => {
                       <div style={{ fontWeight: 'bold', marginBottom: '1rem' }}>
                         작성자 : {user.name}
                       </div>
-                      {isProfessor ? (
-                        <div style={{ display: 'flex' }}>
-                          <WriteAcitonButtonBlock>
-                            <StyledButton cyan onClick={(e) => onUpdateClick(e, notice.id)}>
-                              수정
-                            </StyledButton>
-                            <StyledButton cyan onClick={(e) => onDeleteClick(e, notice.id)}>
-                              삭제
-                            </StyledButton>
-                          </WriteAcitonButtonBlock>
-                        </div>
-                      ) : (
-                        <p></p>
-                      )}
+                      <div style={{ display: 'flex' }}>
+                        <WriteAcitonButtonBlock>
+                          <StyledButton cyan onClick={(e) => onUpdateClick(e, notice.id)}>
+                            수정
+                          </StyledButton>
+                          <StyledButton cyan onClick={(e) => onDeleteClick(e, notice.id)}>
+                            삭제
+                          </StyledButton>
+                        </WriteAcitonButtonBlock>
+                      </div>
                     </div>
                   </li>
-                ) : (
-                  <div></div>
                 );
               })
             )}
             <div style={{ marginBottom: '30px' }}>
-              {isProfessor ? (
-                <StyledButton
-                  cyan
-                  style={{
-                    marginTop: '0.5rem',
-                  }}
-                  onClick={onWriteClick}
-                >
-                  글쓰기
-                </StyledButton>
-              ) : (
-                <div></div>
-              )}
+              <StyledButton
+                cyan
+                style={{
+                  marginTop: '0.5rem',
+                }}
+                onClick={onWriteClick}
+              >
+                글쓰기
+              </StyledButton>
             </div>
           </ul>
         </form>
