@@ -128,14 +128,6 @@ const GenerateLesson = ({ match }) => {
     formData.append('room', room);
     formData.append('meetingId', meetingId);
 
-    console.log(lessonFile);
-    console.log(title);
-    console.log(period);
-    console.log(formData);
-    console.log(radioValue);
-    console.log(room);
-    console.log(meetingId);
-    console.log(videoUrl);
     axios
       .post(`/lecture/${lectureId}/lesson`, formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
@@ -260,7 +252,7 @@ const GenerateLesson = ({ match }) => {
       <div>
         {radioValue === 1 ? (
           <div style={{ fontSize: '1rem', marginLeft: '50px', fontWeight: 'bold' }}>
-            zoom session link를 입력 해주세요 :
+            zoom session 생성하기
             <TitleInput onChange={getMeetingId} placeholder="zoom link를 입력해주세요" />
           </div>
         ) : radioValue === 2 ? (
