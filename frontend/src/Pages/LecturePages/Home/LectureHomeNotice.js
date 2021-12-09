@@ -42,7 +42,6 @@ const LectureHomeNotice = (props) => {
       }
     };
     fetchNotice();
-    console.log(latestNotice.filter((list) => moment(list.exposeDt) < today)[0]);
   }, []);
 
   if (loading)
