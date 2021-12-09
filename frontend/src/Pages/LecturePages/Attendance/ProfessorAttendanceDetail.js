@@ -122,7 +122,6 @@ const ProfessorAttendanceDetail = ({ match }) => {
   }, []);
 
   const onStatusChange = (e, data, statusId) => {
-    alert('해당 사항으로 변경합니다 저장하기를 눌러주세요');
     setAttendanceListInfo([
       {
         lessonId: data.lessonId,
@@ -148,7 +147,7 @@ const ProfessorAttendanceDetail = ({ match }) => {
       })
       .then((res) => {
         console.log(res);
-        return (window.location.href = `/Main/Lecture/${lectureId}/Attendance/${studentDetailId}`);
+        // return (window.location.href = `/Main/Lecture/${lectureId}/Attendance/${studentDetailId}`);
       })
       .catch((e) => {
         console.log(e);

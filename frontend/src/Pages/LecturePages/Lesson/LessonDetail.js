@@ -13,7 +13,6 @@ import {
   Legend,
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
-import faker from 'faker';
 
 const TTitle = styled.div`
   font-size: 30px;
@@ -261,6 +260,10 @@ const LessonDetail = ({ match }) => {
               <Bar options={options} data={data} />
             </div>
             <div style={{ width: '50%', marginLeft: '1rem' }}>
+              {/* <WriteAcitonButtonBlock>
+                  <StyledButton cyan onClick={}>일괄 결석</StyledButton>
+                <StyledButton cyan onClick={}>일괄 출석</StyledButton>
+              </WriteAcitonButtonBlock> */}
               <table
                 style={{
                   width: '100%',
@@ -312,10 +315,11 @@ const LessonDetail = ({ match }) => {
           />
         </>
       )}
-
-      <StyledButton cyan onClick={onCancel}>
-        뒤로가기
-      </StyledButton>
+      <div style={{ height: '5rem' }}>
+        <StyledButton cyan onClick={onCancel}>
+          뒤로가기
+        </StyledButton>
+      </div>
     </div>
   );
 };
