@@ -22,7 +22,7 @@ const Home = () => {
   }, [user]);
 
   return (
-    <div className="home">
+    <div className="home" style={{ paddingTop: '0px' }}>
       <Nav />
       <div style={{ width: '100%', height: '700px', marginTop: '20px' }} className="home-main" />
     </div>

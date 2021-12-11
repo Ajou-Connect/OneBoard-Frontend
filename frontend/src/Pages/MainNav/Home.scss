@@ -1,10 +1,8 @@
-div {
-  .home-main {
-    background-image: url(../../img/MainImage2.png);
-    background-repeat: no-repeat;
-    background-position-x: center;
-    background-size: contain;
-  }
+.home-main {
+  background-image: url(../../img/MainImage2.png);
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-size: contain;
 }
 
 .navbar {
@@ -26,4 +24,8 @@ div {
   :hover {
     cursor: pointer;
   }
+}
+
+.home {
+  padding-top: 0px;
 }
