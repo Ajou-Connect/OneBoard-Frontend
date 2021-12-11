@@ -10,8 +10,8 @@ const ClassRoute = () => {
   return (
     <Router>
       <Switch>
-        {/* <Route path="/class/pf" component={TestZoom} /> */}
-        <Route exact path="/class/st" component={TestZoom} />
+        <Route path="/class/pf" component={TestZoom} />
+        {/* <Route exact path="/class/st" component={TestZoom} /> */}
       </Switch>
     </Router>
   );

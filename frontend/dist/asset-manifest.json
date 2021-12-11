@@ -28,18 +28,26 @@
     "../public/lib/video_simd.min.js": "/../public/lib/video_simd.min.js",
     "../public/lib/webim.min.js": "/../public/lib/webim.min.js",
     "../public/lib/websipclient.min.js": "/../public/lib/websipclient.min.js",
-    "index.html": "/index.html",
     "static/media/MainImage.png": "/static/media/MainImage.b713129e.png",
     "static/media/MainImage2.png": "/static/media/MainImage2.e83d930d.png",
     "static/media/OneBoardLogo.png": "/static/media/OneBoardLogo.22abb46c.png",
-    "static/media/micoff.png": "/static/media/micoff.17247a82.png",
-    "static/media/micon.png": "/static/media/micon.c0d2852d.png",
-    "static/media/share.png": "/static/media/share.fee3590a.png",
-    "static/media/videooff.png": "/static/media/videooff.49de103a.png"
+    "static/media/icon-advanced.svg": "/static/media/icon-advanced.111cdd2d.svg",
+    "static/media/icon-chat.svg": "/static/media/icon-chat.24870e9d.svg",
+    "static/media/icon-group.svg": "/static/media/icon-group.5b89b4f2.svg",
+    "static/media/icon-headset.svg": "/static/media/icon-headset.1c97ed79.svg",
+    "static/media/icon-meeting.svg": "/static/media/icon-meeting.cf2c788f.svg",
+    "static/media/icon-pause.svg": "/static/media/icon-pause.30000c0d.svg",
+    "static/media/icon-remote-control.svg": "/static/media/icon-remote-control.46ef1353.svg",
+    "static/media/icon-resume.svg": "/static/media/icon-resume.889789d2.svg",
+    "static/media/icon-share.svg": "/static/media/icon-share.96585ef4.svg",
+    "static/media/icon-spotlight.svg": "/static/media/icon-spotlight.86e4674e.svg",
+    "static/media/icon-start.svg": "/static/media/icon-start.3d9ed4be.svg",
+    "static/media/icon-stop.svg": "/static/media/icon-stop.97e0212b.svg"
   },
   "entrypoints": [
     "static/js/bundle.js",
     "static/js/vendors~main.chunk.js",
-    "static/js/main.chunk.js"
+    "static/js/main.chunk.js",
+    "main.41031e40cbf12e88a6d5.hot-update.js"
   ]
 }
