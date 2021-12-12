@@ -24487,7 +24487,7 @@ const VideoFooter = props => {
   const OutSession = () => {
     if (userType === "T") {
       zmClient.leave();
-      alert("모든 참가자가 수업을 나갑니다. 퇴장후 다시 입장하실수 없습니다.");
+      alert("세션을 종료합니다. 퇴장후 다시 입장하실 수 없습니다.");
       axios__WEBPACK_IMPORTED_MODULE_11___default.a.get(`/lecture/${lectureId}/lesson/${lessonId}/live/exit`, {
         headers: {
           "X-AUTH-TOKEN": `${token}`
@@ -24522,7 +24522,7 @@ const VideoFooter = props => {
       activeSpeaker: activeSpeaker
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 189,
+      lineNumber: 191,
       columnNumber: 7
     }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_12__["jsxDEV"])(_camera__WEBPACK_IMPORTED_MODULE_4__["default"], {
       isStartedVideo: isStartedVideo,
@@ -24532,14 +24532,14 @@ const VideoFooter = props => {
       activeCamera: activeCamera
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 200,
+      lineNumber: 202,
       columnNumber: 7
     }, undefined), sharing && /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_12__["jsxDEV"])(_screen_share__WEBPACK_IMPORTED_MODULE_6__["ScreenShareButton"], {
       isStartedScreenShare: isStartedScreenShare,
       onScreenShareClick: onScreenShareClick
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 208,
+      lineNumber: 210,
       columnNumber: 9
     }, undefined), (zmClient.isManager() || zmClient.isHost()) && /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_12__["jsxDEV"])(_screen_share__WEBPACK_IMPORTED_MODULE_6__["ScreenShareLockButton"], {
       isLockedScreenShare: isLockedScreenShare,
@@ -24549,19 +24549,19 @@ const VideoFooter = props => {
       }
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 214,
+      lineNumber: 216,
       columnNumber: 9
     }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_12__["jsxDEV"])(LeaveBtn, {
       onClick: OutSession,
       children: "\uB098\uAC00\uAE30"
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 222,
+      lineNumber: 224,
       columnNumber: 7
     }, undefined)]
   }, void 0, true, {
     fileName: _jsxFileName,
-    lineNumber: 187,
+    lineNumber: 189,
     columnNumber: 5
   }, undefined);
 };

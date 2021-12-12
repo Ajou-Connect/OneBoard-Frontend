@@ -143,6 +143,8 @@ const VideoFooter = (props: VideoFooterProps) => {
       setActiveCamera(mediaStream.getActiveCamera());
     }
   }, [mediaStream]);
+
+  
   useEffect(() => {
     zmClient.on('current-audio-change', onHostAudioMuted);
     zmClient.on('passively-stop-share', onPassivelyStopShare);
@@ -168,7 +170,7 @@ const VideoFooter = (props: VideoFooterProps) => {
   const OutSession = () => {
     if (userType === "T") {
       zmClient.leave();
-      alert("모든 참가자가 수업을 나갑니다. 퇴장후 다시 입장하실수 없습니다.")
+      alert("세션을 종료합니다. 퇴장후 다시 입장하실 수 없습니다.")
       axios.get(`/lecture/${lectureId}/lesson/${lessonId}/live/exit`, { headers: { "X-AUTH-TOKEN": `${token}` }, params: { session: `${sessionId}` } })
         .then((res) => {
           const result = res.data.result;
