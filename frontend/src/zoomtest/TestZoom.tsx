@@ -69,7 +69,17 @@ const mediaReducer = produce((draft, action) => {
   }
 }, mediaShape);
 
-function TestZoom() {
+interface TestProps {
+  match: {
+    params: {
+      lectureId: string,
+      lessonId: string,
+      sessionId: string
+    }
+  }
+}
+
+function TestZoom(props: TestProps) {
   const [loading, setIsLoading] = useState(true);
   const [loadingText, setLoadingText] = useState("");
   const [isFailover, setIsFailover] = useState<boolean>(false);
@@ -79,10 +89,16 @@ function TestZoom() {
   const [chatClient, setChatClient] = useState<ChatClient | null>(null);
   const [isSupportGalleryView, setIsSupportGalleryView] = useState<boolean>(true);
   const zmClient = useContext(ZoomContext);
+  const user = JSON.parse(sessionStorage.userInfo);
+  const userType = user.userType;
+  const userName = user.name;
+  const sessionId = props.match.params.sessionId;
+  const lectureId = props.match.params.lectureId;
+  const lessonId = props.match.params.lessonId;
   const token = generateVideoToken(
     "MoRylmD2jBq9NfbZXbSVmvZcGYOFkDCeJc3e",
     "NewabYwGXIFrOlPRf4dZBKeqFECESIkdlLrq",
-    "session_19_1638703533",
+    sessionId,
     "",
     "",
     ""
@@ -92,7 +108,7 @@ function TestZoom() {
       await zmClient.init("en-US", `${window.location.origin}/lib`, 'zoom.us');
       try {
         setLoadingText("Joining the session...");
-        await zmClient.join("session_19_1638703533", token, "동현", "");
+        await zmClient.join(sessionId, token, userName, "");
         const stream = zmClient.getMediaStream();
         setMediaStream(stream);
 	      setIsSupportGalleryView(stream.isSupportMultipleVideos());
@@ -143,7 +159,7 @@ function TestZoom() {
   const onLeaveOrJoinSession = useCallback(async () => {
     if (status === "closed") {
       setIsLoading(true);
-      await zmClient.join("session_19_1638703533", token, "동현", "");
+      await zmClient.join(sessionId, token, userName, "");
       setIsLoading(false);
     } else if (status === "connected") {
       await zmClient.leave();
@@ -167,7 +183,7 @@ function TestZoom() {
             <Router>
               <Switch>
                 <Route
-                  path="/class/19/102/session_19_1638703533/T"
+                  path={`/class/${lectureId}/${lessonId}/${sessionId}/${userType}`}
                   render={(props) => (
                     <Home
                       {...props}
@@ -178,7 +194,7 @@ function TestZoom() {
                   exact
                 />
                 <Route
-                  path="/index.html"
+                   path={`/class/${lectureId}/${lessonId}/${sessionId}/${userType}`}
                   render={(props) => (
                     <Home
                       {...props}

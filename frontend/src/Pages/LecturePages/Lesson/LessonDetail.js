@@ -81,6 +81,12 @@ const LessonDetail = ({ match }) => {
         .then((res) => {
           const result = res;
           console.log(result);
+          if (result.data.result === "SUCCESS") {
+            return window.location.href = `/class/${lectureId}/${lessonId}/${sessionId}/${userType}`
+          }
+          else {
+            alert("수업에 입장할 수 없습니다.");
+          }
       })
         .catch((error) => {
           console.log(error);
@@ -244,7 +250,7 @@ const LessonDetail = ({ match }) => {
               display: 'flex',
             }}
           >
-            {isProfessor ? (<div onClick={LessonCheck}>실시간 수업입장</div>) : (<a href="/class/st">실시간 수업입장</a>)}
+            {isProfessor ? (<div style={{cursor:"pointer"}} onClick={LessonCheck}>실시간 수업입장</div>) : (<div style={{cursor:"pointer"}} onClick={LessonCheck}>실시간 수업입장</div>)}
           </div>
         ) : lessonDetails.type === 2 ? (
           <div
