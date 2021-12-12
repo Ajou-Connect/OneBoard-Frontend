@@ -24316,10 +24316,12 @@ var _jsxFileName = "/mnt/e/sw_capstone/frontend/src/ZoomSample/feature/video/com
 
 const LeaveBtn = styled_components__WEBPACK_IMPORTED_MODULE_10__["default"].button`
   position: absolute;
+  margin-top:3rem;
   right: 0;
   margin-right: 30px;
   color: red;
 `;
+_c = LeaveBtn;
 const isAudioEnable = typeof AudioWorklet === 'function';
 
 const VideoFooter = props => {
@@ -24472,6 +24474,13 @@ const VideoFooter = props => {
       mediaStream === null || mediaStream === void 0 ? void 0 : mediaStream.stopShareScreen();
     }
   });
+
+  const OutSession = () => {
+    zmClient.leave();
+    alert("수업을 나갑니다");
+    return window.location.href = `/Main/Lecture`;
+  };
+
   return /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_11__["jsxDEV"])("div", {
     className: classnames__WEBPACK_IMPORTED_MODULE_1___default()('video-footer', className),
     children: [isAudioEnable && /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_11__["jsxDEV"])(_microphone__WEBPACK_IMPORTED_MODULE_5__["default"], {
@@ -24485,7 +24494,7 @@ const VideoFooter = props => {
       activeSpeaker: activeSpeaker
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 164,
+      lineNumber: 172,
       columnNumber: 7
     }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_11__["jsxDEV"])(_camera__WEBPACK_IMPORTED_MODULE_4__["default"], {
       isStartedVideo: isStartedVideo,
@@ -24495,14 +24504,14 @@ const VideoFooter = props => {
       activeCamera: activeCamera
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 175,
+      lineNumber: 183,
       columnNumber: 7
     }, undefined), sharing && /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_11__["jsxDEV"])(_screen_share__WEBPACK_IMPORTED_MODULE_6__["ScreenShareButton"], {
       isStartedScreenShare: isStartedScreenShare,
       onScreenShareClick: onScreenShareClick
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 183,
+      lineNumber: 191,
       columnNumber: 9
     }, undefined), (zmClient.isManager() || zmClient.isHost()) && /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_11__["jsxDEV"])(_screen_share__WEBPACK_IMPORTED_MODULE_6__["ScreenShareLockButton"], {
       isLockedScreenShare: isLockedScreenShare,
@@ -24512,12 +24521,19 @@ const VideoFooter = props => {
       }
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 189,
+      lineNumber: 197,
       columnNumber: 9
+    }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_11__["jsxDEV"])(LeaveBtn, {
+      onClick: OutSession,
+      children: "\uB098\uAC00\uAE30"
+    }, void 0, false, {
+      fileName: _jsxFileName,
+      lineNumber: 205,
+      columnNumber: 7
     }, undefined)]
   }, void 0, true, {
     fileName: _jsxFileName,
-    lineNumber: 162,
+    lineNumber: 170,
     columnNumber: 5
   }, undefined);
 };
@@ -24526,12 +24542,13 @@ _s(VideoFooter, "/+su91cgdsJMYwLjzpBjr53hr+c=", false, function () {
   return [_hooks__WEBPACK_IMPORTED_MODULE_8__["useUnmount"]];
 });
 
-_c = VideoFooter;
+_c2 = VideoFooter;
 /* harmony default export */ __webpack_exports__["default"] = (VideoFooter);
 
-var _c;
+var _c, _c2;
 
-__webpack_require__.$Refresh$.register(_c, "VideoFooter");
+__webpack_require__.$Refresh$.register(_c, "LeaveBtn");
+__webpack_require__.$Refresh$.register(_c2, "VideoFooter");
 
 const currentExports = __react_refresh_utils__.getModuleExports(module.i);
 __react_refresh_utils__.registerExportsForReactRefresh(currentExports, module.i);

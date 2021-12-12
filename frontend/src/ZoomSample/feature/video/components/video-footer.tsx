@@ -16,9 +16,10 @@ import { useUnmount } from '../../../hooks';
 import { MediaDevice } from '../video-types';
 import './video-footer.scss';
 import styled from "styled-components";
-
+import axios from "axios";
 const LeaveBtn = styled.button`
   position: absolute;
+  margin-top:3rem;
   right: 0;
   margin-right: 30px;
   color: red;
@@ -161,7 +162,9 @@ const VideoFooter = (props: VideoFooterProps) => {
 
   const OutSession = () => {
     zmClient.leave();
-    return window.location.href = `/`
+    alert("수업을 나갑니다");
+    return window.location.href = `/Main/Lecture`;
+
   }
   return (
     <div className={classNames('video-footer', className)}>
@@ -199,6 +202,7 @@ const VideoFooter = (props: VideoFooterProps) => {
         }}
       />
       )}
+      <LeaveBtn onClick={OutSession}>나가기</LeaveBtn>
     </div>
   );
 };
