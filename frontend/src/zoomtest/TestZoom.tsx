@@ -179,7 +179,9 @@ function TestZoom(props: TestProps) {
       {loading && <LoadingLayer content={loadingText} />}
       {!loading && (
         <ZoomMediaContext.Provider value={{ ...mediaState, mediaStream }}>
-          <ChatContext.Provider value={chatClient}>
+          <ChatContext.Provider value={chatClient}>  
+            
+            
             {/* <Router>
               <Switch>
                 <Route

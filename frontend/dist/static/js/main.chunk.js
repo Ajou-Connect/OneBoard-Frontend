@@ -28865,7 +28865,7 @@ function TestZoom(props) {
             sessionId: sessionId
           }, void 0, false, {
             fileName: _jsxFileName,
-            lineNumber: 213,
+            lineNumber: 215,
             columnNumber: 39
           }, this) : /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_14__["jsxDEV"])(_ZoomSample_feature_video_video_single__WEBPACK_IMPORTED_MODULE_7__["default"], { ...props,
             lectureId: lectureId,
@@ -28873,12 +28873,12 @@ function TestZoom(props) {
             sessionId: sessionId
           }, void 0, false, {
             fileName: _jsxFileName,
-            lineNumber: 213,
+            lineNumber: 215,
             columnNumber: 128
           }, this)
         }, void 0, false, {
           fileName: _jsxFileName,
-          lineNumber: 212,
+          lineNumber: 214,
           columnNumber: 13
         }, this)
       }, void 0, false, {
