@@ -47,14 +47,14 @@ const LessonDetail = ({ match }) => {
   const [isProfessor, setIsProfessor] = useState(false);
   const [lessonDetails, setLessonDetails] = useState([]);
   const [studentInfo, setStudentInfo] = useState([]);
-  const [sessionId, setSessionId] = useState("");
+  const [sessionId, setSessionId] = useState('');
   const user = JSON.parse(localStorage.userInfo);
   const userType = user.userType;
   const Url = `https://docs.google.com/gview?embedded=true&url=https://115.85.182.194:8080/lecture/${lectureId}/lesson/${lessonId}/note`;
   const FileURL = `https://115.85.182.194:8080/lecture/${lectureId}/lesson/${lessonId}/note`;
   const labels = ['출석', '결석', '지각'];
   const LessonLink = `/class/${lectureId}/${lessonId}/${sessionId}/${userType}`;
-  const token = localStorage.getItem("token");
+  const token = localStorage.getItem('token');
 
   const getLessonData = () => {
     return new Promise((resolve, reject) => {
@@ -73,27 +73,28 @@ const LessonDetail = ({ match }) => {
     });
   };
 
-  
-
   const LessonCheck = () => {
     return new Promise((resolve, reject) => {
-      axios.get(`/lecture/${lectureId}/lesson/${lessonId}/live/entrance`, { headers: { "X-AUTH-TOKEN": `${token}` }, params: { "session": `${sessionId}` } })
+      axios
+        .get(`/lecture/${lectureId}/lesson/${lessonId}/live/entrance`, {
+          headers: { 'X-AUTH-TOKEN': `${token}` },
+          params: { session: `${sessionId}` },
+        })
         .then((res) => {
           const result = res;
           console.log(result);
-          if (result.data.result === "SUCCESS") {
-            return window.location.href = `/class/${lectureId}/${lessonId}/${sessionId}/${userType}`
+          if (result.data.result === 'SUCCESS') {
+            return (window.location.href = `/class/${lectureId}/${lessonId}/${sessionId}/${userType}`);
+          } else {
+            alert('수업에 입장할 수 없습니다.');
           }
-          else {
-            alert("수업에 입장할 수 없습니다.");
-          }
-      })
+        })
         .catch((error) => {
           console.log(error);
           reject(error);
-      })
-    })
-  }
+        });
+    });
+  };
 
   const getLessonAttendanceData = () => {
     return new Promise((resolve, reject) => {
@@ -112,12 +113,10 @@ const LessonDetail = ({ match }) => {
   };
 
   const checkIsProfessor = () => {
-    if (userType === "T") {
+    if (userType === 'T') {
       setIsProfessor(true);
-    }
-    else setIsProfessor(false);
-
-  }
+    } else setIsProfessor(false);
+  };
 
   const options = {
     responsive: true,
@@ -250,7 +249,15 @@ const LessonDetail = ({ match }) => {
               display: 'flex',
             }}
           >
-            {isProfessor ? (<div style={{cursor:"pointer"}} onClick={LessonCheck}>실시간 수업입장</div>) : (<div style={{cursor:"pointer"}} onClick={LessonCheck}>실시간 수업입장</div>)}
+            {isProfessor ? (
+              <div style={{ cursor: 'pointer' }} onClick={LessonCheck}>
+                실시간 수업입장
+              </div>
+            ) : (
+              <div style={{ cursor: 'pointer' }} onClick={LessonCheck}>
+                실시간 수업입장
+              </div>
+            )}
           </div>
         ) : lessonDetails.type === 2 ? (
           <div

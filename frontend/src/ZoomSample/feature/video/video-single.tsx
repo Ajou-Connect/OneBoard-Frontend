@@ -22,11 +22,12 @@ import './video.scss';
 
 interface VideoProps extends RouteComponentProps {
   lectureId: string;
-  lessonId : string
+  lessonId: string;
+  sessionId: string;
 }
 
 const VideoContainer: React.FunctionComponent<VideoProps> = (props) => {
-  const { lectureId, lessonId } = props;
+  const { lectureId, lessonId, sessionId } = props;
   const zmClient = useContext(ZoomContext);
   const {
     mediaStream,
@@ -175,7 +176,7 @@ const VideoContainer: React.FunctionComponent<VideoProps> = (props) => {
           />
         )}
       </div>
-      <VideoFooter className="video-operations" sharing shareRef={selfShareRef} lectureId={props.lectureId} lessonId={props.lessonId} />
+      <VideoFooter className="video-operations" sharing shareRef={selfShareRef} lectureId={props.lectureId} lessonId={props.lessonId} sessionId={props.sessionId}/>
     </div>
   );
 };

@@ -31,10 +31,11 @@ interface VideoFooterProps {
   sharing?: boolean;
   lectureId: string;
   lessonId: string;
+  sessionId: string;
 }
 const isAudioEnable = typeof AudioWorklet === 'function';
 const VideoFooter = (props: VideoFooterProps) => {
-  const { className, shareRef, sharing ,lectureId,lessonId } = props;
+  const { className, shareRef, sharing ,lectureId,lessonId,sessionId } = props;
   const [isStartedAudio, setIsStartedAudio] = useState(false);
   const [isStartedVideo, setIsStartedVideo] = useState(false);
   const [isStartedScreenShare, setIsStartedScreenShare] = useState(false);
@@ -50,6 +51,7 @@ const VideoFooter = (props: VideoFooterProps) => {
   const zmClient = useContext(ZoomContext);
   const user = JSON.parse(localStorage.userInfo);
   const userType = user.userType;
+  const token = localStorage.getItem("token")
   const onCameraClick = useCallback(async () => {
     if (isStartedVideo) {
       await mediaStream?.stopVideo();
@@ -167,7 +169,13 @@ const VideoFooter = (props: VideoFooterProps) => {
     if (userType === "T") {
       zmClient.leave();
       alert("모든 참가자가 수업을 나갑니다. 퇴장후 다시 입장하실수 없습니다.")
-      axios.get(`/lecture/${lectureId}/lesson/${lessonId}/live/exit`)
+      axios.get(`/lecture/${lectureId}/lesson/${lessonId}/live/exit`, { headers: { "X-AUTH-TOKEN": `${token}` }, params: { session: `${sessionId}` } })
+        .then((res) => {
+          const result = res.data.result;
+          if (result === "SUCCESS") {
+            return window.location.href = `/Main/Lecture`;
+          }
+      })
     }
     else {
     zmClient.leave();
