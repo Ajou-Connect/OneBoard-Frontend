@@ -15,6 +15,15 @@ import ZoomMediaContext from '../../../context/media-context';
 import { useUnmount } from '../../../hooks';
 import { MediaDevice } from '../video-types';
 import './video-footer.scss';
+import styled from "styled-components";
+
+const LeaveBtn = styled.button`
+  position: absolute;
+  right: 0;
+  margin-right: 30px;
+  color: red;
+`;
+
 interface VideoFooterProps {
   className?: string;
   shareRef?: MutableRefObject<HTMLCanvasElement | null>;
@@ -149,6 +158,11 @@ const VideoFooter = (props: VideoFooterProps) => {
       mediaStream?.stopShareScreen();
     }
   });
+
+  const OutSession = () => {
+    zmClient.leave();
+    return window.location.href = `/`
+  }
   return (
     <div className={classNames('video-footer', className)}>
       {isAudioEnable && (
@@ -176,7 +190,7 @@ const VideoFooter = (props: VideoFooterProps) => {
           onScreenShareClick={onScreenShareClick}
         />
       )}
-      {/* {(zmClient.isManager() || zmClient.isHost())&& (
+      {(zmClient.isManager() || zmClient.isHost())&& (
         <ScreenShareLockButton
         isLockedScreenShare={isLockedScreenShare}
         onScreenShareLockClick={()=>{
@@ -184,7 +198,7 @@ const VideoFooter = (props: VideoFooterProps) => {
           setIsLockedScreenShare(!isLockedScreenShare);
         }}
       />
-      )} */}
+      )}
     </div>
   );
 };

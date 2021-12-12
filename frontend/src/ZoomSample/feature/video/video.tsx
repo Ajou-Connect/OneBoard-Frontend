@@ -15,6 +15,15 @@ import './video.scss';
 import { isSupportWebCodecs } from '../../utils/platform';
 import Chat from "../chat/chat";
 import axios from "axios";
+import { Button } from "antd";
+import styled from 'styled-components';
+
+const LeaveBtn = styled.button`
+  position: absolute;
+  right: 0;
+  margin-right: 30px;
+  color: red;
+`;
 
 const VideoContainer: React.FunctionComponent<RouteComponentProps> = (props) => {
   const zmClient = useContext(ZoomContext);

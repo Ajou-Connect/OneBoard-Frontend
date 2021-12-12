@@ -121,9 +121,9 @@ function TestZoom(props: TestProps) {
       }
     };
     init();
-    // return () => {
-    //   ZoomVideo.destroyClient();
-    // };
+    return () => {
+      ZoomVideo.destroyClient();
+    };
   }, [zmClient]);
   const onConnectionChange = useCallback(
     (payload) => {
