@@ -24522,7 +24522,7 @@ const VideoFooter = props => {
       activeSpeaker: activeSpeaker
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 191,
+      lineNumber: 195,
       columnNumber: 7
     }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_12__["jsxDEV"])(_camera__WEBPACK_IMPORTED_MODULE_4__["default"], {
       isStartedVideo: isStartedVideo,
@@ -24532,14 +24532,14 @@ const VideoFooter = props => {
       activeCamera: activeCamera
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 202,
+      lineNumber: 206,
       columnNumber: 7
     }, undefined), sharing && /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_12__["jsxDEV"])(_screen_share__WEBPACK_IMPORTED_MODULE_6__["ScreenShareButton"], {
       isStartedScreenShare: isStartedScreenShare,
       onScreenShareClick: onScreenShareClick
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 210,
+      lineNumber: 214,
       columnNumber: 9
     }, undefined), (zmClient.isManager() || zmClient.isHost()) && /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_12__["jsxDEV"])(_screen_share__WEBPACK_IMPORTED_MODULE_6__["ScreenShareLockButton"], {
       isLockedScreenShare: isLockedScreenShare,
@@ -24549,19 +24549,19 @@ const VideoFooter = props => {
       }
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 216,
+      lineNumber: 220,
       columnNumber: 9
     }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_12__["jsxDEV"])(LeaveBtn, {
       onClick: OutSession,
       children: "\uB098\uAC00\uAE30"
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 224,
+      lineNumber: 228,
       columnNumber: 7
     }, undefined)]
   }, void 0, true, {
     fileName: _jsxFileName,
-    lineNumber: 189,
+    lineNumber: 193,
     columnNumber: 5
   }, undefined);
 };
@@ -28663,13 +28663,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _test_css__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./test.css */ "./src/zoomtest/test.css");
 /* harmony import */ var _test_css__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(_test_css__WEBPACK_IMPORTED_MODULE_12__);
 /* harmony import */ var _ZoomSample_utils_util__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../ZoomSample/utils/util */ "./src/ZoomSample/utils/util.ts");
-/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! react/jsx-dev-runtime */ "./node_modules/react/jsx-dev-runtime.js");
-/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_14__);
+/* harmony import */ var socket_io_client__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! socket.io-client */ "./node_modules/socket.io-client/build/esm/index.js");
+/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! react/jsx-dev-runtime */ "./node_modules/react/jsx-dev-runtime.js");
+/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_15__);
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 __webpack_require__.$Refresh$.setup(module.i);
 
 var _jsxFileName = "/mnt/f/SW_Capstone/frontend/src/zoomtest/TestZoom.tsx",
     _s = __webpack_require__.$Refresh$.signature();
+
 
 
 
@@ -28754,6 +28756,8 @@ function TestZoom(props) {
   const [mediaStream, setMediaStream] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null);
   const [chatClient, setChatClient] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null);
   const [isSupportGalleryView, setIsSupportGalleryView] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(true);
+  const init = "init";
+  const socket = socket_io_client__WEBPACK_IMPORTED_MODULE_14__["io"].connect("https://oneboard.connect.o-r.kr:8070");
   const zmClient = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_ZoomSample_context_zoom_context__WEBPACK_IMPORTED_MODULE_8__["default"]);
   const user = JSON.parse(localStorage.userInfo);
   const userType = user.userType;
@@ -28762,6 +28766,11 @@ function TestZoom(props) {
   const lectureId = props.match.params.lectureId;
   const lessonId = props.match.params.lessonId;
   const token = Object(_ZoomSample_utils_util__WEBPACK_IMPORTED_MODULE_13__["generateVideoToken"])("MoRylmD2jBq9NfbZXbSVmvZcGYOFkDCeJc3e", "NewabYwGXIFrOlPRf4dZBKeqFECESIkdlLrq", sessionId, "", "", "");
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    socket.on("init", data => {
+      console.log(data);
+    });
+  });
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
     const init = async () => {
       await zmClient.init("en-US", `${window.location.origin}/lib`, 'zoom.us');
@@ -28843,62 +28852,62 @@ function TestZoom(props) {
       zmClient.off("media-sdk-change", onMediaSDKChange);
     };
   }, [zmClient, onConnectionChange, onMediaSDKChange]);
-  return /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_14__["jsxDEV"])("div", {
+  return /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_15__["jsxDEV"])("div", {
     className: "App",
-    children: [loading && /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_14__["jsxDEV"])(_ZoomSample_component_loading_layer__WEBPACK_IMPORTED_MODULE_11__["default"], {
+    children: [loading && /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_15__["jsxDEV"])(_ZoomSample_component_loading_layer__WEBPACK_IMPORTED_MODULE_11__["default"], {
       content: loadingText
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 179,
+      lineNumber: 190,
       columnNumber: 19
-    }, this), !loading && /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_14__["jsxDEV"])(_ZoomSample_context_media_context__WEBPACK_IMPORTED_MODULE_9__["default"].Provider, {
+    }, this), !loading && /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_15__["jsxDEV"])(_ZoomSample_context_media_context__WEBPACK_IMPORTED_MODULE_9__["default"].Provider, {
       value: { ...mediaState,
         mediaStream
       },
-      children: /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_14__["jsxDEV"])(_ZoomSample_context_chat_context__WEBPACK_IMPORTED_MODULE_10__["default"].Provider, {
+      children: /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_15__["jsxDEV"])(_ZoomSample_context_chat_context__WEBPACK_IMPORTED_MODULE_10__["default"].Provider, {
         value: chatClient,
-        children: /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_14__["jsxDEV"])(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+        children: /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_15__["jsxDEV"])(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
           path: `/class/${lectureId}/${lessonId}/${sessionId}/${userType}`,
-          render: props => isSupportGalleryView ? /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_14__["jsxDEV"])(_ZoomSample_feature_video_video__WEBPACK_IMPORTED_MODULE_6__["default"], { ...props,
+          render: props => isSupportGalleryView ? /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_15__["jsxDEV"])(_ZoomSample_feature_video_video__WEBPACK_IMPORTED_MODULE_6__["default"], { ...props,
             lectureId: lectureId,
             lessonId: lessonId,
             sessionId: sessionId
           }, void 0, false, {
             fileName: _jsxFileName,
-            lineNumber: 215,
+            lineNumber: 226,
             columnNumber: 39
-          }, this) : /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_14__["jsxDEV"])(_ZoomSample_feature_video_video_single__WEBPACK_IMPORTED_MODULE_7__["default"], { ...props,
+          }, this) : /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_15__["jsxDEV"])(_ZoomSample_feature_video_video_single__WEBPACK_IMPORTED_MODULE_7__["default"], { ...props,
             lectureId: lectureId,
             lessonId: lessonId,
             sessionId: sessionId
           }, void 0, false, {
             fileName: _jsxFileName,
-            lineNumber: 215,
+            lineNumber: 226,
             columnNumber: 128
           }, this)
         }, void 0, false, {
           fileName: _jsxFileName,
-          lineNumber: 214,
+          lineNumber: 225,
           columnNumber: 13
         }, this)
       }, void 0, false, {
         fileName: _jsxFileName,
-        lineNumber: 182,
+        lineNumber: 193,
         columnNumber: 11
       }, this)
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 181,
+      lineNumber: 192,
       columnNumber: 9
     }, this)]
   }, void 0, true, {
     fileName: _jsxFileName,
-    lineNumber: 178,
+    lineNumber: 189,
     columnNumber: 5
   }, this);
 }
 
-_s(TestZoom, "eD7TrCaMKf2JBtAGwo9+hkoYCjs=");
+_s(TestZoom, "lOrbT+5muSdJsOwcKUix9IoxGfo=");
 
 _c = TestZoom;
 /* harmony default export */ __webpack_exports__["default"] = (TestZoom);

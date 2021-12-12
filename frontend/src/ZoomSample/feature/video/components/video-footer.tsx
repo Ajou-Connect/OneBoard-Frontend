@@ -17,6 +17,8 @@ import { MediaDevice } from '../video-types';
 import './video-footer.scss';
 import styled from "styled-components";
 import axios from "axios";
+import socketio from 'socket.io-client';
+
 const LeaveBtn = styled.button`
   position: absolute;
   margin-top:3rem;
@@ -143,6 +145,8 @@ const VideoFooter = (props: VideoFooterProps) => {
       setActiveCamera(mediaStream.getActiveCamera());
     }
   }, [mediaStream]);
+
+  
 
   
   useEffect(() => {
