@@ -87,7 +87,7 @@ const StudentSubmitDetail = ({ match }) => {
   const lectureId = match.params.lectureId;
   const submitId = match.params.submitId;
   const assignmentId = match.params.assignmentId;
-  const user = JSON.parse(sessionStorage.userInfo);
+  const user = JSON.parse(localStorage.userInfo);
   const userType = user.userType;
 
   // const submitId = match.params.submitId;

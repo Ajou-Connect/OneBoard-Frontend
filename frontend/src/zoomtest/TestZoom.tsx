@@ -89,7 +89,7 @@ function TestZoom(props: TestProps) {
   const [chatClient, setChatClient] = useState<ChatClient | null>(null);
   const [isSupportGalleryView, setIsSupportGalleryView] = useState<boolean>(true);
   const zmClient = useContext(ZoomContext);
-  const user = JSON.parse(sessionStorage.userInfo);
+  const user = JSON.parse(localStorage.userInfo);
   const userType = user.userType;
   const userName = user.name;
   const sessionId = props.match.params.sessionId;
@@ -121,9 +121,9 @@ function TestZoom(props: TestProps) {
       }
     };
     init();
-    return () => {
-      ZoomVideo.destroyClient();
-    };
+    // return () => {
+    //   ZoomVideo.destroyClient();
+    // };
   }, [zmClient]);
   const onConnectionChange = useCallback(
     (payload) => {

@@ -56,7 +56,7 @@ const StateDescript = styled.div`
 `;
 
 const ProfessorAssignmentList = (props) => {
-  const user = JSON.parse(sessionStorage.userInfo);
+  const user = JSON.parse(localStorage.userInfo);
   const userType = user.userType;
   const lectureId = props.lectureId;
   const [assignments, setAssignments] = useState([]);

@@ -3,7 +3,7 @@ import './LectureSidebar.scss';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 const LectureSidebar = (props) => {
-  const user = JSON.parse(sessionStorage.userInfo);
+  const user = JSON.parse(localStorage.userInfo);
   const userType = user.userType;
   const lectureId = props.lectureId;
   const [lectureInfo, setLectureInfo] = useState({});

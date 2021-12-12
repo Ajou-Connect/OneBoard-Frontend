@@ -37,7 +37,7 @@ export const LoadLecturePlan = (props) => {
   const lectureId = props.lectureId;
   const Url = `https://docs.google.com/gview?embedded=true&url=https://115.85.182.194:8080/lecture/${lectureId}/plan`;
   const FileURL = `https://115.85.182.194:8080/lecture/${lectureId}/plan`;
-  const user = JSON.parse(sessionStorage.userInfo);
+  const user = JSON.parse(localStorage.userInfo);
   const userType = user.userType;
 
   const onUploadPlan = () => {

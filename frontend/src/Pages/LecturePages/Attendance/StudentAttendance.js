@@ -45,7 +45,7 @@ const TabletrColor = styled.tr`
   }
 `;
 const StudentAttendance = (props) => {
-  const token = sessionStorage.getItem('token');
+  const token = localStorage.getItem('token');
   const lectureId = props.lectureId;
   const [attendances, setAttendances] = useState({
     attendanceList: [],

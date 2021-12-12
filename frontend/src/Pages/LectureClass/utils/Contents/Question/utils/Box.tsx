@@ -71,7 +71,7 @@ color : #00000050;
 function showAnswers() {
 
 }
-const user = sessionStorage && sessionStorage.userInfo && JSON.parse(window.sessionStorage.userInfo);
+const user = localStorage && localStorage.userInfo && JSON.parse(window.localStorage.userInfo);
 
 function Box(props: QuestionProps) {
 

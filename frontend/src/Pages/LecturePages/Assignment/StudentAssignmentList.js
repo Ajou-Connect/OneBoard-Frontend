@@ -86,7 +86,7 @@ const StudentAssignmentList = (props) => {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
   const [isEmpty, setIsEmpty] = useState(false);
-  const user = JSON.parse(sessionStorage.userInfo);
+  const user = JSON.parse(localStorage.userInfo);
   const userType = user.userType;
 
   useEffect(() => {

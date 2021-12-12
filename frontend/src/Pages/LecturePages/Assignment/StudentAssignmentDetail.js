@@ -101,9 +101,9 @@ const AnswerInput = styled.textarea`
 
 //여기서의 match는 각각의 assignment에 대한 렌더링을 위해서
 const StudentAssignmentDetail = ({ match }) => {
-  const user = JSON.parse(window.sessionStorage.userInfo);
+  const user = JSON.parse(window.localStorage.userInfo);
   const userType = user.userType;
-  const token = sessionStorage.getItem('token');
+  const token = localStorage.getItem('token');
   const [assignments, setAssignments] = useState({});
   const [studentFile, setStudentFile] = useState('');
   const [studentAnswer, setStudentAnswer] = useState('');

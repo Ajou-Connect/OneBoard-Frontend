@@ -16,7 +16,7 @@ const Title = styled.div`
 `;
 
 const LectureStudentNoticeContent = (props) => {
-  const user = JSON.parse(sessionStorage.userInfo);
+  const user = JSON.parse(localStorage.userInfo);
 
   const [notices, setNotices] = useState([]);
   const [error, setError] = useState(null);

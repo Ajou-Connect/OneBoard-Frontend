@@ -249,7 +249,7 @@ function Index(props: TestProps) {
 
   //------useeffect------
 
-  const user = JSON.parse(window.sessionStorage.userInfo);
+  const user = JSON.parse(window.localStorage.userInfo);
 
   async function zoomInit() {
     try {

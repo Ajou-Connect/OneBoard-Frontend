@@ -48,13 +48,13 @@ const LessonDetail = ({ match }) => {
   const [lessonDetails, setLessonDetails] = useState([]);
   const [studentInfo, setStudentInfo] = useState([]);
   const [sessionId, setSessionId] = useState("");
-  const user = JSON.parse(sessionStorage.userInfo);
+  const user = JSON.parse(localStorage.userInfo);
   const userType = user.userType;
   const Url = `https://docs.google.com/gview?embedded=true&url=https://115.85.182.194:8080/lecture/${lectureId}/lesson/${lessonId}/note`;
   const FileURL = `https://115.85.182.194:8080/lecture/${lectureId}/lesson/${lessonId}/note`;
   const labels = ['출석', '결석', '지각'];
   const LessonLink = `/class/${lectureId}/${lessonId}/${sessionId}/${userType}`;
-  const token = sessionStorage.getItem("token");
+  const token = localStorage.getItem("token");
 
   const getLessonData = () => {
     return new Promise((resolve, reject) => {

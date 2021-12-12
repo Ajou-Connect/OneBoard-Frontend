@@ -96,7 +96,7 @@ const ProfessorAssignmentDetail = ({ match }) => {
   const [assignments, setAssignments] = useState({});
   const [onGoing, setOnGoing] = useState(false);
   const today = moment();
-  const user = JSON.parse(sessionStorage.userInfo);
+  const user = JSON.parse(localStorage.userInfo);
   const userType = user.userType;
   const lectureId = match.params.lectureId;
   const assignmentId = match.params.assignmentId;

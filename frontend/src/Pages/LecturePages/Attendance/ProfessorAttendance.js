@@ -21,7 +21,7 @@ const TabletrColor = styled.tr`
 const ProfessorAttendance = (props) => {
   const [attendances, setAttendances] = useState([]);
   const lectureId = props.lectureId;
-  const user = JSON.parse(sessionStorage.userInfo);
+  const user = JSON.parse(localStorage.userInfo);
   const userType = user.userType;
 
   const getAttendanceData = () => {

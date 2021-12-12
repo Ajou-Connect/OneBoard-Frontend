@@ -1806,7 +1806,7 @@ const LoginCheck = () => {
 
   const history = Object(react_router__WEBPACK_IMPORTED_MODULE_3__["useHistory"])();
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
-    if (sessionStorage.getItem('email')) {
+    if (localStorage.getItem('email')) {
       setIsLogined(true);
     } else {
       setIsLogined(false);
@@ -1856,9 +1856,9 @@ const LoginCheck = () => {
 
       try {
         setIsLogined(true);
-        sessionStorage.setItem('token', res.data.data.token);
-        sessionStorage.setItem('email', res.data.data.email);
-        const token = sessionStorage.getItem('token');
+        localStorage.setItem('token', res.data.data.token);
+        localStorage.setItem('email', res.data.data.email);
+        const token = localStorage.getItem('token');
         console.log(token);
         axios__WEBPACK_IMPORTED_MODULE_2___default.a.get('/user', {
           headers: {
@@ -1867,7 +1867,7 @@ const LoginCheck = () => {
         }).then(res => {
           const info = res.data.data;
           console.log('userinfo : ' + info);
-          sessionStorage.setItem('userInfo', JSON.stringify(info));
+          localStorage.setItem('userInfo', JSON.stringify(info));
         }).catch(e => {
           console.log(e);
         });
@@ -1934,7 +1934,7 @@ const LoginCheck = () => {
             type: "email",
             placeholder: "ID",
             required: true,
-            value: sessionStorage.getItem('email'),
+            value: localStorage.getItem('email'),
             onChange: e => onChangehandler(e),
             onKeyPress: e => enterEvent(e)
           }, void 0, false, {
@@ -3019,7 +3019,7 @@ const LectureAssignment = ({
   _s();
 
   const lectureId = match.params.lectureId;
-  const user = JSON.parse(sessionStorage.userInfo);
+  const user = JSON.parse(localStorage.userInfo);
   const userType = user.userType;
   const [isProfessor, setIsProfessor] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])('');
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
@@ -3388,7 +3388,7 @@ const ProfessorAssignmentDetail = ({
   const [assignments, setAssignments] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({});
   const [onGoing, setOnGoing] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false);
   const today = moment__WEBPACK_IMPORTED_MODULE_3___default()();
-  const user = JSON.parse(sessionStorage.userInfo);
+  const user = JSON.parse(localStorage.userInfo);
   const userType = user.userType;
   const lectureId = match.params.lectureId;
   const assignmentId = match.params.assignmentId;
@@ -3778,7 +3778,7 @@ _c5 = StateDescript;
 const ProfessorAssignmentList = props => {
   _s();
 
-  const user = JSON.parse(sessionStorage.userInfo);
+  const user = JSON.parse(localStorage.userInfo);
   const userType = user.userType;
   const lectureId = props.lectureId;
   const [assignments, setAssignments] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
@@ -4461,9 +4461,9 @@ const StudentAssignmentDetail = ({
 }) => {
   _s();
 
-  const user = JSON.parse(window.sessionStorage.userInfo);
+  const user = JSON.parse(window.localStorage.userInfo);
   const userType = user.userType;
-  const token = sessionStorage.getItem('token');
+  const token = localStorage.getItem('token');
   const [assignments, setAssignments] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({});
   const [studentFile, setStudentFile] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])('');
   const [studentAnswer, setStudentAnswer] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])('');
@@ -5358,7 +5358,7 @@ const StudentAssignmentList = props => {
   const [error, setError] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null);
   const [loading, setLoading] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false);
   const [isEmpty, setIsEmpty] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false);
-  const user = JSON.parse(sessionStorage.userInfo);
+  const user = JSON.parse(localStorage.userInfo);
   const userType = user.userType;
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
     const fetchAssignment = async () => {
@@ -5864,7 +5864,7 @@ const StudentSubmit = ({
 
   const [studentScore, setStudentScore] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(0);
   const [submitAssignments, setSubmitAssignments] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
-  const user = JSON.parse(sessionStorage.userInfo);
+  const user = JSON.parse(localStorage.userInfo);
   const userType = user.userType;
 
   const onChangeScore = e => {//점수만 바꿔서 저장 해주기
@@ -6310,7 +6310,7 @@ const StudentSubmitDetail = ({
   const lectureId = match.params.lectureId;
   const submitId = match.params.submitId;
   const assignmentId = match.params.assignmentId;
-  const user = JSON.parse(sessionStorage.userInfo);
+  const user = JSON.parse(localStorage.userInfo);
   const userType = user.userType; // const submitId = match.params.submitId;
 
   const stateDisplay = (startDate, endDate) => {
@@ -6799,7 +6799,7 @@ const UpdateAssignment = ({
   const [score, setScore] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(0);
   const lectureId = match.params.lectureId;
   const assignmentId = match.params.assignmentId;
-  const user = JSON.parse(sessionStorage.userInfo);
+  const user = JSON.parse(localStorage.userInfo);
   const userType = user.userType;
   const [assignmentScore, setAssignmentScore] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])('');
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
@@ -7309,9 +7309,9 @@ const UpdateStudentAssignment = ({
 }) => {
   _s();
 
-  const user = JSON.parse(window.sessionStorage.userInfo);
+  const user = JSON.parse(window.localStorage.userInfo);
   const userType = user.userType;
-  const token = sessionStorage.getItem('token');
+  const token = localStorage.getItem('token');
   const today = moment__WEBPACK_IMPORTED_MODULE_2___default()();
   const lectureId = match.params.lectureId;
   const assignmentId = match.params.assignmentId;
@@ -7821,7 +7821,7 @@ const WriteAssignment = ({
   const [files, setFiles] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])('');
   const [exposeDt, setExposeDt] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])('');
   const lectureId = match.params.lectureId;
-  const user = JSON.parse(sessionStorage.userInfo);
+  const user = JSON.parse(localStorage.userInfo);
   const userType = user.userType;
   const [score, setScore] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(0);
 
@@ -8207,7 +8207,7 @@ const LectureAttendance = ({
 
   const [attendances, setAttendances] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
   const lectureId = match.params.lectureId;
-  const user = JSON.parse(sessionStorage.userInfo);
+  const user = JSON.parse(localStorage.userInfo);
   const userType = user.userType;
   const [isProfessor, setIsProfessor] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false);
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
@@ -8498,7 +8498,7 @@ const ProfessorAttendance = props => {
 
   const [attendances, setAttendances] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
   const lectureId = props.lectureId;
-  const user = JSON.parse(sessionStorage.userInfo);
+  const user = JSON.parse(localStorage.userInfo);
   const userType = user.userType;
 
   const getAttendanceData = () => {
@@ -9430,7 +9430,7 @@ _c3 = TabletrColor;
 const StudentAttendance = props => {
   _s();
 
-  const token = sessionStorage.getItem('token');
+  const token = localStorage.getItem('token');
   const lectureId = props.lectureId;
   const [attendances, setAttendances] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
     attendanceList: [],
@@ -10666,7 +10666,7 @@ var _jsxFileName = "/mnt/e/sw_capstone/frontend/src/Pages/LecturePages/LectureSi
 const LectureSidebar = props => {
   _s();
 
-  const user = JSON.parse(sessionStorage.userInfo);
+  const user = JSON.parse(localStorage.userInfo);
   const userType = user.userType;
   const lectureId = props.lectureId;
   const [lectureInfo, setLectureInfo] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({});
@@ -11751,7 +11751,7 @@ const LectureLesson = ({
   _s();
 
   const lectureId = match.params.lectureId;
-  const user = JSON.parse(sessionStorage.userInfo);
+  const user = JSON.parse(localStorage.userInfo);
   const userType = user.userType;
   const [isProfessor, setIsProfessor] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false);
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
@@ -12056,13 +12056,13 @@ const LessonDetail = ({
   const [lessonDetails, setLessonDetails] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
   const [studentInfo, setStudentInfo] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
   const [sessionId, setSessionId] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])("");
-  const user = JSON.parse(sessionStorage.userInfo);
+  const user = JSON.parse(localStorage.userInfo);
   const userType = user.userType;
   const Url = `https://docs.google.com/gview?embedded=true&url=https://115.85.182.194:8080/lecture/${lectureId}/lesson/${lessonId}/note`;
   const FileURL = `https://115.85.182.194:8080/lecture/${lectureId}/lesson/${lessonId}/note`;
   const labels = ['출석', '결석', '지각'];
   const LessonLink = `/class/${lectureId}/${lessonId}/${sessionId}/${userType}`;
-  const token = sessionStorage.getItem("token");
+  const token = localStorage.getItem("token");
 
   const getLessonData = () => {
     return new Promise((resolve, reject) => {
@@ -14127,7 +14127,7 @@ const LectureNotice = ({
   match
 }) => {
   const Id = match.params.lectureId;
-  const user = JSON.parse(sessionStorage.userInfo);
+  const user = JSON.parse(localStorage.userInfo);
   const userType = user.userType;
   return /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_6__["jsxDEV"])("div", {
     className: "lecture-notice",
@@ -14417,7 +14417,7 @@ _c3 = Title;
 const LectureProfessorNoticeContent = props => {
   _s();
 
-  const user = JSON.parse(sessionStorage.userInfo);
+  const user = JSON.parse(localStorage.userInfo);
   const isProfessor = user.userType === 'T';
   const [notices, setNotices] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
   const [error, setError] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null);
@@ -14891,7 +14891,7 @@ _c = Title;
 const LectureStudentNoticeContent = props => {
   _s();
 
-  const user = JSON.parse(sessionStorage.userInfo);
+  const user = JSON.parse(localStorage.userInfo);
   const [notices, setNotices] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
   const [error, setError] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null);
   const [loading, setLoading] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false);
@@ -16420,7 +16420,7 @@ const LoadLecturePlan = props => {
   const lectureId = props.lectureId;
   const Url = `https://docs.google.com/gview?embedded=true&url=https://115.85.182.194:8080/lecture/${lectureId}/plan`;
   const FileURL = `https://115.85.182.194:8080/lecture/${lectureId}/plan`;
-  const user = JSON.parse(sessionStorage.userInfo);
+  const user = JSON.parse(localStorage.userInfo);
   const userType = user.userType;
 
   const onUploadPlan = () => {
@@ -16691,7 +16691,7 @@ const Title = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div`
 _c2 = Title;
 const UpLoadPlan = props => {
   const lectureId = props.lectureId;
-  const user = JSON.parse(sessionStorage.userInfo);
+  const user = JSON.parse(localStorage.userInfo);
   const userType = user.userType;
 
   const onUploadPlan = () => {
@@ -17174,7 +17174,7 @@ var _jsxFileName = "/mnt/e/sw_capstone/frontend/src/Pages/LecturePages/Score/Lec
 const LectureScore = ({
   match
 }) => {
-  const user = JSON.parse(sessionStorage.userInfo);
+  const user = JSON.parse(localStorage.userInfo);
   const userType = user.userType;
   const lectureId = match.params.lectureId;
   return /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])("div", {
@@ -18567,7 +18567,7 @@ const StudentLectureScore = props => {
     score: 0,
     submitId: 0
   }]);
-  const token = sessionStorage.getItem('token');
+  const token = localStorage.getItem('token');
 
   const getStudentScoreData = () => {
     return new Promise((resolve, reject) => {
@@ -19049,7 +19049,7 @@ var _jsxFileName = "/mnt/e/sw_capstone/frontend/src/Pages/MainNav/Home.js",
 const Home = () => {
   _s();
 
-  const user = JSON.parse(sessionStorage.userInfo);
+  const user = JSON.parse(localStorage.userInfo);
   const [isSidebar, setIsSidebar] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false);
   const [name, setName] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])('');
   const [studentNumber, setStudentNumber] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])('');
@@ -19306,7 +19306,7 @@ var _jsxFileName = "/mnt/e/sw_capstone/frontend/src/Pages/MainNav/LectureList.js
 const LectureList = () => {
   _s();
 
-  const token = sessionStorage.getItem('token');
+  const token = localStorage.getItem('token');
   const [lectures, setLectures] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]); // 최초 렌더링 후 보여줄 함수 작성
   //await async 로 lecture id 호출
 
@@ -19929,7 +19929,7 @@ const Profile = () => {
   const [users, setUsers] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null);
   const [loading, setLoading] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false);
   const [error, setError] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null);
-  const user = JSON.parse(sessionStorage.userInfo);
+  const user = JSON.parse(localStorage.userInfo);
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
     const fetchUsers = async () => {
       try {
@@ -20361,7 +20361,7 @@ var _jsxFileName = "/mnt/e/sw_capstone/frontend/src/Sidebar/Nav.js",
 const Nav = () => {
   _s();
 
-  const user = JSON.parse(sessionStorage.userInfo);
+  const user = JSON.parse(localStorage.userInfo);
   const [sidebar, setSidebar] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false);
 
   const showSidebar = () => setSidebar(!sidebar);
@@ -20370,9 +20370,9 @@ const Nav = () => {
   const [studentNumber, setStudentNumber] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null);
 
   const logout = () => {
-    sessionStorage.removeItem('email');
-    sessionStorage.removeItem('token');
-    sessionStorage.removeItem('userInfo');
+    localStorage.removeItem('email');
+    localStorage.removeItem('token');
+    localStorage.removeItem('userInfo');
   };
 
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
@@ -27428,7 +27428,7 @@ const VideoContainer = props => {
           ref: shareRef
         }, void 0, false, {
           fileName: _jsxFileName,
-          lineNumber: 80,
+          lineNumber: 83,
           columnNumber: 11
         }, undefined), Object(_utils_platform__WEBPACK_IMPORTED_MODULE_13__["isSupportWebCodecs"])() ? /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_15__["jsxDEV"])("video", {
           className: classnames__WEBPACK_IMPORTED_MODULE_1___default()('share-canvas', {
@@ -27437,7 +27437,7 @@ const VideoContainer = props => {
           ref: selfShareRef
         }, void 0, false, {
           fileName: _jsxFileName,
-          lineNumber: 84,
+          lineNumber: 87,
           columnNumber: 33
         }, undefined) : /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_15__["jsxDEV"])("canvas", {
           className: classnames__WEBPACK_IMPORTED_MODULE_1___default()('share-canvas', {
@@ -27446,17 +27446,17 @@ const VideoContainer = props => {
           ref: selfShareRef
         }, void 0, false, {
           fileName: _jsxFileName,
-          lineNumber: 87,
+          lineNumber: 90,
           columnNumber: 14
         }, undefined)]
       }, void 0, true, {
         fileName: _jsxFileName,
-        lineNumber: 73,
+        lineNumber: 76,
         columnNumber: 9
       }, undefined)
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 67,
+      lineNumber: 70,
       columnNumber: 7
     }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_15__["jsxDEV"])("div", {
       className: classnames__WEBPACK_IMPORTED_MODULE_1___default()('video-container', {
@@ -27470,7 +27470,7 @@ const VideoContainer = props => {
         ref: videoRef
       }, void 0, false, {
         fileName: _jsxFileName,
-        lineNumber: 98,
+        lineNumber: 101,
         columnNumber: 9
       }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_15__["jsxDEV"])("ul", {
         className: "avatar-list",
@@ -27500,18 +27500,18 @@ const VideoContainer = props => {
             }
           }, user.userId, false, {
             fileName: _jsxFileName,
-            lineNumber: 114,
+            lineNumber: 117,
             columnNumber: 15
           }, undefined);
         })
       }, void 0, false, {
         fileName: _jsxFileName,
-        lineNumber: 105,
+        lineNumber: 108,
         columnNumber: 9
       }, undefined)]
     }, void 0, true, {
       fileName: _jsxFileName,
-      lineNumber: 93,
+      lineNumber: 96,
       columnNumber: 7
     }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_15__["jsxDEV"])(_components_video_footer__WEBPACK_IMPORTED_MODULE_5__["default"], {
       className: "video-operations",
@@ -27519,7 +27519,7 @@ const VideoContainer = props => {
       shareRef: selfShareRef
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 129,
+      lineNumber: 132,
       columnNumber: 7
     }, undefined), totalPage > 1 && /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_15__["jsxDEV"])(_components_pagination__WEBPACK_IMPORTED_MODULE_6__["default"], {
       page: page,
@@ -27528,16 +27528,16 @@ const VideoContainer = props => {
       inSharing: isSharing
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 131,
+      lineNumber: 134,
       columnNumber: 9
     }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_15__["jsxDEV"])(_chat_chat__WEBPACK_IMPORTED_MODULE_14__["default"], {}, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 138,
+      lineNumber: 141,
       columnNumber: 7
     }, undefined)]
   }, void 0, true, {
     fileName: _jsxFileName,
-    lineNumber: 66,
+    lineNumber: 69,
     columnNumber: 5
   }, undefined);
 };
@@ -29588,7 +29588,7 @@ function TestZoom(props) {
   const [chatClient, setChatClient] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null);
   const [isSupportGalleryView, setIsSupportGalleryView] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(true);
   const zmClient = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_ZoomSample_context_zoom_context__WEBPACK_IMPORTED_MODULE_10__["default"]);
-  const user = JSON.parse(sessionStorage.userInfo);
+  const user = JSON.parse(localStorage.userInfo);
   const userType = user.userType;
   const userName = user.name;
   const sessionId = props.match.params.sessionId;
@@ -29613,10 +29613,9 @@ function TestZoom(props) {
       }
     };
 
-    init();
-    return () => {
-      _zoom_videosdk__WEBPACK_IMPORTED_MODULE_2___default.a.destroyClient();
-    };
+    init(); // return () => {
+    //   ZoomVideo.destroyClient();
+    // };
   }, [zmClient]);
   const onConnectionChange = Object(react__WEBPACK_IMPORTED_MODULE_0__["useCallback"])(payload => {
     if (payload.state === _zoom_videosdk__WEBPACK_IMPORTED_MODULE_2__["ConnectionState"].Reconnecting) {

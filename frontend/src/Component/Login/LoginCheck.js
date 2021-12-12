@@ -19,7 +19,7 @@ const LoginCheck = () => {
   const history = useHistory();
 
   useEffect(() => {
-    if (sessionStorage.getItem('email')) {
+    if (localStorage.getItem('email')) {
       setIsLogined(true);
     } else {
       setIsLogined(false);
@@ -60,16 +60,16 @@ const LoginCheck = () => {
 
         try {
           setIsLogined(true);
-          sessionStorage.setItem('token', res.data.data.token);
-          sessionStorage.setItem('email', res.data.data.email);
-          const token = sessionStorage.getItem('token');
+          localStorage.setItem('token', res.data.data.token);
+          localStorage.setItem('email', res.data.data.email);
+          const token = localStorage.getItem('token');
           console.log(token);
           axios
             .get('/user', { headers: { 'X-AUTH-TOKEN': `${token}` } })
             .then((res) => {
               const info = res.data.data;
               console.log('userinfo : ' + info);
-              sessionStorage.setItem('userInfo', JSON.stringify(info));
+              localStorage.setItem('userInfo', JSON.stringify(info));
             })
             .catch((e) => {
               console.log(e);
@@ -119,7 +119,7 @@ const LoginCheck = () => {
               type="email"
               placeholder="ID"
               required
-              value={sessionStorage.getItem('email')}
+              value={localStorage.getItem('email')}
               onChange={(e) => onChangehandler(e)}
               onKeyPress={(e) => enterEvent(e)}
             />

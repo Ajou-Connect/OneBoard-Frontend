@@ -29,7 +29,7 @@ const Title = styled.div`
 
 export const UpLoadPlan = (props) => {
   const lectureId = props.lectureId;
-  const user = JSON.parse(sessionStorage.userInfo);
+  const user = JSON.parse(localStorage.userInfo);
   const userType = user.userType;
 
   const onUploadPlan = () => {

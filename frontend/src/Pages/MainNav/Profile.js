@@ -6,7 +6,7 @@ const Profile = () => {
   const [users, setUsers] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const user = JSON.parse(sessionStorage.userInfo);
+  const user = JSON.parse(localStorage.userInfo);
 
   useEffect(() => {
     const fetchUsers = async () => {

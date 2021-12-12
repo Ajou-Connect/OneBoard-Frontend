@@ -6,7 +6,7 @@ import StudentAssignmentList from './StudentAssignmentList';
 import Nav from '../../../Sidebar/Nav';
 const LectureAssignment = ({ match }) => {
   const lectureId = match.params.lectureId;
-  const user = JSON.parse(sessionStorage.userInfo);
+  const user = JSON.parse(localStorage.userInfo);
   const userType = user.userType;
   const [isProfessor, setIsProfessor] = useState('');
 

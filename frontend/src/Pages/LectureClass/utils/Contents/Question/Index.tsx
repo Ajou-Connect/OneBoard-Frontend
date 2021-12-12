@@ -40,7 +40,7 @@ text-align : center;
 font-weight : bold;
 color : #A6C5F3;
 `
-const user = sessionStorage && sessionStorage.userInfo && JSON.parse(window.sessionStorage.userInfo);
+const user = localStorage && localStorage.userInfo && JSON.parse(window.localStorage.userInfo);
 function Index(props: any) {
     const socket = props.socket;
 

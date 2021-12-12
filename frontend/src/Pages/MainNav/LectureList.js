@@ -4,7 +4,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Nav from '../../Sidebar/Nav';
 const LectureList = () => {
-  const token = sessionStorage.getItem('token');
+  const token = localStorage.getItem('token');
   const [lectures, setLectures] = useState([]);
   // 최초 렌더링 후 보여줄 함수 작성
   //await async 로 lecture id 호출

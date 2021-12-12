@@ -34,7 +34,7 @@ interface parProps {
     students: any
 }
 
-const user = sessionStorage && sessionStorage.userInfo && JSON.parse(window.sessionStorage.userInfo);
+const user = localStorage && localStorage.userInfo && JSON.parse(window.localStorage.userInfo);
 let tempArr = [] as any;
 
 function Index(props: parProps) {

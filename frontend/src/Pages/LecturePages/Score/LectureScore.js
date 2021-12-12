@@ -6,7 +6,7 @@ import ProfessorLectureScore from './ProfessorLectureScore';
 import StudentLectureScore from './StudentLectureScore';
 import Nav from '../../../Sidebar/Nav';
 const LectureScore = ({ match }) => {
-  const user = JSON.parse(sessionStorage.userInfo);
+  const user = JSON.parse(localStorage.userInfo);
   const userType = user.userType;
   const lectureId = match.params.lectureId;
   return (

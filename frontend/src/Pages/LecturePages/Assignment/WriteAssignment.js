@@ -91,7 +91,7 @@ const WriteAssignment = ({ match }) => {
   const [files, setFiles] = useState('');
   const [exposeDt, setExposeDt] = useState('');
   const lectureId = match.params.lectureId;
-  const user = JSON.parse(sessionStorage.userInfo);
+  const user = JSON.parse(localStorage.userInfo);
   const userType = user.userType;
   const [score, setScore] = useState(0);
 

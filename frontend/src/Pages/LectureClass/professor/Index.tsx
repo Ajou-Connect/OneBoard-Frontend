@@ -266,7 +266,7 @@ console.log(socket); */
 // });
 // console.log(socket);
 
-const user = sessionStorage.userInfo && JSON.parse(window.sessionStorage.userInfo);
+const user = localStorage.userInfo && JSON.parse(window.localStorage.userInfo);
 function Index(props: TestProps) {
   //------states------
   const [isLoading, setisLoading] = useState<boolean>(true);

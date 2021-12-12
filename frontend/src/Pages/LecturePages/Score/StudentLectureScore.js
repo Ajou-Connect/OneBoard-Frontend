@@ -51,7 +51,7 @@ const StudentLectureScore = (props) => {
       submitId: 0,
     },
   ]);
-  const token = sessionStorage.getItem('token');
+  const token = localStorage.getItem('token');
 
   const getStudentScoreData = () => {
     return new Promise((resolve, reject) => {

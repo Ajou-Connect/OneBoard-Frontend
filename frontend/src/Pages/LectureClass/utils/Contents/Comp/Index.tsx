@@ -33,7 +33,7 @@ interface CompProps {
     lecture_info: any
 }
 
-const user = sessionStorage && sessionStorage.userInfo && JSON.parse(window.sessionStorage.userInfo);
+const user = localStorage && localStorage.userInfo && JSON.parse(window.localStorage.userInfo);
 
 function Index(props: CompProps) {
     const socket = props.socket;

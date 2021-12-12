@@ -4,7 +4,7 @@ import Nav from '../../Sidebar/Nav';
 import mainimage from '../../img/MainImage.png';
 
 const Home = () => {
-  const user = JSON.parse(sessionStorage.userInfo);
+  const user = JSON.parse(localStorage.userInfo);
   const [isSidebar, setIsSidebar] = useState(false);
   const [name, setName] = useState('');
   const [studentNumber, setStudentNumber] = useState('');

@@ -14,6 +14,7 @@ import { useShare } from './hooks/useShare';
 import './video.scss';
 import { isSupportWebCodecs } from '../../utils/platform';
 import Chat from "../chat/chat";
+import axios from "axios";
 
 const VideoContainer: React.FunctionComponent<RouteComponentProps> = (props) => {
   const zmClient = useContext(ZoomContext);
@@ -61,6 +62,8 @@ const VideoContainer: React.FunctionComponent<RouteComponentProps> = (props) => 
     contentDimension.width = Math.floor(width * ratio);
     contentDimension.height = Math.floor(height * ratio);
   }
+
+  
 
   return (
     <div className="viewport">

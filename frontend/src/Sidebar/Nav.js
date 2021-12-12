@@ -8,16 +8,16 @@ import { SidebarData } from './SidebarData';
 import './Nav.scss';
 
 const Nav = () => {
-  const user = JSON.parse(sessionStorage.userInfo);
+  const user = JSON.parse(localStorage.userInfo);
   const [sidebar, setSidebar] = useState(false);
   const showSidebar = () => setSidebar(!sidebar);
   const [name, setName] = useState(null);
   const [studentNumber, setStudentNumber] = useState(null);
 
   const logout = () => {
-    sessionStorage.removeItem('email');
-    sessionStorage.removeItem('token');
-    sessionStorage.removeItem('userInfo');
+    localStorage.removeItem('email');
+    localStorage.removeItem('token');
+    localStorage.removeItem('userInfo');
   };
 
   useEffect(() => {

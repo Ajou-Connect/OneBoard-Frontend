@@ -7,7 +7,7 @@ import LectureStudentNoticeContent from './LectureStudentNoticeContent';
 
 const LectureNotice = ({ match }) => {
   const Id = match.params.lectureId;
-  const user = JSON.parse(sessionStorage.userInfo);
+  const user = JSON.parse(localStorage.userInfo);
   const userType = user.userType;
 
   return (

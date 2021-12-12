@@ -26,7 +26,7 @@ const ScoreButton = styled.button`
 const StudentSubmit = ({ lectureId, assignmentId, assignmentsScore }) => {
   const [studentScore, setStudentScore] = useState(0);
   const [submitAssignments, setSubmitAssignments] = useState([]);
-  const user = JSON.parse(sessionStorage.userInfo);
+  const user = JSON.parse(localStorage.userInfo);
   const userType = user.userType;
 
   const onChangeScore = (e) => {
