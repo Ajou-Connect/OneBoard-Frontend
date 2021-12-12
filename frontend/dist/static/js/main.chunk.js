@@ -24294,13 +24294,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _video_footer_scss__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./video-footer.scss */ "./src/ZoomSample/feature/video/components/video-footer.scss");
 /* harmony import */ var _video_footer_scss__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_video_footer_scss__WEBPACK_IMPORTED_MODULE_9__);
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
-/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react/jsx-dev-runtime */ "./node_modules/react/jsx-dev-runtime.js");
-/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! react/jsx-dev-runtime */ "./node_modules/react/jsx-dev-runtime.js");
+/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_12__);
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 __webpack_require__.$Refresh$.setup(module.i);
 
 var _jsxFileName = "/mnt/e/sw_capstone/frontend/src/ZoomSample/feature/video/components/video-footer.tsx",
     _s = __webpack_require__.$Refresh$.signature();
+
 
 
 
@@ -24330,7 +24333,9 @@ const VideoFooter = props => {
   const {
     className,
     shareRef,
-    sharing
+    sharing,
+    lectureId,
+    lessonId
   } = props;
   const [isStartedAudio, setIsStartedAudio] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false);
   const [isStartedVideo, setIsStartedVideo] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false);
@@ -24347,6 +24352,8 @@ const VideoFooter = props => {
     mediaStream
   } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_context_media_context__WEBPACK_IMPORTED_MODULE_7__["default"]);
   const zmClient = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_context_zoom_context__WEBPACK_IMPORTED_MODULE_3__["default"]);
+  const user = JSON.parse(localStorage.userInfo);
+  const userType = user.userType;
   const onCameraClick = Object(react__WEBPACK_IMPORTED_MODULE_0__["useCallback"])(async () => {
     if (isStartedVideo) {
       await (mediaStream === null || mediaStream === void 0 ? void 0 : mediaStream.stopVideo());
@@ -24476,14 +24483,20 @@ const VideoFooter = props => {
   });
 
   const OutSession = () => {
-    zmClient.leave();
-    alert("수업을 나갑니다");
-    return window.location.href = `/Main/Lecture`;
+    if (userType === "T") {
+      zmClient.leave();
+      alert("모든 참가자가 수업을 나갑니다. 퇴장후 다시 입장하실수 없습니다.");
+      axios__WEBPACK_IMPORTED_MODULE_11___default.a.get(`/lecture/${lectureId}/lesson/${lessonId}/live/exit`);
+    } else {
+      zmClient.leave();
+      alert("수업을 나갑니다");
+      return window.location.href = `/Main/Lecture`;
+    }
   };
 
-  return /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_11__["jsxDEV"])("div", {
+  return /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_12__["jsxDEV"])("div", {
     className: classnames__WEBPACK_IMPORTED_MODULE_1___default()('video-footer', className),
-    children: [isAudioEnable && /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_11__["jsxDEV"])(_microphone__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    children: [isAudioEnable && /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_12__["jsxDEV"])(_microphone__WEBPACK_IMPORTED_MODULE_5__["default"], {
       isStartedAudio: isStartedAudio,
       isMuted: isMuted,
       onMicrophoneClick: onMicrophoneClick,
@@ -24494,9 +24507,9 @@ const VideoFooter = props => {
       activeSpeaker: activeSpeaker
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 172,
+      lineNumber: 181,
       columnNumber: 7
-    }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_11__["jsxDEV"])(_camera__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_12__["jsxDEV"])(_camera__WEBPACK_IMPORTED_MODULE_4__["default"], {
       isStartedVideo: isStartedVideo,
       onCameraClick: onCameraClick,
       onSwitchCamera: onSwitchCamera,
@@ -24504,16 +24517,16 @@ const VideoFooter = props => {
       activeCamera: activeCamera
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 183,
+      lineNumber: 192,
       columnNumber: 7
-    }, undefined), sharing && /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_11__["jsxDEV"])(_screen_share__WEBPACK_IMPORTED_MODULE_6__["ScreenShareButton"], {
+    }, undefined), sharing && /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_12__["jsxDEV"])(_screen_share__WEBPACK_IMPORTED_MODULE_6__["ScreenShareButton"], {
       isStartedScreenShare: isStartedScreenShare,
       onScreenShareClick: onScreenShareClick
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 191,
+      lineNumber: 200,
       columnNumber: 9
-    }, undefined), (zmClient.isManager() || zmClient.isHost()) && /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_11__["jsxDEV"])(_screen_share__WEBPACK_IMPORTED_MODULE_6__["ScreenShareLockButton"], {
+    }, undefined), (zmClient.isManager() || zmClient.isHost()) && /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_12__["jsxDEV"])(_screen_share__WEBPACK_IMPORTED_MODULE_6__["ScreenShareLockButton"], {
       isLockedScreenShare: isLockedScreenShare,
       onScreenShareLockClick: () => {
         mediaStream === null || mediaStream === void 0 ? void 0 : mediaStream.lockShare(!isLockedScreenShare);
@@ -24521,19 +24534,19 @@ const VideoFooter = props => {
       }
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 197,
+      lineNumber: 206,
       columnNumber: 9
-    }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_11__["jsxDEV"])(LeaveBtn, {
+    }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_12__["jsxDEV"])(LeaveBtn, {
       onClick: OutSession,
       children: "\uB098\uAC00\uAE30"
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 205,
+      lineNumber: 214,
       columnNumber: 7
     }, undefined)]
   }, void 0, true, {
     fileName: _jsxFileName,
-    lineNumber: 170,
+    lineNumber: 179,
     columnNumber: 5
   }, undefined);
 };
@@ -26054,6 +26067,10 @@ var _jsxFileName = "/mnt/e/sw_capstone/frontend/src/ZoomSample/feature/video/vid
 const VideoContainer = props => {
   _s();
 
+  const {
+    lectureId,
+    lessonId
+  } = props;
   const zmClient = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_context_zoom_context__WEBPACK_IMPORTED_MODULE_3__["default"]);
   const {
     mediaStream,
@@ -26178,7 +26195,7 @@ const VideoContainer = props => {
           ref: shareRef
         }, void 0, false, {
           fileName: _jsxFileName,
-          lineNumber: 142,
+          lineNumber: 148,
           columnNumber: 11
         }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_12__["jsxDEV"])("canvas", {
           className: classnames__WEBPACK_IMPORTED_MODULE_2___default()('share-canvas', {
@@ -26187,17 +26204,17 @@ const VideoContainer = props => {
           ref: selfShareRef
         }, void 0, false, {
           fileName: _jsxFileName,
-          lineNumber: 146,
+          lineNumber: 152,
           columnNumber: 11
         }, undefined)]
       }, void 0, true, {
         fileName: _jsxFileName,
-        lineNumber: 135,
+        lineNumber: 141,
         columnNumber: 9
       }, undefined)
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 129,
+      lineNumber: 135,
       columnNumber: 7
     }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_12__["jsxDEV"])("div", {
       className: classnames__WEBPACK_IMPORTED_MODULE_2___default()('video-container', {
@@ -26211,7 +26228,7 @@ const VideoContainer = props => {
         ref: videoRef
       }, void 0, false, {
         fileName: _jsxFileName,
-        lineNumber: 157,
+        lineNumber: 163,
         columnNumber: 9
       }, undefined), activeUser && /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_12__["jsxDEV"])(_components_avatar__WEBPACK_IMPORTED_MODULE_5__["default"], {
         participant: activeUser,
@@ -26219,25 +26236,27 @@ const VideoContainer = props => {
         className: "single-view-avatar"
       }, void 0, false, {
         fileName: _jsxFileName,
-        lineNumber: 165,
+        lineNumber: 171,
         columnNumber: 11
       }, undefined)]
     }, void 0, true, {
       fileName: _jsxFileName,
-      lineNumber: 152,
+      lineNumber: 158,
       columnNumber: 7
     }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_12__["jsxDEV"])(_components_video_footer__WEBPACK_IMPORTED_MODULE_6__["default"], {
       className: "video-operations",
       sharing: true,
-      shareRef: selfShareRef
+      shareRef: selfShareRef,
+      lectureId: props.lectureId,
+      lessonId: props.lessonId
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 172,
+      lineNumber: 178,
       columnNumber: 7
     }, undefined)]
   }, void 0, true, {
     fileName: _jsxFileName,
-    lineNumber: 128,
+    lineNumber: 134,
     columnNumber: 5
   }, undefined);
 };
@@ -26485,6 +26504,11 @@ const LeaveBtn = styled_components__WEBPACK_IMPORTED_MODULE_15__["default"].butt
 const VideoContainer = props => {
   _s();
 
+  const {
+    history,
+    lectureId,
+    lessonId
+  } = props;
   const zmClient = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_context_zoom_context__WEBPACK_IMPORTED_MODULE_2__["default"]);
   const {
     mediaStream,
@@ -26556,7 +26580,7 @@ const VideoContainer = props => {
           ref: shareRef
         }, void 0, false, {
           fileName: _jsxFileName,
-          lineNumber: 92,
+          lineNumber: 98,
           columnNumber: 11
         }, undefined), Object(_utils_platform__WEBPACK_IMPORTED_MODULE_13__["isSupportWebCodecs"])() ? /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_16__["jsxDEV"])("video", {
           className: classnames__WEBPACK_IMPORTED_MODULE_1___default()('share-canvas', {
@@ -26565,7 +26589,7 @@ const VideoContainer = props => {
           ref: selfShareRef
         }, void 0, false, {
           fileName: _jsxFileName,
-          lineNumber: 96,
+          lineNumber: 102,
           columnNumber: 33
         }, undefined) : /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_16__["jsxDEV"])("canvas", {
           className: classnames__WEBPACK_IMPORTED_MODULE_1___default()('share-canvas', {
@@ -26574,17 +26598,17 @@ const VideoContainer = props => {
           ref: selfShareRef
         }, void 0, false, {
           fileName: _jsxFileName,
-          lineNumber: 99,
+          lineNumber: 105,
           columnNumber: 14
         }, undefined)]
       }, void 0, true, {
         fileName: _jsxFileName,
-        lineNumber: 85,
+        lineNumber: 91,
         columnNumber: 9
       }, undefined)
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 79,
+      lineNumber: 85,
       columnNumber: 7
     }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_16__["jsxDEV"])("div", {
       className: classnames__WEBPACK_IMPORTED_MODULE_1___default()('video-container', {
@@ -26598,7 +26622,7 @@ const VideoContainer = props => {
         ref: videoRef
       }, void 0, false, {
         fileName: _jsxFileName,
-        lineNumber: 110,
+        lineNumber: 116,
         columnNumber: 9
       }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_16__["jsxDEV"])("ul", {
         className: "avatar-list",
@@ -26628,26 +26652,28 @@ const VideoContainer = props => {
             }
           }, user.userId, false, {
             fileName: _jsxFileName,
-            lineNumber: 126,
+            lineNumber: 132,
             columnNumber: 15
           }, undefined);
         })
       }, void 0, false, {
         fileName: _jsxFileName,
-        lineNumber: 117,
+        lineNumber: 123,
         columnNumber: 9
       }, undefined)]
     }, void 0, true, {
       fileName: _jsxFileName,
-      lineNumber: 105,
+      lineNumber: 111,
       columnNumber: 7
     }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_16__["jsxDEV"])(_components_video_footer__WEBPACK_IMPORTED_MODULE_5__["default"], {
       className: "video-operations",
       sharing: true,
-      shareRef: selfShareRef
+      shareRef: selfShareRef,
+      lectureId: props.lectureId,
+      lessonId: props.lessonId
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 141,
+      lineNumber: 147,
       columnNumber: 7
     }, undefined), totalPage > 1 && /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_16__["jsxDEV"])(_components_pagination__WEBPACK_IMPORTED_MODULE_6__["default"], {
       page: page,
@@ -26656,16 +26682,16 @@ const VideoContainer = props => {
       inSharing: isSharing
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 143,
+      lineNumber: 149,
       columnNumber: 9
     }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_16__["jsxDEV"])(_chat_chat__WEBPACK_IMPORTED_MODULE_14__["default"], {}, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 150,
+      lineNumber: 156,
       columnNumber: 7
     }, undefined)]
   }, void 0, true, {
     fileName: _jsxFileName,
-    lineNumber: 78,
+    lineNumber: 84,
     columnNumber: 5
   }, undefined);
 };
@@ -28814,10 +28840,24 @@ function TestZoom(props) {
         value: chatClient,
         children: /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_14__["jsxDEV"])(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
           path: `/class/${lectureId}/${lessonId}/${sessionId}/${userType}`,
-          component: isSupportGalleryView ? _ZoomSample_feature_video_video__WEBPACK_IMPORTED_MODULE_6__["default"] : _ZoomSample_feature_video_video_single__WEBPACK_IMPORTED_MODULE_7__["default"]
+          render: props => isSupportGalleryView ? /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_14__["jsxDEV"])(_ZoomSample_feature_video_video__WEBPACK_IMPORTED_MODULE_6__["default"], { ...props,
+            lectureId: lectureId,
+            lessonId: lessonId
+          }, void 0, false, {
+            fileName: _jsxFileName,
+            lineNumber: 213,
+            columnNumber: 39
+          }, this) : /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_14__["jsxDEV"])(_ZoomSample_feature_video_video_single__WEBPACK_IMPORTED_MODULE_7__["default"], { ...props,
+            lectureId: lectureId,
+            lessonId: lessonId
+          }, void 0, false, {
+            fileName: _jsxFileName,
+            lineNumber: 213,
+            columnNumber: 105
+          }, this)
         }, void 0, false, {
           fileName: _jsxFileName,
-          lineNumber: 211,
+          lineNumber: 212,
           columnNumber: 13
         }, this)
       }, void 0, false, {

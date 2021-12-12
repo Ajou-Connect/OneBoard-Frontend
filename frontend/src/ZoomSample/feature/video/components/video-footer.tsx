@@ -29,15 +29,16 @@ interface VideoFooterProps {
   className?: string;
   shareRef?: MutableRefObject<HTMLCanvasElement | null>;
   sharing?: boolean;
+  lectureId: string;
+  lessonId: string;
 }
 const isAudioEnable = typeof AudioWorklet === 'function';
 const VideoFooter = (props: VideoFooterProps) => {
-  const { className, shareRef, sharing } = props;
+  const { className, shareRef, sharing ,lectureId,lessonId } = props;
   const [isStartedAudio, setIsStartedAudio] = useState(false);
   const [isStartedVideo, setIsStartedVideo] = useState(false);
   const [isStartedScreenShare, setIsStartedScreenShare] = useState(false);
   const [isLockedScreenShare, setIsLockedScreenShare] = useState(false);
-  
   const [isMuted, setIsMuted] = useState(true);
   const [activeMicrophone, setActiveMicrophone] = useState('');
   const [activeSpeaker, setActiveSpeaker] = useState('');
@@ -47,6 +48,8 @@ const VideoFooter = (props: VideoFooterProps) => {
   const [cameraList, setCameraList] = useState<MediaDevice[]>([]);
   const { mediaStream } = useContext(ZoomMediaContext);
   const zmClient = useContext(ZoomContext);
+  const user = JSON.parse(localStorage.userInfo);
+  const userType = user.userType;
   const onCameraClick = useCallback(async () => {
     if (isStartedVideo) {
       await mediaStream?.stopVideo();
@@ -161,10 +164,16 @@ const VideoFooter = (props: VideoFooterProps) => {
   });
 
   const OutSession = () => {
+    if (userType === "T") {
+      zmClient.leave();
+      alert("모든 참가자가 수업을 나갑니다. 퇴장후 다시 입장하실수 없습니다.")
+      axios.get(`/lecture/${lectureId}/lesson/${lessonId}/live/exit`)
+    }
+    else {
     zmClient.leave();
     alert("수업을 나갑니다");
     return window.location.href = `/Main/Lecture`;
-
+      }
   }
   return (
     <div className={classNames('video-footer', className)}>

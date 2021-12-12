@@ -25,7 +25,13 @@ const LeaveBtn = styled.button`
   color: red;
 `;
 
-const VideoContainer: React.FunctionComponent<RouteComponentProps> = (props) => {
+interface VideoProps extends RouteComponentProps {
+  lectureId: string;
+  lessonId: string; 
+}
+
+const VideoContainer: React.FunctionComponent<VideoProps> = (props) => {
+  const { history, lectureId, lessonId } = props;
   const zmClient = useContext(ZoomContext);
   const {
     mediaStream,
@@ -138,7 +144,7 @@ const VideoContainer: React.FunctionComponent<RouteComponentProps> = (props) => 
           })}
         </ul>
       </div>
-      <VideoFooter className="video-operations" sharing shareRef={selfShareRef} />
+      <VideoFooter className="video-operations" sharing shareRef={selfShareRef} lectureId={props.lectureId} lessonId={props.lessonId} />
       {totalPage > 1 && (
         <Pagination
           page={page}

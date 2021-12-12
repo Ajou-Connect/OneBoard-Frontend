@@ -20,7 +20,13 @@ import { usePrevious, useMount } from '../../hooks';
 import { Participant } from '../../../index-types';
 import './video.scss';
 
-const VideoContainer: React.FunctionComponent<RouteComponentProps> = (props) => {
+interface VideoProps extends RouteComponentProps {
+  lectureId: string;
+  lessonId : string
+}
+
+const VideoContainer: React.FunctionComponent<VideoProps> = (props) => {
+  const { lectureId, lessonId } = props;
   const zmClient = useContext(ZoomContext);
   const {
     mediaStream,
@@ -169,7 +175,7 @@ const VideoContainer: React.FunctionComponent<RouteComponentProps> = (props) => 
           />
         )}
       </div>
-      <VideoFooter className="video-operations" sharing shareRef={selfShareRef} />
+      <VideoFooter className="video-operations" sharing shareRef={selfShareRef} lectureId={props.lectureId} lessonId={props.lessonId} />
     </div>
   );
 };

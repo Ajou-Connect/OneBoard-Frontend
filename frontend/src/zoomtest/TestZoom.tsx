@@ -208,7 +208,10 @@ function TestZoom(props: TestProps) {
                   path="/preview"
                   component={Preview}
                 /> */}
-            <Route path={`/class/${lectureId}/${lessonId}/${sessionId}/${userType}`} component= {isSupportGalleryView ? Video : VideoSingle} />
+            {/* <Route path={`/class/${lectureId}/${lessonId}/${sessionId}/${userType}`} component= {isSupportGalleryView ? Video : VideoSingle} /> */}
+            <Route path={`/class/${lectureId}/${lessonId}/${sessionId}/${userType}`} render={(props) => (
+              isSupportGalleryView ? (<Video {...props} lectureId={lectureId} lessonId={lessonId}/>) : (<VideoSingle {...props} lectureId={lectureId} lessonId={lessonId}/>)
+            )} />
               
             
                 {/* <Route path="/chat" component={Chat} />
