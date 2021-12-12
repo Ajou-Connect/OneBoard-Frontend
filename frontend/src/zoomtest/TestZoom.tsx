@@ -180,7 +180,7 @@ function TestZoom(props: TestProps) {
       {!loading && (
         <ZoomMediaContext.Provider value={{ ...mediaState, mediaStream }}>
           <ChatContext.Provider value={chatClient}>
-            <Router>
+            {/* <Router>
               <Switch>
                 <Route
                   path={`/class/${lectureId}/${lessonId}/${sessionId}/${userType}`}
@@ -207,11 +207,13 @@ function TestZoom(props: TestProps) {
                 <Route
                   path="/preview"
                   component={Preview}
-                />
-                <Route path="/video" component={isSupportGalleryView ? Video : VideoSingle} />
-                <Route path="/chat" component={Chat} />
+                /> */}
+            <Route path={`/class/${lectureId}/${lessonId}/${sessionId}/${userType}`} component= {isSupportGalleryView ? Video : VideoSingle} />
+              
+            
+                {/* <Route path="/chat" component={Chat} />
               </Switch>
-            </Router>
+            </Router> */}
           </ChatContext.Provider>
         </ZoomMediaContext.Provider>
       )}
