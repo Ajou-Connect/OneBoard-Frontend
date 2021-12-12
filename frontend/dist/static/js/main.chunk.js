@@ -24499,13 +24499,13 @@ const VideoFooter = props => {
         const result = res.data.result;
 
         if (result === "SUCCESS") {
-          return window.location.href = `/Main/Lecture`;
+          return window.location.href = `/Main/Lecture/${lectureId}/Lesson`;
         }
       });
     } else {
       zmClient.leave();
       alert("수업을 나갑니다");
-      return window.location.href = `/Main/Lecture`;
+      return window.location.href = `/Main/Lecture/${lectureId}/Lesson`;
     }
   };
 
