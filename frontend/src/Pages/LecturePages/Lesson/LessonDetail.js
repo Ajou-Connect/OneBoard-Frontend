@@ -44,13 +44,18 @@ ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
 const LessonDetail = ({ match }) => {
   const lessonId = match.params.lessonId;
   const lectureId = match.params.lectureId;
+  const [isProfessor, setIsProfessor] = useState(false);
   const [lessonDetails, setLessonDetails] = useState([]);
   const [studentInfo, setStudentInfo] = useState([]);
+  const [sessionId, setSessionId] = useState("");
   const user = JSON.parse(sessionStorage.userInfo);
   const userType = user.userType;
   const Url = `https://docs.google.com/gview?embedded=true&url=https://115.85.182.194:8080/lecture/${lectureId}/lesson/${lessonId}/note`;
   const FileURL = `https://115.85.182.194:8080/lecture/${lectureId}/lesson/${lessonId}/note`;
   const labels = ['출석', '결석', '지각'];
+  const LessonLink = `/class/${lectureId}/${lessonId}/${sessionId}/${userType}`;
+  const token = sessionStorage.getItem("token");
+
   const getLessonData = () => {
     return new Promise((resolve, reject) => {
       axios
@@ -58,7 +63,7 @@ const LessonDetail = ({ match }) => {
         .then((res) => {
           const result = res.data.data;
           setLessonDetails(result);
-
+          setSessionId(result.session);
           console.log(result);
         })
         .catch((error) => {
@@ -67,6 +72,22 @@ const LessonDetail = ({ match }) => {
         });
     });
   };
+
+  
+
+  const LessonCheck = () => {
+    return new Promise((resolve, reject) => {
+      axios.get(`/lecture/${lectureId}/lesson/${lessonId}/live/entrance`, { headers: { "X-AUTH-TOKEN": `${token}` }, params: { "session": `${sessionId}` } })
+        .then((res) => {
+          const result = res;
+          console.log(result);
+      })
+        .catch((error) => {
+          console.log(error);
+          reject(error);
+      })
+    })
+  }
 
   const getLessonAttendanceData = () => {
     return new Promise((resolve, reject) => {
@@ -83,6 +104,14 @@ const LessonDetail = ({ match }) => {
         });
     });
   };
+
+  const checkIsProfessor = () => {
+    if (userType === "T") {
+      setIsProfessor(true);
+    }
+    else setIsProfessor(false);
+
+  }
 
   const options = {
     responsive: true,
@@ -115,6 +144,7 @@ const LessonDetail = ({ match }) => {
   useEffect(() => {
     getLessonData();
     getLessonAttendanceData();
+    checkIsProfessor();
     console.log(studentInfo.map((ex, index) => ex.attendanceList.map((ex2, index) => ex2.status)));
   }, []);
 
@@ -214,8 +244,7 @@ const LessonDetail = ({ match }) => {
               display: 'flex',
             }}
           >
-            <a href="/class/st">실시간 수업입장</a>
-            {/* 실시간 수업 입장 : {lessonDetails.meetingId} */}
+            {isProfessor ? (<div onClick={LessonCheck}>실시간 수업입장</div>) : (<a href="/class/st">실시간 수업입장</a>)}
           </div>
         ) : lessonDetails.type === 2 ? (
           <div

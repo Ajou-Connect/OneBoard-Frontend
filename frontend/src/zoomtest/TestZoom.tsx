@@ -69,7 +69,7 @@ const mediaReducer = produce((draft, action) => {
   }
 }, mediaShape);
 
-function App() {
+function TestZoom() {
   const [loading, setIsLoading] = useState(true);
   const [loadingText, setLoadingText] = useState("");
   const [isFailover, setIsFailover] = useState<boolean>(false);
@@ -82,17 +82,17 @@ function App() {
   const token = generateVideoToken(
     "MoRylmD2jBq9NfbZXbSVmvZcGYOFkDCeJc3e",
     "NewabYwGXIFrOlPRf4dZBKeqFECESIkdlLrq",
-    "test",
+    "session_19_1638703533",
     "",
-    "jack",
-    "jack4"
-      );
+    "",
+    ""
+      ); 
   useEffect(() => {
     const init = async () => {
       await zmClient.init("en-US", `${window.location.origin}/lib`, 'zoom.us');
       try {
         setLoadingText("Joining the session...");
-        await zmClient.join("test", token, "동현", "");
+        await zmClient.join("session_19_1638703533", token, "동현", "");
         const stream = zmClient.getMediaStream();
         setMediaStream(stream);
 	      setIsSupportGalleryView(stream.isSupportMultipleVideos());
@@ -143,7 +143,7 @@ function App() {
   const onLeaveOrJoinSession = useCallback(async () => {
     if (status === "closed") {
       setIsLoading(true);
-      await zmClient.join("test", token, "동현", "");
+      await zmClient.join("session_19_1638703533", token, "동현", "");
       setIsLoading(false);
     } else if (status === "connected") {
       await zmClient.leave();
@@ -167,7 +167,7 @@ function App() {
             <Router>
               <Switch>
                 <Route
-                  path="/class/pf"
+                  path="/class/19/102/session_19_1638703533/T"
                   render={(props) => (
                     <Home
                       {...props}
@@ -203,4 +203,4 @@ function App() {
   );
 }
 
-export default App;
+export default TestZoom;

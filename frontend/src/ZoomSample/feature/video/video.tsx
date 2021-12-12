@@ -13,6 +13,7 @@ import { useActiveVideo } from './hooks/useAvtiveVideo';
 import { useShare } from './hooks/useShare';
 import './video.scss';
 import { isSupportWebCodecs } from '../../utils/platform';
+import Chat from "../chat/chat";
 
 const VideoContainer: React.FunctionComponent<RouteComponentProps> = (props) => {
   const zmClient = useContext(ZoomContext);
@@ -134,6 +135,7 @@ const VideoContainer: React.FunctionComponent<RouteComponentProps> = (props) => 
           inSharing={isSharing}
         />
       )}
+      <Chat/>
     </div>
   );
 };
