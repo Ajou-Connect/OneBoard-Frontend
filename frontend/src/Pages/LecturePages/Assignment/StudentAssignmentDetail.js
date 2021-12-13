@@ -69,7 +69,6 @@ const StudentAssignmentDetail = ({ match }) => {
   const [submitFile, setSubmitFile] = useState('');
   const [studentSubmitFile, setStudentSubmitFile] = useState('');
   const [onSubmit, setOnSubmit] = useState(false);
-  const Url = `https://docs.google.com/gview?embedded=true&url=https://oneboard.connect.o-r.kr:8080/lecture/${lectureId}/assignment/${assignmentId}/file`;
   const getData = () => {
     return new Promise((resolve, reject) => {
       axios
@@ -144,6 +143,7 @@ const StudentAssignmentDetail = ({ match }) => {
   useEffect(() => {
     getData();
     getSubmitData();
+    console.log(submitData.fileUrl);
   }, []);
 
   const headersConfig = {
@@ -267,7 +267,11 @@ const StudentAssignmentDetail = ({ match }) => {
                 ) : (
                   <div style={{ display: 'flex' }}>
                     <div style={{ marginRight: 'auto' }}>
-                      <Iframe url={Url} width="500px" height="500px" />
+                      <Iframe
+                        url={`https://docs.google.com/gview?embedded=true&url=https://oneboard.connect.o-r.kr:8080${submitData.fileUrl}`}
+                        width="500px"
+                        height="500px"
+                      />
                     </div>
                     <a
                       href={submitFile}
@@ -325,10 +329,14 @@ const StudentAssignmentDetail = ({ match }) => {
                 ) : (
                   <div style={{ display: 'flex' }}>
                     <div style={{ marginRight: 'auto' }}>
-                      <Iframe url={Url} width="500px" height="500px" />
+                      <Iframe
+                        url={`https://docs.google.com/gview?embedded=true&url=https://oneboard.connect.o-r.kr:8080${submitData.fileUrl}`}
+                        width="500px"
+                        height="500px"
+                      />
                     </div>
                     <a
-                      href={submitFile}
+                      href={`https://115.85.182.194:8080${submitData.fileUrl}`}
                       style={{
                         marginTop: '10px',
                         fontWeight: 'bold',

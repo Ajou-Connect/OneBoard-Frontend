@@ -190,8 +190,8 @@ const UpdateStudentAssignment = ({ match }) => {
   const submitAssignment = (e) => {
     e.preventDefault();
     const formData = new FormData();
-    formData.append('content', studentAnswer);
     formData.append('file', studentSubmitFile);
+    formData.append('content', studentAnswer);
     axios
       .put(`/lecture/${lectureId}/assignment/${assignmentId}/submit`, formData, {
         headers: headersConfig,
