@@ -97,6 +97,18 @@ const VideoContainer: React.FunctionComponent<VideoProps> = (props) => {
       console.log(e);
     })
   }
+
+  const checkUnderstand = () => {
+    axios.get(`/lecture/${lectureId}/lesson/${lessonId}/live/understanding/professor`,{params : {session : `${sessionId}`}})
+      .then((res) => {
+        console.log(res);
+        const result = res.data.data;
+      
+      })
+      .catch((error) => {
+      console.log(error);
+    })
+  }
     
     
 
@@ -173,7 +185,9 @@ const VideoContainer: React.FunctionComponent<VideoProps> = (props) => {
           inSharing={isSharing}
         />
       )}
-      {userType === "T" ? (<AttendanceBtn onClick={checkAttendance}>출석요청</AttendanceBtn>) : (<div></div>)}
+      {userType === "T" ? (<div>
+        <AttendanceBtn onClick={checkUnderstand}>이해도 확인 요청</AttendanceBtn>
+        <AttendanceBtn onClick={checkAttendance}>출석요청</AttendanceBtn></div>) : (<div></div>)}
       <Chat/>
     </div>
   );
