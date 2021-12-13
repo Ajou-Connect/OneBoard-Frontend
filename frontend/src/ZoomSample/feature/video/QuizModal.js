@@ -124,11 +124,26 @@ function QuizModal({
           <div>
             <div>{children}</div>
             <br />
-            <div style={{ marginTop: '1rem' }}>1.</div>
-            <div style={{ marginTop: '1rem' }}>2.</div>
-            <div style={{ marginTop: '1rem' }}>3.</div>
-            <div style={{ marginTop: '1rem' }}>4.</div>
-            <div style={{ marginTop: '1rem' }}>5.</div>
+            <div style={{ marginTop: '1rem' }}>
+              1.
+              <input type="text" style={{ width: '90%' }} />
+            </div>
+            <div style={{ marginTop: '1rem' }}>
+              2.
+              <input type="text" style={{ width: '90%' }} />
+            </div>
+            <div style={{ marginTop: '1rem' }}>
+              3.
+              <input type="text" style={{ width: '90%' }} />
+            </div>
+            <div style={{ marginTop: '1rem' }}>
+              4.
+              <input type="text" style={{ width: '90%' }} />
+            </div>
+            <div style={{ marginTop: '1rem' }}>
+              5.
+              <input type="text" style={{ width: '90%' }} />
+            </div>
             <div style={{ marginTop: '1rem' }}>정답 번호 체크</div>
 
             <div style={{ display: 'flex' }}>

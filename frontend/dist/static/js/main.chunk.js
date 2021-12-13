@@ -22844,8 +22844,17 @@ function QuizModal({
             style: {
               marginTop: '1rem'
             },
-            children: "1."
-          }, void 0, false, {
+            children: ["1.", /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_4__["jsxDEV"])("input", {
+              type: "text",
+              style: {
+                width: '90%'
+              }
+            }, void 0, false, {
+              fileName: _jsxFileName,
+              lineNumber: 129,
+              columnNumber: 15
+            }, this)]
+          }, void 0, true, {
             fileName: _jsxFileName,
             lineNumber: 127,
             columnNumber: 13
@@ -22853,37 +22862,73 @@ function QuizModal({
             style: {
               marginTop: '1rem'
             },
-            children: "2."
-          }, void 0, false, {
-            fileName: _jsxFileName,
-            lineNumber: 128,
-            columnNumber: 13
-          }, this), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_4__["jsxDEV"])("div", {
-            style: {
-              marginTop: '1rem'
-            },
-            children: "3."
-          }, void 0, false, {
-            fileName: _jsxFileName,
-            lineNumber: 129,
-            columnNumber: 13
-          }, this), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_4__["jsxDEV"])("div", {
-            style: {
-              marginTop: '1rem'
-            },
-            children: "4."
-          }, void 0, false, {
-            fileName: _jsxFileName,
-            lineNumber: 130,
-            columnNumber: 13
-          }, this), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_4__["jsxDEV"])("div", {
-            style: {
-              marginTop: '1rem'
-            },
-            children: "5."
-          }, void 0, false, {
+            children: ["2.", /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_4__["jsxDEV"])("input", {
+              type: "text",
+              style: {
+                width: '90%'
+              }
+            }, void 0, false, {
+              fileName: _jsxFileName,
+              lineNumber: 133,
+              columnNumber: 15
+            }, this)]
+          }, void 0, true, {
             fileName: _jsxFileName,
             lineNumber: 131,
+            columnNumber: 13
+          }, this), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_4__["jsxDEV"])("div", {
+            style: {
+              marginTop: '1rem'
+            },
+            children: ["3.", /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_4__["jsxDEV"])("input", {
+              type: "text",
+              style: {
+                width: '90%'
+              }
+            }, void 0, false, {
+              fileName: _jsxFileName,
+              lineNumber: 137,
+              columnNumber: 15
+            }, this)]
+          }, void 0, true, {
+            fileName: _jsxFileName,
+            lineNumber: 135,
+            columnNumber: 13
+          }, this), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_4__["jsxDEV"])("div", {
+            style: {
+              marginTop: '1rem'
+            },
+            children: ["4.", /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_4__["jsxDEV"])("input", {
+              type: "text",
+              style: {
+                width: '90%'
+              }
+            }, void 0, false, {
+              fileName: _jsxFileName,
+              lineNumber: 141,
+              columnNumber: 15
+            }, this)]
+          }, void 0, true, {
+            fileName: _jsxFileName,
+            lineNumber: 139,
+            columnNumber: 13
+          }, this), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_4__["jsxDEV"])("div", {
+            style: {
+              marginTop: '1rem'
+            },
+            children: ["5.", /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_4__["jsxDEV"])("input", {
+              type: "text",
+              style: {
+                width: '90%'
+              }
+            }, void 0, false, {
+              fileName: _jsxFileName,
+              lineNumber: 145,
+              columnNumber: 15
+            }, this)]
+          }, void 0, true, {
+            fileName: _jsxFileName,
+            lineNumber: 143,
             columnNumber: 13
           }, this), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_4__["jsxDEV"])("div", {
             style: {
@@ -22892,7 +22937,7 @@ function QuizModal({
             children: "\uC815\uB2F5 \uBC88\uD638 \uCCB4\uD06C"
           }, void 0, false, {
             fileName: _jsxFileName,
-            lineNumber: 132,
+            lineNumber: 147,
             columnNumber: 13
           }, this), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_4__["jsxDEV"])("div", {
             style: {
@@ -22904,7 +22949,7 @@ function QuizModal({
               children: "\uD655\uC778"
             }, void 0, false, {
               fileName: _jsxFileName,
-              lineNumber: 136,
+              lineNumber: 151,
               columnNumber: 17
             }, this), closable && /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_4__["jsxDEV"])(CloseBtn, {
               className: "modal-close",
@@ -22912,12 +22957,12 @@ function QuizModal({
               children: "\uCDE8\uC18C"
             }, void 0, false, {
               fileName: _jsxFileName,
-              lineNumber: 141,
+              lineNumber: 156,
               columnNumber: 17
             }, this)]
           }, void 0, true, {
             fileName: _jsxFileName,
-            lineNumber: 134,
+            lineNumber: 149,
             columnNumber: 13
           }, this)]
         }, void 0, true, {
