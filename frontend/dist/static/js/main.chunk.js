@@ -6691,6 +6691,7 @@ _c = TitleInput;
 const WriteAcitonButtonBlock = styled_components__WEBPACK_IMPORTED_MODULE_6__["default"].div`
   margin-top: 3rem;
   margin-bottom: 3rem;
+  display: flex;
   button + button {
     margin-left: 0.5rem;
   }
@@ -6829,6 +6830,11 @@ const UpdateAssignment = ({
     setFiles(e.target.files[0]);
   };
 
+  const onChange = e => {
+    setScore(e.target.value);
+    setAssignmentScore(e.target.value);
+  };
+
   const modules = {
     toolbar: [//[{ 'font': [] }],
     [{
@@ -6862,7 +6868,7 @@ const UpdateAssignment = ({
       }
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 196,
+      lineNumber: 202,
       columnNumber: 7
     }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_11__["jsxDEV"])(ListContainer, {
       children: [/*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_11__["jsxDEV"])(TitleInput, {
@@ -6870,7 +6876,7 @@ const UpdateAssignment = ({
         value: title
       }, void 0, false, {
         fileName: _jsxFileName,
-        lineNumber: 206,
+        lineNumber: 212,
         columnNumber: 9
       }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_11__["jsxDEV"])("div", {
         style: {
@@ -6885,7 +6891,7 @@ const UpdateAssignment = ({
           children: "\uACFC\uC81C \uAE30\uD55C"
         }, void 0, false, {
           fileName: _jsxFileName,
-          lineNumber: 208,
+          lineNumber: 214,
           columnNumber: 11
         }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_11__["jsxDEV"])("div", {
           children: /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_11__["jsxDEV"])(RangePicker, {
@@ -6897,17 +6903,17 @@ const UpdateAssignment = ({
             onChange: onChangePeriod
           }, void 0, false, {
             fileName: _jsxFileName,
-            lineNumber: 210,
+            lineNumber: 216,
             columnNumber: 13
           }, undefined)
         }, void 0, false, {
           fileName: _jsxFileName,
-          lineNumber: 209,
+          lineNumber: 215,
           columnNumber: 11
         }, undefined)]
       }, void 0, true, {
         fileName: _jsxFileName,
-        lineNumber: 207,
+        lineNumber: 213,
         columnNumber: 9
       }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_11__["jsxDEV"])("div", {
         style: {
@@ -6923,20 +6929,20 @@ const UpdateAssignment = ({
           children: "\uBC30\uC810"
         }, void 0, false, {
           fileName: _jsxFileName,
-          lineNumber: 221,
+          lineNumber: 227,
           columnNumber: 11
         }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_11__["jsxDEV"])(ScoreInput, {
           type: "number",
-          onChange: e => setScore(e.target.value),
+          onChange: onChange,
           value: assignmentScore
         }, void 0, false, {
           fileName: _jsxFileName,
-          lineNumber: 222,
+          lineNumber: 228,
           columnNumber: 11
         }, undefined)]
       }, void 0, true, {
         fileName: _jsxFileName,
-        lineNumber: 220,
+        lineNumber: 226,
         columnNumber: 9
       }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_11__["jsxDEV"])("hr", {
         style: {
@@ -6948,13 +6954,13 @@ const UpdateAssignment = ({
         }
       }, void 0, false, {
         fileName: _jsxFileName,
-        lineNumber: 228,
+        lineNumber: 230,
         columnNumber: 9
       }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_11__["jsxDEV"])("div", {
         children: "\uACFC\uC81C \uD30C\uC77C \uC120\uD0DD "
       }, void 0, false, {
         fileName: _jsxFileName,
-        lineNumber: 237,
+        lineNumber: 239,
         columnNumber: 9
       }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_11__["jsxDEV"])("form", {
         name: "planfile",
@@ -6968,12 +6974,12 @@ const UpdateAssignment = ({
           onChange: onFileChange
         }, void 0, false, {
           fileName: _jsxFileName,
-          lineNumber: 239,
+          lineNumber: 241,
           columnNumber: 11
         }, undefined)
       }, void 0, false, {
         fileName: _jsxFileName,
-        lineNumber: 238,
+        lineNumber: 240,
         columnNumber: 9
       }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_11__["jsxDEV"])(react_quill__WEBPACK_IMPORTED_MODULE_7___default.a, {
         style: {
@@ -6986,7 +6992,7 @@ const UpdateAssignment = ({
         onChange: (content, delta, source, editor) => handleText(editor.getHTML())
       }, void 0, false, {
         fileName: _jsxFileName,
-        lineNumber: 241,
+        lineNumber: 243,
         columnNumber: 9
       }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_11__["jsxDEV"])(WriteAcitonButtonBlock, {
         children: [/*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_11__["jsxDEV"])(StyledButton, {
@@ -6995,29 +7001,29 @@ const UpdateAssignment = ({
           children: "\uACFC\uC81C \uBC0F \uC2DC\uD5D8 \uC218\uC815"
         }, void 0, false, {
           fileName: _jsxFileName,
-          lineNumber: 250,
+          lineNumber: 252,
           columnNumber: 11
         }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_11__["jsxDEV"])(StyledButton, {
           onClick: onCancel,
           children: "\uCDE8\uC18C"
         }, void 0, false, {
           fileName: _jsxFileName,
-          lineNumber: 253,
+          lineNumber: 255,
           columnNumber: 11
         }, undefined)]
       }, void 0, true, {
         fileName: _jsxFileName,
-        lineNumber: 249,
+        lineNumber: 251,
         columnNumber: 9
       }, undefined)]
     }, void 0, true, {
       fileName: _jsxFileName,
-      lineNumber: 205,
+      lineNumber: 211,
       columnNumber: 7
     }, undefined)]
   }, void 0, true, {
     fileName: _jsxFileName,
-    lineNumber: 195,
+    lineNumber: 201,
     columnNumber: 5
   }, undefined);
 };
