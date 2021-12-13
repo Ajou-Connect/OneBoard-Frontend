@@ -3,16 +3,7 @@ import styled from 'styled-components';
 import moment from 'moment';
 import axios from 'axios';
 import ReactHtmlParser from 'react-html-parser';
-
-const Container = styled.div`
-  width: 100%;
-  display: inline-block;
-  margin: 10px auto;
-  padding: 0px 20px;
-  //overflow-y: auto;
-  //align-items : center;
-  //justify-content : center;
-`;
+import Button from '../../../Component/common/Button';
 
 const Line = styled.hr`
   width: 100%;
@@ -37,23 +28,21 @@ const WriteBtn = styled.button`
     background-color: #bfbfbf;
   }
 `;
-
-const UpdateBtn = styled.button`
-  font-size: 12px;
-  font-weight: bold;
-  padding: 5px;
-  margin-top: 10px;
-  margin-bottom: 5px;
-  margin-right: 30px;
-  background-color: #f83636;
-  color: #3e3e3e;
-  border-radius: 5px;
-  cursor: pointer;
-  &:hover {
-    background-color: #bfbfbf;
+const WriteAcitonButtonBlock = styled.div`
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  display: flex;
+  button + button {
+    margin-left: 0.5rem;
   }
 `;
 
+const StyledButton = styled(Button)`
+  height: 2.125rem;
+  & + & {
+    margin-left: 0.5rem;
+  }
+`;
 const Title = styled.div`
   margin-top: 20px;
   margin-left: 20px;
@@ -63,14 +52,7 @@ const Title = styled.div`
   line-height: 40px;
   font-style: italic;
 `;
-const SubTitle = styled.div`
-  float: left;
-  margin-top: 3px;
-  margin-right: 20px;
-  color: #8b8b8b;
-  font-size: 13px;
-  font-weight: 400;
-`;
+
 const Btn = styled.button`
   font-size: 2px;
   padding: 5px;
@@ -266,8 +248,10 @@ const UpdateStudentAssignment = ({ match }) => {
         </div>
       </ProblemContainer>
       <div>
-        <WriteBtn onClick={onCancel}>뒤로가기</WriteBtn>
-        <Btn onClick={submitAssignment}>수정하기</Btn>
+        <WriteAcitonButtonBlock>
+          <StyledButton onClick={onCancel}>뒤로가기</StyledButton>
+          <StyledButton onClick={submitAssignment}>수정하기</StyledButton>
+        </WriteAcitonButtonBlock>
       </div>
     </div>
   );

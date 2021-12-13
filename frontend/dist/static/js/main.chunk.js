@@ -4272,6 +4272,7 @@ var _jsxFileName = "/mnt/f/SW_Capstone/frontend/src/Pages/LecturePages/Assignmen
 const StyledButton = Object(styled_components__WEBPACK_IMPORTED_MODULE_2__["default"])(_Component_common_Button__WEBPACK_IMPORTED_MODULE_6__["default"])`
   height: 2.125rem;
   margin: 1rem 0;
+
   & + & {
     margin-left: 0.5rem;
   }
@@ -4395,7 +4396,7 @@ const StudentAssignmentDetail = ({
         children: [moment__WEBPACK_IMPORTED_MODULE_3___default()(startDate).format('M월 D일 HH:mm'), " - ", moment__WEBPACK_IMPORTED_MODULE_3___default()(endDate).format('M월 D일 HH:mm'), ' ', "(\uC608\uC815)"]
       }, void 0, true, {
         fileName: _jsxFileName,
-        lineNumber: 121,
+        lineNumber: 122,
         columnNumber: 9
       }, undefined);
     } else if (today.isBefore(endDate)) {
@@ -4407,7 +4408,7 @@ const StudentAssignmentDetail = ({
         children: [moment__WEBPACK_IMPORTED_MODULE_3___default()(startDate).format('M월 D일 HH:mm'), " - ", moment__WEBPACK_IMPORTED_MODULE_3___default()(endDate).format('M월 D일 HH:mm'), ' ', "(\uC9C4\uD589\uC911)"]
       }, void 0, true, {
         fileName: _jsxFileName,
-        lineNumber: 128,
+        lineNumber: 129,
         columnNumber: 9
       }, undefined);
     } else {
@@ -4419,7 +4420,7 @@ const StudentAssignmentDetail = ({
         children: [moment__WEBPACK_IMPORTED_MODULE_3___default()(startDate).format('M월 D일 HH:mm'), " - ", moment__WEBPACK_IMPORTED_MODULE_3___default()(endDate).format('M월 D일 HH:mm'), ' ', "(\uB9C8\uAC10)"]
       }, void 0, true, {
         fileName: _jsxFileName,
-        lineNumber: 135,
+        lineNumber: 136,
         columnNumber: 9
       }, undefined);
     }
@@ -4474,7 +4475,7 @@ const StudentAssignmentDetail = ({
       children: "Assignment"
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 194,
+      lineNumber: 195,
       columnNumber: 7
     }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])("hr", {
       style: {
@@ -4486,14 +4487,14 @@ const StudentAssignmentDetail = ({
       }
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 195,
+      lineNumber: 196,
       columnNumber: 7
     }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])(ProblemContainer, {
       children: [/*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])(ProblemTitle, {
         children: ["\uC81C\uBAA9 : ", assignments.title]
       }, void 0, true, {
         fileName: _jsxFileName,
-        lineNumber: 205,
+        lineNumber: 206,
         columnNumber: 9
       }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])("hr", {
         style: {
@@ -4504,7 +4505,7 @@ const StudentAssignmentDetail = ({
         }
       }, void 0, false, {
         fileName: _jsxFileName,
-        lineNumber: 206,
+        lineNumber: 207,
         columnNumber: 9
       }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])("div", {
         style: {
@@ -4518,24 +4519,24 @@ const StudentAssignmentDetail = ({
           children: stateDisplay(moment__WEBPACK_IMPORTED_MODULE_3___default()(assignments.startDt), moment__WEBPACK_IMPORTED_MODULE_3___default()(assignments.endDt))
         }, void 0, false, {
           fileName: _jsxFileName,
-          lineNumber: 218,
+          lineNumber: 219,
           columnNumber: 11
         }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])("div", {
           children: ["\uBC30\uC810 ", assignments.score]
         }, void 0, true, {
           fileName: _jsxFileName,
-          lineNumber: 219,
+          lineNumber: 220,
           columnNumber: 11
         }, undefined)]
       }, void 0, true, {
         fileName: _jsxFileName,
-        lineNumber: 209,
+        lineNumber: 210,
         columnNumber: 9
       }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])(ProblemContent, {
         children: react_html_parser__WEBPACK_IMPORTED_MODULE_4___default()(assignments.content)
       }, void 0, false, {
         fileName: _jsxFileName,
-        lineNumber: 221,
+        lineNumber: 222,
         columnNumber: 9
       }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])("hr", {
         style: {
@@ -4546,12 +4547,12 @@ const StudentAssignmentDetail = ({
         }
       }, void 0, false, {
         fileName: _jsxFileName,
-        lineNumber: 222,
+        lineNumber: 223,
         columnNumber: 9
       }, undefined)]
     }, void 0, true, {
       fileName: _jsxFileName,
-      lineNumber: 204,
+      lineNumber: 205,
       columnNumber: 7
     }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])(ProblemContainer, {
       style: {
@@ -4559,45 +4560,59 @@ const StudentAssignmentDetail = ({
       },
       children: [/*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])("div", {
         style: {
-          display: 'flex',
-          justifyContent: 'space-between'
+          display: 'flex'
         },
         children: onGoing === false ? /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])(ProblemTitle, {
           children: "\uC81C\uCD9C\uBB3C"
         }, void 0, false, {
           fileName: _jsxFileName,
-          lineNumber: 229,
+          lineNumber: 230,
           columnNumber: 13
         }, undefined) : onSubmit ? /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])(ProblemTitle, {
           children: "\uC81C\uCD9C\uBB3C"
         }, void 0, false, {
           fileName: _jsxFileName,
-          lineNumber: 231,
+          lineNumber: 232,
           columnNumber: 13
         }, undefined) : /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])("div", {
-          children: [/*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])(ProblemTitle, {
-            children: "\uACFC\uC81C \uC81C\uCD9C \uC791\uC131"
-          }, void 0, false, {
-            fileName: _jsxFileName,
-            lineNumber: 234,
-            columnNumber: 15
-          }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])(StyledButton, {
-            cyan: true,
-            onClick: submitAssignment,
-            children: "\uC81C\uCD9C\uD558\uAE30"
+          children: [/*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])("div", {
+            children: /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])(ProblemTitle, {
+              children: "\uACFC\uC81C \uC81C\uCD9C \uC791\uC131"
+            }, void 0, false, {
+              fileName: _jsxFileName,
+              lineNumber: 236,
+              columnNumber: 17
+            }, undefined)
           }, void 0, false, {
             fileName: _jsxFileName,
             lineNumber: 235,
             columnNumber: 15
+          }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])("div", {
+            style: {
+              display: 'flex'
+            },
+            children: /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])(StyledButton, {
+              cyan: true,
+              onClick: submitAssignment,
+              children: "\uC81C\uCD9C\uD558\uAE30"
+            }, void 0, false, {
+              fileName: _jsxFileName,
+              lineNumber: 239,
+              columnNumber: 17
+            }, undefined)
+          }, void 0, false, {
+            fileName: _jsxFileName,
+            lineNumber: 238,
+            columnNumber: 15
           }, undefined)]
         }, void 0, true, {
           fileName: _jsxFileName,
-          lineNumber: 233,
+          lineNumber: 234,
           columnNumber: 13
         }, undefined)
       }, void 0, false, {
         fileName: _jsxFileName,
-        lineNumber: 227,
+        lineNumber: 228,
         columnNumber: 9
       }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])("hr", {
         style: {
@@ -4608,7 +4623,7 @@ const StudentAssignmentDetail = ({
         }
       }, void 0, false, {
         fileName: _jsxFileName,
-        lineNumber: 241,
+        lineNumber: 246,
         columnNumber: 9
       }, undefined), onGoing === false ? /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])("div", {
         children: [/*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])("div", {
@@ -4619,7 +4634,7 @@ const StudentAssignmentDetail = ({
             children: assignments.title
           }, void 0, false, {
             fileName: _jsxFileName,
-            lineNumber: 247,
+            lineNumber: 252,
             columnNumber: 15
           }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])("div", {
             style: {
@@ -4630,12 +4645,12 @@ const StudentAssignmentDetail = ({
             children: ["\uC810\uC218 : ", submitData.score, " / ", assignments.score]
           }, void 0, true, {
             fileName: _jsxFileName,
-            lineNumber: 248,
+            lineNumber: 253,
             columnNumber: 15
           }, undefined)]
         }, void 0, true, {
           fileName: _jsxFileName,
-          lineNumber: 246,
+          lineNumber: 251,
           columnNumber: 13
         }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])("hr", {
           style: {
@@ -4646,14 +4661,14 @@ const StudentAssignmentDetail = ({
           }
         }, void 0, false, {
           fileName: _jsxFileName,
-          lineNumber: 252,
+          lineNumber: 257,
           columnNumber: 13
         }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])("div", {
           children: [/*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])("div", {
             children: submitData.content
           }, void 0, false, {
             fileName: _jsxFileName,
-            lineNumber: 261,
+            lineNumber: 266,
             columnNumber: 15
           }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])("div", {
             children: submitFile === null ? /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])("div", {
@@ -4665,7 +4680,7 @@ const StudentAssignmentDetail = ({
               children: "\uC81C\uCD9C\uB41C \uACFC\uC81C\uD30C\uC77C\uC774 \uC5C6\uC2B5\uB2C8\uB2E4"
             }, void 0, false, {
               fileName: _jsxFileName,
-              lineNumber: 264,
+              lineNumber: 269,
               columnNumber: 19
             }, undefined) : /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])("div", {
               style: {
@@ -4681,12 +4696,12 @@ const StudentAssignmentDetail = ({
                   height: "500px"
                 }, void 0, false, {
                   fileName: _jsxFileName,
-                  lineNumber: 270,
+                  lineNumber: 275,
                   columnNumber: 23
                 }, undefined)
               }, void 0, false, {
                 fileName: _jsxFileName,
-                lineNumber: 269,
+                lineNumber: 274,
                 columnNumber: 21
               }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])("a", {
                 href: submitFile,
@@ -4699,22 +4714,22 @@ const StudentAssignmentDetail = ({
                 children: "\uC81C\uCD9C\uB41C \uACFC\uC81C\uD30C\uC77C"
               }, void 0, false, {
                 fileName: _jsxFileName,
-                lineNumber: 276,
+                lineNumber: 281,
                 columnNumber: 21
               }, undefined)]
             }, void 0, true, {
               fileName: _jsxFileName,
-              lineNumber: 268,
+              lineNumber: 273,
               columnNumber: 19
             }, undefined)
           }, void 0, false, {
             fileName: _jsxFileName,
-            lineNumber: 262,
+            lineNumber: 267,
             columnNumber: 15
           }, undefined)]
         }, void 0, true, {
           fileName: _jsxFileName,
-          lineNumber: 260,
+          lineNumber: 265,
           columnNumber: 13
         }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])("hr", {
           style: {
@@ -4725,7 +4740,7 @@ const StudentAssignmentDetail = ({
           }
         }, void 0, false, {
           fileName: _jsxFileName,
-          lineNumber: 291,
+          lineNumber: 296,
           columnNumber: 13
         }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])("div", {
           style: {
@@ -4735,11 +4750,11 @@ const StudentAssignmentDetail = ({
           },
           children: ["\uD53C\uB4DC\uBC31 :", /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])("br", {}, void 0, false, {
             fileName: _jsxFileName,
-            lineNumber: 301,
+            lineNumber: 306,
             columnNumber: 15
           }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])("br", {}, void 0, false, {
             fileName: _jsxFileName,
-            lineNumber: 302,
+            lineNumber: 307,
             columnNumber: 15
           }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])("div", {
             style: {
@@ -4748,17 +4763,17 @@ const StudentAssignmentDetail = ({
             children: submitData.feedback
           }, void 0, false, {
             fileName: _jsxFileName,
-            lineNumber: 303,
+            lineNumber: 308,
             columnNumber: 15
           }, undefined)]
         }, void 0, true, {
           fileName: _jsxFileName,
-          lineNumber: 299,
+          lineNumber: 304,
           columnNumber: 13
         }, undefined)]
       }, void 0, true, {
         fileName: _jsxFileName,
-        lineNumber: 245,
+        lineNumber: 250,
         columnNumber: 11
       }, undefined) : onSubmit ? /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])("div", {
         children: [/*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])("div", {
@@ -4769,7 +4784,7 @@ const StudentAssignmentDetail = ({
             children: assignments.title
           }, void 0, false, {
             fileName: _jsxFileName,
-            lineNumber: 309,
+            lineNumber: 314,
             columnNumber: 15
           }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])("div", {
             style: {
@@ -4780,12 +4795,12 @@ const StudentAssignmentDetail = ({
             children: ["\uC810\uC218 : ", submitData.score, " / ", assignments.score]
           }, void 0, true, {
             fileName: _jsxFileName,
-            lineNumber: 310,
+            lineNumber: 315,
             columnNumber: 15
           }, undefined)]
         }, void 0, true, {
           fileName: _jsxFileName,
-          lineNumber: 308,
+          lineNumber: 313,
           columnNumber: 13
         }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])("hr", {
           style: {
@@ -4796,7 +4811,7 @@ const StudentAssignmentDetail = ({
           }
         }, void 0, false, {
           fileName: _jsxFileName,
-          lineNumber: 314,
+          lineNumber: 319,
           columnNumber: 13
         }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])("div", {
           children: [/*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])("div", {
@@ -4806,7 +4821,7 @@ const StudentAssignmentDetail = ({
             children: submitData.content
           }, void 0, false, {
             fileName: _jsxFileName,
-            lineNumber: 323,
+            lineNumber: 328,
             columnNumber: 15
           }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])("div", {
             children: submitFile === null ? /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])("div", {
@@ -4818,7 +4833,7 @@ const StudentAssignmentDetail = ({
               children: "\uC81C\uCD9C\uB41C \uACFC\uC81C\uD30C\uC77C\uC774 \uC5C6\uC2B5\uB2C8\uB2E4"
             }, void 0, false, {
               fileName: _jsxFileName,
-              lineNumber: 326,
+              lineNumber: 331,
               columnNumber: 19
             }, undefined) : /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])("div", {
               style: {
@@ -4834,12 +4849,12 @@ const StudentAssignmentDetail = ({
                   height: "500px"
                 }, void 0, false, {
                   fileName: _jsxFileName,
-                  lineNumber: 332,
+                  lineNumber: 337,
                   columnNumber: 23
                 }, undefined)
               }, void 0, false, {
                 fileName: _jsxFileName,
-                lineNumber: 331,
+                lineNumber: 336,
                 columnNumber: 21
               }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])("a", {
                 href: `https://115.85.182.194:8080${submitData.fileUrl}`,
@@ -4852,22 +4867,22 @@ const StudentAssignmentDetail = ({
                 children: "\uC81C\uCD9C\uB41C \uACFC\uC81C\uD30C\uC77C"
               }, void 0, false, {
                 fileName: _jsxFileName,
-                lineNumber: 338,
+                lineNumber: 343,
                 columnNumber: 21
               }, undefined)]
             }, void 0, true, {
               fileName: _jsxFileName,
-              lineNumber: 330,
+              lineNumber: 335,
               columnNumber: 19
             }, undefined)
           }, void 0, false, {
             fileName: _jsxFileName,
-            lineNumber: 324,
+            lineNumber: 329,
             columnNumber: 15
           }, undefined)]
         }, void 0, true, {
           fileName: _jsxFileName,
-          lineNumber: 322,
+          lineNumber: 327,
           columnNumber: 13
         }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])("hr", {
           style: {
@@ -4878,7 +4893,7 @@ const StudentAssignmentDetail = ({
           }
         }, void 0, false, {
           fileName: _jsxFileName,
-          lineNumber: 353,
+          lineNumber: 358,
           columnNumber: 13
         }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])("div", {
           style: {
@@ -4888,11 +4903,11 @@ const StudentAssignmentDetail = ({
           },
           children: ["\uD53C\uB4DC\uBC31 :", /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])("br", {}, void 0, false, {
             fileName: _jsxFileName,
-            lineNumber: 363,
+            lineNumber: 368,
             columnNumber: 15
           }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])("br", {}, void 0, false, {
             fileName: _jsxFileName,
-            lineNumber: 364,
+            lineNumber: 369,
             columnNumber: 15
           }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])("div", {
             style: {
@@ -4901,17 +4916,17 @@ const StudentAssignmentDetail = ({
             children: submitData.feedback
           }, void 0, false, {
             fileName: _jsxFileName,
-            lineNumber: 365,
+            lineNumber: 370,
             columnNumber: 15
           }, undefined)]
         }, void 0, true, {
           fileName: _jsxFileName,
-          lineNumber: 361,
+          lineNumber: 366,
           columnNumber: 13
         }, undefined)]
       }, void 0, true, {
         fileName: _jsxFileName,
-        lineNumber: 307,
+        lineNumber: 312,
         columnNumber: 11
       }, undefined) : /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])("div", {
         children: [/*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])(AnswerInput, {
@@ -4919,7 +4934,7 @@ const StudentAssignmentDetail = ({
           onChange: onChangeAnswer
         }, void 0, false, {
           fileName: _jsxFileName,
-          lineNumber: 370,
+          lineNumber: 375,
           columnNumber: 13
         }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])("div", {
           style: {
@@ -4935,7 +4950,7 @@ const StudentAssignmentDetail = ({
             children: "\uD30C\uC77C \uCCA8\uBD80"
           }, void 0, false, {
             fileName: _jsxFileName,
-            lineNumber: 372,
+            lineNumber: 377,
             columnNumber: 15
           }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])("form", {
             name: "noteFile",
@@ -4951,27 +4966,27 @@ const StudentAssignmentDetail = ({
               }
             }, void 0, false, {
               fileName: _jsxFileName,
-              lineNumber: 374,
+              lineNumber: 379,
               columnNumber: 17
             }, undefined)
           }, void 0, false, {
             fileName: _jsxFileName,
-            lineNumber: 373,
+            lineNumber: 378,
             columnNumber: 15
           }, undefined)]
         }, void 0, true, {
           fileName: _jsxFileName,
-          lineNumber: 371,
+          lineNumber: 376,
           columnNumber: 13
         }, undefined)]
       }, void 0, true, {
         fileName: _jsxFileName,
-        lineNumber: 369,
+        lineNumber: 374,
         columnNumber: 11
       }, undefined)]
     }, void 0, true, {
       fileName: _jsxFileName,
-      lineNumber: 226,
+      lineNumber: 227,
       columnNumber: 7
     }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])("div", {
       style: {
@@ -4986,32 +5001,32 @@ const StudentAssignmentDetail = ({
         children: "\uB4A4\uB85C\uAC00\uAE30"
       }, void 0, false, {
         fileName: _jsxFileName,
-        lineNumber: 385,
+        lineNumber: 390,
         columnNumber: 9
       }, undefined), onSubmit === false ? /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])("div", {}, void 0, false, {
         fileName: _jsxFileName,
-        lineNumber: 389,
+        lineNumber: 394,
         columnNumber: 11
       }, undefined) : onGoing ? /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])(StyledButton, {
         onClick: onUpdate,
         children: "\uC218\uC815\uD558\uAE30"
       }, void 0, false, {
         fileName: _jsxFileName,
-        lineNumber: 391,
+        lineNumber: 396,
         columnNumber: 11
       }, undefined) : /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])("div", {}, void 0, false, {
         fileName: _jsxFileName,
-        lineNumber: 393,
+        lineNumber: 398,
         columnNumber: 11
       }, undefined)]
     }, void 0, true, {
       fileName: _jsxFileName,
-      lineNumber: 384,
+      lineNumber: 389,
       columnNumber: 7
     }, undefined)]
   }, void 0, true, {
     fileName: _jsxFileName,
-    lineNumber: 193,
+    lineNumber: 194,
     columnNumber: 5
   }, undefined);
 };
@@ -7031,8 +7046,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var react_html_parser__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-html-parser */ "./node_modules/react-html-parser/lib/index.js");
 /* harmony import */ var react_html_parser__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_html_parser__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-dev-runtime */ "./node_modules/react/jsx-dev-runtime.js");
-/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _Component_common_Button__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../Component/common/Button */ "./src/Component/common/Button.js");
+/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-dev-runtime */ "./node_modules/react/jsx-dev-runtime.js");
+/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_6__);
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 __webpack_require__.$Refresh$.setup(module.i);
 
@@ -7045,15 +7061,7 @@ var _jsxFileName = "/mnt/f/SW_Capstone/frontend/src/Pages/LecturePages/Assignmen
 
 
 
-const Container = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div`
-  width: 100%;
-  display: inline-block;
-  margin: 10px auto;
-  padding: 0px 20px;
-  //overflow-y: auto;
-  //align-items : center;
-  //justify-content : center;
-`;
+
 const Line = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].hr`
   width: 100%;
   margin: 10px 0px;
@@ -7077,22 +7085,22 @@ const WriteBtn = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].butto
     background-color: #bfbfbf;
   }
 `;
-_c2 = WriteBtn;
-const UpdateBtn = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].button`
-  font-size: 12px;
-  font-weight: bold;
-  padding: 5px;
-  margin-top: 10px;
-  margin-bottom: 5px;
-  margin-right: 30px;
-  background-color: #f83636;
-  color: #3e3e3e;
-  border-radius: 5px;
-  cursor: pointer;
-  &:hover {
-    background-color: #bfbfbf;
+const WriteAcitonButtonBlock = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div`
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  display: flex;
+  button + button {
+    margin-left: 0.5rem;
   }
 `;
+_c2 = WriteAcitonButtonBlock;
+const StyledButton = Object(styled_components__WEBPACK_IMPORTED_MODULE_1__["default"])(_Component_common_Button__WEBPACK_IMPORTED_MODULE_5__["default"])`
+  height: 2.125rem;
+  & + & {
+    margin-left: 0.5rem;
+  }
+`;
+_c3 = StyledButton;
 const Title = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div`
   margin-top: 20px;
   margin-left: 20px;
@@ -7102,15 +7110,7 @@ const Title = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div`
   line-height: 40px;
   font-style: italic;
 `;
-_c3 = Title;
-const SubTitle = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div`
-  float: left;
-  margin-top: 3px;
-  margin-right: 20px;
-  color: #8b8b8b;
-  font-size: 13px;
-  font-weight: 400;
-`;
+_c4 = Title;
 const Btn = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].button`
   font-size: 2px;
   padding: 5px;
@@ -7124,7 +7124,6 @@ const Btn = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].button`
     background-color: #bfbfbf;
   }
 `;
-_c4 = Btn;
 const ProblemContainer = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div`
   background-color: white;
   border-radius: 10px;
@@ -7206,7 +7205,7 @@ const UpdateStudentAssignment = ({
 
   const stateDisplay = (startDate, endDate) => {
     if (today.isBefore(startDate)) {
-      return /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__["jsxDEV"])("div", {
+      return /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_6__["jsxDEV"])("div", {
         style: {
           color: '#BFBFBF',
           fontWeight: '700'
@@ -7214,11 +7213,11 @@ const UpdateStudentAssignment = ({
         children: [moment__WEBPACK_IMPORTED_MODULE_2___default()(startDate).format('M월 D일 HH:mm'), " - ", moment__WEBPACK_IMPORTED_MODULE_2___default()(endDate).format('M월 D일 HH:mm'), ' ', "(\uC608\uC815)"]
       }, void 0, true, {
         fileName: _jsxFileName,
-        lineNumber: 163,
+        lineNumber: 145,
         columnNumber: 9
       }, undefined);
     } else if (today.isBefore(endDate)) {
-      return /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__["jsxDEV"])("div", {
+      return /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_6__["jsxDEV"])("div", {
         style: {
           color: '#61C679',
           fontWeight: '700'
@@ -7226,11 +7225,11 @@ const UpdateStudentAssignment = ({
         children: [moment__WEBPACK_IMPORTED_MODULE_2___default()(startDate).format('M월 D일 HH:mm'), " - ", moment__WEBPACK_IMPORTED_MODULE_2___default()(endDate).format('M월 D일 HH:mm'), ' ', "(\uC9C4\uD589\uC911)"]
       }, void 0, true, {
         fileName: _jsxFileName,
-        lineNumber: 170,
+        lineNumber: 152,
         columnNumber: 9
       }, undefined);
     } else {
-      return /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__["jsxDEV"])("div", {
+      return /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_6__["jsxDEV"])("div", {
         style: {
           color: '#E24C4B',
           fontWeight: '700'
@@ -7238,7 +7237,7 @@ const UpdateStudentAssignment = ({
         children: [moment__WEBPACK_IMPORTED_MODULE_2___default()(startDate).format('M월 D일 HH:mm'), " - ", moment__WEBPACK_IMPORTED_MODULE_2___default()(endDate).format('M월 D일 HH:mm'), ' ', "(\uB9C8\uAC10)"]
       }, void 0, true, {
         fileName: _jsxFileName,
-        lineNumber: 177,
+        lineNumber: 159,
         columnNumber: 9
       }, undefined);
     }
@@ -7283,29 +7282,29 @@ const UpdateStudentAssignment = ({
     getData();
     getSubmitData();
   }, []);
-  return /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__["jsxDEV"])("div", {
-    children: [/*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__["jsxDEV"])(Title, {
+  return /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_6__["jsxDEV"])("div", {
+    children: [/*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_6__["jsxDEV"])(Title, {
       children: "Assignment"
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 230,
+      lineNumber: 212,
       columnNumber: 7
-    }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__["jsxDEV"])(Line, {}, void 0, false, {
+    }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_6__["jsxDEV"])(Line, {}, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 231,
+      lineNumber: 213,
       columnNumber: 7
-    }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__["jsxDEV"])(ProblemContainer, {
-      children: [/*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__["jsxDEV"])(ProblemTitle, {
+    }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_6__["jsxDEV"])(ProblemContainer, {
+      children: [/*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_6__["jsxDEV"])(ProblemTitle, {
         children: ["\uC81C\uBAA9 : ", assignments.title]
       }, void 0, true, {
         fileName: _jsxFileName,
-        lineNumber: 233,
+        lineNumber: 215,
         columnNumber: 9
-      }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__["jsxDEV"])(Line, {}, void 0, false, {
+      }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_6__["jsxDEV"])(Line, {}, void 0, false, {
         fileName: _jsxFileName,
-        lineNumber: 234,
+        lineNumber: 216,
         columnNumber: 9
-      }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__["jsxDEV"])("div", {
+      }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_6__["jsxDEV"])("div", {
         style: {
           display: 'flex',
           justifyContent: 'space-between',
@@ -7313,66 +7312,66 @@ const UpdateStudentAssignment = ({
           padding: '0px 5px',
           fontWeight: '700'
         },
-        children: [/*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__["jsxDEV"])("div", {
+        children: [/*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_6__["jsxDEV"])("div", {
           children: stateDisplay(moment__WEBPACK_IMPORTED_MODULE_2___default()(assignments.startDt), moment__WEBPACK_IMPORTED_MODULE_2___default()(assignments.endDt))
         }, void 0, false, {
           fileName: _jsxFileName,
-          lineNumber: 244,
+          lineNumber: 226,
           columnNumber: 11
-        }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__["jsxDEV"])("div", {
+        }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_6__["jsxDEV"])("div", {
           children: ["\uBC30\uC810 ", assignments.score]
         }, void 0, true, {
           fileName: _jsxFileName,
-          lineNumber: 245,
+          lineNumber: 227,
           columnNumber: 11
         }, undefined)]
       }, void 0, true, {
         fileName: _jsxFileName,
-        lineNumber: 235,
+        lineNumber: 217,
         columnNumber: 9
-      }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__["jsxDEV"])(ProblemContent, {
+      }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_6__["jsxDEV"])(ProblemContent, {
         children: react_html_parser__WEBPACK_IMPORTED_MODULE_4___default()(assignments.content)
       }, void 0, false, {
         fileName: _jsxFileName,
-        lineNumber: 247,
+        lineNumber: 229,
         columnNumber: 9
-      }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__["jsxDEV"])(Line, {}, void 0, false, {
+      }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_6__["jsxDEV"])(Line, {}, void 0, false, {
         fileName: _jsxFileName,
-        lineNumber: 248,
+        lineNumber: 230,
         columnNumber: 9
       }, undefined)]
     }, void 0, true, {
       fileName: _jsxFileName,
-      lineNumber: 232,
+      lineNumber: 214,
       columnNumber: 7
-    }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__["jsxDEV"])(ProblemContainer, {
+    }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_6__["jsxDEV"])(ProblemContainer, {
       style: {
         margin: '10px auto'
       },
-      children: [/*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__["jsxDEV"])(ProblemTitle, {
+      children: [/*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_6__["jsxDEV"])(ProblemTitle, {
         children: "\uACFC\uC81C \uC81C\uCD9C \uC791\uC131"
       }, void 0, false, {
         fileName: _jsxFileName,
-        lineNumber: 251,
+        lineNumber: 233,
         columnNumber: 9
-      }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__["jsxDEV"])(Line, {}, void 0, false, {
+      }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_6__["jsxDEV"])(Line, {}, void 0, false, {
         fileName: _jsxFileName,
-        lineNumber: 253,
+        lineNumber: 235,
         columnNumber: 9
-      }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__["jsxDEV"])("div", {
-        children: [/*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__["jsxDEV"])(AnswerInput, {
+      }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_6__["jsxDEV"])("div", {
+        children: [/*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_6__["jsxDEV"])(AnswerInput, {
           onChange: onChangeAnswer
         }, void 0, false, {
           fileName: _jsxFileName,
-          lineNumber: 255,
+          lineNumber: 237,
           columnNumber: 11
-        }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__["jsxDEV"])("div", {
+        }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_6__["jsxDEV"])("div", {
           style: {
             display: 'flex',
             justifyContent: 'space-between',
             margin: '5px 0'
           },
-          children: [/*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__["jsxDEV"])("div", {
+          children: [/*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_6__["jsxDEV"])("div", {
             style: {
               paddingLeft: '5px',
               lineHeight: '41.6px'
@@ -7380,12 +7379,12 @@ const UpdateStudentAssignment = ({
             children: "\uD30C\uC77C \uCCA8\uBD80"
           }, void 0, false, {
             fileName: _jsxFileName,
-            lineNumber: 257,
+            lineNumber: 239,
             columnNumber: 13
-          }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__["jsxDEV"])("form", {
+          }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_6__["jsxDEV"])("form", {
             name: "noteFile",
             encType: "multipart/form-data",
-            children: /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__["jsxDEV"])("input", {
+            children: /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_6__["jsxDEV"])("input", {
               type: "file",
               onChange: onFileChange,
               style: {
@@ -7396,52 +7395,58 @@ const UpdateStudentAssignment = ({
               }
             }, void 0, false, {
               fileName: _jsxFileName,
-              lineNumber: 259,
+              lineNumber: 241,
               columnNumber: 15
             }, undefined)
           }, void 0, false, {
             fileName: _jsxFileName,
-            lineNumber: 258,
+            lineNumber: 240,
             columnNumber: 13
           }, undefined)]
         }, void 0, true, {
           fileName: _jsxFileName,
-          lineNumber: 256,
+          lineNumber: 238,
           columnNumber: 11
         }, undefined)]
       }, void 0, true, {
         fileName: _jsxFileName,
-        lineNumber: 254,
+        lineNumber: 236,
         columnNumber: 9
       }, undefined)]
     }, void 0, true, {
+      fileName: _jsxFileName,
+      lineNumber: 232,
+      columnNumber: 7
+    }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_6__["jsxDEV"])("div", {
+      children: /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_6__["jsxDEV"])(WriteAcitonButtonBlock, {
+        children: [/*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_6__["jsxDEV"])(StyledButton, {
+          onClick: onCancel,
+          children: "\uB4A4\uB85C\uAC00\uAE30"
+        }, void 0, false, {
+          fileName: _jsxFileName,
+          lineNumber: 252,
+          columnNumber: 11
+        }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_6__["jsxDEV"])(StyledButton, {
+          onClick: submitAssignment,
+          children: "\uC218\uC815\uD558\uAE30"
+        }, void 0, false, {
+          fileName: _jsxFileName,
+          lineNumber: 253,
+          columnNumber: 11
+        }, undefined)]
+      }, void 0, true, {
+        fileName: _jsxFileName,
+        lineNumber: 251,
+        columnNumber: 9
+      }, undefined)
+    }, void 0, false, {
       fileName: _jsxFileName,
       lineNumber: 250,
-      columnNumber: 7
-    }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__["jsxDEV"])("div", {
-      children: [/*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__["jsxDEV"])(WriteBtn, {
-        onClick: onCancel,
-        children: "\uB4A4\uB85C\uAC00\uAE30"
-      }, void 0, false, {
-        fileName: _jsxFileName,
-        lineNumber: 269,
-        columnNumber: 9
-      }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__["jsxDEV"])(Btn, {
-        onClick: submitAssignment,
-        children: "\uC218\uC815\uD558\uAE30"
-      }, void 0, false, {
-        fileName: _jsxFileName,
-        lineNumber: 270,
-        columnNumber: 9
-      }, undefined)]
-    }, void 0, true, {
-      fileName: _jsxFileName,
-      lineNumber: 268,
       columnNumber: 7
     }, undefined)]
   }, void 0, true, {
     fileName: _jsxFileName,
-    lineNumber: 229,
+    lineNumber: 211,
     columnNumber: 5
   }, undefined);
 };
@@ -7454,9 +7459,9 @@ _c9 = UpdateStudentAssignment;
 var _c, _c2, _c3, _c4, _c5, _c6, _c7, _c8, _c9;
 
 __webpack_require__.$Refresh$.register(_c, "Line");
-__webpack_require__.$Refresh$.register(_c2, "WriteBtn");
-__webpack_require__.$Refresh$.register(_c3, "Title");
-__webpack_require__.$Refresh$.register(_c4, "Btn");
+__webpack_require__.$Refresh$.register(_c2, "WriteAcitonButtonBlock");
+__webpack_require__.$Refresh$.register(_c3, "StyledButton");
+__webpack_require__.$Refresh$.register(_c4, "Title");
 __webpack_require__.$Refresh$.register(_c5, "ProblemContainer");
 __webpack_require__.$Refresh$.register(_c6, "ProblemTitle");
 __webpack_require__.$Refresh$.register(_c7, "ProblemContent");

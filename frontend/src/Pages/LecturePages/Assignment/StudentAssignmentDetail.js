@@ -9,6 +9,7 @@ import Button from '../../../Component/common/Button';
 const StyledButton = styled(Button)`
   height: 2.125rem;
   margin: 1rem 0;
+
   & + & {
     margin-left: 0.5rem;
   }
@@ -224,17 +225,21 @@ const StudentAssignmentDetail = ({ match }) => {
         />
       </ProblemContainer>
       <ProblemContainer style={{ margin: '10px auto' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+        <div style={{ display: 'flex' }}>
           {onGoing === false ? (
             <ProblemTitle>제출물</ProblemTitle>
           ) : onSubmit ? (
             <ProblemTitle>제출물</ProblemTitle>
           ) : (
             <div>
-              <ProblemTitle>과제 제출 작성</ProblemTitle>
-              <StyledButton cyan onClick={submitAssignment}>
-                제출하기
-              </StyledButton>
+              <div>
+                <ProblemTitle>과제 제출 작성</ProblemTitle>
+              </div>
+              <div style={{ display: 'flex' }}>
+                <StyledButton cyan onClick={submitAssignment}>
+                  제출하기
+                </StyledButton>
+              </div>
             </div>
           )}
         </div>
