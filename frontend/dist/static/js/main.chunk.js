@@ -5913,14 +5913,9 @@ const StudentSubmit = ({
               fileName: _jsxFileName,
               lineNumber: 113,
               columnNumber: 19
-            }, undefined) : /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_4__["jsxDEV"])("div", {
-              style: {
-                textDecoration: 'underline',
-                fontWeight: 'bold',
-                cursor: 'pointer'
-              },
-              onClick: e => DownAssignment(e, submitAssignment.submitId),
-              children: "\uC81C\uCD9C \uD30C\uC77C \uB2E4\uC6B4\uB85C\uB4DC"
+            }, undefined) : /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_4__["jsxDEV"])("a", {
+              href: `https://115.85.182.194:8080${submitAssignment.fileUrl}`,
+              children: "\uC81C\uCD9C\uD30C\uC77C \uB2E4\uC6B4\uB85C\uB4DC"
             }, void 0, false, {
               fileName: _jsxFileName,
               lineNumber: 115,
@@ -5946,17 +5941,17 @@ const StudentSubmit = ({
                 children: [submitAssignment.score, " / ", assignmentsScore]
               }, void 0, true, {
                 fileName: _jsxFileName,
-                lineNumber: 125,
+                lineNumber: 122,
                 columnNumber: 19
               }, undefined)
             }, void 0, false, {
               fileName: _jsxFileName,
-              lineNumber: 124,
+              lineNumber: 121,
               columnNumber: 17
             }, undefined)
           }, void 0, false, {
             fileName: _jsxFileName,
-            lineNumber: 123,
+            lineNumber: 120,
             columnNumber: 15
           }, undefined)]
         }, void 0, true, {

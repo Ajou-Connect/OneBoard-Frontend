@@ -112,12 +112,9 @@ const StudentSubmit = ({ lectureId, assignmentId, assignmentsScore }) => {
                 {submitAssignment.fileUrl === null ? (
                   <div></div>
                 ) : (
-                  <div
-                    style={{ textDecoration: 'underline', fontWeight: 'bold', cursor: 'pointer' }}
-                    onClick={(e) => DownAssignment(e, submitAssignment.submitId)}
-                  >
-                    제출 파일 다운로드
-                  </div>
+                  <a href={`https://115.85.182.194:8080${submitAssignment.fileUrl}`}>
+                    제출파일 다운로드
+                  </a>
                 )}
               </td>
               <td style={{ padding: '10px 0', backgroundColor: 'white', justifyContent: 'center' }}>
