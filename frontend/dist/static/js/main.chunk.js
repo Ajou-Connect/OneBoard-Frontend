@@ -22679,10 +22679,10 @@ if (true) {
 
 /***/ }),
 
-/***/ "./src/ZoomSample/feature/video/Modal.js":
-/*!***********************************************!*\
-  !*** ./src/ZoomSample/feature/video/Modal.js ***!
-  \***********************************************/
+/***/ "./src/ZoomSample/feature/video/QuizModal.js":
+/*!***************************************************!*\
+  !*** ./src/ZoomSample/feature/video/QuizModal.js ***!
+  \***************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -22700,7 +22700,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 __webpack_require__.$Refresh$.setup(module.i);
 
-var _jsxFileName = "/mnt/e/sw_capstone/frontend/src/ZoomSample/feature/video/Modal.js";
+var _jsxFileName = "/mnt/e/sw_capstone/frontend/src/ZoomSample/feature/video/QuizModal.js";
 
 
 
@@ -22766,11 +22766,11 @@ const OkBtn = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].button`
   margin-top: 150px;
 `;
 _c5 = OkBtn;
-Modal.propTypes = {
+QuizModal.propTypes = {
   visible: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.bool
 };
 
-function Modal({
+function QuizModal({
   className,
   onClose,
   maskClosable,
@@ -22938,8 +22938,8 @@ function Modal({
   }, void 0, true);
 }
 
-_c6 = Modal;
-/* harmony default export */ __webpack_exports__["default"] = (Modal);
+_c6 = QuizModal;
+/* harmony default export */ __webpack_exports__["default"] = (QuizModal);
 
 var _c, _c2, _c3, _c4, _c5, _c6;
 
@@ -22948,7 +22948,7 @@ __webpack_require__.$Refresh$.register(_c2, "ModalOverlay");
 __webpack_require__.$Refresh$.register(_c3, "ModalInner");
 __webpack_require__.$Refresh$.register(_c4, "CloseBtn");
 __webpack_require__.$Refresh$.register(_c5, "OkBtn");
-__webpack_require__.$Refresh$.register(_c6, "Modal");
+__webpack_require__.$Refresh$.register(_c6, "QuizModal");
 
 const currentExports = __react_refresh_utils__.getModuleExports(module.i);
 __react_refresh_utils__.registerExportsForReactRefresh(currentExports, module.i);
@@ -26836,7 +26836,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
 /* harmony import */ var socket_io_client__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! socket.io-client */ "./node_modules/socket.io-client/index.js");
 /* harmony import */ var socket_io_client__WEBPACK_IMPORTED_MODULE_17___default = /*#__PURE__*/__webpack_require__.n(socket_io_client__WEBPACK_IMPORTED_MODULE_17__);
-/* harmony import */ var _Modal__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./Modal */ "./src/ZoomSample/feature/video/Modal.js");
+/* harmony import */ var _QuizModal__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./QuizModal */ "./src/ZoomSample/feature/video/QuizModal.js");
 /* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! react/jsx-dev-runtime */ "./node_modules/react/jsx-dev-runtime.js");
 /* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_19___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_19__);
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
@@ -26894,6 +26894,7 @@ const VideoContainer = props => {
   const activeVideo = Object(_hooks_useAvtiveVideo__WEBPACK_IMPORTED_MODULE_10__["useActiveVideo"])(zmClient);
   const user = JSON.parse(localStorage.userInfo);
   const userType = user.userType;
+  const token = localStorage.getItem("token");
   const [modalVisible, setModalVisible] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false);
   const [understandId, setUnderstandId] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(0);
   const {
@@ -26935,19 +26936,34 @@ const VideoContainer = props => {
     contentDimension.height = Math.floor(height * ratio);
   }
 
-  const asdf = {
-    userType: userType,
-    room: sessionId
-  }; // const obj = JSON.parse(test);
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    socket.emit("init", {
+      "userType": userType,
+      "room": sessionId
+    });
+    socket.on("attendance request", data => {
+      alert("출석 확인");
+      axios__WEBPACK_IMPORTED_MODULE_15___default.a.get(`/lecture/${lectureId}/lesson/${lessonId}/live/attendance/student`, {
+        params: {
+          "session": `${sessionId}`
+        },
+        headers: {
+          "X-AUTH-TOKEN": `${token}`
+        }
+      }).then(res => {
+        console.log(res);
+        const result = res.data.result;
 
-  console.log(asdf);
-  socket.emit("init", {
-    "userType": userType,
-    "room": sessionId
-  });
-  socket.on("attendance request", data => {
-    console.log("hi" + data);
-  });
+        if (result === "SUCCESS") {
+          console.log("hi");
+        } else {
+          console.log("error");
+        }
+      }).catch(error => {
+        console.log(error);
+      });
+    });
+  }, []);
 
   const checkAttendance = e => {
     // e.preventDefault(); 
@@ -27006,7 +27022,7 @@ const VideoContainer = props => {
           ref: shareRef
         }, void 0, false, {
           fileName: _jsxFileName,
-          lineNumber: 155,
+          lineNumber: 169,
           columnNumber: 11
         }, undefined), Object(_utils_platform__WEBPACK_IMPORTED_MODULE_13__["isSupportWebCodecs"])() ? /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_19__["jsxDEV"])("video", {
           className: classnames__WEBPACK_IMPORTED_MODULE_1___default()('share-canvas', {
@@ -27015,7 +27031,7 @@ const VideoContainer = props => {
           ref: selfShareRef
         }, void 0, false, {
           fileName: _jsxFileName,
-          lineNumber: 159,
+          lineNumber: 173,
           columnNumber: 33
         }, undefined) : /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_19__["jsxDEV"])("canvas", {
           className: classnames__WEBPACK_IMPORTED_MODULE_1___default()('share-canvas', {
@@ -27024,17 +27040,17 @@ const VideoContainer = props => {
           ref: selfShareRef
         }, void 0, false, {
           fileName: _jsxFileName,
-          lineNumber: 162,
+          lineNumber: 176,
           columnNumber: 14
         }, undefined)]
       }, void 0, true, {
         fileName: _jsxFileName,
-        lineNumber: 148,
+        lineNumber: 162,
         columnNumber: 9
       }, undefined)
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 142,
+      lineNumber: 156,
       columnNumber: 7
     }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_19__["jsxDEV"])("div", {
       className: classnames__WEBPACK_IMPORTED_MODULE_1___default()('video-container', {
@@ -27048,7 +27064,7 @@ const VideoContainer = props => {
         ref: videoRef
       }, void 0, false, {
         fileName: _jsxFileName,
-        lineNumber: 173,
+        lineNumber: 187,
         columnNumber: 9
       }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_19__["jsxDEV"])("ul", {
         className: "avatar-list",
@@ -27078,18 +27094,18 @@ const VideoContainer = props => {
             }
           }, user.userId, false, {
             fileName: _jsxFileName,
-            lineNumber: 189,
+            lineNumber: 203,
             columnNumber: 15
           }, undefined);
         })
       }, void 0, false, {
         fileName: _jsxFileName,
-        lineNumber: 180,
+        lineNumber: 194,
         columnNumber: 9
       }, undefined)]
     }, void 0, true, {
       fileName: _jsxFileName,
-      lineNumber: 168,
+      lineNumber: 182,
       columnNumber: 7
     }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_19__["jsxDEV"])(_components_video_footer__WEBPACK_IMPORTED_MODULE_5__["default"], {
       className: "video-operations",
@@ -27100,7 +27116,7 @@ const VideoContainer = props => {
       sessionId: props.sessionId
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 204,
+      lineNumber: 218,
       columnNumber: 7
     }, undefined), totalPage > 1 && /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_19__["jsxDEV"])(_components_pagination__WEBPACK_IMPORTED_MODULE_6__["default"], {
       page: page,
@@ -27109,7 +27125,7 @@ const VideoContainer = props => {
       inSharing: isSharing
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 206,
+      lineNumber: 220,
       columnNumber: 9
     }, undefined), userType === "T" ? /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_19__["jsxDEV"])("div", {
       children: [/*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_19__["jsxDEV"])(AttendanceBtn, {
@@ -27117,23 +27133,23 @@ const VideoContainer = props => {
         children: "\uC774\uD574\uB3C4 \uD655\uC778 \uC694\uCCAD"
       }, void 0, false, {
         fileName: _jsxFileName,
-        lineNumber: 214,
+        lineNumber: 228,
         columnNumber: 9
       }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_19__["jsxDEV"])(AttendanceBtn, {
         onClick: checkAttendance,
         children: "\uCD9C\uC11D\uC694\uCCAD"
       }, void 0, false, {
         fileName: _jsxFileName,
-        lineNumber: 215,
+        lineNumber: 229,
         columnNumber: 9
       }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_19__["jsxDEV"])(AttendanceBtn, {
         onClick: openModal,
         children: "\uD034\uC988\uCD9C\uC81C"
       }, void 0, false, {
         fileName: _jsxFileName,
-        lineNumber: 216,
+        lineNumber: 230,
         columnNumber: 9
-      }, undefined), modalVisible && /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_19__["jsxDEV"])(_Modal__WEBPACK_IMPORTED_MODULE_18__["default"], {
+      }, undefined), modalVisible && /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_19__["jsxDEV"])(_QuizModal__WEBPACK_IMPORTED_MODULE_18__["default"], {
         visible: modalVisible,
         closable: true,
         maskClosable: true,
@@ -27145,30 +27161,30 @@ const VideoContainer = props => {
         children: "\uD034\uC988 \uCD9C\uC81C"
       }, void 0, false, {
         fileName: _jsxFileName,
-        lineNumber: 218,
+        lineNumber: 232,
         columnNumber: 27
       }, undefined)]
     }, void 0, true, {
       fileName: _jsxFileName,
-      lineNumber: 213,
+      lineNumber: 227,
       columnNumber: 28
     }, undefined) : /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_19__["jsxDEV"])("div", {}, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 228,
+      lineNumber: 242,
       columnNumber: 18
     }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_19__["jsxDEV"])(_chat_chat__WEBPACK_IMPORTED_MODULE_14__["default"], {}, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 229,
+      lineNumber: 243,
       columnNumber: 7
     }, undefined)]
   }, void 0, true, {
     fileName: _jsxFileName,
-    lineNumber: 141,
+    lineNumber: 155,
     columnNumber: 5
   }, undefined);
 };
 
-_s(VideoContainer, "OHfqb6CmNqBvgVzXwxutgd3YbIs=", false, function () {
+_s(VideoContainer, "OdhxSBFaQYbhDAJXaZH6/mwQXok=", false, function () {
   return [_hooks_useCanvasDimension__WEBPACK_IMPORTED_MODULE_7__["useCanvasDimension"], _hooks_useAvtiveVideo__WEBPACK_IMPORTED_MODULE_10__["useActiveVideo"], _hooks_usePagination__WEBPACK_IMPORTED_MODULE_9__["usePagination"], _hooks_useGalleryLayout__WEBPACK_IMPORTED_MODULE_8__["useGalleryLayout"], _hooks_useShare__WEBPACK_IMPORTED_MODULE_11__["useShare"]];
 });
 

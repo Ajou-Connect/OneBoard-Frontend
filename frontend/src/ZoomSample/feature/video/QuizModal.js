@@ -60,11 +60,11 @@ const OkBtn = styled.button`
   margin-top: 150px;
 `
 
-Modal.propTypes = {
+QuizModal.propTypes = {
   visible: PropTypes.bool,
 }
 
-function Modal({ className,
+function QuizModal({ className,
   onClose,
   maskClosable,
   closable,
@@ -141,4 +141,4 @@ function Modal({ className,
     )
 }
 
-export default Modal;
+export default QuizModal;

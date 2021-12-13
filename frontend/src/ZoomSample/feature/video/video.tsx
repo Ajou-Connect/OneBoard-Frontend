@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import classnames from 'classnames';
 import { RouteComponentProps } from 'react-router-dom';
 import ZoomContext from '../../context/zoom-context';
@@ -18,7 +18,7 @@ import axios from "axios";
 import { Button } from "antd";
 import styled from 'styled-components';
 import io from "socket.io-client";
-import Modal from './Modal';
+import QuizModal from './QuizModal';
 
 const AttendanceBtn = styled.button`
   color: red;
@@ -45,6 +45,7 @@ const VideoContainer: React.FunctionComponent<VideoProps> = (props) => {
   const activeVideo = useActiveVideo(zmClient);
   const user = JSON.parse(localStorage.userInfo);
   const userType: string = user.userType;
+  const token = localStorage.getItem("token");
   const [modalVisible, setModalVisible] = useState<boolean>(false);
   const [understandId, setUnderstandId] = useState<number>(0);
   const { page, pageSize, totalPage, totalSize, setPage } = usePagination(
@@ -83,22 +84,35 @@ const VideoContainer: React.FunctionComponent<VideoProps> = (props) => {
     contentDimension.height = Math.floor(height * ratio);
   }
 
-  
-  const asdf = { userType: userType, room : sessionId}
-  // const obj = JSON.parse(test);
 
-  console.log(asdf);
-  
-  socket.emit("init", {
+
+  useEffect(() => {
+      socket.emit("init", {
     "userType": userType,
     "room" : sessionId
   });
-  
-  socket.on("attendance request", (data : any) => {
-    console.log("hi" + data);
-    
+
+    socket.on("attendance request", (data: any) => {
+      alert("출석 확인");
+    axios.get(`/lecture/${lectureId}/lesson/${lessonId}/live/attendance/student`,{params: {"session" : `${sessionId}`} , headers: {"X-AUTH-TOKEN" : `${token}`}})
+      .then((res) => {
+        console.log(res);
+        const result = res.data.result;
+        if (result === "SUCCESS") {
+          console.log("hi");
+        }
+        else {
+          console.log("error");
+        }
+      })
+      .catch((error) => {
+      console.log(error);   
+    })
   }  
-  )
+)  
+  },[])
+  
+  
 
   
   
@@ -215,7 +229,7 @@ const VideoContainer: React.FunctionComponent<VideoProps> = (props) => {
         <AttendanceBtn onClick={checkAttendance}>출석요청</AttendanceBtn>
         <AttendanceBtn onClick={openModal}>퀴즈출제</AttendanceBtn>
         {
-          modalVisible && <Modal
+          modalVisible && <QuizModal
           visible={modalVisible}
           closable={true}
           maskClosable={true}
@@ -223,7 +237,7 @@ const VideoContainer: React.FunctionComponent<VideoProps> = (props) => {
             lessonId={props.lessonId}
             lectureId={props.lectureId}
             sessionId={props.sessionId}
-          className="modal-root">퀴즈 출제</Modal>
+          className="modal-root">퀴즈 출제</QuizModal>
         }
       </div>) : (<div></div>)}
       <Chat/>
