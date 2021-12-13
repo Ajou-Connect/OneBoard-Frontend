@@ -157,12 +157,17 @@ const ProfessorAssignmentDetail = ({ match }) => {
           <div>배점 {assignments.score}</div>
         </div>
         <ProblemContent>
-          <a
-            href={fileUrl}
-            style={{ fontWeight: 'bold', textDecoration: 'underline', fontSize: '1.2rem' }}
-          >
-            과제 파일 다운로드
-          </a>
+          {assignments.fileUrl === null ? (
+            <div></div>
+          ) : (
+            <a
+              href={fileUrl}
+              style={{ fontWeight: 'bold', textDecoration: 'underline', fontSize: '1.2rem' }}
+            >
+              과제 파일 다운로드
+            </a>
+          )}
+
           <br />
           <br />
           {ReactHtmlParser(assignments.content)}

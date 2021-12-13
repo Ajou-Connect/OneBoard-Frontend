@@ -14,39 +14,6 @@ const StyledButton = styled(Button)`
   }
 `;
 
-const WriteBtn = styled.button`
-  font-size: 12px;
-  font-weight: bold;
-  padding: 5px;
-  margin-top: 10px;
-  margin-bottom: 5px;
-  margin-right: 30px;
-  margin-left: 20px;
-  background-color: #d3d31c;
-  color: #3e3e3e;
-  border-radius: 5px;
-  cursor: pointer;
-  &:hover {
-    background-color: #bfbfbf;
-  }
-`;
-
-const UpdateBtn = styled.button`
-  font-size: 12px;
-  font-weight: bold;
-  padding: 5px;
-  margin-top: 10px;
-  margin-bottom: 5px;
-  margin-right: 30px;
-  background-color: #f83636;
-  color: #3e3e3e;
-  border-radius: 5px;
-  cursor: pointer;
-  &:hover {
-    background-color: #bfbfbf;
-  }
-`;
-
 const Title = styled.div`
   margin-top: 20px;
   margin-left: 20px;
@@ -57,19 +24,6 @@ const Title = styled.div`
   font-style: italic;
 `;
 
-const Btn = styled.button`
-  font-size: 2px;
-  padding: 5px;
-  margin-top: 50px;
-  margin-right: 10px;
-  background-color: rgba(215, 226, 185, 0.596);
-  color: #3e3e3e;
-  border-radius: 7px;
-  cursor: pointer;
-  &:hover {
-    background-color: #bfbfbf;
-  }
-`;
 const ProblemContainer = styled.div`
   background-color: white;
   border-radius: 10px;

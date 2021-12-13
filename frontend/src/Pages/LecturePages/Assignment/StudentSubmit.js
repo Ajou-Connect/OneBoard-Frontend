@@ -34,17 +34,6 @@ const StudentSubmit = ({ lectureId, assignmentId, assignmentsScore }) => {
     getSubmitData();
   }, []);
 
-  const DownAssignment = (e, submitId) => {
-    axios
-      .get(`/lecture/${lectureId}/assignment/${assignmentId}/submit/${submitId}/file`)
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
-
   const onSubmitAssignment = (e, submitId) => {
     return (window.location.href = `/Main/Lecture/${userType}/${lectureId}/Assignment/${assignmentId}/ProfessorDetail/${submitId}`);
   };
