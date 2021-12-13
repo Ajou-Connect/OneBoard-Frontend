@@ -26964,6 +26964,11 @@ const VideoContainer = props => {
       });
     });
   }, []);
+  socket.on("understanding request", data => {
+    //모달 
+    //axios post
+    axios__WEBPACK_IMPORTED_MODULE_15___default.a.post(`/lecture/${lectureId}/lesson/${lessonId}/live/un`);
+  });
 
   const checkAttendance = e => {
     // e.preventDefault(); 
@@ -27022,7 +27027,7 @@ const VideoContainer = props => {
           ref: shareRef
         }, void 0, false, {
           fileName: _jsxFileName,
-          lineNumber: 169,
+          lineNumber: 175,
           columnNumber: 11
         }, undefined), Object(_utils_platform__WEBPACK_IMPORTED_MODULE_13__["isSupportWebCodecs"])() ? /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_19__["jsxDEV"])("video", {
           className: classnames__WEBPACK_IMPORTED_MODULE_1___default()('share-canvas', {
@@ -27031,7 +27036,7 @@ const VideoContainer = props => {
           ref: selfShareRef
         }, void 0, false, {
           fileName: _jsxFileName,
-          lineNumber: 173,
+          lineNumber: 179,
           columnNumber: 33
         }, undefined) : /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_19__["jsxDEV"])("canvas", {
           className: classnames__WEBPACK_IMPORTED_MODULE_1___default()('share-canvas', {
@@ -27040,17 +27045,17 @@ const VideoContainer = props => {
           ref: selfShareRef
         }, void 0, false, {
           fileName: _jsxFileName,
-          lineNumber: 176,
+          lineNumber: 182,
           columnNumber: 14
         }, undefined)]
       }, void 0, true, {
         fileName: _jsxFileName,
-        lineNumber: 162,
+        lineNumber: 168,
         columnNumber: 9
       }, undefined)
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 156,
+      lineNumber: 162,
       columnNumber: 7
     }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_19__["jsxDEV"])("div", {
       className: classnames__WEBPACK_IMPORTED_MODULE_1___default()('video-container', {
@@ -27064,7 +27069,7 @@ const VideoContainer = props => {
         ref: videoRef
       }, void 0, false, {
         fileName: _jsxFileName,
-        lineNumber: 187,
+        lineNumber: 193,
         columnNumber: 9
       }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_19__["jsxDEV"])("ul", {
         className: "avatar-list",
@@ -27094,18 +27099,18 @@ const VideoContainer = props => {
             }
           }, user.userId, false, {
             fileName: _jsxFileName,
-            lineNumber: 203,
+            lineNumber: 209,
             columnNumber: 15
           }, undefined);
         })
       }, void 0, false, {
         fileName: _jsxFileName,
-        lineNumber: 194,
+        lineNumber: 200,
         columnNumber: 9
       }, undefined)]
     }, void 0, true, {
       fileName: _jsxFileName,
-      lineNumber: 182,
+      lineNumber: 188,
       columnNumber: 7
     }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_19__["jsxDEV"])(_components_video_footer__WEBPACK_IMPORTED_MODULE_5__["default"], {
       className: "video-operations",
@@ -27116,7 +27121,7 @@ const VideoContainer = props => {
       sessionId: props.sessionId
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 218,
+      lineNumber: 224,
       columnNumber: 7
     }, undefined), totalPage > 1 && /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_19__["jsxDEV"])(_components_pagination__WEBPACK_IMPORTED_MODULE_6__["default"], {
       page: page,
@@ -27125,7 +27130,7 @@ const VideoContainer = props => {
       inSharing: isSharing
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 220,
+      lineNumber: 226,
       columnNumber: 9
     }, undefined), userType === "T" ? /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_19__["jsxDEV"])("div", {
       children: [/*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_19__["jsxDEV"])(AttendanceBtn, {
@@ -27133,21 +27138,21 @@ const VideoContainer = props => {
         children: "\uC774\uD574\uB3C4 \uD655\uC778 \uC694\uCCAD"
       }, void 0, false, {
         fileName: _jsxFileName,
-        lineNumber: 228,
+        lineNumber: 234,
         columnNumber: 9
       }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_19__["jsxDEV"])(AttendanceBtn, {
         onClick: checkAttendance,
         children: "\uCD9C\uC11D\uC694\uCCAD"
       }, void 0, false, {
         fileName: _jsxFileName,
-        lineNumber: 229,
+        lineNumber: 235,
         columnNumber: 9
       }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_19__["jsxDEV"])(AttendanceBtn, {
         onClick: openModal,
         children: "\uD034\uC988\uCD9C\uC81C"
       }, void 0, false, {
         fileName: _jsxFileName,
-        lineNumber: 230,
+        lineNumber: 236,
         columnNumber: 9
       }, undefined), modalVisible && /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_19__["jsxDEV"])(_QuizModal__WEBPACK_IMPORTED_MODULE_18__["default"], {
         visible: modalVisible,
@@ -27161,25 +27166,25 @@ const VideoContainer = props => {
         children: "\uD034\uC988 \uCD9C\uC81C"
       }, void 0, false, {
         fileName: _jsxFileName,
-        lineNumber: 232,
+        lineNumber: 238,
         columnNumber: 27
       }, undefined)]
     }, void 0, true, {
       fileName: _jsxFileName,
-      lineNumber: 227,
+      lineNumber: 233,
       columnNumber: 28
     }, undefined) : /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_19__["jsxDEV"])("div", {}, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 242,
+      lineNumber: 248,
       columnNumber: 18
     }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_19__["jsxDEV"])(_chat_chat__WEBPACK_IMPORTED_MODULE_14__["default"], {}, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 243,
+      lineNumber: 249,
       columnNumber: 7
     }, undefined)]
   }, void 0, true, {
     fileName: _jsxFileName,
-    lineNumber: 155,
+    lineNumber: 161,
     columnNumber: 5
   }, undefined);
 };
