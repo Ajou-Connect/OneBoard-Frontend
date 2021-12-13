@@ -2486,6 +2486,13 @@
   "resolved" "https://registry.npmjs.org/@types/scheduler/-/scheduler-0.16.2.tgz"
   "version" "0.16.2"
 
+"@types/socket.io-client@^3.0.0":
+  "integrity" "sha512-s+IPvFoEIjKA3RdJz/Z2dGR4gLgysKi8owcnrVwNjgvc01Lk68LJDDsG2GRqegFITcxmvCMYM7bhMpwEMlHmDg=="
+  "resolved" "https://registry.npmjs.org/@types/socket.io-client/-/socket.io-client-3.0.0.tgz"
+  "version" "3.0.0"
+  dependencies:
+    "socket.io-client" "*"
+
 "@types/source-list-map@*":
   "integrity" "sha512-K5K+yml8LTo9bWJI/rECfIPrGgxdpeNbj+d53lwN4QjW1MCwlkhUms+gtdzigTeUyBr09+u8BwOIY3MXvHdcsA=="
   "resolved" "https://registry.npmjs.org/@types/source-list-map/-/source-list-map-0.1.2.tgz"
@@ -12698,7 +12705,7 @@
     "source-map-resolve" "^0.5.0"
     "use" "^3.1.0"
 
-"socket.io-client@^1.0.3":
+"socket.io-client@*", "socket.io-client@^1.0.3":
   "integrity" "sha1-uW3/fSvpN6s5w4TQ8x7HF4wFfw4="
   "resolved" "https://registry.npmjs.org/socket.io-client/-/socket.io-client-1.0.3.tgz"
   "version" "1.0.3"
