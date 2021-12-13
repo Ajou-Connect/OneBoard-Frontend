@@ -8,9 +8,19 @@ import styled from 'styled-components';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import 'antd/dist/antd.css';
-import { DatePicker, Space } from 'antd';
+import { DatePicker } from 'antd';
 
 const { RangePicker } = DatePicker;
+
+const Title = styled.div`
+  margin-top: 1.5rem;
+  margin-left: 20px;
+  font-size: 30px;
+  border-bottom: 1px solid #f7f9fc;
+  height: 40px;
+  line-height: 40px;
+  font-weight: bold;
+`;
 const TitleInput = styled.input`
   font-size: 2rem;
   outline: none;
@@ -25,6 +35,7 @@ const TitleInput = styled.input`
 const WriteAcitonButtonBlock = styled.div`
   margin-top: 3rem;
   margin-bottom: 3rem;
+  display: flex;
   button + button {
     margin-left: 0.5rem;
   }
@@ -80,7 +91,7 @@ const WriteAssignment = ({ match }) => {
   const [files, setFiles] = useState('');
   const [exposeDt, setExposeDt] = useState('');
   const lectureId = match.params.lectureId;
-  const user = JSON.parse(sessionStorage.userInfo);
+  const user = JSON.parse(localStorage.userInfo);
   const userType = user.userType;
   const [score, setScore] = useState(0);
 
@@ -168,11 +179,12 @@ const WriteAssignment = ({ match }) => {
 
   return (
     <Container>
+      <Title>과제/시험 작성</Title>
       <hr
         style={{
           width: '100%',
           margin: '30px 0px',
-          marginTop: '50px',
+          marginTop: '20px',
           display: 'block',
           borderColor: '#ffffff',
         }}

@@ -1,0 +1,11 @@
+.ant-modal-wrap.quizRec > div {
+  min-width: 500px !important;
+  width: fit-content !important;
+}
+.ant-btn:nth-child(1) {
+  display: none;
+}
+* {
+  margin: 0;
+  padding: 0;
+}

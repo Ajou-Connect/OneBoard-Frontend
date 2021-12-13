@@ -2,52 +2,34 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
 import moment from 'moment';
+import Button from '../../../Component/common/Button';
 
-const WriteBtn = styled.button`
-  font-size: 12px;
-  padding: 5px;
-  margin-top: 10px;
-  margin-bottom: 5px;
-  margin-left: 30px auto;
-  background-color: #ececec;
-  color: #3e3e3e;
-  border-radius: 5px;
-  cursor: pointer;
-  &:hover {
-    background-color: #bfbfbf;
-  }
-  display: inline-block;
-  float: right;
-`;
-
-const Btn = styled.button`
-  font-size: 2px;
-  padding: 5px;
-  margin-right: 10px;
-  background-color: rgba(215, 226, 185, 0.596);
-  color: #3e3e3e;
-  border-radius: 7px;
-  cursor: pointer;
-  &:hover {
-    background-color: #bfbfbf;
+const WriteAcitonButtonBlock = styled.div`
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  display: flex;
+  button + button {
+    margin-left: 0.5rem;
   }
 `;
 
-const Container = styled.div`
-  width: 97%;
-  display: block;
-  justify-content: center;
-  align-items: center;
-  margin: 10px auto;
-  padding: 0 20px;
+const StyledButton = styled(Button)`
+  height: 2.125rem;
+  & + & {
+    margin-left: 0.5rem;
+  }
 `;
+
 const Title = styled.div`
+  margin-top: 1.5rem;
+  margin-left: 20px;
   font-size: 30px;
   border-bottom: 1px solid #f7f9fc;
   height: 40px;
   line-height: 40px;
-  font-style: italic;
+  font-weight: bold;
 `;
+
 const SubTitle = styled.div`
   float: left;
   margin-top: 3px;
@@ -72,17 +54,9 @@ const StateDescript = styled.div`
   margin-left: 5px;
   margin-right: 10px;
 `;
-const StateBox = styled.div`
-  justify-content: center;
-  margin: 0px auto;
-  display: block;
-  border-radius: 50px;
-  padding: 10px;
-  width: 50%;
-`;
 
 const ProfessorAssignmentList = (props) => {
-  const user = JSON.parse(sessionStorage.userInfo);
+  const user = JSON.parse(localStorage.userInfo);
   const userType = user.userType;
   const lectureId = props.lectureId;
   const [assignments, setAssignments] = useState([]);
@@ -198,19 +172,16 @@ const ProfessorAssignmentList = (props) => {
 
   return (
     <div>
-      <Container>
-        <Title>Assignment</Title>
-        <div style={{ width: '100%', display: 'block' }}>
-          <SubTitle>과제</SubTitle>
-          <WriteBtn onClick={(e) => goWrite(e)}>작성하기</WriteBtn>
-        </div>
+      <Title>Assignment</Title>
+      <div style={{ width: '100%', display: 'block' }}>
         <div style={{ width: '100%', display: 'block', height: '20px' }}>
           <StateDescript>마감</StateDescript>{' '}
           <StateColorCircle style={{ backgroundColor: '#E24C4B' }} />
           <StateDescript>진행 중</StateDescript>{' '}
           <StateColorCircle style={{ backgroundColor: '#66FF33' }} />
         </div>
-      </Container>
+      </div>
+
       <div>
         <table
           style={{
@@ -313,32 +284,37 @@ const ProfessorAssignmentList = (props) => {
                       style={{
                         padding: '20px',
                         borderBottom: '1px solid #D5D5D5',
+                        justifyContent: 'center',
                       }}
                     >
-                      <center>
-                        {stateDisplay(moment(assignmentList.startDt), moment(assignmentList.endDt))}
-                      </center>
+                      {stateDisplay(moment(assignmentList.startDt), moment(assignmentList.endDt))}
                     </td>
                     <td
                       style={{
                         padding: '15px 0',
                         borderBottom: '1px solid #D5D5D5',
+                        display: 'flex',
+                        justifyContent: 'center',
                       }}
                     >
-                      <Btn
-                        onClick={(e) => {
-                          goUpdate(e, assignmentList.assignmentId);
-                        }}
-                      >
-                        수정하기
-                      </Btn>
-                      <Btn
-                        onClick={(e) => {
-                          onDelete(e, assignmentList.assignmentId);
-                        }}
-                      >
-                        삭제하기
-                      </Btn>
+                      <WriteAcitonButtonBlock>
+                        <StyledButton
+                          cyan
+                          onClick={(e) => {
+                            goUpdate(e, assignmentList.assignmentId);
+                          }}
+                        >
+                          수정
+                        </StyledButton>
+                        <StyledButton
+                          cyan
+                          onClick={(e) => {
+                            onDelete(e, assignmentList.assignmentId);
+                          }}
+                        >
+                          삭제
+                        </StyledButton>
+                      </WriteAcitonButtonBlock>
                     </td>
                   </tr>
                 );
@@ -346,6 +322,11 @@ const ProfessorAssignmentList = (props) => {
             )}
           </tbody>
         </table>
+      </div>
+      <div style={{ marginLeft: '1rem' }}>
+        <StyledButton cyan onClick={(e) => goWrite(e)}>
+          작성하기
+        </StyledButton>
       </div>
     </div>
   );

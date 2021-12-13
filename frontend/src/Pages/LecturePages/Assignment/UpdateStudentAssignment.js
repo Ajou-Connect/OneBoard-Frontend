@@ -113,9 +113,9 @@ const AnswerInput = styled.textarea`
   }
 `;
 const UpdateStudentAssignment = ({ match }) => {
-  const user = JSON.parse(window.sessionStorage.userInfo);
+  const user = JSON.parse(window.localStorage.userInfo);
   const userType = user.userType;
-  const token = sessionStorage.getItem('token');
+  const token = localStorage.getItem('token');
   const today = moment();
   const lectureId = match.params.lectureId;
   const assignmentId = match.params.assignmentId;

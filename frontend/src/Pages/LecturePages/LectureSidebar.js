@@ -3,7 +3,7 @@ import './LectureSidebar.scss';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 const LectureSidebar = (props) => {
-  const user = JSON.parse(sessionStorage.userInfo);
+  const user = JSON.parse(localStorage.userInfo);
   const userType = user.userType;
   const lectureId = props.lectureId;
   const [lectureInfo, setLectureInfo] = useState({});
@@ -35,17 +35,18 @@ const LectureSidebar = (props) => {
               paddingBottom: '15px',
               borderBottom: '1px solid #CDCDCD',
               fontWeight: 'bold',
-              color: '#FFFFFF',
+              color: 'black',
             }}
           >
-            교수 : {lectureInfo.professor}
-            <br />
-            과목 : {lectureInfo.title}
+            <center>
+              <div style={{ fontSize: '17px' }}>{lectureInfo.title}</div>
+              <div style={{ marginTop: '0px' }}>강의자 : {lectureInfo.professor}</div>
+            </center>
           </div>
           <li className="menu-item">
             <div className="menu-text">
               <Link to={`/Main/Lecture/${props.lectureId}/Home`} className="menu-text">
-                홈
+                과목 홈
               </Link>
             </div>
           </li>

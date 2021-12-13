@@ -6,7 +6,10 @@ import Button from '../../../Component/common/Button';
 import { withRouter } from 'react-router';
 import styled from 'styled-components';
 import ReactQuill from 'react-quill';
+import { DatePicker } from 'antd';
+import 'antd/dist/antd.css';
 import 'react-quill/dist/quill.snow.css';
+import { Container } from 'reactstrap';
 
 const TitleInput = styled.input`
   font-size: 2rem;
@@ -22,6 +25,7 @@ const TitleInput = styled.input`
 const WriteAcitonButtonBlock = styled.div`
   margin-top: 3rem;
   margin-bottom: 3rem;
+  display: flex;
   button + button {
     margin-left: 0.5rem;
   }
@@ -39,13 +43,20 @@ const UpdateNotice = ({ history, match }) => {
   const [content, setContent] = useState('');
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
-
-  const exposeDt = moment().format('YYYY-MM-DD HH:mm:ss');
-
+  const [exposeDt, setExposeDt] = useState('');
   const noticeId = match.params.noticeId;
   const lectureId = match.params.lectureId;
 
-  console.log(lectureId);
+  const onChange = (value, dateString) => {
+    console.log(value);
+    console.log(dateString);
+    setExposeDt(dateString);
+  };
+
+  const onOk = (value) => {
+    console.log(value);
+  };
+
   useEffect(() => {
     console.log('useEffect에서 log : ' + noticeId);
     const fetchUpdateNotice = async () => {
@@ -136,24 +147,31 @@ const UpdateNotice = ({ history, match }) => {
   };
 
   return (
-    <div>
+    <Container>
       <TitleInput onChange={getTitle} value={title} />
-      <ReactQuill
-        style={{ height: '650px' }}
-        theme="snow"
-        modules={modules}
-        formats={format}
-        value={content}
-        onChange={(content, delta, source, editor) => handleText(editor.getHTML())}
-      />
+      <div style={{ display: 'flex' }}>
+        <div style={{ fontWeight: 'bold', fontSize: '1rem', marginRight: '1rem' }}>개시 날짜 :</div>{' '}
+        <DatePicker showTime onChange={onChange} onOk={onOk} />
+      </div>
+      <br />
+      <div style={{ backgroundColor: 'white' }}>
+        <ReactQuill
+          style={{ height: '650px' }}
+          theme="snow"
+          modules={modules}
+          formats={format}
+          value={content}
+          onChange={(content, delta, source, editor) => handleText(editor.getHTML())}
+        />
 
-      <WriteAcitonButtonBlock>
-        <StyledButton cyan onClick={onSubmit}>
-          공지사항 수정
-        </StyledButton>
-        <StyledButton onClick={onCancel}>취소</StyledButton>
-      </WriteAcitonButtonBlock>
-    </div>
+        <WriteAcitonButtonBlock>
+          <StyledButton cyan onClick={onSubmit}>
+            공지사항 수정
+          </StyledButton>
+          <StyledButton onClick={onCancel}>취소</StyledButton>
+        </WriteAcitonButtonBlock>
+      </div>
+    </Container>
   );
 };
 

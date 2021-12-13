@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import './LectureList.scss';
 import axios from 'axios';
-
+import { Link } from 'react-router-dom';
+import Nav from '../../Sidebar/Nav';
 const LectureList = () => {
-  const token = sessionStorage.getItem('token');
+  const token = localStorage.getItem('token');
   const [lectures, setLectures] = useState([]);
   // 최초 렌더링 후 보여줄 함수 작성
   //await async 로 lecture id 호출
@@ -27,7 +28,8 @@ const LectureList = () => {
 
   return (
     <div>
-      <div className="term">
+      <Nav />
+      <div className="term" style={{ marginTop: '20px' }}>
         <h2 className="semester active-term">2021-2학기</h2>
       </div>
       <div id="course-columns-current" className="course-columns list-columns-view">
@@ -49,27 +51,28 @@ const LectureList = () => {
             ) : (
               lectures.map((lecture, index) => {
                 return (
-                  <div
-                    key={index}
-                    className="element-card course-element-card highlight pointer bar js-course-details child-is-invokable course-color-classic"
-                  >
-                    <div className="element-details summary">
-                      <div className="small-12">
-                        <div className="course-id">
-                          <span>
-                            {lecture.id}
-                            &nbsp;&nbsp; {lecture.semester}학기
-                          </span>
+                  <a href={`/Main/Lecture/${lecture.id}/Home`}>
+                    <div
+                      key={index}
+                      className="element-card course-element-card highlight pointer bar js-course-details child-is-invokable course-color-classic"
+                      style={{ marginBottom: '10px' }}
+                    >
+                      <div className="element-details summary">
+                        <div className="small-12">
+                          <div className="course-id">
+                            <span>
+                              과목 ID : {lecture.id}
+                              &nbsp;&nbsp; &nbsp; {lecture.semester}학기
+                            </span>
+                          </div>
+                        </div>
+                        <div className="a-tag later">{lecture.title}</div>
+                        <div className="small-status">
+                          <div className="basic-info">담당 교수 : {lecture.professor}</div>
                         </div>
                       </div>
-                      <div className="a-tag later">
-                        <a href={`/Main/Lecture/${lecture.id}/Home`}>{lecture.title}</a>
-                      </div>
-                      <div className="small-status">
-                        <div className="basic-info">담당 교수 : {lecture.professor}</div>
-                      </div>
                     </div>
-                  </div>
+                  </a>
                 );
               })
             )}

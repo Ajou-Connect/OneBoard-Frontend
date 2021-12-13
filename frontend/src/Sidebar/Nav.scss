@@ -1,38 +1,25 @@
-svg {
-  width: 1.5rem;
-  height: 1.5rem;
-}
-
-.navbar {
-  background-color: #5a87d6;
-  height: 60px;
-  display: flex;
-  justify-items: center;
-  align-items: center;
-  padding: 0px;
-  border-radius: 10px;
-}
 .menu-bars {
   margin-left: 1rem;
-  font-size: 1.5rem;
+  font-size: 10px;
   background: none;
   margin-top: center;
+  font-weight: normal;
+  color: white;
 }
 .nav-menu {
   background-color: #75b5f1;
-  width: 200px;
+  width: 15rem;
   height: 100vh;
   display: flex;
-  position: fixed;
-  right: 10px;
-  top: 5px;
-  z-index: 4;
+
   left: -100%;
   transition: 1200ms;
+  margin-left: -15rem;
 }
 .nav-menu.active {
   left: 0;
   transition: 500ms;
+  margin-left: 0;
 }
 .nav-text {
   display: flex;

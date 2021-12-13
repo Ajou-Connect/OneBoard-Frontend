@@ -11,20 +11,22 @@ const Container = styled.div`
   padding: 0 20px;
 `;
 const Title = styled.div`
+  margin-top: 1.5rem;
+  margin-left: 20px;
   font-size: 30px;
   border-bottom: 1px solid #f7f9fc;
   height: 40px;
   line-height: 40px;
-  font-style: italic;
-  text-align: left;
-  display: flex;
+  font-weight: bold;
 `;
+
 const SubTitle = styled.div`
   font-size: 20px;
   border-bottom: 1px solid #f7f9fc;
   height: 30px;
   line-height: 30px;
   text-align: left;
+  margin-left: 20px;
 `;
 
 const Btn = styled.button`
@@ -37,27 +39,13 @@ const Btn = styled.button`
   }
 `;
 
-const WriteBtn = styled.button`
-  display: inline-block;
-  float: left;
-  background-color: whitesmoke;
-  color: black;
-  font-size: 16px;
-  width: 80px;
-  margin-right: 5px;
-  padding: 5px;
-  border-radius: 5px;
-  &:hover {
-    background-color: #bfbfbf;
-  }
-`;
 const TabletrColor = styled.tr`
   &:nth-child(even) {
     background: #f7f9fc;
   }
 `;
 const StudentAttendance = (props) => {
-  const token = sessionStorage.getItem('token');
+  const token = localStorage.getItem('token');
   const lectureId = props.lectureId;
   const [attendances, setAttendances] = useState({
     attendanceList: [],
@@ -67,7 +55,7 @@ const StudentAttendance = (props) => {
   });
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
-
+  const [lectureInfo, setLectureInfo] = useState({});
   useEffect(() => {
     const fetchAttendance = async () => {
       try {
@@ -83,6 +71,16 @@ const StudentAttendance = (props) => {
           .catch((e) => {
             console.log(e);
             setError(e);
+          });
+        await axios
+          .get(`/lecture/${lectureId}`)
+          .then((result) => {
+            const data = result.data.data;
+            setLectureInfo(data);
+            console.log(data);
+          })
+          .catch((e) => {
+            console.log(e);
           });
         setLoading(false);
       } catch (e) {
@@ -122,14 +120,14 @@ const StudentAttendance = (props) => {
     );
 
   return (
-    <Container>
+    <div>
       <Title>개인 출석부</Title>
       <hr style={{ width: '100%', margin: '10px 0px', display: 'block', borderColor: '#ffffff' }} />
-      <SubTitle style={{ display: 'flex' }}>
+      <SubTitle style={{ display: 'flex', marginLeft: '20px' }}>
         이름 : {attendances.studentName} 학번 : {attendances.studentNumber}
       </SubTitle>
       <hr style={{ width: '100%', margin: '10px 0px', display: 'block', borderColor: '#ffffff' }} />
-      <SubTitle>강의 이름</SubTitle>
+      <SubTitle>{lectureInfo.title}</SubTitle>
       <hr style={{ width: '100%', margin: '10px 0px', display: 'block', borderColor: '#ffffff' }} />
 
       <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
@@ -180,7 +178,7 @@ const StudentAttendance = (props) => {
         </tbody>
       </table>
       <hr style={{ width: '100%', margin: '10px 0px', display: 'block', borderColor: '#ffffff' }} />
-    </Container>
+    </div>
   );
 };
 

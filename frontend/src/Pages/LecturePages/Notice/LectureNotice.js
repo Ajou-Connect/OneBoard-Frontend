@@ -1,18 +1,27 @@
 import React from 'react';
 import LectureSidebar from '../LectureSidebar';
 import './LectureNotice.scss';
-import LectureNoticeContent from './LectureNoticeContent';
+import Nav from '../../../Sidebar/Nav';
+import LectureProfessorNoticeContent from './LectureProfessorNoticeContent';
+import LectureStudentNoticeContent from './LectureStudentNoticeContent';
 
 const LectureNotice = ({ match }) => {
   const Id = match.params.lectureId;
+  const user = JSON.parse(localStorage.userInfo);
+  const userType = user.userType;
 
   return (
-    <div className="notice">
-      <nav className="lecture-menu">
-        <LectureSidebar lectureId={Id} />
-      </nav>
+    <div className="lecture-notice">
+      <Nav />
       <div className="notice-main">
-        <LectureNoticeContent lectureId={Id} />
+        <LectureSidebar lectureId={Id} />
+        <div style={{ width: '100%' }}>
+          {userType === 'T' ? (
+            <LectureProfessorNoticeContent lectureId={Id} />
+          ) : (
+            <LectureStudentNoticeContent lectureId={Id} />
+          )}
+        </div>
       </div>
     </div>
   );

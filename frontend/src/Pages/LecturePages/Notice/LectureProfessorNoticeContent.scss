@@ -1,0 +1,142 @@
+.contentBox {
+  background: F4F9FF;
+}
+
+div.page-Title {
+  padding-top: 0;
+  border-radius: 0;
+}
+
+.pageTitle {
+  border: 0 !important;
+  background: none !important;
+  margin: 10px 0 !important;
+  padding: 20px 30px;
+  color: #333;
+  position: relative;
+  background: #f4f9ff;
+}
+
+.clearfix {
+  display: block;
+}
+
+.container {
+  padding: 20px 10px;
+  margin: 15px 30px;
+  margin-bottom: 30px;
+  position: relative;
+  min-width: auto;
+  zoom: 1;
+  min-height: 400px;
+  background-color: f4f9ff;
+  overflow: visible;
+}
+
+.announcementList {
+  margin: -20px -10px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  outline: 0;
+  font-style: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+  font-size: 100%;
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
+form {
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-weight: inherit;
+  font-style: inherit;
+  font-family: inherit;
+  font-size: 100%;
+  display: block;
+}
+
+.notice-content {
+  margin-right: 12.8em;
+  overflow-x: auto;
+  overflow-y: visible;
+}
+
+.container > form {
+  margin: 0;
+}
+
+li:first-child {
+  border-top: 1px solid transparent;
+}
+
+li {
+  text-align: -webkit-match-parent;
+  outline: 0;
+  font-weight: inherit;
+  font-style: inherit;
+  font-family: inherit;
+  font-size: 100%;
+}
+
+.announcementList > li {
+  min-height: 50px;
+  padding: 20px 30px;
+  margin: 0 -1px;
+  position: relative;
+  border: 1px solid transparent;
+  border-color: #ccc;
+}
+
+.notice-title {
+  padding-right: 13em;
+  word-break: normal;
+  word-wrap: break-word;
+  border: 0 !important;
+  margin: 0;
+  font-size: 110%;
+  padding: 0 0 12px;
+  font-weight: bold;
+}
+
+.pageTitle h1 {
+  display: inline-block;
+}
+
+h3 {
+  outline: 0;
+  font-style: inherit;
+  font-family: inherit;
+  display: block;
+  margin-block-start: 1em;
+  margin-inline-end: 0px;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+}
+
+.noticeInfo {
+  position: absolute;
+  right: 0;
+  top: 2px;
+  bottom: 8px;
+  width: 14em;
+  border-left: 1px dotted #ccc;
+  padding: 9px 9px 3px 14px;
+  font-size: 85%;
+  word-wrap: break-word;
+}
+
+* {
+  font-family: 'Open Sans', sans-serif;
+  text-shadow: none !important;
+  letter-spacing: normal !important;
+}

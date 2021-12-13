@@ -1,9 +1,7 @@
-.plan {
+.lecture-plan {
   padding-bottom: 12px;
-  position: relative;
-  zoom: 1;
   min-width: 100%;
-  height: auto;
+  overflow: hidden;
 }
 
 .lecture-menu {
@@ -13,9 +11,9 @@
   top: 0px;
   left: 0;
   margin-left: 0;
-  position: absolute;
 }
 
 .plan-main {
-  margin: 10px 0 0 200px;
+  display: flex;
+  width: 100%;
 }

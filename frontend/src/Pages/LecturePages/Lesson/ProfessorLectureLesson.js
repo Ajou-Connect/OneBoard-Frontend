@@ -5,53 +5,29 @@ import Button from '../../../Component/common/Button';
 import axios from 'axios';
 
 const Title = styled.div`
+  margin-top: 1.5rem;
+  margin-left: 20px;
   font-size: 30px;
-  margin-left: 15px;
   border-bottom: 1px solid #f7f9fc;
   height: 40px;
   line-height: 40px;
-  font-style: italic;
-  text-align: left;
+  font-weight: bold;
 `;
 
-const TitleInput = styled.input`
-  font-size: 2rem;
-  outline: none;
-  padding-bottom: 0.5rem;
-  border: none;
-  border-bottom: 1px solid ${palette.gray[4]};
+const WriteAcitonButtonBlock = styled.div`
+  margin-top: 2rem;
   margin-bottom: 2rem;
-  margin-top: 10px;
-  width: 100%;
-`;
-
-const Btn = styled.button`
-  font-size: 2px;
-  padding: 5px;
-  margin-right: 10px;
-  background-color: rgba(215, 226, 185, 0.596);
-  color: #3e3e3e;
-  border-radius: 7px;
-  cursor: pointer;
-  &:hover {
-    background-color: #bfbfbf;
+  display: flex;
+  button + button {
+    margin-left: 0.5rem;
   }
 `;
 
-const WriteBtn = styled.button`
-  font-size: 12px;
-  padding: 5px;
-  margin-top: 10px;
-  margin-right: 5px;
-  background-color: #ececec;
-  color: #3e3e3e;
-  border-radius: 5px;
-  cursor: pointer;
-  &:hover {
-    background-color: #bfbfbf;
+const StyledButton = styled(Button)`
+  height: 2.125rem;
+  & + & {
+    margin-left: 0.5rem;
   }
-  display: inline-block;
-  float: right;
 `;
 
 const TabletrColor = styled.tr`
@@ -105,7 +81,7 @@ const ProfessorLectureLesson = (props) => {
     return (window.location.href = `/Main/Lecture/${lectureId}/Lesson/Update/${lessonId}`);
   };
   return (
-    <div>
+    <div style={{ marginBottom: '5rem' }}>
       <Title>수업</Title>
       <hr style={{ width: '100%', margin: '10px 0px', display: 'block', borderColor: '#ffffff' }} />
       <table
@@ -181,16 +157,26 @@ const ProfessorLectureLesson = (props) => {
                 style={{
                   padding: '10px 0',
                   borderBottom: '1px solid #D5D5D5',
+                  display: 'flex',
+                  justifyContent: 'center',
                 }}
               >
-                <Btn onClick={(e) => onUpdate(e, lessonList.lessonId)}>수정하기</Btn>
-                <Btn onClick={(e) => onDelete(e, lessonList.lessonId)}>삭제하기</Btn>
+                <WriteAcitonButtonBlock>
+                  <StyledButton cyan onClick={(e) => onUpdate(e, lessonList.lessonId)}>
+                    수정하기
+                  </StyledButton>
+                  <StyledButton cyan onClick={(e) => onDelete(e, lessonList.lessonId)}>
+                    삭제하기
+                  </StyledButton>
+                </WriteAcitonButtonBlock>
               </td>
             </TabletrColor>
           ))}
         </tbody>
       </table>
-      <WriteBtn onClick={onGenerate}>수업 생성하기</WriteBtn>
+      <StyledButton cyan style={{ marginTop: '0.5rem' }} onClick={onGenerate}>
+        수업 생성하기
+      </StyledButton>
     </div>
   );
 };

@@ -3,9 +3,28 @@ import styled from 'styled-components';
 import axios from 'axios';
 import palette from '../../../lib/styles/palette';
 import moment from 'moment';
-import { DatePicker } from 'antd';
+import { DatePicker, TimePicker } from 'antd';
 import 'antd/dist/antd.css';
 import { Radio } from 'antd';
+import Button from '../../../Component/common/Button';
+
+const WriteAcitonButtonBlock = styled.div`
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  margin-left: 1rem;
+  display: flex;
+  button + button {
+    margin-left: 0.5rem;
+  }
+`;
+
+const StyledButton = styled(Button)`
+  height: 2.125rem;
+  & + & {
+    margin-left: 0.5rem;
+  }
+`;
+
 const Title = styled.div`
   font-size: 30px;
   margin-left: 15px;
@@ -48,46 +67,16 @@ const MeetInput = styled.input`
   width: 70%;
 `;
 
-const Btn = styled.button`
-  font-size: 2px;
-  padding: 5px;
-  margin-right: 10px;
-  background-color: rgba(215, 226, 185, 0.596);
-  color: #3e3e3e;
-  border-radius: 7px;
-  &:hover {
-    background-color: #bfbfbf;
-  }
-`;
-
-const WriteBtn = styled.button`
-  font-size: 12px;
-  padding: 5px;
-  margin-left: 50px;
-  background-color: #ececec;
-  color: #3e3e3e;
-  border-radius: 5px;
-  cursor: pointer;
-  &:hover {
-    background-color: #bfbfbf;
-  }
-`;
-
-const TabletrColor = styled.tr`
-  &:nth-child(even) {
-    background: #f7f9fc;
-  }
-`;
-
 const GenerateLesson = ({ match }) => {
   const lectureId = match.params.lectureId;
   const [title, setTitle] = useState('');
   const [period, setPeriod] = useState('');
-  const [lessonFile, setLessonFile] = useState('');
+  const [lessonFile, setLessonFile] = useState('등록된 강의노트가 없습니다');
   const [radioValue, setRadioValue] = useState(0);
   const [room, setRoom] = useState(null);
   const [videoUrl, setVideoUrl] = useState(null);
   const [meetingId, setMeetingId] = useState(null);
+  const [time, setTime] = useState('');
 
   const getTitle = (e) => {
     setTitle(e.target.value);
@@ -123,26 +112,22 @@ const GenerateLesson = ({ match }) => {
     return (window.location.href = `/Main/Lecture/${lectureId}/Lesson`);
   };
 
+  const onTimeChange = (time, timeString) => {
+    setTime(timeString);
+  };
+
   const onSubmit = (e) => {
     parseInt(radioValue);
-    e.preventDefault();
+    const date = period + ' ' + time;
     const formData = new FormData();
-    formData.append('file', lessonFile, lessonFile.name);
+    formData.append('file', lessonFile);
     formData.append('title', title);
-    formData.append('date', period);
+    formData.append('date', date);
     formData.append('type', radioValue);
     formData.append('videoUrl', videoUrl);
     formData.append('room', room);
     formData.append('meetingId', meetingId);
 
-    console.log(lessonFile);
-    console.log(title);
-    console.log(period);
-    console.log(formData);
-    console.log(radioValue);
-    console.log(room);
-    console.log(meetingId);
-    console.log(videoUrl);
     axios
       .post(`/lecture/${lectureId}/lesson`, formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
@@ -153,6 +138,8 @@ const GenerateLesson = ({ match }) => {
 
       .catch((e) => {
         console.log(e);
+        alert('수업 생성에 실패했습니다. 다시 작성 후 시도해주세요');
+        return (window.location.href = `/Main/Lecture/${lectureId}/Lesson/GenerateLesson`);
       });
   };
 
@@ -206,6 +193,28 @@ const GenerateLesson = ({ match }) => {
             marginLeft: '15px',
           }}
         >
+          강의 시간 선택
+        </div>
+        <div>
+          <TimePicker
+            onChange={onTimeChange}
+            defaultOpenValue={moment('00:00:00', 'HH:mm:ss')}
+            style={{ margin: '10px' }}
+          />
+        </div>
+      </div>
+      <div style={{ display: 'flex' }}>
+        <div
+          style={{
+            fontSize: '1rem',
+            paddingBottom: '0.5rem',
+            marginBottom: '2rem',
+            marginTop: '15px',
+            marginRight: '15px',
+            fontWeight: 'bold',
+            marginLeft: '15px',
+          }}
+        >
           강의 노트 업로드
         </div>
         <div>
@@ -243,7 +252,7 @@ const GenerateLesson = ({ match }) => {
       <div>
         {radioValue === 1 ? (
           <div style={{ fontSize: '1rem', marginLeft: '50px', fontWeight: 'bold' }}>
-            zoom session link를 입력 해주세요 :
+            zoom session 생성하기
             <TitleInput onChange={getMeetingId} placeholder="zoom link를 입력해주세요" />
           </div>
         ) : radioValue === 2 ? (
@@ -261,8 +270,14 @@ const GenerateLesson = ({ match }) => {
           style={{ width: '100%', margin: '10px 0px', display: 'block', borderColor: '#ffffff' }}
         />
       </div>
-      <WriteBtn onClick={onSubmit}>수업 생성하기</WriteBtn>
-      <WriteBtn onClick={onCancel}>뒤로가기</WriteBtn>
+      <WriteAcitonButtonBlock>
+        <StyledButton cyan onClick={onSubmit}>
+          수업 생성
+        </StyledButton>
+        <StyledButton cyan onClick={onCancel}>
+          뒤로가기
+        </StyledButton>
+      </WriteAcitonButtonBlock>
     </div>
   );
 };

@@ -1,6 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
+import Button from '../../../Component/common/Button';
+
+const WriteAcitonButtonBlock = styled.div`
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  display: flex;
+  button + button {
+    margin-left: 0.5rem;
+  }
+`;
+
+const StyledButton = styled(Button)`
+  height: 2.125rem;
+  & + & {
+    margin-left: 0.5rem;
+  }
+`;
 
 const WriteBtn = styled.button`
   font-size: 12px;

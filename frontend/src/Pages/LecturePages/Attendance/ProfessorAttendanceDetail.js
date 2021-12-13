@@ -4,13 +4,33 @@ import axios from 'axios';
 import palette from '../../../lib/styles/palette';
 import 'antd/dist/antd.css';
 import { Radio } from 'antd';
-import Button from 'react-bootstrap/Button';
+import Button from '../../../Component/common/Button';
+
+const WriteAcitonButtonBlock = styled.div`
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  margin-left: 1rem;
+  height: 5rem;
+  display: flex;
+  button + button {
+    margin-left: 0.5rem;
+  }
+`;
+
+const StyledButton = styled(Button)`
+  height: 2.125rem;
+  & + & {
+    margin-left: 0.5rem;
+  }
+`;
+
 const Container = styled.div`
   width: 97%;
   display: block;
   justify-content: center;
   align-items: center;
-  margin: 10px auto;
+  margin: 10px;
+  margin-bottom: 5rem;
   padding: 0 20px;
 `;
 const Title = styled.div`
@@ -54,22 +74,6 @@ const StatusBtn = styled.button`
   }
 `;
 
-const WriteBtn = styled.button`
-  display: inline-block;
-  float: left;
-  background-color: whitesmoke;
-  color: black;
-  font-size: 16px;
-  width: 80px;
-  margin-right: 5px;
-  margin-bottom: 20px;
-  padding: 5px;
-  border-radius: 5px;
-  cursor: pointer;
-  &:hover {
-    background-color: #bfbfbf;
-  }
-`;
 const TabletrColor = styled.tr`
   &:nth-child(even) {
     background: #f7f9fc;
@@ -118,7 +122,6 @@ const ProfessorAttendanceDetail = ({ match }) => {
   }, []);
 
   const onStatusChange = (e, data, statusId) => {
-    alert('해당 사항으로 변경합니다 저장하기를 눌러주세요');
     setAttendanceListInfo([
       {
         lessonId: data.lessonId,
@@ -144,7 +147,7 @@ const ProfessorAttendanceDetail = ({ match }) => {
       })
       .then((res) => {
         console.log(res);
-        return (window.location.href = `/Main/Lecture/${lectureId}/Attendance/${studentDetailId}`);
+        // return (window.location.href = `/Main/Lecture/${lectureId}/Attendance/${studentDetailId}`);
       })
       .catch((e) => {
         console.log(e);
@@ -165,7 +168,9 @@ const ProfessorAttendanceDetail = ({ match }) => {
     <Container>
       <Title>학생 출석부</Title>
       <hr style={{ width: '100%', margin: '10px 0px', display: 'block', borderColor: '#ffffff' }} />
-      <SubTitle>{studentInfo.map((student) => student.studentName)}</SubTitle>
+      <div style={{ display: 'flex' }}>
+        <SubTitle>{studentInfo.map((student) => student.studentName)}</SubTitle>
+      </div>
       <hr style={{ width: '100%', margin: '10px 0px', display: 'block', borderColor: '#ffffff' }} />
       <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
         <div style={{ paddingRight: '10px', fontSize: '20px', color: '#22CE41' }}>
@@ -194,7 +199,6 @@ const ProfessorAttendanceDetail = ({ match }) => {
             <th style={{ padding: '10px 0', width: '40%' }}>수강 날짜</th>
             <th style={{ padding: '10px 0', width: '20%' }}>출결 상태</th>
             <th style={{ padding: '10px 0', width: '20%' }}>출결 수정</th>
-            <th style={{ padding: '10px 0', width: 'auto' }}>출결 저장</th>
           </tr>
         </thead>
         <tbody>
@@ -216,13 +220,12 @@ const ProfessorAttendanceDetail = ({ match }) => {
                     <div style={{ color: 'red', fontWeight: 'bold' }}>결석</div>
                   )}
                 </td>
-                <td style={{ padding: '15px 0', borderBottom: '1px solid #D5D5D5' }}>
+                <td
+                  style={{ padding: '15px 0', borderBottom: '1px solid #D5D5D5', display: 'flex' }}
+                >
                   <StatusBtn onClick={(e) => onStatusChange(e, list, 2)}>출석</StatusBtn>
                   <StatusBtn onClick={(e) => onStatusChange(e, list, 1)}>지각</StatusBtn>
                   <StatusBtn onClick={(e) => onStatusChange(e, list, 0)}>결석</StatusBtn>
-                </td>
-                <td style={{ padding: '15px 0', borderBottom: '1px solid #D5D5D5' }}>
-                  <Btn onClick={onSubmit}>저장하기</Btn>
                 </td>
               </TabletrColor>
             )),
@@ -230,9 +233,14 @@ const ProfessorAttendanceDetail = ({ match }) => {
         </tbody>
       </table>
       <hr style={{ width: '100%', margin: '10px 0px', display: 'block', borderColor: '#ffffff' }} />
-      <WriteBtn onClick={onCancel} style={{ cursor: 'pointer' }}>
-        뒤로가기
-      </WriteBtn>
+      <WriteAcitonButtonBlock>
+        <StyledButton cyan onClick={onCancel}>
+          뒤로가기
+        </StyledButton>
+        <StyledButton cyan onClick={onSubmit} style={{ marginLeft: 'auto' }}>
+          저장하기
+        </StyledButton>
+      </WriteAcitonButtonBlock>
     </Container>
   );
 };
