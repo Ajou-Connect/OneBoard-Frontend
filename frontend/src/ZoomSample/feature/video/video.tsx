@@ -115,7 +115,9 @@ const VideoContainer: React.FunctionComponent<VideoProps> = (props) => {
   socket.on("understanding request", (data: any) => {
     //모달 
     //axios post
-    axios.post(`/lecture/${lectureId}/lesson/${lessonId}/live/un`)
+    axios.post(`/lecture/${lectureId}/lesson/${lessonId}/live/understanding/${understandId}/student`
+    
+    )
   })
   
   
