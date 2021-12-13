@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
+import './LectureAssignment.scss';
 
 const ProblemTitle = styled.div`
   width: 100%;
@@ -8,30 +9,10 @@ const ProblemTitle = styled.div`
   font-weight: 600;
 `;
 
-const ScoreInput = styled.input`
-  width: 30%;
-  border: 1px solid #d9d9d9;
-  padding: 10px;
-  display: inline-block;
-`;
-const ScoreButton = styled.button`
-  width: 20%;
-  display: inline-block;
-  padding: 3px;
-  background-color: #22e2cf;
-  color: white;
-  border-radius: 5px;
-`;
-
 const StudentSubmit = ({ lectureId, assignmentId, assignmentsScore }) => {
-  const [studentScore, setStudentScore] = useState(0);
   const [submitAssignments, setSubmitAssignments] = useState([]);
   const user = JSON.parse(localStorage.userInfo);
   const userType = user.userType;
-
-  const onChangeScore = (e) => {
-    //점수만 바꿔서 저장 해주기
-  };
 
   const getSubmitData = () => {
     return new Promise((resolve, reject) => {
@@ -52,6 +33,17 @@ const StudentSubmit = ({ lectureId, assignmentId, assignmentsScore }) => {
   useEffect(() => {
     getSubmitData();
   }, []);
+
+  const DownAssignment = (e, submitId) => {
+    axios
+      .get(`/lecture/${lectureId}/assignment/${assignmentId}/submit/${submitId}/file`)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   const onSubmitAssignment = (e, submitId) => {
     return (window.location.href = `/Main/Lecture/${userType}/${lectureId}/Assignment/${assignmentId}/ProfessorDetail/${submitId}`);
@@ -89,6 +81,7 @@ const StudentSubmit = ({ lectureId, assignmentId, assignmentsScore }) => {
         <tbody>
           {submitAssignments.map((submitAssignment, index) => (
             <tr
+              className="table-row"
               style={{
                 borderRadius: '5px',
                 boxShadow: '0px 2px 2px 1px #eeeeee',
@@ -99,7 +92,11 @@ const StudentSubmit = ({ lectureId, assignmentId, assignmentsScore }) => {
                   padding: '10px 0',
                   backgroundColor: 'white',
                   borderRadius: '5px 0 0 5px',
+                  fontWeight: 'bold',
+                  textDecoration: 'underline',
+                  cursor: 'pointer',
                 }}
+                onClick={(e) => onSubmitAssignment(e, submitAssignment.submitId)}
               >
                 {submitAssignment.userName}
               </td>
@@ -107,16 +104,21 @@ const StudentSubmit = ({ lectureId, assignmentId, assignmentsScore }) => {
                 style={{
                   padding: '10px 0',
                   backgroundColor: 'white',
-                  cursor: 'pointer',
-                  fontWeight: 'bold',
-                  textDecoration: 'underline',
                 }}
-                onClick={(e) => onSubmitAssignment(e, submitAssignment.submitId)}
               >
                 {submitAssignment.content}
               </td>
               <td style={{ padding: '10px 0', backgroundColor: 'white' }}>
-                {submitAssignment.fileUrl}
+                {submitAssignment.fileUrl === null ? (
+                  <div></div>
+                ) : (
+                  <div
+                    style={{ textDecoration: 'underline', fontWeight: 'bold', cursor: 'pointer' }}
+                    onClick={(e) => DownAssignment(e, submitAssignment.submitId)}
+                  >
+                    제출 파일 다운로드
+                  </div>
+                )}
               </td>
               <td style={{ padding: '10px 0', backgroundColor: 'white', justifyContent: 'center' }}>
                 <center>
