@@ -19,6 +19,7 @@ import { Button } from "antd";
 import styled from 'styled-components';
 import io from "socket.io-client";
 import QuizModal from './QuizModal';
+import UnderStandModal from './UnderStandModal';
 
 const AttendanceBtn = styled.button`
   color: red;
@@ -31,15 +32,15 @@ interface VideoProps extends RouteComponentProps {
 }
 
 const VideoContainer: React.FunctionComponent<VideoProps> = (props) => {
-  const { history, lectureId, lessonId ,sessionId} = props;
+  const { history, lectureId, lessonId, sessionId } = props;
   const zmClient = useContext(ZoomContext);
   const {
     mediaStream,
     video: { decode: isVideoDecodeReady },
   } = useContext(ZoomMediaContext);
   const videoRef = useRef<HTMLCanvasElement | null>(null);
-  const shareRef = useRef<HTMLCanvasElement  | null>(null);
-  const selfShareRef = useRef<HTMLCanvasElement & HTMLVideoElement| null>(null);
+  const shareRef = useRef<HTMLCanvasElement | null>(null);
+  const selfShareRef = useRef<HTMLCanvasElement & HTMLVideoElement | null>(null);
   const shareContainerRef = useRef<HTMLDivElement | null>(null);
   const canvasDimension = useCanvasDimension(mediaStream, videoRef);
   const activeVideo = useActiveVideo(zmClient);
@@ -47,7 +48,8 @@ const VideoContainer: React.FunctionComponent<VideoProps> = (props) => {
   const userType: string = user.userType;
   const token = localStorage.getItem("token");
   const [modalVisible, setModalVisible] = useState<boolean>(false);
-  const [understandId, setUnderstandId] = useState<number>(0);
+  const [underStandId, setUnderStandId] = useState<number>(0);
+  const [isUnderstand, setIsUnderstand] = useState<boolean>(false);
   const { page, pageSize, totalPage, totalSize, setPage } = usePagination(
     zmClient,
     canvasDimension,
@@ -87,70 +89,70 @@ const VideoContainer: React.FunctionComponent<VideoProps> = (props) => {
 
 
   useEffect(() => {
-      socket.emit("init", {
-    "userType": userType,
-    "room" : sessionId
-  });
+    socket.emit("init", {
+      "userType": userType,
+      "room": sessionId
+    });
 
     socket.on("attendance request", (data: any) => {
       alert("출석 확인");
-    axios.get(`/lecture/${lectureId}/lesson/${lessonId}/live/attendance/student`,{params: {"session" : `${sessionId}`} , headers: {"X-AUTH-TOKEN" : `${token}`}})
-      .then((res) => {
-        console.log(res);
-        const result = res.data.result;
-        if (result === "SUCCESS") {
-          console.log("hi");
-        }
-        else {
-          console.log("error");
-        }
-      })
-      .catch((error) => {
-      console.log(error);   
-    })
-  }  
-)  
-  }, [])
-  
-  socket.on("understanding request", (data: any) => {
-    //모달 
-    //axios post
-    axios.post(`/lecture/${lectureId}/lesson/${lessonId}/live/understanding/${understandId}/student`
-    
+      axios.get(`/lecture/${lectureId}/lesson/${lessonId}/live/attendance/student`, { params: { "session": `${sessionId}` }, headers: { "X-AUTH-TOKEN": `${token}` } })
+        .then((res) => {
+          console.log(res);
+          const result = res.data.result;
+          if (result === "SUCCESS") {
+            console.log("hi");
+          }
+          else {
+            console.log("error");
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        })
+    }
     )
+    // understan
+   socket.on("understanding request", (data: any) => { 
+      setIsUnderstand(true);
+      setModalVisible(true);        
   })
+  }, [])
+
   
   
+  
+   
+
 
   
   
   const checkAttendance = (e: any) => {
     // e.preventDefault(); 
-    axios.get(`/lecture/${lectureId}/lesson/${lessonId}/live/attendance/professor`,{params: { session: `${sessionId}` }})
+    axios.get(`/lecture/${lectureId}/lesson/${lessonId}/live/attendance/professor`, { params: { session: `${sessionId}` } })
       .then((res) => {
-      alert("학생들에게 출석요청을 보냈습니다.")
-      console.log(res);
+        alert("학생들에게 출석요청을 보냈습니다.")
+        console.log(res);
       })
       .catch(e => {
-      console.log(e);
-    })
+        console.log(e);
+      })
   }
 
   const checkUnderstand = () => {
-    axios.get(`/lecture/${lectureId}/lesson/${lessonId}/live/understanding/professor`,{params : {session : `${sessionId}`}})
+    axios.get(`/lecture/${lectureId}/lesson/${lessonId}/live/understanding/professor`, { params: { session: `${sessionId}` } })
       .then((res) => {
-        alert("학생들에게 이해도 평가요청을 보냈습니다.");
-        console.log(res);
-        const result = res.data.data;
-        setUnderstandId(result);
+        alert("학생들에게 이해도 평가요청을 보냈습니다.");  
+      console.log(underStandId);
+        setUnderStandId(res.data.data);
       })
       .catch((error) => {
-      console.log(error);
-    })
+        console.log(error);
+      })
   }
 
 
-    const openModal = () => {
+  const openModal = () => {
     setModalVisible(true)
   }
   const closeModal = () => {
@@ -178,10 +180,10 @@ const VideoContainer: React.FunctionComponent<VideoProps> = (props) => {
             className={classnames('share-canvas', { hidden: isStartedShare })}
             ref={shareRef}
           />
-          {isSupportWebCodecs()?<video
+          {isSupportWebCodecs() ? <video
             className={classnames('share-canvas', { hidden: isRecieveSharing })}
             ref={selfShareRef}
-          />:<canvas
+          /> : <canvas
             className={classnames('share-canvas', { hidden: isRecieveSharing })}
             ref={selfShareRef}
           />}
@@ -233,21 +235,35 @@ const VideoContainer: React.FunctionComponent<VideoProps> = (props) => {
         />
       )}
       {userType === "T" ? (<div>
-        <AttendanceBtn onClick={checkUnderstand}>이해도 확인 요청</AttendanceBtn>
-        <AttendanceBtn onClick={checkAttendance}>출석요청</AttendanceBtn>
-        <AttendanceBtn onClick={openModal}>퀴즈출제</AttendanceBtn>
+        <AttendanceBtn onClick={checkUnderstand}>이해도 확인</AttendanceBtn>
+        <AttendanceBtn onClick={checkAttendance}>출석 요청</AttendanceBtn>
+        <AttendanceBtn onClick={openModal}>퀴즈 출제</AttendanceBtn>
         {
           modalVisible && <QuizModal
-          visible={modalVisible}
-          closable={true}
-          maskClosable={true}
+            visible={modalVisible}
+            closable={true}
+            maskClosable={true}
             onClose={closeModal}
             lessonId={props.lessonId}
             lectureId={props.lectureId}
             sessionId={props.sessionId}
-          className="modal-root">퀴즈 출제</QuizModal>
+            className="modal-root">퀴즈 출제</QuizModal>
         }
-      </div>) : (<div></div>)}
+      </div>) : (isUnderstand ? (
+          <div>
+            {
+          modalVisible && <UnderStandModal
+            visible={modalVisible}
+            closable={true}
+            maskClosable={true}
+            onClose={closeModal}
+            lessonId={props.lessonId}
+            lectureId={props.lectureId}
+            sessionId={props.sessionId}
+            underStandId={underStandId}
+            className="modal-under">이해도 체크</UnderStandModal>
+        }
+        </div>) : (<div></div>))}
       <Chat/>
     </div>
   );

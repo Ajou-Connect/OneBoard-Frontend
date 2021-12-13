@@ -1,7 +1,7 @@
-import React from 'react'
-import styled from 'styled-components'
-import PropTypes from "prop-types";
-import axios from "axios";
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import axios from 'axios';
 
 const ModalWrapper = styled.div`
   box-sizing: border-box;
@@ -14,7 +14,7 @@ const ModalWrapper = styled.div`
   z-index: 1000;
   overflow: auto;
   outline: 0;
-`
+`;
 
 const ModalOverlay = styled.div`
   box-sizing: border-box;
@@ -26,7 +26,7 @@ const ModalOverlay = styled.div`
   right: 0;
   background-color: rgba(0, 0, 0, 0.6);
   z-index: 999;
-`
+`;
 
 const ModalInner = styled.div`
   box-sizing: border-box;
@@ -40,67 +40,103 @@ const ModalInner = styled.div`
   transform: translateY(-50%);
   margin: 0 auto;
   padding: 40px+ 20px;
-  height:500px;
+  height: 300px;
   text-align: center;
-`
+`;
 const CloseBtn = styled.button`
   height: 3rem;
-  width:100px;
-  color: red;
+  width: 100px;
+  font-weight: bold;
+  font-size: 1.3rem;
   margin-left: auto;
   margin-right: 2rem;
   margin-top: 150px;
-`
+`;
 const OkBtn = styled.button`
   height: 3rem;
-  width:100px;
-  color: red;
+  width: 100px;
+  font-weight: bold;
+  font-size: 1.3rem;
   margin-left: auto;
   margin-right: 2rem;
   margin-top: 150px;
-`
+`;
 
-// UnderStandModal.propTypes = {
-//   visible: PropTypes.bool,
-// }
+UnderStandModal.propTypes = {
+  visible: PropTypes.bool,
+};
 
-// const UnderStandModal = (props) => {
+function UnderStandModal({
+  className,
+  onClose,
+  maskClosable,
+  closable,
+  visible,
+  children,
+  lessonId,
+  sessionId,
+  lectureId,
+  underStandId,
+}) {
+  const onMaskClick = (e) => {
+    if (e.target === e.currentTarget) {
+      onClose(e);
+    }
+  };
 
+  const onSubmit = (e, response) => {
+    console.log(sessionId);
+    console.log(underStandId);
+    const resp = parseInt(response);
+    axios
+      .post(
+        `/lecture/${lectureId}/lesson/${lessonId}/live/understanding/120/student`,
+        {
+          response: resp,
+        },
+        { params: { session: `${sessionId}` } },
+      )
+      .then((res) => {
+        console.log(res);
+        const result = res.data.data;
+        onClose(e);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
+  return (
+    <>
+      <ModalOverlay visible={visible} />
+      <ModalWrapper
+        className={className}
+        onClick={maskClosable ? onMaskClick : null}
+        tabIndex="-1"
+        visible={visible}
+      >
+        <ModalInner tabIndex="0" className="modal-inner">
+          <div>
+            <div style={{ fontSize: '1rem', fontWeight: 'bold' }}>{children}</div>
+            <br />
+            수업에 대해 이해가 되었나요?
+            <div style={{ display: 'flex' }}>
+              {closable && (
+                <OkBtn className="modal-ok" onClick={(e) => onSubmit(e, 1)}>
+                  o
+                </OkBtn>
+              )}
+              {closable && (
+                <OkBtn className="modal-ok" onClick={(e) => onSubmit(e, 0)}>
+                  x
+                </OkBtn>
+              )}
+            </div>
+          </div>
+        </ModalInner>
+      </ModalWrapper>
+    </>
+  );
+}
 
-
-//     return (
-//         <>
-//             <ModalOverlay visible={visible} />
-//             <ModalWrapper
-//         className={className}
-//         onClick={maskClosable ? onMaskClick : null}
-//         tabIndex="-1"
-//         visible={visible}
-//       >
-//           <ModalInner tabIndex="0" className="modal-inner">
-//           <div>
-//             <div>
-//           {children}
-//           </div>
-//               <br />
-//               <div style={{marginTop:"1rem"}}>1.</div>
-//               <div style={{marginTop:"1rem"}}>2.</div>
-//               <div style={{marginTop:"1rem"}}>3.</div>
-//               <div style={{marginTop:"1rem"}}>4.</div>
-//               <div style={{marginTop:"1rem"}}>5.</div>
-//               <div style={{marginTop:"1rem"}}>정답 번호 체크</div>
-              
-//           <div style={{display:"flex"}}>
-//                 {closable && <OkBtn className="modal-ok" onClick={onSubmit}>확인</OkBtn>}
-//                 {closable && <CloseBtn className="modal-close" onClick={close} >취소</CloseBtn>}
-//           </div>
-//           </div>
-//         </ModalInner>
-//       </ModalWrapper>
-//         </>
-//     )
-// }
-
-// export default UnderStandModal
-        
+export default UnderStandModal;
