@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
+import moment from 'moment';
 
 const Container = styled.div`
   border: 1px solid #cdcdcd;
@@ -8,6 +9,7 @@ const Container = styled.div`
   margin-left: 0px;
   width: 90%;
   height: 450px;
+  box-shadow: 3px 3px 3px gray;
 `;
 
 const LectureHomePlan = (props) => {
@@ -15,6 +17,7 @@ const LectureHomePlan = (props) => {
   const [isPlan, setIsPlan] = useState(false);
   const Url = `https://docs.google.com/gview?embedded=true&url=https://115.85.182.194:8080/lecture/${lectureId}/plan`;
   const FileURL = `https://115.85.182.194:8080/lecture/${lectureId}/plan`;
+  const today = moment();
   const getPlan = () => {
     return new Promise((resolve, reject) => {
       axios
@@ -43,7 +46,9 @@ const LectureHomePlan = (props) => {
       </div>
       <Container>
         {isPlan !== true ? (
-          <div>현재 등록된 강의계획서가 없습니다</div>
+          <div style={{ fontSize: '20px', fontWeight: 'bold', margin: '2rem 0 3rem 2rem' }}>
+            현재 등록된 강의계획서가 없습니다
+          </div>
         ) : (
           <iframe id="plan" src={Url} style={{ width: '100%', height: '100%' }} />
         )}

@@ -4,51 +4,13 @@ import axios from 'axios';
 import palette from '../../../lib/styles/palette';
 
 const Title = styled.div`
+  margin-top: 1.5rem;
+  margin-left: 20px;
   font-size: 30px;
-  margin-left: 15px;
   border-bottom: 1px solid #f7f9fc;
   height: 40px;
   line-height: 40px;
-  font-style: italic;
-  text-align: left;
-`;
-
-const TitleInput = styled.input`
-  font-size: 2rem;
-  outline: none;
-  padding-bottom: 0.5rem;
-  border: none;
-  border-bottom: 1px solid ${palette.gray[4]};
-  margin-bottom: 2rem;
-  margin-top: 10px;
-  width: 100%;
-`;
-
-const Btn = styled.button`
-  font-size: 2px;
-  padding: 5px;
-  margin-right: 10px;
-  background-color: rgba(215, 226, 185, 0.596);
-  color: #3e3e3e;
-  border-radius: 7px;
-  &:hover {
-    background-color: #bfbfbf;
-  }
-`;
-
-const WriteBtn = styled.button`
-  font-size: 12px;
-  padding: 5px;
-  margin-top: 10px;
-  margin-right: 5px;
-  background-color: #ececec;
-  color: #3e3e3e;
-  border-radius: 5px;
-  &:hover {
-    background-color: #bfbfbf;
-  }
-  display: inline-block;
-  float: right;
+  font-weight: bold;
 `;
 
 const TabletrColor = styled.tr`
