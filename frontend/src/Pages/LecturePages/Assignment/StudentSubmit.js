@@ -118,23 +118,12 @@ const StudentSubmit = ({ lectureId, assignmentId, assignmentsScore }) => {
               <td style={{ padding: '10px 0', backgroundColor: 'white' }}>
                 {submitAssignment.fileUrl}
               </td>
-              <td style={{ padding: '10px 0', backgroundColor: 'white' }}>
-                <div
-                  style={{
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    margin: '0',
-                    padding: '0 5px',
-                  }}
-                >
-                  <div style={{ paddingLeft: '100px' }}>
-                    <ScoreInput onChange={onChangeScore} placeholder={submitAssignment.score} />
-                    <span style={{ width: '20%' }}> / {assignmentsScore}</span>
+              <td style={{ padding: '10px 0', backgroundColor: 'white', justifyContent: 'center' }}>
+                <center>
+                  <div style={{ fontWeight: 'bold', fontSize: '1.2rem', color: '#1BC612' }}>
+                    {submitAssignment.score} / {assignmentsScore}
                   </div>
-                  <ScoreButton onClick={(e) => onChangeScore(index, studentScore)}>
-                    수정
-                  </ScoreButton>
-                </div>
+                </center>
               </td>
             </tr>
           ))}
