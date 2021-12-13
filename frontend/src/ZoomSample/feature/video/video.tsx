@@ -4,7 +4,7 @@ import { RouteComponentProps } from 'react-router-dom';
 import ZoomContext from '../../context/zoom-context';
 import ZoomMediaContext from '../../context/media-context';
 import Avatar from './components/avatar';
-import VideoFooter from './components/video-footer';
+import VideoFooter from "./components/video-footer";
 import Pagination from './components/pagination';
 import { useCanvasDimension } from './hooks/useCanvasDimension';
 import { useGalleryLayout } from './hooks/useGalleryLayout';
@@ -17,11 +17,9 @@ import Chat from "../chat/chat";
 import axios from "axios";
 import { Button } from "antd";
 import styled from 'styled-components';
+import io from "socket.io-client";
 
-const LeaveBtn = styled.button`
-  position: absolute;
-  right: 0;
-  margin-right: 30px;
+const AttendanceBtn = styled.button`
   color: red;
 `;
 
@@ -44,6 +42,8 @@ const VideoContainer: React.FunctionComponent<VideoProps> = (props) => {
   const shareContainerRef = useRef<HTMLDivElement | null>(null);
   const canvasDimension = useCanvasDimension(mediaStream, videoRef);
   const activeVideo = useActiveVideo(zmClient);
+  const user = JSON.parse(localStorage.userInfo);
+  const userType : string = user.userType;
   const { page, pageSize, totalPage, totalSize, setPage } = usePagination(
     zmClient,
     canvasDimension,
@@ -68,6 +68,7 @@ const VideoContainer: React.FunctionComponent<VideoProps> = (props) => {
   );
   const isSharing = isRecieveSharing || isStartedShare;
   const contentDimension = sharedContentDimension;
+  const socket = io.connect("https://oneboard.connect.o-r.kr:8070");
   if (isSharing && shareContainerRef.current) {
     const { width, height } = sharedContentDimension;
     const {
@@ -79,7 +80,25 @@ const VideoContainer: React.FunctionComponent<VideoProps> = (props) => {
     contentDimension.height = Math.floor(height * ratio);
   }
 
+    socket.emit("init", {
+      "userType": userType,
+      "room" : sessionId
+    })
   
+  socket.on("attendance request" , )
+  
+  const checkAttendance = (e: any) => {
+    // e.preventDefault(); 
+    axios.get(`/lecture/${lectureId}/lesson/${lessonId}/live/attendance/professor`,{params: { session: `${sessionId}` }})
+      .then((res) => {
+      console.log(res);
+      })
+      .catch(e => {
+      console.log(e);
+    })
+  }
+    
+    
 
   return (
     <div className="viewport">
@@ -154,6 +173,7 @@ const VideoContainer: React.FunctionComponent<VideoProps> = (props) => {
           inSharing={isSharing}
         />
       )}
+      {userType === "T" ? (<AttendanceBtn onClick={checkAttendance}>출석요청</AttendanceBtn>) : (<div></div>)}
       <Chat/>
     </div>
   );
