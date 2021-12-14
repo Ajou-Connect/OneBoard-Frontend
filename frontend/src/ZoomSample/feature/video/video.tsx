@@ -99,21 +99,23 @@ const VideoContainer: React.FunctionComponent<VideoProps> = (props) => {
     });
 
     socket.on("attendance request", (data: any) => {
-      alert("출석 확인");
-      axios.get(`/lecture/${lectureId}/lesson/${lessonId}/live/attendance/student`, { params: { "session": `${sessionId}` }, headers: { "X-AUTH-TOKEN": `${token}` } })
-        .then((res) => {
-          console.log(res);
-          const result = res.data.result;
-          if (result === "SUCCESS") {
-            console.log("hi");
-          }
-          else {
-            console.log("error");
-          }
-        })
-        .catch((error) => {
-          console.log(error);
-        })
+      if (userType === "S") {
+        alert("출석 확인");
+        axios.get(`/lecture/${lectureId}/lesson/${lessonId}/live/attendance/student`, { params: { "session": `${sessionId}` }, headers: { "X-AUTH-TOKEN": `${token}` } })
+          .then((res) => {
+            console.log(res);
+            const result = res.data.result;
+            if (result === "SUCCESS") {
+              console.log("hi");
+            }
+            else {
+              console.log("error");
+            }
+          })
+          .catch((error) => {
+            console.log(error);
+          })
+      }
     }
     )
     // understan
