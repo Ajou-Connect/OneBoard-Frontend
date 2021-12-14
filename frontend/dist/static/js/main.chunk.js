@@ -27241,7 +27241,9 @@ const VideoContainer = props => {
   const token = localStorage.getItem("token");
   const [modalVisible, setModalVisible] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false);
   const [underStandId, setUnderStandId] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])();
+  const [pfUnderStandId, setPfUnderStandId] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])();
   const [isUnderstand, setIsUnderstand] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false);
+  const [isCheckUnderstand, setIsCheckUnderstand] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false);
   const {
     page,
     pageSize,
@@ -27317,7 +27319,7 @@ const VideoContainer = props => {
     });
   }, []);
 
-  const checkAttendance = e => {
+  const openAttendance = e => {
     // e.preventDefault(); 
     axios__WEBPACK_IMPORTED_MODULE_15___default.a.get(`/lecture/${lectureId}/lesson/${lessonId}/live/attendance/professor`, {
       params: {
@@ -27331,15 +27333,30 @@ const VideoContainer = props => {
     });
   };
 
-  const checkUnderstand = () => {
+  const openUnderstand = () => {
     axios__WEBPACK_IMPORTED_MODULE_15___default.a.get(`/lecture/${lectureId}/lesson/${lessonId}/live/understanding/professor`, {
       params: {
         session: `${sessionId}`
       }
     }).then(res => {
       alert("학생들에게 이해도 평가요청을 보냈습니다.");
-      setUnderStandId(res.data.data.understandId);
+      setPfUnderStandId(res.data.data.understandId);
       console.log(underStandId);
+    }).catch(error => {
+      console.log(error);
+    });
+  };
+
+  const checkUnderstand = () => {
+    axios__WEBPACK_IMPORTED_MODULE_15___default.a.get(`/lecture/${lectureId}/lesson/${lessonId}/live/understanding/${pfUnderStandId}/professor`, {
+      headers: {
+        "X-AUTH-TOKEN": `${token}`
+      }
+    }).then(res => {
+      const yes = res.data.data.yes;
+      const no = res.data.data.no;
+      console.log(res);
+      alert("이해한 사람 수 : " + yes + " " + "이해 못한 사람 수 : " + no);
     }).catch(error => {
       console.log(error);
     });
@@ -27357,39 +27374,39 @@ const VideoContainer = props => {
     className: "viewport",
     children: [userType === "T" ? /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_20__["jsxDEV"])("div", {
       children: [/*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_20__["jsxDEV"])(AttendanceBtn, {
-        onClick: checkAttendance,
+        onClick: openAttendance,
         children: "\uCD9C\uC11D \uC694\uCCAD"
       }, void 0, false, {
         fileName: _jsxFileName,
-        lineNumber: 166,
+        lineNumber: 181,
         columnNumber: 9
       }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_20__["jsxDEV"])(AttendanceBtn, {
-        onClick: checkUnderstand,
+        onClick: openUnderstand,
         children: "\uC774\uD574\uB3C4 \uD655\uC778"
       }, void 0, false, {
         fileName: _jsxFileName,
-        lineNumber: 167,
+        lineNumber: 182,
         columnNumber: 9
       }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_20__["jsxDEV"])(AttendanceBtn, {
         onClick: openModal,
         children: "\uD034\uC988 \uCD9C\uC81C"
       }, void 0, false, {
         fileName: _jsxFileName,
-        lineNumber: 168,
+        lineNumber: 183,
         columnNumber: 9
       }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_20__["jsxDEV"])(AttendanceBtn, {
-        onClick: openModal,
+        onClick: checkUnderstand,
         children: "\uCD5C\uADFC \uC774\uD574\uB3C4 \uACB0\uACFC"
       }, void 0, false, {
         fileName: _jsxFileName,
-        lineNumber: 169,
+        lineNumber: 184,
         columnNumber: 9
       }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_20__["jsxDEV"])(AttendanceBtn, {
         onClick: openModal,
         children: "\uCD5C\uADFC \uD034\uC988 \uACB0\uACFC"
       }, void 0, false, {
         fileName: _jsxFileName,
-        lineNumber: 170,
+        lineNumber: 185,
         columnNumber: 9
       }, undefined), modalVisible && /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_20__["jsxDEV"])(_QuizModal__WEBPACK_IMPORTED_MODULE_18__["default"], {
         visible: modalVisible,
@@ -27403,12 +27420,12 @@ const VideoContainer = props => {
         children: "\uD034\uC988 \uCD9C\uC81C"
       }, void 0, false, {
         fileName: _jsxFileName,
-        lineNumber: 172,
+        lineNumber: 187,
         columnNumber: 27
       }, undefined)]
     }, void 0, true, {
       fileName: _jsxFileName,
-      lineNumber: 165,
+      lineNumber: 180,
       columnNumber: 28
     }, undefined) : isUnderstand ? /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_20__["jsxDEV"])("div", {
       children: modalVisible && /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_20__["jsxDEV"])(_UnderStandModal__WEBPACK_IMPORTED_MODULE_19__["default"], {
@@ -27424,16 +27441,16 @@ const VideoContainer = props => {
         children: "\uC774\uD574\uB3C4 \uCCB4\uD06C"
       }, void 0, false, {
         fileName: _jsxFileName,
-        lineNumber: 185,
+        lineNumber: 200,
         columnNumber: 27
       }, undefined)
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 183,
+      lineNumber: 198,
       columnNumber: 11
     }, undefined) : /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_20__["jsxDEV"])("div", {}, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 196,
+      lineNumber: 211,
       columnNumber: 20
     }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_20__["jsxDEV"])("div", {
       className: classnames__WEBPACK_IMPORTED_MODULE_1___default()('share-container', {
@@ -27453,7 +27470,7 @@ const VideoContainer = props => {
           ref: shareRef
         }, void 0, false, {
           fileName: _jsxFileName,
-          lineNumber: 210,
+          lineNumber: 225,
           columnNumber: 11
         }, undefined), Object(_utils_platform__WEBPACK_IMPORTED_MODULE_13__["isSupportWebCodecs"])() ? /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_20__["jsxDEV"])("video", {
           className: classnames__WEBPACK_IMPORTED_MODULE_1___default()('share-canvas', {
@@ -27462,7 +27479,7 @@ const VideoContainer = props => {
           ref: selfShareRef
         }, void 0, false, {
           fileName: _jsxFileName,
-          lineNumber: 214,
+          lineNumber: 229,
           columnNumber: 35
         }, undefined) : /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_20__["jsxDEV"])("canvas", {
           className: classnames__WEBPACK_IMPORTED_MODULE_1___default()('share-canvas', {
@@ -27471,17 +27488,17 @@ const VideoContainer = props => {
           ref: selfShareRef
         }, void 0, false, {
           fileName: _jsxFileName,
-          lineNumber: 217,
+          lineNumber: 232,
           columnNumber: 16
         }, undefined)]
       }, void 0, true, {
         fileName: _jsxFileName,
-        lineNumber: 203,
+        lineNumber: 218,
         columnNumber: 9
       }, undefined)
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 197,
+      lineNumber: 212,
       columnNumber: 7
     }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_20__["jsxDEV"])("div", {
       className: classnames__WEBPACK_IMPORTED_MODULE_1___default()('video-container', {
@@ -27495,7 +27512,7 @@ const VideoContainer = props => {
         ref: videoRef
       }, void 0, false, {
         fileName: _jsxFileName,
-        lineNumber: 228,
+        lineNumber: 243,
         columnNumber: 9
       }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_20__["jsxDEV"])("ul", {
         className: "avatar-list",
@@ -27525,18 +27542,18 @@ const VideoContainer = props => {
             }
           }, user.userId, false, {
             fileName: _jsxFileName,
-            lineNumber: 244,
+            lineNumber: 259,
             columnNumber: 15
           }, undefined);
         })
       }, void 0, false, {
         fileName: _jsxFileName,
-        lineNumber: 235,
+        lineNumber: 250,
         columnNumber: 9
       }, undefined)]
     }, void 0, true, {
       fileName: _jsxFileName,
-      lineNumber: 223,
+      lineNumber: 238,
       columnNumber: 7
     }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_20__["jsxDEV"])(_components_video_footer__WEBPACK_IMPORTED_MODULE_5__["default"], {
       className: "video-operations",
@@ -27547,7 +27564,7 @@ const VideoContainer = props => {
       sessionId: props.sessionId
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 259,
+      lineNumber: 274,
       columnNumber: 7
     }, undefined), totalPage > 1 && /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_20__["jsxDEV"])(_components_pagination__WEBPACK_IMPORTED_MODULE_6__["default"], {
       page: page,
@@ -27556,21 +27573,21 @@ const VideoContainer = props => {
       inSharing: isSharing
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 261,
+      lineNumber: 276,
       columnNumber: 9
     }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_20__["jsxDEV"])(_chat_chat__WEBPACK_IMPORTED_MODULE_14__["default"], {}, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 269,
+      lineNumber: 284,
       columnNumber: 7
     }, undefined)]
   }, void 0, true, {
     fileName: _jsxFileName,
-    lineNumber: 164,
+    lineNumber: 179,
     columnNumber: 5
   }, undefined);
 };
 
-_s(VideoContainer, "oDmt0wmhkUik3964vmTRK0S6x8k=", false, function () {
+_s(VideoContainer, "II58lTpD1UmaAnQrH8S/0MBjufQ=", false, function () {
   return [_hooks_useCanvasDimension__WEBPACK_IMPORTED_MODULE_7__["useCanvasDimension"], _hooks_useAvtiveVideo__WEBPACK_IMPORTED_MODULE_10__["useActiveVideo"], _hooks_usePagination__WEBPACK_IMPORTED_MODULE_9__["usePagination"], _hooks_useGalleryLayout__WEBPACK_IMPORTED_MODULE_8__["useGalleryLayout"], _hooks_useShare__WEBPACK_IMPORTED_MODULE_11__["useShare"]];
 });
 

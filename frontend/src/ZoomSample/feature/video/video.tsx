@@ -51,7 +51,9 @@ const VideoContainer: React.FunctionComponent<VideoProps> = (props) => {
   const token = localStorage.getItem("token");
   const [modalVisible, setModalVisible] = useState<boolean>(false);
   const [underStandId, setUnderStandId] = useState<any>();
+  const [pfUnderStandId, setPfUnderStandId] = useState<any>();
   const [isUnderstand, setIsUnderstand] = useState<boolean>(false);
+  const [isCheckUnderstand, setIsCheckUnderstand] = useState<boolean>(false);
   const { page, pageSize, totalPage, totalSize, setPage } = usePagination(
     zmClient,
     canvasDimension,
@@ -126,7 +128,7 @@ const VideoContainer: React.FunctionComponent<VideoProps> = (props) => {
 
   
   
-  const checkAttendance = (e: any) => {
+  const openAttendance = (e: any) => {
     // e.preventDefault(); 
     axios.get(`/lecture/${lectureId}/lesson/${lessonId}/live/attendance/professor`, { params: { session: `${sessionId}` } })
       .then((res) => {
@@ -138,16 +140,29 @@ const VideoContainer: React.FunctionComponent<VideoProps> = (props) => {
       })
   }
 
-  const checkUnderstand = () => {
+  const openUnderstand = () => {
     axios.get(`/lecture/${lectureId}/lesson/${lessonId}/live/understanding/professor`, { params: { session: `${sessionId}` } })
       .then((res) => {
         alert("학생들에게 이해도 평가요청을 보냈습니다.");  
-        setUnderStandId(res.data.data.understandId);
+        setPfUnderStandId(res.data.data.understandId);
         console.log(underStandId);
       })
       .catch((error) => {
         console.log(error);
       })
+  }
+
+  const checkUnderstand = () => {
+    axios.get(`/lecture/${lectureId}/lesson/${lessonId}/live/understanding/${pfUnderStandId}/professor`,{headers:{"X-AUTH-TOKEN" : `${token}`}})
+      .then((res) => {
+        const yes = res.data.data.yes;
+        const no = res.data.data.no
+        console.log(res);
+        alert("이해한 사람 수 : " + yes + " " + "이해 못한 사람 수 : " + no);
+      })
+      .catch((error) => {
+      console.log(error);
+    })
   }
 
 
@@ -163,10 +178,10 @@ const VideoContainer: React.FunctionComponent<VideoProps> = (props) => {
   return (
     <div className="viewport">
       {userType === "T" ? (<div>
-        <AttendanceBtn onClick={checkAttendance}>출석 요청</AttendanceBtn>
-        <AttendanceBtn onClick={checkUnderstand}>이해도 확인</AttendanceBtn>
+        <AttendanceBtn onClick={openAttendance}>출석 요청</AttendanceBtn>
+        <AttendanceBtn onClick={openUnderstand}>이해도 확인</AttendanceBtn>
         <AttendanceBtn onClick={openModal}>퀴즈 출제</AttendanceBtn>
-        <AttendanceBtn onClick={openModal}>최근 이해도 결과</AttendanceBtn>
+        <AttendanceBtn onClick={checkUnderstand}>최근 이해도 결과</AttendanceBtn>
         <AttendanceBtn onClick={openModal}>최근 퀴즈 결과</AttendanceBtn>
         {
           modalVisible && <QuizModal
