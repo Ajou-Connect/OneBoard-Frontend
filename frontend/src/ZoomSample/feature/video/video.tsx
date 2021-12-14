@@ -22,6 +22,8 @@ import QuizModal from './QuizModal';
 import UnderStandModal from './UnderStandModal';
 
 const AttendanceBtn = styled.button`
+  width: 100%;
+  margin-top:1rem;
   color: red;
 `;
 
@@ -48,7 +50,7 @@ const VideoContainer: React.FunctionComponent<VideoProps> = (props) => {
   const userType: string = user.userType;
   const token = localStorage.getItem("token");
   const [modalVisible, setModalVisible] = useState<boolean>(false);
-  const [underStandId, setUnderStandId] = useState<number>(0);
+  const [underStandId, setUnderStandId] = useState<any>();
   const [isUnderstand, setIsUnderstand] = useState<boolean>(false);
   const { page, pageSize, totalPage, totalSize, setPage } = usePagination(
     zmClient,
@@ -115,15 +117,12 @@ const VideoContainer: React.FunctionComponent<VideoProps> = (props) => {
     // understan
    socket.on("understanding request", (data: any) => { 
       setIsUnderstand(true);
-      setModalVisible(true);        
+     setModalVisible(true);
+     setUnderStandId(data.understandId);
+     console.log(data);
+     
   })
   }, [])
-
-  
-  
-  
-   
-
 
   
   
@@ -143,8 +142,8 @@ const VideoContainer: React.FunctionComponent<VideoProps> = (props) => {
     axios.get(`/lecture/${lectureId}/lesson/${lessonId}/live/understanding/professor`, { params: { session: `${sessionId}` } })
       .then((res) => {
         alert("학생들에게 이해도 평가요청을 보냈습니다.");  
-      console.log(underStandId);
-        setUnderStandId(res.data.data);
+        setUnderStandId(res.data.data.understandId);
+        console.log(underStandId);
       })
       .catch((error) => {
         console.log(error);
@@ -163,6 +162,38 @@ const VideoContainer: React.FunctionComponent<VideoProps> = (props) => {
 
   return (
     <div className="viewport">
+      {userType === "T" ? (<div>
+        <AttendanceBtn onClick={checkAttendance}>출석 요청</AttendanceBtn>
+        <AttendanceBtn onClick={checkUnderstand}>이해도 확인</AttendanceBtn>
+        <AttendanceBtn onClick={openModal}>퀴즈 출제</AttendanceBtn>
+        <AttendanceBtn onClick={openModal}>최근 이해도 결과</AttendanceBtn>
+        <AttendanceBtn onClick={openModal}>최근 퀴즈 결과</AttendanceBtn>
+        {
+          modalVisible && <QuizModal
+            visible={modalVisible}
+            closable={true}
+            maskClosable={true}
+            onClose={closeModal}
+            lessonId={props.lessonId}
+            lectureId={props.lectureId}
+            sessionId={props.sessionId}
+            className="modal-root">퀴즈 출제</QuizModal>
+        }
+      </div>) : (isUnderstand ? (
+          <div>
+            {
+          modalVisible && <UnderStandModal
+            visible={modalVisible}
+            closable={true}
+            maskClosable={true}
+            onClose={closeModal}
+            lessonId={props.lessonId}
+            lectureId={props.lectureId}
+            sessionId={props.sessionId}
+            underStandId={underStandId}
+            className="modal-under">이해도 체크</UnderStandModal>
+        }
+        </div>) : (<div></div>))}
       <div
         className={classnames('share-container', {
           'in-sharing': isSharing,
@@ -234,36 +265,7 @@ const VideoContainer: React.FunctionComponent<VideoProps> = (props) => {
           inSharing={isSharing}
         />
       )}
-      {userType === "T" ? (<div>
-        <AttendanceBtn onClick={checkUnderstand}>이해도 확인</AttendanceBtn>
-        <AttendanceBtn onClick={checkAttendance}>출석 요청</AttendanceBtn>
-        <AttendanceBtn onClick={openModal}>퀴즈 출제</AttendanceBtn>
-        {
-          modalVisible && <QuizModal
-            visible={modalVisible}
-            closable={true}
-            maskClosable={true}
-            onClose={closeModal}
-            lessonId={props.lessonId}
-            lectureId={props.lectureId}
-            sessionId={props.sessionId}
-            className="modal-root">퀴즈 출제</QuizModal>
-        }
-      </div>) : (isUnderstand ? (
-          <div>
-            {
-          modalVisible && <UnderStandModal
-            visible={modalVisible}
-            closable={true}
-            maskClosable={true}
-            onClose={closeModal}
-            lessonId={props.lessonId}
-            lectureId={props.lectureId}
-            sessionId={props.sessionId}
-            underStandId={underStandId}
-            className="modal-under">이해도 체크</UnderStandModal>
-        }
-        </div>) : (<div></div>))}
+      
       <Chat/>
     </div>
   );

@@ -78,6 +78,8 @@ function UnderStandModal({
   lectureId,
   underStandId,
 }) {
+  const token = localStorage.getItem('token');
+
   const onMaskClick = (e) => {
     if (e.target === e.currentTarget) {
       onClose(e);
@@ -87,14 +89,14 @@ function UnderStandModal({
   const onSubmit = (e, response) => {
     console.log(sessionId);
     console.log(underStandId);
-    const resp = parseInt(response);
+
     axios
       .post(
-        `/lecture/${lectureId}/lesson/${lessonId}/live/understanding/120/student`,
+        `/lecture/${lectureId}/lesson/${lessonId}/live/understanding/${underStandId}/student`,
         {
-          response: resp,
+          response: response,
         },
-        { params: { session: `${sessionId}` } },
+        { params: { session: `${sessionId}` }, headers: { 'X-AUTH-TOKEN': `${token}` } },
       )
       .then((res) => {
         console.log(res);
