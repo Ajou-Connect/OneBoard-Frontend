@@ -27240,6 +27240,7 @@ const AttendanceBtn = styled_components__WEBPACK_IMPORTED_MODULE_16__["default"]
   width: 100%;
   margin-top:1rem;
   color: red;
+  cursor:pointer;
 `;
 _c = AttendanceBtn;
 
@@ -27346,7 +27347,25 @@ const VideoContainer = props => {
       setIsUnderstand(true);
       setModalVisible(true);
       setUnderStandId(data.understandId);
-      console.log(data);
+
+      if (userType === "S") {
+        return modalVisible && /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_20__["jsxDEV"])(_UnderStandModal__WEBPACK_IMPORTED_MODULE_19__["default"], {
+          visible: modalVisible,
+          closable: true,
+          maskClosable: true,
+          onClose: closeModal,
+          lessonId: props.lessonId,
+          lectureId: props.lectureId,
+          sessionId: props.sessionId,
+          underStandId: underStandId,
+          className: "modal-under",
+          children: "\uC774\uD574\uB3C4 \uCCB4\uD06C"
+        }, void 0, false, {
+          fileName: _jsxFileName,
+          lineNumber: 130,
+          columnNumber: 27
+        }, undefined);
+      }
     });
   }, []);
 
@@ -27401,6 +27420,26 @@ const VideoContainer = props => {
     setModalVisible(false);
   };
 
+  const checkQuiz = () => {
+    setModalVisible(true);
+    return modalVisible && /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_20__["jsxDEV"])(_UnderStandModal__WEBPACK_IMPORTED_MODULE_19__["default"], {
+      visible: modalVisible,
+      closable: true,
+      maskClosable: true,
+      onClose: closeModal,
+      lessonId: props.lessonId,
+      lectureId: props.lectureId,
+      sessionId: props.sessionId,
+      underStandId: underStandId,
+      className: "modal-under",
+      children: "\uC774\uD574\uB3C4 \uCCB4\uD06C"
+    }, void 0, false, {
+      fileName: _jsxFileName,
+      lineNumber: 198,
+      columnNumber: 24
+    }, undefined);
+  };
+
   return /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_20__["jsxDEV"])("div", {
     className: "viewport",
     children: [userType === "T" ? /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_20__["jsxDEV"])("div", {
@@ -27409,35 +27448,35 @@ const VideoContainer = props => {
         children: "\uCD9C\uC11D \uC694\uCCAD"
       }, void 0, false, {
         fileName: _jsxFileName,
-        lineNumber: 183,
+        lineNumber: 217,
         columnNumber: 9
       }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_20__["jsxDEV"])(AttendanceBtn, {
         onClick: openUnderstand,
         children: "\uC774\uD574\uB3C4 \uD655\uC778"
       }, void 0, false, {
         fileName: _jsxFileName,
-        lineNumber: 184,
+        lineNumber: 218,
         columnNumber: 9
       }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_20__["jsxDEV"])(AttendanceBtn, {
         onClick: openModal,
         children: "\uD034\uC988 \uCD9C\uC81C"
       }, void 0, false, {
         fileName: _jsxFileName,
-        lineNumber: 185,
+        lineNumber: 219,
         columnNumber: 9
       }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_20__["jsxDEV"])(AttendanceBtn, {
         onClick: checkUnderstand,
         children: "\uCD5C\uADFC \uC774\uD574\uB3C4 \uACB0\uACFC"
       }, void 0, false, {
         fileName: _jsxFileName,
-        lineNumber: 186,
+        lineNumber: 220,
         columnNumber: 9
       }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_20__["jsxDEV"])(AttendanceBtn, {
-        onClick: openModal,
+        onClick: checkQuiz,
         children: "\uCD5C\uADFC \uD034\uC988 \uACB0\uACFC"
       }, void 0, false, {
         fileName: _jsxFileName,
-        lineNumber: 187,
+        lineNumber: 221,
         columnNumber: 9
       }, undefined), modalVisible && /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_20__["jsxDEV"])(_QuizModal__WEBPACK_IMPORTED_MODULE_18__["default"], {
         visible: modalVisible,
@@ -27451,38 +27490,17 @@ const VideoContainer = props => {
         children: "\uD034\uC988 \uCD9C\uC81C"
       }, void 0, false, {
         fileName: _jsxFileName,
-        lineNumber: 189,
+        lineNumber: 223,
         columnNumber: 27
       }, undefined)]
     }, void 0, true, {
       fileName: _jsxFileName,
-      lineNumber: 182,
+      lineNumber: 216,
       columnNumber: 28
-    }, undefined) : isUnderstand ? /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_20__["jsxDEV"])("div", {
-      children: modalVisible && /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_20__["jsxDEV"])(_UnderStandModal__WEBPACK_IMPORTED_MODULE_19__["default"], {
-        visible: modalVisible,
-        closable: true,
-        maskClosable: true,
-        onClose: closeModal,
-        lessonId: props.lessonId,
-        lectureId: props.lectureId,
-        sessionId: props.sessionId,
-        underStandId: underStandId,
-        className: "modal-under",
-        children: "\uC774\uD574\uB3C4 \uCCB4\uD06C"
-      }, void 0, false, {
-        fileName: _jsxFileName,
-        lineNumber: 202,
-        columnNumber: 27
-      }, undefined)
-    }, void 0, false, {
-      fileName: _jsxFileName,
-      lineNumber: 200,
-      columnNumber: 11
     }, undefined) : /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_20__["jsxDEV"])("div", {}, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 213,
-      columnNumber: 20
+      lineNumber: 233,
+      columnNumber: 18
     }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_20__["jsxDEV"])("div", {
       className: classnames__WEBPACK_IMPORTED_MODULE_1___default()('share-container', {
         'in-sharing': isSharing
@@ -27501,7 +27519,7 @@ const VideoContainer = props => {
           ref: shareRef
         }, void 0, false, {
           fileName: _jsxFileName,
-          lineNumber: 227,
+          lineNumber: 247,
           columnNumber: 11
         }, undefined), Object(_utils_platform__WEBPACK_IMPORTED_MODULE_13__["isSupportWebCodecs"])() ? /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_20__["jsxDEV"])("video", {
           className: classnames__WEBPACK_IMPORTED_MODULE_1___default()('share-canvas', {
@@ -27510,7 +27528,7 @@ const VideoContainer = props => {
           ref: selfShareRef
         }, void 0, false, {
           fileName: _jsxFileName,
-          lineNumber: 231,
+          lineNumber: 251,
           columnNumber: 35
         }, undefined) : /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_20__["jsxDEV"])("canvas", {
           className: classnames__WEBPACK_IMPORTED_MODULE_1___default()('share-canvas', {
@@ -27519,17 +27537,17 @@ const VideoContainer = props => {
           ref: selfShareRef
         }, void 0, false, {
           fileName: _jsxFileName,
-          lineNumber: 234,
+          lineNumber: 254,
           columnNumber: 16
         }, undefined)]
       }, void 0, true, {
         fileName: _jsxFileName,
-        lineNumber: 220,
+        lineNumber: 240,
         columnNumber: 9
       }, undefined)
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 214,
+      lineNumber: 234,
       columnNumber: 7
     }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_20__["jsxDEV"])("div", {
       className: classnames__WEBPACK_IMPORTED_MODULE_1___default()('video-container', {
@@ -27543,7 +27561,7 @@ const VideoContainer = props => {
         ref: videoRef
       }, void 0, false, {
         fileName: _jsxFileName,
-        lineNumber: 245,
+        lineNumber: 265,
         columnNumber: 9
       }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_20__["jsxDEV"])("ul", {
         className: "avatar-list",
@@ -27573,18 +27591,18 @@ const VideoContainer = props => {
             }
           }, user.userId, false, {
             fileName: _jsxFileName,
-            lineNumber: 261,
+            lineNumber: 281,
             columnNumber: 15
           }, undefined);
         })
       }, void 0, false, {
         fileName: _jsxFileName,
-        lineNumber: 252,
+        lineNumber: 272,
         columnNumber: 9
       }, undefined)]
     }, void 0, true, {
       fileName: _jsxFileName,
-      lineNumber: 240,
+      lineNumber: 260,
       columnNumber: 7
     }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_20__["jsxDEV"])(_components_video_footer__WEBPACK_IMPORTED_MODULE_5__["default"], {
       className: "video-operations",
@@ -27595,7 +27613,7 @@ const VideoContainer = props => {
       sessionId: props.sessionId
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 276,
+      lineNumber: 296,
       columnNumber: 7
     }, undefined), totalPage > 1 && /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_20__["jsxDEV"])(_components_pagination__WEBPACK_IMPORTED_MODULE_6__["default"], {
       page: page,
@@ -27604,16 +27622,16 @@ const VideoContainer = props => {
       inSharing: isSharing
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 278,
+      lineNumber: 298,
       columnNumber: 9
     }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_20__["jsxDEV"])(_chat_chat__WEBPACK_IMPORTED_MODULE_14__["default"], {}, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 286,
+      lineNumber: 306,
       columnNumber: 7
     }, undefined)]
   }, void 0, true, {
     fileName: _jsxFileName,
-    lineNumber: 181,
+    lineNumber: 215,
     columnNumber: 5
   }, undefined);
 };
