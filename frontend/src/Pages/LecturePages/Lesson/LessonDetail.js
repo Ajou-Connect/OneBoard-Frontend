@@ -74,27 +74,27 @@ const LessonDetail = ({ match }) => {
   };
 
   const LessonCheck = () => {
-     return (window.location.href = `/class/${lectureId}/${lessonId}/${sessionId}/${userType}`);
-    // return new Promise((resolve, reject) => {
-    //   axios
-    //     .get(`/lecture/${lectureId}/lesson/${lessonId}/live/entrance`, {
-    //       headers: { 'X-AUTH-TOKEN': `${token}` },
-    //       params: { session: `${sessionId}` },
-    //     })
-    //     .then((res) => {
-    //       const result = res;
-    //       console.log(result);
-    //       if (result.data.result === 'SUCCESS') {
-    //         return (window.location.href = `/class/${lectureId}/${lessonId}/${sessionId}/${userType}`);
-    //       } else {
-    //         alert('수업에 입장할 수 없습니다.');
-    //       }
-    //     })
-    //     .catch((error) => {
-    //       console.log(error);
-    //       reject(error);
-    //     });
-    // });
+     
+    return new Promise((resolve, reject) => {
+      axios
+        .get(`/lecture/${lectureId}/lesson/${lessonId}/live/entrance`, {
+          headers: { 'X-AUTH-TOKEN': `${token}` },
+          params: { session: `${sessionId}` },
+        })
+        .then((res) => {
+          const result = res;
+          console.log(result);
+          if (result.data.result === 'SUCCESS') {
+            return (window.location.href = `/class/${lectureId}/${lessonId}/${sessionId}/${userType}`);
+          } else {
+            alert('수업에 입장할 수 없습니다.');
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+          reject(error);
+        });
+    });
   };
 
   const getLessonAttendanceData = () => {

@@ -53,6 +53,7 @@ const VideoContainer: React.FunctionComponent<VideoProps> = (props) => {
   const [modalVisible, setModalVisible] = useState<boolean>(false);
   const [underStandId, setUnderStandId] = useState<any>();
   const [pfUnderStandId, setPfUnderStandId] = useState<any>();
+  const [quizId, setQuizId] = useState<any>();
   const [isUnderstand, setIsUnderstand] = useState<boolean>(false);
   const [isCheckUnderstand, setIsCheckUnderstand] = useState<boolean>(false);
   const { page, pageSize, totalPage, totalSize, setPage } = usePagination(
@@ -126,7 +127,7 @@ const VideoContainer: React.FunctionComponent<VideoProps> = (props) => {
      setUnderStandId(data.understandId);
      if(userType === "S"){
      return (
-       
+            
           modalVisible && <UnderStandModal
             visible={modalVisible}
             closable={true}
@@ -136,12 +137,16 @@ const VideoContainer: React.FunctionComponent<VideoProps> = (props) => {
             lectureId={props.lectureId}
             sessionId={props.sessionId}
             underStandId={underStandId}
-            className="modal-under">이해도 체크</UnderStandModal>
-        
-     )
-     }
+            className="modal-under">이해도 체크</UnderStandModal>  
+      )
+     } 
+   })
+    socket.on("quiz request", (data: any) => {
+      console.log(data);
+      setModalVisible(true);
+      setQuizId(data.quizId);
      
-  })
+    })
   }, [])
 
   
@@ -191,23 +196,23 @@ const VideoContainer: React.FunctionComponent<VideoProps> = (props) => {
     setModalVisible(false)
   }
 
-  const checkQuiz = () => {
-    setModalVisible(true);
-    return (
+  // const checkQuiz = () => {
+  //   setModalVisible(true);
+  //   return (
       
-         modalVisible&&<UnderStandModal
-            visible={modalVisible}
-            closable={true}
-            maskClosable={true}
-            onClose={closeModal}
-            lessonId={props.lessonId}
-            lectureId={props.lectureId}
-            sessionId={props.sessionId}
-            underStandId={underStandId}
-            className="modal-under">이해도 체크</UnderStandModal>
+  //        modalVisible&&<UnderStandModal
+  //           visible={modalVisible}
+  //           closable={true}
+  //           maskClosable={true}
+  //           onClose={closeModal}
+  //           lessonId={props.lessonId}
+  //           lectureId={props.lectureId}
+  //           sessionId={props.sessionId}
+  //           underStandId={underStandId}
+  //           className="modal-under">이해도 체크</UnderStandModal>
         
-    )
-  }
+  //   )
+  // }
     
     
 
@@ -218,7 +223,7 @@ const VideoContainer: React.FunctionComponent<VideoProps> = (props) => {
         <AttendanceBtn onClick={openUnderstand}>이해도 확인</AttendanceBtn>
         <AttendanceBtn onClick={openModal}>퀴즈 출제</AttendanceBtn>
         <AttendanceBtn onClick={checkUnderstand}>최근 이해도 결과</AttendanceBtn>
-        <AttendanceBtn onClick={checkQuiz}>최근 퀴즈 결과</AttendanceBtn>
+        {/* <AttendanceBtn onClick={}>최근 퀴즈 결과</AttendanceBtn> */}
         {
           modalVisible && <QuizModal
             visible={modalVisible}
@@ -228,9 +233,20 @@ const VideoContainer: React.FunctionComponent<VideoProps> = (props) => {
             lessonId={props.lessonId}
             lectureId={props.lectureId}
             sessionId={props.sessionId}
+            quizId={1}
             className="modal-root">퀴즈 출제</QuizModal>
         }
-      </div>) : (<div></div>)}
+      </div>) : (<div>{
+       modalVisible && <QuizModal
+            visible={modalVisible}
+            closable={true}
+            maskClosable={true}
+            onClose={closeModal}
+            lessonId={props.lessonId}
+            lectureId={props.lectureId}
+            sessionId={props.sessionId}
+            quizId={quizId}
+            className="modal-root">퀴즈</QuizModal>}</div>)}
       <div
         className={classnames('share-container', {
           'in-sharing': isSharing,
