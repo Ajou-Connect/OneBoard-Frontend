@@ -74,6 +74,7 @@ const LessonDetail = ({ match }) => {
   };
 
   const LessonCheck = () => {
+     
     return new Promise((resolve, reject) => {
       axios
         .get(`/lecture/${lectureId}/lesson/${lessonId}/live/entrance`, {

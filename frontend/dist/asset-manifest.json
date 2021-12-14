@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
   "files": {
     "static/js/0.chunk.js": "/static/js/0.chunk.js",
@@ -50,4 +51,58 @@
     "static/js/main.chunk.js",
     "main.0c429aa3151cb09167fd.hot-update.js"
   ]
+=======
+{
+  "files": {
+    "static/js/0.chunk.js": "/static/js/0.chunk.js",
+    "static/js/0.chunk.js.map": "/static/js/0.chunk.js.map",
+    "main.js": "/static/js/main.chunk.js",
+    "main.js.map": "/static/js/main.chunk.js.map",
+    "runtime-main.js": "/static/js/bundle.js",
+    "runtime-main.js.map": "/static/js/bundle.js.map",
+    "vendors~main.js": "/static/js/vendors~main.chunk.js",
+    "vendors~main.js.map": "/static/js/vendors~main.chunk.js.map",
+    "../public/lib/audio.encode.wasm": "/../public/lib/audio.encode.wasm",
+    "../public/lib/audio.simd.wasm": "/../public/lib/audio.simd.wasm",
+    "../public/lib/audio_simd.min.js": "/../public/lib/audio_simd.min.js",
+    "../public/lib/js_audio_process.min.js": "/../public/lib/js_audio_process.min.js",
+    "../public/lib/js_audio_worklet.min.js": "/../public/lib/js_audio_worklet.min.js",
+    "../public/lib/js_media.min.js": "/../public/lib/js_media.min.js",
+    "../public/lib/sharing_m.min.js": "/../public/lib/sharing_m.min.js",
+    "../public/lib/sharing_mtsimd.min.js": "/../public/lib/sharing_mtsimd.min.js",
+    "../public/lib/sharing_s.min.js": "/../public/lib/sharing_s.min.js",
+    "../public/lib/sharing_simd.min.js": "/../public/lib/sharing_simd.min.js",
+    "../public/lib/video.decode.wasm": "/../public/lib/video.decode.wasm",
+    "../public/lib/video.mt.wasm": "/../public/lib/video.mt.wasm",
+    "../public/lib/video.mtsimd.wasm": "/../public/lib/video.mtsimd.wasm",
+    "../public/lib/video.simd.wasm": "/../public/lib/video.simd.wasm",
+    "../public/lib/video_m.min.js": "/../public/lib/video_m.min.js",
+    "../public/lib/video_mtsimd.min.js": "/../public/lib/video_mtsimd.min.js",
+    "../public/lib/video_s.min.js": "/../public/lib/video_s.min.js",
+    "../public/lib/video_simd.min.js": "/../public/lib/video_simd.min.js",
+    "../public/lib/webim.min.js": "/../public/lib/webim.min.js",
+    "../public/lib/websipclient.min.js": "/../public/lib/websipclient.min.js",
+    "static/media/MainImage.png": "/static/media/MainImage.b713129e.png",
+    "static/media/MainImage2.png": "/static/media/MainImage2.e83d930d.png",
+    "static/media/OneBoardLogo.png": "/static/media/OneBoardLogo.22abb46c.png",
+    "static/media/icon-advanced.svg": "/static/media/icon-advanced.111cdd2d.svg",
+    "static/media/icon-chat.svg": "/static/media/icon-chat.24870e9d.svg",
+    "static/media/icon-group.svg": "/static/media/icon-group.5b89b4f2.svg",
+    "static/media/icon-headset.svg": "/static/media/icon-headset.1c97ed79.svg",
+    "static/media/icon-meeting.svg": "/static/media/icon-meeting.cf2c788f.svg",
+    "static/media/icon-pause.svg": "/static/media/icon-pause.30000c0d.svg",
+    "static/media/icon-remote-control.svg": "/static/media/icon-remote-control.46ef1353.svg",
+    "static/media/icon-resume.svg": "/static/media/icon-resume.889789d2.svg",
+    "static/media/icon-share.svg": "/static/media/icon-share.96585ef4.svg",
+    "static/media/icon-spotlight.svg": "/static/media/icon-spotlight.86e4674e.svg",
+    "static/media/icon-start.svg": "/static/media/icon-start.3d9ed4be.svg",
+    "static/media/icon-stop.svg": "/static/media/icon-stop.97e0212b.svg"
+  },
+  "entrypoints": [
+    "static/js/bundle.js",
+    "static/js/vendors~main.chunk.js",
+    "static/js/main.chunk.js",
+    "main.7600c1137dffe9f1a100.hot-update.js"
+  ]
+>>>>>>> feature/socketTest
 }

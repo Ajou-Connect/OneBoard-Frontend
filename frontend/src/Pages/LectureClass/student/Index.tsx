@@ -246,7 +246,7 @@ function Index(props: TestProps) {
   const [lecture_id, setlecture_id] = useState<number>(1);
   const [lecture_info, setlecture_info] = useState(null);
   const [students, setstudents] = useState(null);
-
+  
   //------useeffect------
 
   const user = JSON.parse(window.localStorage.userInfo);
