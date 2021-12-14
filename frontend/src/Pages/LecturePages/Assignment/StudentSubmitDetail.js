@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import StudentSubmit from './StudentSubmit';
 import ReactHtmlParser from 'react-html-parser';
 import moment from 'moment';
-
+import Button from '../../../Component/common/Button';
 const Container = styled.div`
   width: 100%;
   display: inline-block;
@@ -14,6 +14,22 @@ const Container = styled.div`
   //align-items : center;
   //justify-content : center;
 `;
+const WriteAcitonButtonBlock = styled.div`
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  display: flex;
+  button + button {
+    margin-left: 0.5rem;
+  }
+`;
+
+const StyledButton = styled(Button)`
+  height: 2.125rem;
+  & + & {
+    margin-left: 0.5rem;
+  }
+`;
+
 const Title = styled.div`
   margin-top: 20px;
   margin-left: 20px;
@@ -23,14 +39,7 @@ const Title = styled.div`
   line-height: 40px;
   font-style: italic;
 `;
-const SubTitle = styled.div`
-  float: left;
-  margin-top: 3px;
-  margin-right: 20px;
-  color: #8b8b8b;
-  font-size: 13px;
-  font-weight: 400;
-`;
+
 const Btn = styled.button`
   font-size: 2px;
   padding: 5px;
@@ -152,7 +161,7 @@ const StudentSubmitDetail = ({ match }) => {
   };
 
   useEffect(() => {
-    getSubmitAssignmentData()
+    getSubmitAssignmentData();
     getAssignmentData();
     console.log(submitId);
   }, []);
@@ -235,8 +244,10 @@ const StudentSubmitDetail = ({ match }) => {
       </div>
       <hr style={{ width: '100%', margin: '10px 0px', display: 'block', borderColor: '#ffffff' }} />
       <FeedbackInput onChange={getFeedback} placeholder="점수에 대한 피드백을 작성해주세요" />
-      <Btn onClick={onSubmit}>저장</Btn>
-      <Btn onClick={onCancel}>취소</Btn>
+      <WriteAcitonButtonBlock>
+        <StyledButton onClick={onSubmit}>확인</StyledButton>
+        <StyledButton onClick={onCancel}>뒤로가기</StyledButton>
+      </WriteAcitonButtonBlock>
     </Container>
   );
 };

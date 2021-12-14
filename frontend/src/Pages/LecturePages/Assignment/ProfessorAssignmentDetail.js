@@ -4,15 +4,12 @@ import styled from 'styled-components';
 import moment from 'moment';
 import ReactHtmlParser from 'react-html-parser';
 import StudentSubmit from './StudentSubmit';
-
+import Button from '../../../Component/common/Button';
 const Container = styled.div`
   width: 100%;
   display: inline-block;
   margin: 10px auto;
   padding: 0px 20px;
-  //overflow-y: auto;
-  //align-items : center;
-  //justify-content : center;
 `;
 const Title = styled.div`
   margin-top: 20px;
@@ -23,26 +20,7 @@ const Title = styled.div`
   line-height: 40px;
   font-style: italic;
 `;
-const SubTitle = styled.div`
-  float: left;
-  margin-top: 3px;
-  margin-right: 20px;
-  color: #8b8b8b;
-  font-size: 13px;
-  font-weight: 400;
-`;
-const Btn = styled.button`
-  font-size: 2px;
-  padding: 5px;
-  margin-top: 50px;
-  margin-right: 10px;
-  background-color: rgba(215, 226, 185, 0.596);
-  color: #3e3e3e;
-  border-radius: 7px;
-  &:hover {
-    background-color: #bfbfbf;
-  }
-`;
+
 const ProblemContainer = styled.div`
   background-color: white;
   border-radius: 10px;
@@ -60,33 +38,11 @@ const ProblemContent = styled.div`
   margin: 10px auto;
   padding: 0 5px;
 `;
-const AnswerInput = styled.textarea`
-  height: 60px;
-  width: 100%;
-  resize: none;
-  border: 1px solid #d9d9d9;
-  &:focus {
-    border: 1px solid #40a9ff;
-    box-shadow: 0 0 0 2px #1890ff 20%;
-    outline: 0;
-  }
-`;
 
-const WriteBtn = styled.button`
-  display: flex;
-  font-size: 12px;
-  font-weight: bold;
-  padding: 5px;
-  margin-top: 10px;
-  margin-bottom: 5px;
-  margin-left: 10px;
-  margin-right: 30px;
-  background-color: #d3d31c;
-  color: #3e3e3e;
-  border-radius: 5px;
-  cursor: pointer;
-  &:hover {
-    background-color: #bfbfbf;
+const StyledButton = styled(Button)`
+  height: 2.125rem;
+  & + & {
+    margin-left: 0.5rem;
   }
 `;
 //여기서의 match는 각각의 assignment에 대한 렌더링을 위해서
@@ -201,12 +157,17 @@ const ProfessorAssignmentDetail = ({ match }) => {
           <div>배점 {assignments.score}</div>
         </div>
         <ProblemContent>
-          <a
-            href={fileUrl}
-            style={{ fontWeight: 'bold', textDecoration: 'underline', fontSize: '1.2rem' }}
-          >
-            과제 파일 다운로드
-          </a>
+          {assignments.fileUrl === null ? (
+            <div></div>
+          ) : (
+            <a
+              href={fileUrl}
+              style={{ fontWeight: 'bold', textDecoration: 'underline', fontSize: '1.2rem' }}
+            >
+              과제 파일 다운로드
+            </a>
+          )}
+
           <br />
           <br />
           {ReactHtmlParser(assignments.content)}
@@ -220,7 +181,7 @@ const ProfessorAssignmentDetail = ({ match }) => {
         assignmentId={assignmentId}
         assignmentsScore={assignments.score}
       />
-      <WriteBtn onClick={onCancel}>뒤로가기</WriteBtn>
+      <StyledButton onClick={onCancel}>뒤로가기</StyledButton>
     </Container>
   );
 };

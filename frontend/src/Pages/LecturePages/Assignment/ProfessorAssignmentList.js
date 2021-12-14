@@ -30,15 +30,6 @@ const Title = styled.div`
   font-weight: bold;
 `;
 
-const SubTitle = styled.div`
-  float: left;
-  margin-top: 3px;
-  margin-right: 20px;
-  color: #8b8b8b;
-  font-size: 13px;
-  font-weight: 400;
-`;
-
 const StateColorCircle = styled.div`
   width: 20px;
   height: 20px;

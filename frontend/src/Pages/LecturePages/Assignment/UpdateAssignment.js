@@ -25,6 +25,7 @@ const TitleInput = styled.input`
 const WriteAcitonButtonBlock = styled.div`
   margin-top: 3rem;
   margin-bottom: 3rem;
+  display: flex;
   button + button {
     margin-left: 0.5rem;
   }
@@ -162,6 +163,11 @@ const UpdateAssignment = ({ history, match }) => {
     setFiles(e.target.files[0]);
   };
 
+  const onChange = (e) => {
+    setScore(e.target.value);
+    setAssignmentScore(e.target.value);
+  };
+
   const modules = {
     toolbar: [
       //[{ 'font': [] }],
@@ -219,11 +225,7 @@ const UpdateAssignment = ({ history, match }) => {
         </div>
         <div style={{ display: 'flex', justifyContent: 'space-between', margin: '5px 0' }}>
           <div style={{ paddingLeft: '5px', lineHeight: '41.6px' }}>배점</div>
-          <ScoreInput
-            type="number"
-            onChange={(e) => setScore(e.target.value)}
-            value={assignmentScore}
-          />
+          <ScoreInput type="number" onChange={onChange} value={assignmentScore} />
         </div>
         <hr
           style={{

@@ -9,41 +9,9 @@ import Button from '../../../Component/common/Button';
 const StyledButton = styled(Button)`
   height: 2.125rem;
   margin: 1rem 0;
+
   & + & {
     margin-left: 0.5rem;
-  }
-`;
-
-const WriteBtn = styled.button`
-  font-size: 12px;
-  font-weight: bold;
-  padding: 5px;
-  margin-top: 10px;
-  margin-bottom: 5px;
-  margin-right: 30px;
-  margin-left: 20px;
-  background-color: #d3d31c;
-  color: #3e3e3e;
-  border-radius: 5px;
-  cursor: pointer;
-  &:hover {
-    background-color: #bfbfbf;
-  }
-`;
-
-const UpdateBtn = styled.button`
-  font-size: 12px;
-  font-weight: bold;
-  padding: 5px;
-  margin-top: 10px;
-  margin-bottom: 5px;
-  margin-right: 30px;
-  background-color: #f83636;
-  color: #3e3e3e;
-  border-radius: 5px;
-  cursor: pointer;
-  &:hover {
-    background-color: #bfbfbf;
   }
 `;
 
@@ -57,19 +25,6 @@ const Title = styled.div`
   font-style: italic;
 `;
 
-const Btn = styled.button`
-  font-size: 2px;
-  padding: 5px;
-  margin-top: 50px;
-  margin-right: 10px;
-  background-color: rgba(215, 226, 185, 0.596);
-  color: #3e3e3e;
-  border-radius: 7px;
-  cursor: pointer;
-  &:hover {
-    background-color: #bfbfbf;
-  }
-`;
 const ProblemContainer = styled.div`
   background-color: white;
   border-radius: 10px;
@@ -115,7 +70,6 @@ const StudentAssignmentDetail = ({ match }) => {
   const [submitFile, setSubmitFile] = useState('');
   const [studentSubmitFile, setStudentSubmitFile] = useState('');
   const [onSubmit, setOnSubmit] = useState(false);
-  const Url = `https://docs.google.com/gview?embedded=true&url=https://oneboard.connect.o-r.kr:8080/lecture/${lectureId}/assignment/${assignmentId}/file`;
   const getData = () => {
     return new Promise((resolve, reject) => {
       axios
@@ -190,6 +144,7 @@ const StudentAssignmentDetail = ({ match }) => {
   useEffect(() => {
     getData();
     getSubmitData();
+    console.log(submitData.fileUrl);
   }, []);
 
   const headersConfig = {
@@ -270,17 +225,21 @@ const StudentAssignmentDetail = ({ match }) => {
         />
       </ProblemContainer>
       <ProblemContainer style={{ margin: '10px auto' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+        <div style={{ display: 'flex' }}>
           {onGoing === false ? (
             <ProblemTitle>제출물</ProblemTitle>
           ) : onSubmit ? (
             <ProblemTitle>제출물</ProblemTitle>
           ) : (
             <div>
-              <ProblemTitle>과제 제출 작성</ProblemTitle>
-              <StyledButton cyan onClick={submitAssignment}>
-                제출하기
-              </StyledButton>
+              <div>
+                <ProblemTitle>과제 제출 작성</ProblemTitle>
+              </div>
+              <div style={{ display: 'flex' }}>
+                <StyledButton cyan onClick={submitAssignment}>
+                  제출하기
+                </StyledButton>
+              </div>
             </div>
           )}
         </div>
@@ -313,7 +272,11 @@ const StudentAssignmentDetail = ({ match }) => {
                 ) : (
                   <div style={{ display: 'flex' }}>
                     <div style={{ marginRight: 'auto' }}>
-                      <Iframe url={Url} width="500px" height="500px" />
+                      <Iframe
+                        url={`https://docs.google.com/gview?embedded=true&url=https://oneboard.connect.o-r.kr:8080${submitData.fileUrl}`}
+                        width="500px"
+                        height="500px"
+                      />
                     </div>
                     <a
                       href={submitFile}
@@ -371,10 +334,14 @@ const StudentAssignmentDetail = ({ match }) => {
                 ) : (
                   <div style={{ display: 'flex' }}>
                     <div style={{ marginRight: 'auto' }}>
-                      <Iframe url={Url} width="500px" height="500px" />
+                      <Iframe
+                        url={`https://docs.google.com/gview?embedded=true&url=https://oneboard.connect.o-r.kr:8080${submitData.fileUrl}`}
+                        width="500px"
+                        height="500px"
+                      />
                     </div>
                     <a
-                      href={submitFile}
+                      href={`https://115.85.182.194:8080${submitData.fileUrl}`}
                       style={{
                         marginTop: '10px',
                         fontWeight: 'bold',
