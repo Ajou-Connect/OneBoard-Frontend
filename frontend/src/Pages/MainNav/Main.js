@@ -19,6 +19,15 @@ const Main = () => {
       <Header/>
       <div className="into-main" style={{ width: '100%', height: '700px' }} />
       <center>
+      <div style={{ display: "flex" }}>
+      <div style={{
+              fontSize: '2rem',
+              cursor: 'pointer',
+              textDecoration: 'underline',
+          marginLeft: "5rem",
+              marginRight:"1rem"
+            }}><a href="https://www.notion.so/OneBoard-04940c8dee0e4fdf8ea1174075fe566c">더 알아보기 </a></div>
+      
           <Link
             to="/Login"
             style={{
@@ -30,6 +39,8 @@ const Main = () => {
           >
             로그인 하러가기
           </Link>
+        
+        </div>
         </center>
     </div>
   );

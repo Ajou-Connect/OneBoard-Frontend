@@ -237,7 +237,7 @@ const StudentSubmitDetail = ({ match }) => {
         />
       </ProblemContainer>
       <hr style={{ width: '100%', margin: '10px 0px', display: 'block', borderColor: '#ffffff' }} />
-      {/* 여기에 이제 학생 제출물 수정하는 부분 들어가주면 됨  */}
+      {/* 여기에 이제 학생 제출물 보는 부분 들어가주면 됨  */}
       <hr style={{ width: '100%', margin: '10px 0px', display: 'block', borderColor: '#ffffff' }} />
       <div>
         <ScoreInput onChange={getScore} /> / {assignments.score}

@@ -1,3 +1,4 @@
+
 import React from 'react';
 import LoginCheck from './Component/Login/LoginCheck';
 import './App.scss';
@@ -14,7 +15,10 @@ const App = () => {
       <Route path="/class" component={ClassRoute} />
       <Route path="/Login" component={LoginCheck} />
       <Route path="/" exact={true} component={Main} />
+    
+
     </div>
   );
 };
+
 export default App;

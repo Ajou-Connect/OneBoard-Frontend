@@ -135,7 +135,7 @@ const LectureStudentNoticeContent = (props) => {
                     </div>
                     <div className="noticeInfo">
                       <div style={{ fontWeight: 'bold', marginBottom: '1rem' }}>
-                        작성자 : {user.name}
+                        
                       </div>
                     </div>
                   </li>

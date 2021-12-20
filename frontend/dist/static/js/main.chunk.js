@@ -1437,7 +1437,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 __webpack_require__.$Refresh$.setup(module.i);
 
-var _jsxFileName = "/mnt/f/SW_Capstone/frontend/src/App.tsx";
+var _jsxFileName = "/mnt/e/sw_capstone/frontend/src/App.tsx";
 
 
 
@@ -1455,21 +1455,21 @@ const App = () => {
       component: _Component_Routes__WEBPACK_IMPORTED_MODULE_4__["default"]
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 13,
+      lineNumber: 14,
       columnNumber: 7
     }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])(react_router__WEBPACK_IMPORTED_MODULE_3__["Route"], {
       path: "/class",
       component: _Component_ClassRoute__WEBPACK_IMPORTED_MODULE_6__["default"]
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 14,
+      lineNumber: 15,
       columnNumber: 7
     }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])(react_router__WEBPACK_IMPORTED_MODULE_3__["Route"], {
       path: "/Login",
       component: _Component_Login_LoginCheck__WEBPACK_IMPORTED_MODULE_1__["default"]
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 15,
+      lineNumber: 16,
       columnNumber: 7
     }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])(react_router__WEBPACK_IMPORTED_MODULE_3__["Route"], {
       path: "/",
@@ -1477,12 +1477,12 @@ const App = () => {
       component: _Pages_MainNav_Main__WEBPACK_IMPORTED_MODULE_5__["default"]
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 16,
+      lineNumber: 17,
       columnNumber: 7
     }, undefined)]
   }, void 0, true, {
     fileName: _jsxFileName,
-    lineNumber: 12,
+    lineNumber: 13,
     columnNumber: 5
   }, undefined);
 };
@@ -1589,7 +1589,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 __webpack_require__.$Refresh$.setup(module.i);
 
-var _jsxFileName = "/mnt/f/SW_Capstone/frontend/src/Component/ClassRoute.tsx";
+var _jsxFileName = "/mnt/e/sw_capstone/frontend/src/Component/ClassRoute.tsx";
 
 
 
@@ -1732,7 +1732,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 __webpack_require__.$Refresh$.setup(module.i);
 
-var _jsxFileName = "/mnt/f/SW_Capstone/frontend/src/Component/Login/LoginCheck.js",
+var _jsxFileName = "/mnt/e/sw_capstone/frontend/src/Component/Login/LoginCheck.js",
     _s = __webpack_require__.$Refresh$.signature();
 
 
@@ -2132,7 +2132,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 __webpack_require__.$Refresh$.setup(module.i);
 
-var _jsxFileName = "/mnt/f/SW_Capstone/frontend/src/Component/Routes.js";
+var _jsxFileName = "/mnt/e/sw_capstone/frontend/src/Component/Routes.js";
 
 
 
@@ -2572,7 +2572,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 __webpack_require__.$Refresh$.setup(module.i);
 
-var _jsxFileName = "/mnt/f/SW_Capstone/frontend/src/Component/common/Button.js";
+var _jsxFileName = "/mnt/e/sw_capstone/frontend/src/Component/common/Button.js";
 
 
 
@@ -2718,7 +2718,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 __webpack_require__.$Refresh$.setup(module.i);
 
-var _jsxFileName = "/mnt/f/SW_Capstone/frontend/src/Header.js";
+var _jsxFileName = "/mnt/e/sw_capstone/frontend/src/Header.js";
 
 
 
@@ -2958,7 +2958,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 __webpack_require__.$Refresh$.setup(module.i);
 
-var _jsxFileName = "/mnt/f/SW_Capstone/frontend/src/Pages/LecturePages/Assignment/LectureAssignment.js",
+var _jsxFileName = "/mnt/e/sw_capstone/frontend/src/Pages/LecturePages/Assignment/LectureAssignment.js",
     _s = __webpack_require__.$Refresh$.signature();
 
 
@@ -3234,7 +3234,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 __webpack_require__.$Refresh$.setup(module.i);
 
-var _jsxFileName = "/mnt/f/SW_Capstone/frontend/src/Pages/LecturePages/Assignment/ProfessorAssignmentDetail.js",
+var _jsxFileName = "/mnt/e/sw_capstone/frontend/src/Pages/LecturePages/Assignment/ProfessorAssignmentDetail.js",
     _s = __webpack_require__.$Refresh$.signature();
 
 
@@ -3631,7 +3631,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 __webpack_require__.$Refresh$.setup(module.i);
 
-var _jsxFileName = "/mnt/f/SW_Capstone/frontend/src/Pages/LecturePages/Assignment/ProfessorAssignmentList.js",
+var _jsxFileName = "/mnt/e/sw_capstone/frontend/src/Pages/LecturePages/Assignment/ProfessorAssignmentList.js",
     _s = __webpack_require__.$Refresh$.signature();
 
 
@@ -4258,7 +4258,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 __webpack_require__.$Refresh$.setup(module.i);
 
-var _jsxFileName = "/mnt/f/SW_Capstone/frontend/src/Pages/LecturePages/Assignment/StudentAssignmentDetail.js",
+var _jsxFileName = "/mnt/e/sw_capstone/frontend/src/Pages/LecturePages/Assignment/StudentAssignmentDetail.js",
     _s = __webpack_require__.$Refresh$.signature();
 
 
@@ -5144,7 +5144,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 __webpack_require__.$Refresh$.setup(module.i);
 
-var _jsxFileName = "/mnt/f/SW_Capstone/frontend/src/Pages/LecturePages/Assignment/StudentAssignmentList.js",
+var _jsxFileName = "/mnt/e/sw_capstone/frontend/src/Pages/LecturePages/Assignment/StudentAssignmentList.js",
     _s = __webpack_require__.$Refresh$.signature();
 
 
@@ -5707,7 +5707,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 __webpack_require__.$Refresh$.setup(module.i);
 
-var _jsxFileName = "/mnt/f/SW_Capstone/frontend/src/Pages/LecturePages/Assignment/StudentSubmit.js",
+var _jsxFileName = "/mnt/e/sw_capstone/frontend/src/Pages/LecturePages/Assignment/StudentSubmit.js",
     _s = __webpack_require__.$Refresh$.signature();
 
 
@@ -6055,7 +6055,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 __webpack_require__.$Refresh$.setup(module.i);
 
-var _jsxFileName = "/mnt/f/SW_Capstone/frontend/src/Pages/LecturePages/Assignment/StudentSubmitDetail.js",
+var _jsxFileName = "/mnt/e/sw_capstone/frontend/src/Pages/LecturePages/Assignment/StudentSubmitDetail.js",
     _s = __webpack_require__.$Refresh$.signature();
 
 
@@ -6566,7 +6566,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 __webpack_require__.$Refresh$.setup(module.i);
 
-var _jsxFileName = "/mnt/f/SW_Capstone/frontend/src/Pages/LecturePages/Assignment/UpdateAssignment.js",
+var _jsxFileName = "/mnt/e/sw_capstone/frontend/src/Pages/LecturePages/Assignment/UpdateAssignment.js",
     _s = __webpack_require__.$Refresh$.signature();
 
 
@@ -7052,7 +7052,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 __webpack_require__.$Refresh$.setup(module.i);
 
-var _jsxFileName = "/mnt/f/SW_Capstone/frontend/src/Pages/LecturePages/Assignment/UpdateStudentAssignment.js",
+var _jsxFileName = "/mnt/e/sw_capstone/frontend/src/Pages/LecturePages/Assignment/UpdateStudentAssignment.js",
     _s = __webpack_require__.$Refresh$.signature();
 
 
@@ -7576,7 +7576,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 __webpack_require__.$Refresh$.setup(module.i);
 
-var _jsxFileName = "/mnt/f/SW_Capstone/frontend/src/Pages/LecturePages/Assignment/WriteAssignment.js",
+var _jsxFileName = "/mnt/e/sw_capstone/frontend/src/Pages/LecturePages/Assignment/WriteAssignment.js",
     _s = __webpack_require__.$Refresh$.signature();
 
 
@@ -8048,7 +8048,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 __webpack_require__.$Refresh$.setup(module.i);
 
-var _jsxFileName = "/mnt/f/SW_Capstone/frontend/src/Pages/LecturePages/Attendance/LectureAttendance.js",
+var _jsxFileName = "/mnt/e/sw_capstone/frontend/src/Pages/LecturePages/Attendance/LectureAttendance.js",
     _s = __webpack_require__.$Refresh$.signature();
 
 
@@ -8328,7 +8328,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 __webpack_require__.$Refresh$.setup(module.i);
 
-var _jsxFileName = "/mnt/f/SW_Capstone/frontend/src/Pages/LecturePages/Attendance/ProfessorAttendance.js",
+var _jsxFileName = "/mnt/e/sw_capstone/frontend/src/Pages/LecturePages/Attendance/ProfessorAttendance.js",
     _s = __webpack_require__.$Refresh$.signature();
 
 
@@ -8650,7 +8650,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 __webpack_require__.$Refresh$.setup(module.i);
 
-var _jsxFileName = "/mnt/f/SW_Capstone/frontend/src/Pages/LecturePages/Attendance/ProfessorAttendanceDetail.js",
+var _jsxFileName = "/mnt/e/sw_capstone/frontend/src/Pages/LecturePages/Attendance/ProfessorAttendanceDetail.js",
     _s = __webpack_require__.$Refresh$.signature();
 
 
@@ -9236,7 +9236,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 __webpack_require__.$Refresh$.setup(module.i);
 
-var _jsxFileName = "/mnt/f/SW_Capstone/frontend/src/Pages/LecturePages/Attendance/StudentAttendance.js",
+var _jsxFileName = "/mnt/e/sw_capstone/frontend/src/Pages/LecturePages/Attendance/StudentAttendance.js",
     _s = __webpack_require__.$Refresh$.signature();
 
 
@@ -9731,7 +9731,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 __webpack_require__.$Refresh$.setup(module.i);
 
-var _jsxFileName = "/mnt/f/SW_Capstone/frontend/src/Pages/LecturePages/Home/LectureHome.js";
+var _jsxFileName = "/mnt/e/sw_capstone/frontend/src/Pages/LecturePages/Home/LectureHome.js";
 
 
 
@@ -10027,7 +10027,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 __webpack_require__.$Refresh$.setup(module.i);
 
-var _jsxFileName = "/mnt/f/SW_Capstone/frontend/src/Pages/LecturePages/Home/LectureHomeNotice.js",
+var _jsxFileName = "/mnt/e/sw_capstone/frontend/src/Pages/LecturePages/Home/LectureHomeNotice.js",
     _s = __webpack_require__.$Refresh$.signature();
 
 
@@ -10307,7 +10307,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 __webpack_require__.$Refresh$.setup(module.i);
 
-var _jsxFileName = "/mnt/f/SW_Capstone/frontend/src/Pages/LecturePages/Home/LectureHomePlan.js",
+var _jsxFileName = "/mnt/e/sw_capstone/frontend/src/Pages/LecturePages/Home/LectureHomePlan.js",
     _s = __webpack_require__.$Refresh$.signature();
 
 
@@ -10513,7 +10513,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 __webpack_require__.$Refresh$.setup(module.i);
 
-var _jsxFileName = "/mnt/f/SW_Capstone/frontend/src/Pages/LecturePages/LectureSidebar.js",
+var _jsxFileName = "/mnt/e/sw_capstone/frontend/src/Pages/LecturePages/LectureSidebar.js",
     _s = __webpack_require__.$Refresh$.signature();
 
 
@@ -10984,7 +10984,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 __webpack_require__.$Refresh$.setup(module.i);
 
-var _jsxFileName = "/mnt/f/SW_Capstone/frontend/src/Pages/LecturePages/Lesson/GenerateLesson.js",
+var _jsxFileName = "/mnt/e/sw_capstone/frontend/src/Pages/LecturePages/Lesson/GenerateLesson.js",
     _s = __webpack_require__.$Refresh$.signature();
 
 
@@ -11593,7 +11593,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 __webpack_require__.$Refresh$.setup(module.i);
 
-var _jsxFileName = "/mnt/f/SW_Capstone/frontend/src/Pages/LecturePages/Lesson/LectureLesson.js",
+var _jsxFileName = "/mnt/e/sw_capstone/frontend/src/Pages/LecturePages/Lesson/LectureLesson.js",
     _s = __webpack_require__.$Refresh$.signature();
 
 
@@ -11865,7 +11865,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 __webpack_require__.$Refresh$.setup(module.i);
 
-var _jsxFileName = "/mnt/f/SW_Capstone/frontend/src/Pages/LecturePages/Lesson/LessonDetail.js",
+var _jsxFileName = "/mnt/e/sw_capstone/frontend/src/Pages/LecturePages/Lesson/LessonDetail.js",
     _s = __webpack_require__.$Refresh$.signature();
 
 
@@ -12021,7 +12021,7 @@ const LessonDetail = ({
         children: lessonDetails.title
       }, void 0, false, {
         fileName: _jsxFileName,
-        lineNumber: 163,
+        lineNumber: 164,
         columnNumber: 9
       }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])("div", {
         style: {
@@ -12033,7 +12033,7 @@ const LessonDetail = ({
         children: ["\uAC15\uC758 \uB0A0\uC9DC : ", lessonDetails.date]
       }, void 0, true, {
         fileName: _jsxFileName,
-        lineNumber: 164,
+        lineNumber: 165,
         columnNumber: 9
       }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])("div", {
         style: {
@@ -12050,7 +12050,7 @@ const LessonDetail = ({
           children: "\uB300\uBA74 \uC218\uC5C5"
         }, void 0, false, {
           fileName: _jsxFileName,
-          lineNumber: 185,
+          lineNumber: 186,
           columnNumber: 13
         }, undefined) : lessonDetails.type === 1 ? /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])("div", {
           style: {
@@ -12059,7 +12059,7 @@ const LessonDetail = ({
           children: "\uBE44\uB300\uBA74 \uC2E4\uC2DC\uAC04 \uC218\uC5C5"
         }, void 0, false, {
           fileName: _jsxFileName,
-          lineNumber: 187,
+          lineNumber: 188,
           columnNumber: 13
         }, undefined) : /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])("div", {
           style: {
@@ -12068,12 +12068,12 @@ const LessonDetail = ({
           children: "\uB179\uD654 \uAC15\uC758"
         }, void 0, false, {
           fileName: _jsxFileName,
-          lineNumber: 189,
+          lineNumber: 190,
           columnNumber: 13
         }, undefined)]
       }, void 0, true, {
         fileName: _jsxFileName,
-        lineNumber: 174,
+        lineNumber: 175,
         columnNumber: 9
       }, undefined), userType === 'S' ? /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])("div", {
         style: {
@@ -12085,16 +12085,16 @@ const LessonDetail = ({
         children: "\uCD9C\uC11D \uC815\uBCF4"
       }, void 0, false, {
         fileName: _jsxFileName,
-        lineNumber: 193,
+        lineNumber: 194,
         columnNumber: 11
       }, undefined) : /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])("div", {}, void 0, false, {
         fileName: _jsxFileName,
-        lineNumber: 204,
+        lineNumber: 205,
         columnNumber: 11
       }, undefined)]
     }, void 0, true, {
       fileName: _jsxFileName,
-      lineNumber: 162,
+      lineNumber: 163,
       columnNumber: 7
     }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])("hr", {
       style: {
@@ -12105,7 +12105,7 @@ const LessonDetail = ({
       }
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 207,
+      lineNumber: 208,
       columnNumber: 7
     }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])("div", {
       style: {
@@ -12130,7 +12130,7 @@ const LessonDetail = ({
           children: "\uB4F1\uB85D\uB41C \uAC15\uC758\uB178\uD2B8\uAC00 \uC5C6\uC2B5\uB2C8\uB2E4"
         }, void 0, false, {
           fileName: _jsxFileName,
-          lineNumber: 223,
+          lineNumber: 224,
           columnNumber: 13
         }, undefined) : /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])("div", {
           style: {
@@ -12143,7 +12143,7 @@ const LessonDetail = ({
             children: [lessonDetails.title, " \uAC15\uC758\uB178\uD2B8 \uB2E4\uC6B4\uB85C\uB4DC"]
           }, void 0, true, {
             fileName: _jsxFileName,
-            lineNumber: 232,
+            lineNumber: 233,
             columnNumber: 15
           }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])("div", {
             children: /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])(react_iframe__WEBPACK_IMPORTED_MODULE_3__["default"], {
@@ -12152,22 +12152,22 @@ const LessonDetail = ({
               height: "400px"
             }, void 0, false, {
               fileName: _jsxFileName,
-              lineNumber: 234,
+              lineNumber: 235,
               columnNumber: 17
             }, undefined)
           }, void 0, false, {
             fileName: _jsxFileName,
-            lineNumber: 233,
+            lineNumber: 234,
             columnNumber: 15
           }, undefined)]
         }, void 0, true, {
           fileName: _jsxFileName,
-          lineNumber: 225,
+          lineNumber: 226,
           columnNumber: 13
         }, undefined)]
       }, void 0, true, {
         fileName: _jsxFileName,
-        lineNumber: 210,
+        lineNumber: 211,
         columnNumber: 9
       }, undefined), lessonDetails.type === 1 ? /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])("div", {
         style: {
@@ -12188,7 +12188,7 @@ const LessonDetail = ({
           children: "\uC2E4\uC2DC\uAC04 \uC218\uC5C5\uC785\uC7A5"
         }, void 0, false, {
           fileName: _jsxFileName,
-          lineNumber: 253,
+          lineNumber: 254,
           columnNumber: 15
         }, undefined) : /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])("div", {
           style: {
@@ -12198,12 +12198,12 @@ const LessonDetail = ({
           children: "\uC2E4\uC2DC\uAC04 \uC218\uC5C5\uC785\uC7A5"
         }, void 0, false, {
           fileName: _jsxFileName,
-          lineNumber: 257,
+          lineNumber: 258,
           columnNumber: 15
         }, undefined)
       }, void 0, false, {
         fileName: _jsxFileName,
-        lineNumber: 240,
+        lineNumber: 241,
         columnNumber: 11
       }, undefined) : lessonDetails.type === 2 ? /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])("div", {
         style: {
@@ -12219,7 +12219,7 @@ const LessonDetail = ({
         children: ["\uAC15\uC758\uC2E4 \uC815\uBCF4 : ", lessonDetails.room]
       }, void 0, true, {
         fileName: _jsxFileName,
-        lineNumber: 263,
+        lineNumber: 264,
         columnNumber: 11
       }, undefined) : /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])("div", {
         style: {
@@ -12235,12 +12235,12 @@ const LessonDetail = ({
         children: ["\uB179\uD654 \uAC15\uC758 : ", lessonDetails.videoUrl]
       }, void 0, true, {
         fileName: _jsxFileName,
-        lineNumber: 278,
+        lineNumber: 279,
         columnNumber: 11
       }, undefined)]
     }, void 0, true, {
       fileName: _jsxFileName,
-      lineNumber: 209,
+      lineNumber: 210,
       columnNumber: 7
     }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])("hr", {
       style: {
@@ -12251,11 +12251,11 @@ const LessonDetail = ({
       }
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 295,
+      lineNumber: 296,
       columnNumber: 7
     }, undefined), userType === 'S' ? /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])("div", {}, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 297,
+      lineNumber: 298,
       columnNumber: 9
     }, undefined) : /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["Fragment"], {
       children: [/*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])("div", {
@@ -12271,12 +12271,12 @@ const LessonDetail = ({
             data: data
           }, void 0, false, {
             fileName: _jsxFileName,
-            lineNumber: 302,
+            lineNumber: 303,
             columnNumber: 15
           }, undefined)
         }, void 0, false, {
           fileName: _jsxFileName,
-          lineNumber: 301,
+          lineNumber: 302,
           columnNumber: 13
         }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])("div", {
           style: {
@@ -12306,7 +12306,7 @@ const LessonDetail = ({
                   children: "\uC774\uB984"
                 }, void 0, false, {
                   fileName: _jsxFileName,
-                  lineNumber: 326,
+                  lineNumber: 327,
                   columnNumber: 21
                 }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])("th", {
                   style: {
@@ -12316,7 +12316,7 @@ const LessonDetail = ({
                   children: "\uD559\uBC88"
                 }, void 0, false, {
                   fileName: _jsxFileName,
-                  lineNumber: 327,
+                  lineNumber: 328,
                   columnNumber: 21
                 }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])("th", {
                   style: {
@@ -12326,17 +12326,17 @@ const LessonDetail = ({
                   children: "\uCD9C\uACB0"
                 }, void 0, false, {
                   fileName: _jsxFileName,
-                  lineNumber: 328,
+                  lineNumber: 329,
                   columnNumber: 21
                 }, undefined)]
               }, void 0, true, {
                 fileName: _jsxFileName,
-                lineNumber: 325,
+                lineNumber: 326,
                 columnNumber: 19
               }, undefined)
             }, void 0, false, {
               fileName: _jsxFileName,
-              lineNumber: 317,
+              lineNumber: 318,
               columnNumber: 17
             }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])("tbody", {
               children: studentInfo.map((studentList, index) => /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])(TabletrColor, {
@@ -12348,7 +12348,7 @@ const LessonDetail = ({
                   children: studentList.studentName
                 }, void 0, false, {
                   fileName: _jsxFileName,
-                  lineNumber: 334,
+                  lineNumber: 335,
                   columnNumber: 23
                 }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])("td", {
                   style: {
@@ -12358,7 +12358,7 @@ const LessonDetail = ({
                   children: studentList.studentNumber
                 }, void 0, false, {
                   fileName: _jsxFileName,
-                  lineNumber: 337,
+                  lineNumber: 338,
                   columnNumber: 23
                 }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])("td", {
                   style: {
@@ -12373,7 +12373,7 @@ const LessonDetail = ({
                     children: "\uCD9C\uC11D"
                   }, void 0, false, {
                     fileName: _jsxFileName,
-                    lineNumber: 342,
+                    lineNumber: 343,
                     columnNumber: 27
                   }, undefined) : studentList.attendanceList[0].status === 1 ? /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])("div", {
                     style: {
@@ -12383,7 +12383,7 @@ const LessonDetail = ({
                     children: "\uC9C0\uAC01"
                   }, void 0, false, {
                     fileName: _jsxFileName,
-                    lineNumber: 344,
+                    lineNumber: 345,
                     columnNumber: 27
                   }, undefined) : /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])("div", {
                     style: {
@@ -12393,37 +12393,37 @@ const LessonDetail = ({
                     children: "\uACB0\uC11D"
                   }, void 0, false, {
                     fileName: _jsxFileName,
-                    lineNumber: 346,
+                    lineNumber: 347,
                     columnNumber: 27
                   }, undefined)
                 }, void 0, false, {
                   fileName: _jsxFileName,
-                  lineNumber: 340,
+                  lineNumber: 341,
                   columnNumber: 23
                 }, undefined)]
               }, index, true, {
                 fileName: _jsxFileName,
-                lineNumber: 333,
+                lineNumber: 334,
                 columnNumber: 21
               }, undefined))
             }, void 0, false, {
               fileName: _jsxFileName,
-              lineNumber: 331,
+              lineNumber: 332,
               columnNumber: 17
             }, undefined)]
           }, void 0, true, {
             fileName: _jsxFileName,
-            lineNumber: 309,
+            lineNumber: 310,
             columnNumber: 15
           }, undefined)
         }, void 0, false, {
           fileName: _jsxFileName,
-          lineNumber: 304,
+          lineNumber: 305,
           columnNumber: 13
         }, undefined)]
       }, void 0, true, {
         fileName: _jsxFileName,
-        lineNumber: 300,
+        lineNumber: 301,
         columnNumber: 11
       }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])("hr", {
         style: {
@@ -12434,7 +12434,7 @@ const LessonDetail = ({
         }
       }, void 0, false, {
         fileName: _jsxFileName,
-        lineNumber: 355,
+        lineNumber: 356,
         columnNumber: 11
       }, undefined)]
     }, void 0, true), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_7__["jsxDEV"])("div", {
@@ -12447,17 +12447,17 @@ const LessonDetail = ({
         children: "\uB4A4\uB85C\uAC00\uAE30"
       }, void 0, false, {
         fileName: _jsxFileName,
-        lineNumber: 361,
+        lineNumber: 362,
         columnNumber: 9
       }, undefined)
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 360,
+      lineNumber: 361,
       columnNumber: 7
     }, undefined)]
   }, void 0, true, {
     fileName: _jsxFileName,
-    lineNumber: 161,
+    lineNumber: 162,
     columnNumber: 5
   }, undefined);
 };
@@ -12572,7 +12572,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 __webpack_require__.$Refresh$.setup(module.i);
 
-var _jsxFileName = "/mnt/f/SW_Capstone/frontend/src/Pages/LecturePages/Lesson/ProfessorLectureLesson.js",
+var _jsxFileName = "/mnt/e/sw_capstone/frontend/src/Pages/LecturePages/Lesson/ProfessorLectureLesson.js",
     _s = __webpack_require__.$Refresh$.signature();
 
 
@@ -12996,7 +12996,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 __webpack_require__.$Refresh$.setup(module.i);
 
-var _jsxFileName = "/mnt/f/SW_Capstone/frontend/src/Pages/LecturePages/Lesson/StudentLectureLesson.js",
+var _jsxFileName = "/mnt/e/sw_capstone/frontend/src/Pages/LecturePages/Lesson/StudentLectureLesson.js",
     _s = __webpack_require__.$Refresh$.signature();
 
 
@@ -13333,7 +13333,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 __webpack_require__.$Refresh$.setup(module.i);
 
-var _jsxFileName = "/mnt/f/SW_Capstone/frontend/src/Pages/LecturePages/Lesson/UpdateLesson.js",
+var _jsxFileName = "/mnt/e/sw_capstone/frontend/src/Pages/LecturePages/Lesson/UpdateLesson.js",
     _s = __webpack_require__.$Refresh$.signature();
 
 
@@ -13973,7 +13973,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 __webpack_require__.$Refresh$.setup(module.i);
 
-var _jsxFileName = "/mnt/f/SW_Capstone/frontend/src/Pages/LecturePages/Notice/LectureNotice.js";
+var _jsxFileName = "/mnt/e/sw_capstone/frontend/src/Pages/LecturePages/Notice/LectureNotice.js";
 
 
 
@@ -14236,7 +14236,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 __webpack_require__.$Refresh$.setup(module.i);
 
-var _jsxFileName = "/mnt/f/SW_Capstone/frontend/src/Pages/LecturePages/Notice/LectureProfessorNoticeContent.js",
+var _jsxFileName = "/mnt/e/sw_capstone/frontend/src/Pages/LecturePages/Notice/LectureProfessorNoticeContent.js",
     _s = __webpack_require__.$Refresh$.signature();
 
 
@@ -14430,9 +14430,8 @@ const LectureProfessorNoticeContent = props => {
                   style: {
                     fontWeight: 'bold',
                     marginBottom: '1rem'
-                  },
-                  children: ["\uC791\uC131\uC790 : ", user.name]
-                }, void 0, true, {
+                  }
+                }, void 0, false, {
                   fileName: _jsxFileName,
                   lineNumber: 153,
                   columnNumber: 23
@@ -14726,7 +14725,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 __webpack_require__.$Refresh$.setup(module.i);
 
-var _jsxFileName = "/mnt/f/SW_Capstone/frontend/src/Pages/LecturePages/Notice/LectureStudentNoticeContent.js",
+var _jsxFileName = "/mnt/e/sw_capstone/frontend/src/Pages/LecturePages/Notice/LectureStudentNoticeContent.js",
     _s = __webpack_require__.$Refresh$.signature();
 
 
@@ -14903,9 +14902,8 @@ const LectureStudentNoticeContent = props => {
                   style: {
                     fontWeight: 'bold',
                     marginBottom: '1rem'
-                  },
-                  children: ["\uC791\uC131\uC790 : ", user.name]
-                }, void 0, true, {
+                  }
+                }, void 0, false, {
                   fileName: _jsxFileName,
                   lineNumber: 137,
                   columnNumber: 23
@@ -15158,7 +15156,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 __webpack_require__.$Refresh$.setup(module.i);
 
-var _jsxFileName = "/mnt/f/SW_Capstone/frontend/src/Pages/LecturePages/Notice/UpdateNotice.js",
+var _jsxFileName = "/mnt/e/sw_capstone/frontend/src/Pages/LecturePages/Notice/UpdateNotice.js",
     _s = __webpack_require__.$Refresh$.signature();
 
 
@@ -15516,7 +15514,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 __webpack_require__.$Refresh$.setup(module.i);
 
-var _jsxFileName = "/mnt/f/SW_Capstone/frontend/src/Pages/LecturePages/Notice/WriteNotice.js",
+var _jsxFileName = "/mnt/e/sw_capstone/frontend/src/Pages/LecturePages/Notice/WriteNotice.js",
     _s = __webpack_require__.$Refresh$.signature();
 
 
@@ -15856,7 +15854,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 __webpack_require__.$Refresh$.setup(module.i);
 
-var _jsxFileName = "/mnt/f/SW_Capstone/frontend/src/Pages/LecturePages/Plan/LecturePlan.js",
+var _jsxFileName = "/mnt/e/sw_capstone/frontend/src/Pages/LecturePages/Plan/LecturePlan.js",
     _s = __webpack_require__.$Refresh$.signature();
 
 
@@ -16236,7 +16234,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 __webpack_require__.$Refresh$.setup(module.i);
 
-var _jsxFileName = "/mnt/f/SW_Capstone/frontend/src/Pages/LecturePages/Plan/LoadLecturePlan.js",
+var _jsxFileName = "/mnt/e/sw_capstone/frontend/src/Pages/LecturePages/Plan/LoadLecturePlan.js",
     _s = __webpack_require__.$Refresh$.signature();
 
 
@@ -16518,7 +16516,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 __webpack_require__.$Refresh$.setup(module.i);
 
-var _jsxFileName = "/mnt/f/SW_Capstone/frontend/src/Pages/LecturePages/Plan/UpLoadPlan.js";
+var _jsxFileName = "/mnt/e/sw_capstone/frontend/src/Pages/LecturePages/Plan/UpLoadPlan.js";
 
 
 
@@ -16716,7 +16714,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 __webpack_require__.$Refresh$.setup(module.i);
 
-var _jsxFileName = "/mnt/f/SW_Capstone/frontend/src/Pages/LecturePages/Plan/WriteLecturePlan.js",
+var _jsxFileName = "/mnt/e/sw_capstone/frontend/src/Pages/LecturePages/Plan/WriteLecturePlan.js",
     _s = __webpack_require__.$Refresh$.signature();
 
 
@@ -17020,7 +17018,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 __webpack_require__.$Refresh$.setup(module.i);
 
-var _jsxFileName = "/mnt/f/SW_Capstone/frontend/src/Pages/LecturePages/Score/LectureScore.js";
+var _jsxFileName = "/mnt/e/sw_capstone/frontend/src/Pages/LecturePages/Score/LectureScore.js";
 
 
 
@@ -17279,7 +17277,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 __webpack_require__.$Refresh$.setup(module.i);
 
-var _jsxFileName = "/mnt/f/SW_Capstone/frontend/src/Pages/LecturePages/Score/ProfessorLectureScore.js",
+var _jsxFileName = "/mnt/e/sw_capstone/frontend/src/Pages/LecturePages/Score/ProfessorLectureScore.js",
     _s = __webpack_require__.$Refresh$.signature();
 
 
@@ -17696,7 +17694,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 __webpack_require__.$Refresh$.setup(module.i);
 
-var _jsxFileName = "/mnt/f/SW_Capstone/frontend/src/Pages/LecturePages/Score/ProfessorScoreDetail.js",
+var _jsxFileName = "/mnt/e/sw_capstone/frontend/src/Pages/LecturePages/Score/ProfessorScoreDetail.js",
     _s = __webpack_require__.$Refresh$.signature();
 
 
@@ -18370,7 +18368,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 __webpack_require__.$Refresh$.setup(module.i);
 
-var _jsxFileName = "/mnt/f/SW_Capstone/frontend/src/Pages/LecturePages/Score/StudentLectureScore.js",
+var _jsxFileName = "/mnt/e/sw_capstone/frontend/src/Pages/LecturePages/Score/StudentLectureScore.js",
     _s = __webpack_require__.$Refresh$.signature();
 
 
@@ -18896,7 +18894,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 __webpack_require__.$Refresh$.setup(module.i);
 
-var _jsxFileName = "/mnt/f/SW_Capstone/frontend/src/Pages/MainNav/Home.js",
+var _jsxFileName = "/mnt/e/sw_capstone/frontend/src/Pages/MainNav/Home.js",
     _s = __webpack_require__.$Refresh$.signature();
 
 
@@ -19152,7 +19150,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 __webpack_require__.$Refresh$.setup(module.i);
 
-var _jsxFileName = "/mnt/f/SW_Capstone/frontend/src/Pages/MainNav/LectureList.js",
+var _jsxFileName = "/mnt/e/sw_capstone/frontend/src/Pages/MainNav/LectureList.js",
     _s = __webpack_require__.$Refresh$.signature();
 
 
@@ -19518,7 +19516,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 __webpack_require__.$Refresh$.setup(module.i);
 
-var _jsxFileName = "/mnt/f/SW_Capstone/frontend/src/Pages/MainNav/Main.js";
+var _jsxFileName = "/mnt/e/sw_capstone/frontend/src/Pages/MainNav/Main.js";
 
 
 
@@ -19552,18 +19550,47 @@ const Main = () => {
       lineNumber: 20,
       columnNumber: 7
     }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_6__["jsxDEV"])("center", {
-      children: /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_6__["jsxDEV"])(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-        to: "/Login",
+      children: /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_6__["jsxDEV"])("div", {
         style: {
-          fontSize: '2rem',
-          cursor: 'pointer',
-          textDecoration: 'underline'
+          display: "flex"
         },
-        children: "\uB85C\uADF8\uC778 \uD558\uB7EC\uAC00\uAE30"
-      }, void 0, false, {
+        children: [/*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_6__["jsxDEV"])("div", {
+          style: {
+            fontSize: '2rem',
+            cursor: 'pointer',
+            textDecoration: 'underline',
+            marginLeft: "5rem",
+            marginRight: "1rem"
+          },
+          children: /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_6__["jsxDEV"])("a", {
+            href: "https://www.notion.so/OneBoard-04940c8dee0e4fdf8ea1174075fe566c",
+            children: "\uB354 \uC54C\uC544\uBCF4\uAE30 "
+          }, void 0, false, {
+            fileName: _jsxFileName,
+            lineNumber: 29,
+            columnNumber: 16
+          }, undefined)
+        }, void 0, false, {
+          fileName: _jsxFileName,
+          lineNumber: 23,
+          columnNumber: 7
+        }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_6__["jsxDEV"])(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+          to: "/Login",
+          style: {
+            fontSize: '2rem',
+            cursor: 'pointer',
+            textDecoration: 'underline'
+          },
+          children: "\uB85C\uADF8\uC778 \uD558\uB7EC\uAC00\uAE30"
+        }, void 0, false, {
+          fileName: _jsxFileName,
+          lineNumber: 31,
+          columnNumber: 11
+        }, undefined)]
+      }, void 0, true, {
         fileName: _jsxFileName,
         lineNumber: 22,
-        columnNumber: 11
+        columnNumber: 7
       }, undefined)
     }, void 0, false, {
       fileName: _jsxFileName,
@@ -19773,7 +19800,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 __webpack_require__.$Refresh$.setup(module.i);
 
-var _jsxFileName = "/mnt/f/SW_Capstone/frontend/src/Pages/MainNav/Profile.js",
+var _jsxFileName = "/mnt/e/sw_capstone/frontend/src/Pages/MainNav/Profile.js",
     _s = __webpack_require__.$Refresh$.signature();
 
 
@@ -20205,7 +20232,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 __webpack_require__.$Refresh$.setup(module.i);
 
-var _jsxFileName = "/mnt/f/SW_Capstone/frontend/src/Sidebar/Nav.js",
+var _jsxFileName = "/mnt/e/sw_capstone/frontend/src/Sidebar/Nav.js",
     _s = __webpack_require__.$Refresh$.signature();
 
 
@@ -20539,7 +20566,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 __webpack_require__.$Refresh$.setup(module.i);
 
-var _jsxFileName = "/mnt/f/SW_Capstone/frontend/src/Sidebar/SidebarData.js";
+var _jsxFileName = "/mnt/e/sw_capstone/frontend/src/Sidebar/SidebarData.js";
 
 
 
@@ -20686,7 +20713,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 __webpack_require__.$Refresh$.setup(module.i);
 
-var _jsxFileName = "/mnt/f/SW_Capstone/frontend/src/ZoomSample/component/icon-font.tsx";
+var _jsxFileName = "/mnt/e/sw_capstone/frontend/src/ZoomSample/component/icon-font.tsx";
 
 
 
@@ -20926,7 +20953,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 __webpack_require__.$Refresh$.setup(module.i);
 
-var _jsxFileName = "/mnt/f/SW_Capstone/frontend/src/ZoomSample/component/loading-layer.tsx";
+var _jsxFileName = "/mnt/e/sw_capstone/frontend/src/ZoomSample/component/loading-layer.tsx";
 
 
 
@@ -21448,7 +21475,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 __webpack_require__.$Refresh$.setup(module.i);
 
-var _jsxFileName = "/mnt/f/SW_Capstone/frontend/src/ZoomSample/feature/chat/chat.tsx",
+var _jsxFileName = "/mnt/e/sw_capstone/frontend/src/ZoomSample/feature/chat/chat.tsx",
     _s = __webpack_require__.$Refresh$.signature();
 
 
@@ -21848,7 +21875,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 __webpack_require__.$Refresh$.setup(module.i);
 
-var _jsxFileName = "/mnt/f/SW_Capstone/frontend/src/ZoomSample/feature/chat/component/chat-message-item.tsx",
+var _jsxFileName = "/mnt/e/sw_capstone/frontend/src/ZoomSample/feature/chat/component/chat-message-item.tsx",
     _s = __webpack_require__.$Refresh$.signature();
 
 /* eslint-disable jsx-a11y/anchor-is-valid */
@@ -22184,7 +22211,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 __webpack_require__.$Refresh$.setup(module.i);
 
-var _jsxFileName = "/mnt/f/SW_Capstone/frontend/src/ZoomSample/feature/chat/component/chat-receiver.tsx",
+var _jsxFileName = "/mnt/e/sw_capstone/frontend/src/ZoomSample/feature/chat/component/chat-receiver.tsx",
     _s = __webpack_require__.$Refresh$.signature();
 
 
@@ -22584,6 +22611,880 @@ if (true) {
 
 /***/ }),
 
+/***/ "./src/ZoomSample/feature/video/QuizModal.js":
+/*!***************************************************!*\
+  !*** ./src/ZoomSample/feature/video/QuizModal.js ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* WEBPACK VAR INJECTION */(function(__react_refresh_utils__, __react_refresh_error_overlay__) {/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/index.js");
+/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-dev-runtime */ "./node_modules/react/jsx-dev-runtime.js");
+/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__);
+__webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
+__webpack_require__.$Refresh$.setup(module.i);
+
+var _jsxFileName = "/mnt/e/sw_capstone/frontend/src/ZoomSample/feature/video/QuizModal.js",
+    _s = __webpack_require__.$Refresh$.signature();
+
+
+
+
+
+
+
+
+const ModalWrapper = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div`
+  box-sizing: border-box;
+  display: ${props => props.visible ? 'block' : 'none'};
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  overflow: auto;
+  outline: 0;
+`;
+_c = ModalWrapper;
+const ModalOverlay = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div`
+  box-sizing: border-box;
+  display: ${props => props.visible ? 'block' : 'none'};
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 999;
+`;
+_c2 = ModalOverlay;
+const ModalInner = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div`
+  box-sizing: border-box;
+  position: relative;
+  box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.5);
+  background-color: #fff;
+  border-radius: 10px;
+  width: 360px;
+  max-width: 480px;
+  top: 50%;
+  transform: translateY(-50%);
+  margin: 0 auto;
+  padding: 40px+ 20px;
+  height: 500px;
+  text-align: center;
+`;
+_c3 = ModalInner;
+const CloseBtn = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].button`
+  height: 3rem;
+  width: 100px;
+  color: red;
+  margin-left: auto;
+  margin-right: 2rem;
+  margin-top: 10px;
+`;
+_c4 = CloseBtn;
+const OkBtn = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].button`
+  height: 3rem;
+  width: 100px;
+  color: red;
+  margin-left: auto;
+  margin-right: 2rem;
+  margin-top: 10px;
+`;
+_c5 = OkBtn;
+QuizModal.propTypes = {
+  visible: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.bool
+};
+
+function QuizModal({
+  className,
+  onClose,
+  maskClosable,
+  closable,
+  visible,
+  children,
+  lessonId,
+  sessionId,
+  lectureId,
+  quizId
+}) {
+  _s();
+
+  const [value, setValue] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])("");
+  const [value1, setValue1] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])("");
+  const [value2, setValue2] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])("");
+  const [value3, setValue3] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])("");
+  const [value4, setValue4] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])("");
+  const [value5, setValue5] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])("");
+  const [radioValue, setRadioValue] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(1);
+  const user = JSON.parse(localStorage.userInfo);
+  const userType = user.userType;
+
+  const onMaskClick = e => {
+    if (e.target === e.currentTarget) {
+      onClose(e);
+    }
+  };
+
+  const close = e => {
+    if (onClose) {
+      onClose(e);
+    }
+  };
+
+  const onSubmit = e => {
+    axios__WEBPACK_IMPORTED_MODULE_3___default.a.post(`/lecture/${lectureId}/lesson/${lessonId}/live/quiz/professor`, {
+      question: value,
+      answer1: value1,
+      answer2: value2,
+      answer3: value3,
+      answer4: value4,
+      answer5: value5,
+      answer: radioValue
+    }, {
+      params: {
+        session: `${sessionId}`
+      }
+    }).then(res => {
+      console.log(res.data.data);
+      const result = res.data.data;
+      onClose(e);
+    }).catch(error => {
+      console.log(error);
+    });
+  };
+
+  const changeQ = e => {
+    setValue(e.target.value);
+  };
+
+  const change1 = e => {
+    setValue1(e.target.value);
+  };
+
+  const change2 = e => {
+    setValue2(e.target.value);
+  };
+
+  const change3 = e => {
+    setValue3(e.target.value);
+  };
+
+  const change4 = e => {
+    setValue4(e.target.value);
+  };
+
+  const change5 = e => {
+    setValue5(e.target.value);
+  };
+
+  const onChange = e => {
+    console.log('radio checked', e.target.value);
+    setRadioValue(e.target.value);
+  };
+
+  return /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__["jsxDEV"])(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__["Fragment"], {
+    children: [/*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__["jsxDEV"])(ModalOverlay, {
+      visible: visible
+    }, void 0, false, {
+      fileName: _jsxFileName,
+      lineNumber: 155,
+      columnNumber: 7
+    }, this), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__["jsxDEV"])(ModalWrapper, {
+      className: className,
+      onClick: maskClosable ? onMaskClick : null,
+      tabIndex: "-1",
+      visible: visible,
+      children: /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__["jsxDEV"])(ModalInner, {
+        tabIndex: "0",
+        className: "modal-inner",
+        children: userType === "T" ? /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__["jsxDEV"])("div", {
+          children: [/*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__["jsxDEV"])("div", {
+            children: children
+          }, void 0, false, {
+            fileName: _jsxFileName,
+            lineNumber: 164,
+            columnNumber: 13
+          }, this), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__["jsxDEV"])("br", {}, void 0, false, {
+            fileName: _jsxFileName,
+            lineNumber: 165,
+            columnNumber: 13
+          }, this), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__["jsxDEV"])("div", {
+            style: {
+              marginTop: '1rem'
+            },
+            children: ["\uBB38\uC81C \uCD9C\uC81C :", /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__["jsxDEV"])("input", {
+              type: "text",
+              style: {
+                width: '70%'
+              },
+              onChange: changeQ
+            }, void 0, false, {
+              fileName: _jsxFileName,
+              lineNumber: 168,
+              columnNumber: 15
+            }, this)]
+          }, void 0, true, {
+            fileName: _jsxFileName,
+            lineNumber: 166,
+            columnNumber: 13
+          }, this), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__["jsxDEV"])("div", {
+            style: {
+              marginTop: '1rem'
+            },
+            children: ["1.", /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__["jsxDEV"])("input", {
+              type: "text",
+              style: {
+                width: '90%'
+              },
+              onChange: change1
+            }, void 0, false, {
+              fileName: _jsxFileName,
+              lineNumber: 172,
+              columnNumber: 15
+            }, this)]
+          }, void 0, true, {
+            fileName: _jsxFileName,
+            lineNumber: 170,
+            columnNumber: 13
+          }, this), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__["jsxDEV"])("div", {
+            style: {
+              marginTop: '1rem'
+            },
+            children: ["2.", /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__["jsxDEV"])("input", {
+              type: "text",
+              style: {
+                width: '90%'
+              },
+              onChange: change2
+            }, void 0, false, {
+              fileName: _jsxFileName,
+              lineNumber: 176,
+              columnNumber: 15
+            }, this)]
+          }, void 0, true, {
+            fileName: _jsxFileName,
+            lineNumber: 174,
+            columnNumber: 13
+          }, this), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__["jsxDEV"])("div", {
+            style: {
+              marginTop: '1rem'
+            },
+            children: ["3.", /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__["jsxDEV"])("input", {
+              type: "text",
+              style: {
+                width: '90%'
+              },
+              onChange: change3
+            }, void 0, false, {
+              fileName: _jsxFileName,
+              lineNumber: 180,
+              columnNumber: 15
+            }, this)]
+          }, void 0, true, {
+            fileName: _jsxFileName,
+            lineNumber: 178,
+            columnNumber: 13
+          }, this), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__["jsxDEV"])("div", {
+            style: {
+              marginTop: '1rem'
+            },
+            children: ["4.", /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__["jsxDEV"])("input", {
+              type: "text",
+              style: {
+                width: '90%'
+              },
+              onChange: change4
+            }, void 0, false, {
+              fileName: _jsxFileName,
+              lineNumber: 184,
+              columnNumber: 15
+            }, this)]
+          }, void 0, true, {
+            fileName: _jsxFileName,
+            lineNumber: 182,
+            columnNumber: 13
+          }, this), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__["jsxDEV"])("div", {
+            style: {
+              marginTop: '1rem'
+            },
+            children: ["5.", /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__["jsxDEV"])("input", {
+              type: "text",
+              style: {
+                width: '90%'
+              },
+              onChange: change5
+            }, void 0, false, {
+              fileName: _jsxFileName,
+              lineNumber: 188,
+              columnNumber: 15
+            }, this)]
+          }, void 0, true, {
+            fileName: _jsxFileName,
+            lineNumber: 186,
+            columnNumber: 13
+          }, this), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__["jsxDEV"])("div", {
+            style: {
+              marginTop: '1rem'
+            },
+            children: "\uC815\uB2F5 \uBC88\uD638 \uCCB4\uD06C"
+          }, void 0, false, {
+            fileName: _jsxFileName,
+            lineNumber: 190,
+            columnNumber: 13
+          }, this), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__["jsxDEV"])(antd__WEBPACK_IMPORTED_MODULE_4__["Radio"].Group, {
+            onChange: onChange,
+            value: radioValue,
+            children: [/*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__["jsxDEV"])(antd__WEBPACK_IMPORTED_MODULE_4__["Radio"], {
+              value: 1,
+              children: "1"
+            }, void 0, false, {
+              fileName: _jsxFileName,
+              lineNumber: 192,
+              columnNumber: 19
+            }, this), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__["jsxDEV"])(antd__WEBPACK_IMPORTED_MODULE_4__["Radio"], {
+              value: 2,
+              children: "2"
+            }, void 0, false, {
+              fileName: _jsxFileName,
+              lineNumber: 193,
+              columnNumber: 19
+            }, this), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__["jsxDEV"])(antd__WEBPACK_IMPORTED_MODULE_4__["Radio"], {
+              value: 3,
+              children: "3"
+            }, void 0, false, {
+              fileName: _jsxFileName,
+              lineNumber: 194,
+              columnNumber: 19
+            }, this), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__["jsxDEV"])(antd__WEBPACK_IMPORTED_MODULE_4__["Radio"], {
+              value: 4,
+              children: "4"
+            }, void 0, false, {
+              fileName: _jsxFileName,
+              lineNumber: 195,
+              columnNumber: 19
+            }, this), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__["jsxDEV"])(antd__WEBPACK_IMPORTED_MODULE_4__["Radio"], {
+              value: 5,
+              children: "5"
+            }, void 0, false, {
+              fileName: _jsxFileName,
+              lineNumber: 196,
+              columnNumber: 19
+            }, this)]
+          }, void 0, true, {
+            fileName: _jsxFileName,
+            lineNumber: 191,
+            columnNumber: 17
+          }, this), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__["jsxDEV"])("div", {
+            style: {
+              display: 'flex'
+            },
+            children: [closable && /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__["jsxDEV"])(OkBtn, {
+              className: "modal-ok",
+              onClick: onSubmit,
+              children: "\uD655\uC778"
+            }, void 0, false, {
+              fileName: _jsxFileName,
+              lineNumber: 200,
+              columnNumber: 17
+            }, this), closable && /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__["jsxDEV"])(CloseBtn, {
+              className: "modal-close",
+              onClick: close,
+              children: "\uCDE8\uC18C"
+            }, void 0, false, {
+              fileName: _jsxFileName,
+              lineNumber: 205,
+              columnNumber: 17
+            }, this)]
+          }, void 0, true, {
+            fileName: _jsxFileName,
+            lineNumber: 198,
+            columnNumber: 13
+          }, this)]
+        }, void 0, true, {
+          fileName: _jsxFileName,
+          lineNumber: 163,
+          columnNumber: 32
+        }, this) : /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__["jsxDEV"])("div", {
+          children: [/*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__["jsxDEV"])("div", {
+            children: children
+          }, void 0, false, {
+            fileName: _jsxFileName,
+            lineNumber: 211,
+            columnNumber: 15
+          }, this), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__["jsxDEV"])("br", {}, void 0, false, {
+            fileName: _jsxFileName,
+            lineNumber: 212,
+            columnNumber: 15
+          }, this), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__["jsxDEV"])("div", {
+            style: {
+              marginTop: '1rem'
+            },
+            children: ["\uBB38\uC81C : ", value]
+          }, void 0, true, {
+            fileName: _jsxFileName,
+            lineNumber: 213,
+            columnNumber: 13
+          }, this), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__["jsxDEV"])("div", {
+            style: {
+              marginTop: '1rem'
+            },
+            children: ["1. ", value1]
+          }, void 0, true, {
+            fileName: _jsxFileName,
+            lineNumber: 216,
+            columnNumber: 13
+          }, this), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__["jsxDEV"])("div", {
+            style: {
+              marginTop: '1rem'
+            },
+            children: ["2. ", value2]
+          }, void 0, true, {
+            fileName: _jsxFileName,
+            lineNumber: 219,
+            columnNumber: 13
+          }, this), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__["jsxDEV"])("div", {
+            style: {
+              marginTop: '1rem'
+            },
+            children: ["3. ", value3]
+          }, void 0, true, {
+            fileName: _jsxFileName,
+            lineNumber: 222,
+            columnNumber: 13
+          }, this), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__["jsxDEV"])("div", {
+            style: {
+              marginTop: '1rem'
+            },
+            children: ["4. ", value4]
+          }, void 0, true, {
+            fileName: _jsxFileName,
+            lineNumber: 225,
+            columnNumber: 13
+          }, this), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__["jsxDEV"])("div", {
+            style: {
+              marginTop: '1rem'
+            },
+            children: ["5. ", value5]
+          }, void 0, true, {
+            fileName: _jsxFileName,
+            lineNumber: 228,
+            columnNumber: 13
+          }, this)]
+        }, void 0, true, {
+          fileName: _jsxFileName,
+          lineNumber: 210,
+          columnNumber: 22
+        }, this)
+      }, void 0, false, {
+        fileName: _jsxFileName,
+        lineNumber: 162,
+        columnNumber: 9
+      }, this)
+    }, void 0, false, {
+      fileName: _jsxFileName,
+      lineNumber: 156,
+      columnNumber: 7
+    }, this)]
+  }, void 0, true);
+}
+
+_s(QuizModal, "Z6oXberPI6+3LGVVNRUhRdGQp+Y=");
+
+_c6 = QuizModal;
+/* harmony default export */ __webpack_exports__["default"] = (QuizModal);
+
+var _c, _c2, _c3, _c4, _c5, _c6;
+
+__webpack_require__.$Refresh$.register(_c, "ModalWrapper");
+__webpack_require__.$Refresh$.register(_c2, "ModalOverlay");
+__webpack_require__.$Refresh$.register(_c3, "ModalInner");
+__webpack_require__.$Refresh$.register(_c4, "CloseBtn");
+__webpack_require__.$Refresh$.register(_c5, "OkBtn");
+__webpack_require__.$Refresh$.register(_c6, "QuizModal");
+
+const currentExports = __react_refresh_utils__.getModuleExports(module.i);
+__react_refresh_utils__.registerExportsForReactRefresh(currentExports, module.i);
+
+if (true) {
+  const isHotUpdate = !!module.hot.data;
+  const prevExports = isHotUpdate ? module.hot.data.prevExports : null;
+
+  if (__react_refresh_utils__.isReactRefreshBoundary(currentExports)) {
+    module.hot.dispose(
+      /**
+       * A callback to performs a full refresh if React has unrecoverable errors,
+       * and also caches the to-be-disposed module.
+       * @param {*} data A hot module data object from Webpack HMR.
+       * @returns {void}
+       */
+      function hotDisposeCallback(data) {
+        // We have to mutate the data object to get data registered and cached
+        data.prevExports = currentExports;
+      }
+    );
+    module.hot.accept(
+      /**
+       * An error handler to allow self-recovering behaviours.
+       * @param {Error} error An error occurred during evaluation of a module.
+       * @returns {void}
+       */
+      function hotErrorHandler(error) {
+        if (
+          typeof __react_refresh_error_overlay__ !== 'undefined' &&
+          __react_refresh_error_overlay__
+        ) {
+          __react_refresh_error_overlay__.handleRuntimeError(error);
+        }
+
+        if (typeof __react_refresh_test__ !== 'undefined' && __react_refresh_test__) {
+          if (window.onHotAcceptError) {
+            window.onHotAcceptError(error.message);
+          }
+        }
+
+        __webpack_require__.c[module.i].hot.accept(hotErrorHandler);
+      }
+    );
+
+    if (isHotUpdate) {
+      if (
+        __react_refresh_utils__.isReactRefreshBoundary(prevExports) &&
+        __react_refresh_utils__.shouldInvalidateReactRefreshBoundary(prevExports, currentExports)
+      ) {
+        module.hot.invalidate();
+      } else {
+        __react_refresh_utils__.enqueueUpdate(
+          /**
+           * A function to dismiss the error overlay after performing React refresh.
+           * @returns {void}
+           */
+          function updateCallback() {
+            if (
+              typeof __react_refresh_error_overlay__ !== 'undefined' &&
+              __react_refresh_error_overlay__
+            ) {
+              __react_refresh_error_overlay__.clearRuntimeErrors();
+            }
+          }
+        );
+      }
+    }
+  } else {
+    if (isHotUpdate && __react_refresh_utils__.isReactRefreshBoundary(prevExports)) {
+      module.hot.invalidate();
+    }
+  }
+}
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js */ "./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js"), __webpack_require__(/*! ./node_modules/react-dev-utils/refreshOverlayInterop.js */ "./node_modules/react-dev-utils/refreshOverlayInterop.js")))
+
+/***/ }),
+
+/***/ "./src/ZoomSample/feature/video/UnderStandModal.js":
+/*!*********************************************************!*\
+  !*** ./src/ZoomSample/feature/video/UnderStandModal.js ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* WEBPACK VAR INJECTION */(function(__react_refresh_utils__, __react_refresh_error_overlay__) {/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-dev-runtime */ "./node_modules/react/jsx-dev-runtime.js");
+/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_4__);
+__webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
+__webpack_require__.$Refresh$.setup(module.i);
+
+var _jsxFileName = "/mnt/e/sw_capstone/frontend/src/ZoomSample/feature/video/UnderStandModal.js";
+
+
+
+
+
+
+const ModalWrapper = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div`
+  box-sizing: border-box;
+  display: ${props => props.visible ? 'block' : 'none'};
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  overflow: auto;
+  outline: 0;
+`;
+_c = ModalWrapper;
+const ModalOverlay = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div`
+  box-sizing: border-box;
+  display: ${props => props.visible ? 'block' : 'none'};
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 999;
+`;
+_c2 = ModalOverlay;
+const ModalInner = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div`
+  box-sizing: border-box;
+  position: relative;
+  box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.5);
+  background-color: #fff;
+  border-radius: 10px;
+  width: 360px;
+  max-width: 480px;
+  top: 50%;
+  transform: translateY(-50%);
+  margin: 0 auto;
+  padding: 40px+ 20px;
+  height: 300px;
+  text-align: center;
+`;
+_c3 = ModalInner;
+const CloseBtn = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].button`
+  height: 3rem;
+  width: 100px;
+  font-weight: bold;
+  font-size: 1.3rem;
+  margin-left: auto;
+  margin-right: 2rem;
+  margin-top: 150px;
+`;
+const OkBtn = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].button`
+  height: 3rem;
+  width: 100px;
+  font-weight: bold;
+  font-size: 1.3rem;
+  margin-left: auto;
+  margin-right: 2rem;
+  margin-top: 150px;
+`;
+_c4 = OkBtn;
+UnderStandModal.propTypes = {
+  visible: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.bool
+};
+
+function UnderStandModal({
+  className,
+  onClose,
+  maskClosable,
+  closable,
+  visible,
+  children,
+  lessonId,
+  sessionId,
+  lectureId,
+  underStandId
+}) {
+  const token = localStorage.getItem('token');
+
+  const onMaskClick = e => {
+    if (e.target === e.currentTarget) {
+      onClose(e);
+    }
+  };
+
+  const onSubmit = (e, response) => {
+    console.log(sessionId);
+    console.log(underStandId);
+    axios__WEBPACK_IMPORTED_MODULE_3___default.a.post(`/lecture/${lectureId}/lesson/${lessonId}/live/understanding/${underStandId}/student`, {
+      response: response
+    }, {
+      params: {
+        session: `${sessionId}`
+      },
+      headers: {
+        'X-AUTH-TOKEN': `${token}`
+      }
+    }).then(res => {
+      console.log(res);
+      const result = res.data.data;
+      onClose(e);
+    }).catch(error => {
+      console.log(error);
+    });
+  };
+
+  return /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_4__["jsxDEV"])(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_4__["Fragment"], {
+    children: [/*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_4__["jsxDEV"])(ModalOverlay, {
+      visible: visible
+    }, void 0, false, {
+      fileName: _jsxFileName,
+      lineNumber: 113,
+      columnNumber: 7
+    }, this), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_4__["jsxDEV"])(ModalWrapper, {
+      className: className,
+      onClick: maskClosable ? onMaskClick : null,
+      tabIndex: "-1",
+      visible: visible,
+      children: /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_4__["jsxDEV"])(ModalInner, {
+        tabIndex: "0",
+        className: "modal-inner",
+        children: /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_4__["jsxDEV"])("div", {
+          children: [/*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_4__["jsxDEV"])("div", {
+            style: {
+              fontSize: '1rem',
+              fontWeight: 'bold'
+            },
+            children: children
+          }, void 0, false, {
+            fileName: _jsxFileName,
+            lineNumber: 122,
+            columnNumber: 13
+          }, this), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_4__["jsxDEV"])("br", {}, void 0, false, {
+            fileName: _jsxFileName,
+            lineNumber: 123,
+            columnNumber: 13
+          }, this), "\uC218\uC5C5\uC5D0 \uB300\uD574 \uC774\uD574\uAC00 \uB418\uC5C8\uB098\uC694?", /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_4__["jsxDEV"])("div", {
+            style: {
+              display: 'flex'
+            },
+            children: [closable && /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_4__["jsxDEV"])(OkBtn, {
+              className: "modal-ok",
+              onClick: e => onSubmit(e, 1),
+              children: "o"
+            }, void 0, false, {
+              fileName: _jsxFileName,
+              lineNumber: 127,
+              columnNumber: 17
+            }, this), closable && /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_4__["jsxDEV"])(OkBtn, {
+              className: "modal-ok",
+              onClick: e => onSubmit(e, 0),
+              children: "x"
+            }, void 0, false, {
+              fileName: _jsxFileName,
+              lineNumber: 132,
+              columnNumber: 17
+            }, this)]
+          }, void 0, true, {
+            fileName: _jsxFileName,
+            lineNumber: 125,
+            columnNumber: 13
+          }, this)]
+        }, void 0, true, {
+          fileName: _jsxFileName,
+          lineNumber: 121,
+          columnNumber: 11
+        }, this)
+      }, void 0, false, {
+        fileName: _jsxFileName,
+        lineNumber: 120,
+        columnNumber: 9
+      }, this)
+    }, void 0, false, {
+      fileName: _jsxFileName,
+      lineNumber: 114,
+      columnNumber: 7
+    }, this)]
+  }, void 0, true);
+}
+
+_c5 = UnderStandModal;
+/* harmony default export */ __webpack_exports__["default"] = (UnderStandModal);
+
+var _c, _c2, _c3, _c4, _c5;
+
+__webpack_require__.$Refresh$.register(_c, "ModalWrapper");
+__webpack_require__.$Refresh$.register(_c2, "ModalOverlay");
+__webpack_require__.$Refresh$.register(_c3, "ModalInner");
+__webpack_require__.$Refresh$.register(_c4, "OkBtn");
+__webpack_require__.$Refresh$.register(_c5, "UnderStandModal");
+
+const currentExports = __react_refresh_utils__.getModuleExports(module.i);
+__react_refresh_utils__.registerExportsForReactRefresh(currentExports, module.i);
+
+if (true) {
+  const isHotUpdate = !!module.hot.data;
+  const prevExports = isHotUpdate ? module.hot.data.prevExports : null;
+
+  if (__react_refresh_utils__.isReactRefreshBoundary(currentExports)) {
+    module.hot.dispose(
+      /**
+       * A callback to performs a full refresh if React has unrecoverable errors,
+       * and also caches the to-be-disposed module.
+       * @param {*} data A hot module data object from Webpack HMR.
+       * @returns {void}
+       */
+      function hotDisposeCallback(data) {
+        // We have to mutate the data object to get data registered and cached
+        data.prevExports = currentExports;
+      }
+    );
+    module.hot.accept(
+      /**
+       * An error handler to allow self-recovering behaviours.
+       * @param {Error} error An error occurred during evaluation of a module.
+       * @returns {void}
+       */
+      function hotErrorHandler(error) {
+        if (
+          typeof __react_refresh_error_overlay__ !== 'undefined' &&
+          __react_refresh_error_overlay__
+        ) {
+          __react_refresh_error_overlay__.handleRuntimeError(error);
+        }
+
+        if (typeof __react_refresh_test__ !== 'undefined' && __react_refresh_test__) {
+          if (window.onHotAcceptError) {
+            window.onHotAcceptError(error.message);
+          }
+        }
+
+        __webpack_require__.c[module.i].hot.accept(hotErrorHandler);
+      }
+    );
+
+    if (isHotUpdate) {
+      if (
+        __react_refresh_utils__.isReactRefreshBoundary(prevExports) &&
+        __react_refresh_utils__.shouldInvalidateReactRefreshBoundary(prevExports, currentExports)
+      ) {
+        module.hot.invalidate();
+      } else {
+        __react_refresh_utils__.enqueueUpdate(
+          /**
+           * A function to dismiss the error overlay after performing React refresh.
+           * @returns {void}
+           */
+          function updateCallback() {
+            if (
+              typeof __react_refresh_error_overlay__ !== 'undefined' &&
+              __react_refresh_error_overlay__
+            ) {
+              __react_refresh_error_overlay__.clearRuntimeErrors();
+            }
+          }
+        );
+      }
+    }
+  } else {
+    if (isHotUpdate && __react_refresh_utils__.isReactRefreshBoundary(prevExports)) {
+      module.hot.invalidate();
+    }
+  }
+}
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js */ "./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js"), __webpack_require__(/*! ./node_modules/react-dev-utils/refreshOverlayInterop.js */ "./node_modules/react-dev-utils/refreshOverlayInterop.js")))
+
+/***/ }),
+
 /***/ "./src/ZoomSample/feature/video/components/avatar.scss":
 /*!*************************************************************!*\
   !*** ./src/ZoomSample/feature/video/components/avatar.scss ***!
@@ -22697,7 +23598,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 __webpack_require__.$Refresh$.setup(module.i);
 
-var _jsxFileName = "/mnt/f/SW_Capstone/frontend/src/ZoomSample/feature/video/components/avatar.tsx";
+var _jsxFileName = "/mnt/e/sw_capstone/frontend/src/ZoomSample/feature/video/components/avatar.tsx";
 
 
 
@@ -22958,7 +23859,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 __webpack_require__.$Refresh$.setup(module.i);
 
-var _jsxFileName = "/mnt/f/SW_Capstone/frontend/src/ZoomSample/feature/video/components/camera.tsx";
+var _jsxFileName = "/mnt/e/sw_capstone/frontend/src/ZoomSample/feature/video/components/camera.tsx";
 
 
 
@@ -23266,7 +24167,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 __webpack_require__.$Refresh$.setup(module.i);
 
-var _jsxFileName = "/mnt/f/SW_Capstone/frontend/src/ZoomSample/feature/video/components/microphone.tsx";
+var _jsxFileName = "/mnt/e/sw_capstone/frontend/src/ZoomSample/feature/video/components/microphone.tsx";
 
 /* eslint-disable no-nested-ternary */
 
@@ -23642,7 +24543,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 __webpack_require__.$Refresh$.setup(module.i);
 
-var _jsxFileName = "/mnt/f/SW_Capstone/frontend/src/ZoomSample/feature/video/components/pagination.tsx",
+var _jsxFileName = "/mnt/e/sw_capstone/frontend/src/ZoomSample/feature/video/components/pagination.tsx",
     _s = __webpack_require__.$Refresh$.signature();
 
 /* eslint-disable react/jsx-boolean-value */
@@ -23916,7 +24817,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 __webpack_require__.$Refresh$.setup(module.i);
 
-var _jsxFileName = "/mnt/f/SW_Capstone/frontend/src/ZoomSample/feature/video/components/screen-share.tsx";
+var _jsxFileName = "/mnt/e/sw_capstone/frontend/src/ZoomSample/feature/video/components/screen-share.tsx";
 
 
 
@@ -24204,7 +25105,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 __webpack_require__.$Refresh$.setup(module.i);
 
-var _jsxFileName = "/mnt/f/SW_Capstone/frontend/src/ZoomSample/feature/video/components/video-footer.tsx",
+var _jsxFileName = "/mnt/e/sw_capstone/frontend/src/ZoomSample/feature/video/components/video-footer.tsx",
     _s = __webpack_require__.$Refresh$.signature();
 
 
@@ -24425,7 +25326,7 @@ const VideoFooter = props => {
       activeSpeaker: activeSpeaker
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 191,
+      lineNumber: 196,
       columnNumber: 7
     }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_12__["jsxDEV"])(_camera__WEBPACK_IMPORTED_MODULE_4__["default"], {
       isStartedVideo: isStartedVideo,
@@ -24435,14 +25336,14 @@ const VideoFooter = props => {
       activeCamera: activeCamera
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 202,
+      lineNumber: 207,
       columnNumber: 7
     }, undefined), sharing && /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_12__["jsxDEV"])(_screen_share__WEBPACK_IMPORTED_MODULE_6__["ScreenShareButton"], {
       isStartedScreenShare: isStartedScreenShare,
       onScreenShareClick: onScreenShareClick
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 210,
+      lineNumber: 215,
       columnNumber: 9
     }, undefined), (zmClient.isManager() || zmClient.isHost()) && /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_12__["jsxDEV"])(_screen_share__WEBPACK_IMPORTED_MODULE_6__["ScreenShareLockButton"], {
       isLockedScreenShare: isLockedScreenShare,
@@ -24452,19 +25353,19 @@ const VideoFooter = props => {
       }
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 216,
+      lineNumber: 221,
       columnNumber: 9
     }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_12__["jsxDEV"])(LeaveBtn, {
       onClick: OutSession,
       children: "\uB098\uAC00\uAE30"
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 224,
+      lineNumber: 229,
       columnNumber: 7
     }, undefined)]
   }, void 0, true, {
     fileName: _jsxFileName,
-    lineNumber: 189,
+    lineNumber: 194,
     columnNumber: 5
   }, undefined);
 };
@@ -25965,7 +26866,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 __webpack_require__.$Refresh$.setup(module.i);
 
-var _jsxFileName = "/mnt/f/SW_Capstone/frontend/src/ZoomSample/feature/video/video-single.tsx",
+var _jsxFileName = "/mnt/e/sw_capstone/frontend/src/ZoomSample/feature/video/video-single.tsx",
     _s = __webpack_require__.$Refresh$.signature();
 
 
@@ -26388,13 +27289,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _video_scss__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(_video_scss__WEBPACK_IMPORTED_MODULE_12__);
 /* harmony import */ var _utils_platform__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../utils/platform */ "./src/ZoomSample/utils/platform.ts");
 /* harmony import */ var _chat_chat__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../chat/chat */ "./src/ZoomSample/feature/chat/chat.tsx");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
-/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! react/jsx-dev-runtime */ "./node_modules/react/jsx-dev-runtime.js");
-/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_16__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_15__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var socket_io_client__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! socket.io-client */ "./node_modules/socket.io-client/index.js");
+/* harmony import */ var socket_io_client__WEBPACK_IMPORTED_MODULE_17___default = /*#__PURE__*/__webpack_require__.n(socket_io_client__WEBPACK_IMPORTED_MODULE_17__);
+/* harmony import */ var _QuizModal__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./QuizModal */ "./src/ZoomSample/feature/video/QuizModal.js");
+/* harmony import */ var _UnderStandModal__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./UnderStandModal */ "./src/ZoomSample/feature/video/UnderStandModal.js");
+/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! react/jsx-dev-runtime */ "./node_modules/react/jsx-dev-runtime.js");
+/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_20___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_20__);
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 __webpack_require__.$Refresh$.setup(module.i);
 
-var _jsxFileName = "/mnt/f/SW_Capstone/frontend/src/ZoomSample/feature/video/video.tsx",
+var _jsxFileName = "/mnt/e/sw_capstone/frontend/src/ZoomSample/feature/video/video.tsx",
     _s = __webpack_require__.$Refresh$.signature();
 
 
@@ -26414,12 +27321,17 @@ var _jsxFileName = "/mnt/f/SW_Capstone/frontend/src/ZoomSample/feature/video/vid
 
 
 
-const LeaveBtn = styled_components__WEBPACK_IMPORTED_MODULE_15__["default"].button`
-  position: absolute;
-  right: 0;
-  margin-right: 30px;
+
+
+
+
+const AttendanceBtn = styled_components__WEBPACK_IMPORTED_MODULE_16__["default"].button`
+  width: 100%;
+  margin-top:1rem;
   color: red;
+  cursor:pointer;
 `;
+_c = AttendanceBtn;
 
 const VideoContainer = props => {
   _s();
@@ -26443,6 +27355,15 @@ const VideoContainer = props => {
   const shareContainerRef = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])(null);
   const canvasDimension = Object(_hooks_useCanvasDimension__WEBPACK_IMPORTED_MODULE_7__["useCanvasDimension"])(mediaStream, videoRef);
   const activeVideo = Object(_hooks_useAvtiveVideo__WEBPACK_IMPORTED_MODULE_10__["useActiveVideo"])(zmClient);
+  const user = JSON.parse(localStorage.userInfo);
+  const userType = user.userType;
+  const token = localStorage.getItem("token");
+  const [modalVisible, setModalVisible] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false);
+  const [underStandId, setUnderStandId] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])();
+  const [pfUnderStandId, setPfUnderStandId] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])();
+  const [quizId, setQuizId] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])();
+  const [isUnderstand, setIsUnderstand] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false);
+  const [isCheckUnderstand, setIsCheckUnderstand] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false);
   const {
     page,
     pageSize,
@@ -26466,6 +27387,7 @@ const VideoContainer = props => {
   } = Object(_hooks_useShare__WEBPACK_IMPORTED_MODULE_11__["useShare"])(zmClient, mediaStream, shareRef);
   const isSharing = isRecieveSharing || isStartedShare;
   const contentDimension = sharedContentDimension;
+  const socket = socket_io_client__WEBPACK_IMPORTED_MODULE_17___default.a.connect("https://oneboard.connect.o-r.kr:8070");
 
   if (isSharing && shareContainerRef.current) {
     const {
@@ -26481,61 +27403,258 @@ const VideoContainer = props => {
     contentDimension.height = Math.floor(height * ratio);
   }
 
-  return /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_16__["jsxDEV"])("div", {
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    socket.emit("init", {
+      "userType": userType,
+      "room": sessionId
+    });
+    socket.on("attendance request", data => {
+      if (userType === "S") {
+        alert("출석 확인");
+        axios__WEBPACK_IMPORTED_MODULE_15___default.a.get(`/lecture/${lectureId}/lesson/${lessonId}/live/attendance/student`, {
+          params: {
+            "session": `${sessionId}`
+          },
+          headers: {
+            "X-AUTH-TOKEN": `${token}`
+          }
+        }).then(res => {
+          console.log(res);
+          const result = res.data.result;
+
+          if (result === "SUCCESS") {
+            console.log("hi");
+          } else {
+            console.log("error");
+          }
+        }).catch(error => {
+          console.log(error);
+        });
+      }
+    }); // understan
+
+    socket.on("understanding request", data => {
+      setIsUnderstand(true);
+      setModalVisible(true);
+      setUnderStandId(data.understandId);
+
+      if (userType === "S") {
+        return modalVisible && /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_20__["jsxDEV"])(_UnderStandModal__WEBPACK_IMPORTED_MODULE_19__["default"], {
+          visible: modalVisible,
+          closable: true,
+          maskClosable: true,
+          onClose: closeModal,
+          lessonId: props.lessonId,
+          lectureId: props.lectureId,
+          sessionId: props.sessionId,
+          underStandId: underStandId,
+          className: "modal-under",
+          children: "\uC774\uD574\uB3C4 \uCCB4\uD06C"
+        }, void 0, false, {
+          fileName: _jsxFileName,
+          lineNumber: 132,
+          columnNumber: 27
+        }, undefined);
+      }
+    });
+    socket.on("quiz request", data => {
+      console.log(data);
+      setModalVisible(true);
+      setQuizId(data.quizId);
+    });
+  }, []);
+
+  const openAttendance = e => {
+    // e.preventDefault(); 
+    axios__WEBPACK_IMPORTED_MODULE_15___default.a.get(`/lecture/${lectureId}/lesson/${lessonId}/live/attendance/professor`, {
+      params: {
+        session: `${sessionId}`
+      }
+    }).then(res => {
+      alert("학생들에게 출석요청을 보냈습니다.");
+      console.log(res);
+    }).catch(e => {
+      console.log(e);
+    });
+  };
+
+  const openUnderstand = () => {
+    axios__WEBPACK_IMPORTED_MODULE_15___default.a.get(`/lecture/${lectureId}/lesson/${lessonId}/live/understanding/professor`, {
+      params: {
+        session: `${sessionId}`
+      }
+    }).then(res => {
+      alert("학생들에게 이해도 평가요청을 보냈습니다.");
+      setPfUnderStandId(res.data.data.understandId);
+      console.log(underStandId);
+    }).catch(error => {
+      console.log(error);
+    });
+  };
+
+  const checkUnderstand = () => {
+    axios__WEBPACK_IMPORTED_MODULE_15___default.a.get(`/lecture/${lectureId}/lesson/${lessonId}/live/understanding/${pfUnderStandId}/professor`, {
+      headers: {
+        "X-AUTH-TOKEN": `${token}`
+      }
+    }).then(res => {
+      const yes = res.data.data.yes;
+      const no = res.data.data.no;
+      console.log(res);
+      alert("이해한 사람 수 : " + yes + " " + "이해 못한 사람 수 : " + no);
+    }).catch(error => {
+      console.log(error);
+    });
+  };
+
+  const openModal = () => {
+    setModalVisible(true);
+  };
+
+  const closeModal = () => {
+    setModalVisible(false);
+  }; // const checkQuiz = () => {
+  //   setModalVisible(true);
+  //   return (
+  //        modalVisible&&<UnderStandModal
+  //           visible={modalVisible}
+  //           closable={true}
+  //           maskClosable={true}
+  //           onClose={closeModal}
+  //           lessonId={props.lessonId}
+  //           lectureId={props.lectureId}
+  //           sessionId={props.sessionId}
+  //           underStandId={underStandId}
+  //           className="modal-under">이해도 체크</UnderStandModal>
+  //   )
+  // }
+
+
+  return /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_20__["jsxDEV"])("div", {
     className: "viewport",
-    children: [/*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_16__["jsxDEV"])("div", {
+    children: [userType === "T" ? /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_20__["jsxDEV"])("div", {
+      children: [/*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_20__["jsxDEV"])(AttendanceBtn, {
+        onClick: openAttendance,
+        children: "\uCD9C\uC11D \uC694\uCCAD"
+      }, void 0, false, {
+        fileName: _jsxFileName,
+        lineNumber: 223,
+        columnNumber: 9
+      }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_20__["jsxDEV"])(AttendanceBtn, {
+        onClick: openUnderstand,
+        children: "\uC774\uD574\uB3C4 \uD655\uC778"
+      }, void 0, false, {
+        fileName: _jsxFileName,
+        lineNumber: 224,
+        columnNumber: 9
+      }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_20__["jsxDEV"])(AttendanceBtn, {
+        onClick: openModal,
+        children: "\uD034\uC988 \uCD9C\uC81C"
+      }, void 0, false, {
+        fileName: _jsxFileName,
+        lineNumber: 225,
+        columnNumber: 9
+      }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_20__["jsxDEV"])(AttendanceBtn, {
+        onClick: checkUnderstand,
+        children: "\uCD5C\uADFC \uC774\uD574\uB3C4 \uACB0\uACFC"
+      }, void 0, false, {
+        fileName: _jsxFileName,
+        lineNumber: 226,
+        columnNumber: 9
+      }, undefined), modalVisible && /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_20__["jsxDEV"])(_QuizModal__WEBPACK_IMPORTED_MODULE_18__["default"], {
+        visible: modalVisible,
+        closable: true,
+        maskClosable: true,
+        onClose: closeModal,
+        lessonId: props.lessonId,
+        lectureId: props.lectureId,
+        sessionId: props.sessionId,
+        quizId: 1,
+        className: "modal-root",
+        children: "\uD034\uC988 \uCD9C\uC81C"
+      }, void 0, false, {
+        fileName: _jsxFileName,
+        lineNumber: 229,
+        columnNumber: 27
+      }, undefined)]
+    }, void 0, true, {
+      fileName: _jsxFileName,
+      lineNumber: 222,
+      columnNumber: 28
+    }, undefined) : /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_20__["jsxDEV"])("div", {
+      children: modalVisible && /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_20__["jsxDEV"])(_QuizModal__WEBPACK_IMPORTED_MODULE_18__["default"], {
+        visible: modalVisible,
+        closable: true,
+        maskClosable: true,
+        onClose: closeModal,
+        lessonId: props.lessonId,
+        lectureId: props.lectureId,
+        sessionId: props.sessionId,
+        quizId: quizId,
+        className: "modal-root",
+        children: "\uD034\uC988"
+      }, void 0, false, {
+        fileName: _jsxFileName,
+        lineNumber: 241,
+        columnNumber: 24
+      }, undefined)
+    }, void 0, false, {
+      fileName: _jsxFileName,
+      lineNumber: 240,
+      columnNumber: 18
+    }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_20__["jsxDEV"])("div", {
       className: classnames__WEBPACK_IMPORTED_MODULE_1___default()('share-container', {
         'in-sharing': isSharing
       }),
       ref: shareContainerRef,
-      children: /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_16__["jsxDEV"])("div", {
+      children: /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_20__["jsxDEV"])("div", {
         className: "share-container-viewport",
         style: {
           width: `${contentDimension.width}px`,
           height: `${contentDimension.height}px`
         },
-        children: [/*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_16__["jsxDEV"])("canvas", {
+        children: [/*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_20__["jsxDEV"])("canvas", {
           className: classnames__WEBPACK_IMPORTED_MODULE_1___default()('share-canvas', {
             hidden: isStartedShare
           }),
           ref: shareRef
         }, void 0, false, {
           fileName: _jsxFileName,
-          lineNumber: 99,
+          lineNumber: 264,
           columnNumber: 11
-        }, undefined), Object(_utils_platform__WEBPACK_IMPORTED_MODULE_13__["isSupportWebCodecs"])() ? /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_16__["jsxDEV"])("video", {
+        }, undefined), Object(_utils_platform__WEBPACK_IMPORTED_MODULE_13__["isSupportWebCodecs"])() ? /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_20__["jsxDEV"])("video", {
           className: classnames__WEBPACK_IMPORTED_MODULE_1___default()('share-canvas', {
             hidden: isRecieveSharing
           }),
           ref: selfShareRef
         }, void 0, false, {
           fileName: _jsxFileName,
-          lineNumber: 103,
-          columnNumber: 33
-        }, undefined) : /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_16__["jsxDEV"])("canvas", {
+          lineNumber: 268,
+          columnNumber: 35
+        }, undefined) : /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_20__["jsxDEV"])("canvas", {
           className: classnames__WEBPACK_IMPORTED_MODULE_1___default()('share-canvas', {
             hidden: isRecieveSharing
           }),
           ref: selfShareRef
         }, void 0, false, {
           fileName: _jsxFileName,
-          lineNumber: 106,
-          columnNumber: 14
+          lineNumber: 271,
+          columnNumber: 16
         }, undefined)]
       }, void 0, true, {
         fileName: _jsxFileName,
-        lineNumber: 92,
+        lineNumber: 257,
         columnNumber: 9
       }, undefined)
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 86,
+      lineNumber: 251,
       columnNumber: 7
-    }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_16__["jsxDEV"])("div", {
+    }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_20__["jsxDEV"])("div", {
       className: classnames__WEBPACK_IMPORTED_MODULE_1___default()('video-container', {
         'in-sharing': isSharing
       }),
-      children: [/*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_16__["jsxDEV"])("canvas", {
+      children: [/*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_20__["jsxDEV"])("canvas", {
         className: "video-canvas",
         id: "video-canvas",
         width: "800",
@@ -26543,9 +27662,9 @@ const VideoContainer = props => {
         ref: videoRef
       }, void 0, false, {
         fileName: _jsxFileName,
-        lineNumber: 117,
+        lineNumber: 282,
         columnNumber: 9
-      }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_16__["jsxDEV"])("ul", {
+      }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_20__["jsxDEV"])("ul", {
         className: "avatar-list",
         children: visibleParticipants.map((user, index) => {
           if (index > videoLayout.length - 1) {
@@ -26562,7 +27681,7 @@ const VideoContainer = props => {
           const {
             height: canvasHeight
           } = canvasDimension;
-          return /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_16__["jsxDEV"])(_components_avatar__WEBPACK_IMPORTED_MODULE_4__["default"], {
+          return /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_20__["jsxDEV"])(_components_avatar__WEBPACK_IMPORTED_MODULE_4__["default"], {
             participant: user,
             isActive: activeVideo === user.userId,
             style: {
@@ -26573,20 +27692,20 @@ const VideoContainer = props => {
             }
           }, user.userId, false, {
             fileName: _jsxFileName,
-            lineNumber: 133,
+            lineNumber: 298,
             columnNumber: 15
           }, undefined);
         })
       }, void 0, false, {
         fileName: _jsxFileName,
-        lineNumber: 124,
+        lineNumber: 289,
         columnNumber: 9
       }, undefined)]
     }, void 0, true, {
       fileName: _jsxFileName,
-      lineNumber: 112,
+      lineNumber: 277,
       columnNumber: 7
-    }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_16__["jsxDEV"])(_components_video_footer__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_20__["jsxDEV"])(_components_video_footer__WEBPACK_IMPORTED_MODULE_5__["default"], {
       className: "video-operations",
       sharing: true,
       shareRef: selfShareRef,
@@ -26595,39 +27714,40 @@ const VideoContainer = props => {
       sessionId: props.sessionId
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 148,
+      lineNumber: 313,
       columnNumber: 7
-    }, undefined), totalPage > 1 && /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_16__["jsxDEV"])(_components_pagination__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    }, undefined), totalPage > 1 && /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_20__["jsxDEV"])(_components_pagination__WEBPACK_IMPORTED_MODULE_6__["default"], {
       page: page,
       totalPage: totalPage,
       setPage: setPage,
       inSharing: isSharing
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 150,
+      lineNumber: 315,
       columnNumber: 9
-    }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_16__["jsxDEV"])(_chat_chat__WEBPACK_IMPORTED_MODULE_14__["default"], {}, void 0, false, {
+    }, undefined), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_20__["jsxDEV"])(_chat_chat__WEBPACK_IMPORTED_MODULE_14__["default"], {}, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 157,
+      lineNumber: 323,
       columnNumber: 7
     }, undefined)]
   }, void 0, true, {
     fileName: _jsxFileName,
-    lineNumber: 85,
+    lineNumber: 221,
     columnNumber: 5
   }, undefined);
 };
 
-_s(VideoContainer, "VJZOCyD9ncIV/tezr9aGfP50uZs=", false, function () {
+_s(VideoContainer, "W5k8zQEADQHiVpi0Syfs0CreZiM=", false, function () {
   return [_hooks_useCanvasDimension__WEBPACK_IMPORTED_MODULE_7__["useCanvasDimension"], _hooks_useAvtiveVideo__WEBPACK_IMPORTED_MODULE_10__["useActiveVideo"], _hooks_usePagination__WEBPACK_IMPORTED_MODULE_9__["usePagination"], _hooks_useGalleryLayout__WEBPACK_IMPORTED_MODULE_8__["useGalleryLayout"], _hooks_useShare__WEBPACK_IMPORTED_MODULE_11__["useShare"]];
 });
 
-_c = VideoContainer;
+_c2 = VideoContainer;
 /* harmony default export */ __webpack_exports__["default"] = (VideoContainer);
 
-var _c;
+var _c, _c2;
 
-__webpack_require__.$Refresh$.register(_c, "VideoContainer");
+__webpack_require__.$Refresh$.register(_c, "AttendanceBtn");
+__webpack_require__.$Refresh$.register(_c2, "VideoContainer");
 
 const currentExports = __react_refresh_utils__.getModuleExports(module.i);
 __react_refresh_utils__.registerExportsForReactRefresh(currentExports, module.i);
@@ -28214,7 +29334,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 __webpack_require__.$Refresh$.setup(module.i);
 
-var _jsxFileName = "/mnt/f/SW_Capstone/frontend/src/index.tsx";
+var _jsxFileName = "/mnt/e/sw_capstone/frontend/src/index.tsx";
 
 
 
@@ -28566,13 +29686,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _test_css__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./test.css */ "./src/zoomtest/test.css");
 /* harmony import */ var _test_css__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(_test_css__WEBPACK_IMPORTED_MODULE_12__);
 /* harmony import */ var _ZoomSample_utils_util__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../ZoomSample/utils/util */ "./src/ZoomSample/utils/util.ts");
-/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! react/jsx-dev-runtime */ "./node_modules/react/jsx-dev-runtime.js");
-/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_14__);
+/* harmony import */ var socket_io_client__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! socket.io-client */ "./node_modules/socket.io-client/index.js");
+/* harmony import */ var socket_io_client__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(socket_io_client__WEBPACK_IMPORTED_MODULE_14__);
+/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! react/jsx-dev-runtime */ "./node_modules/react/jsx-dev-runtime.js");
+/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_15__);
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
 __webpack_require__.$Refresh$.setup(module.i);
 
-var _jsxFileName = "/mnt/f/SW_Capstone/frontend/src/zoomtest/TestZoom.tsx",
+var _jsxFileName = "/mnt/e/sw_capstone/frontend/src/zoomtest/TestZoom.tsx",
     _s = __webpack_require__.$Refresh$.signature();
+
 
 
 
@@ -28657,6 +29780,8 @@ function TestZoom(props) {
   const [mediaStream, setMediaStream] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null);
   const [chatClient, setChatClient] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null);
   const [isSupportGalleryView, setIsSupportGalleryView] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(true);
+  const init = "init";
+  const socket = socket_io_client__WEBPACK_IMPORTED_MODULE_14___default.a.connect("https://oneboard.connect.o-r.kr:8070");
   const zmClient = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_ZoomSample_context_zoom_context__WEBPACK_IMPORTED_MODULE_8__["default"]);
   const user = JSON.parse(localStorage.userInfo);
   const userType = user.userType;
@@ -28746,57 +29871,57 @@ function TestZoom(props) {
       zmClient.off("media-sdk-change", onMediaSDKChange);
     };
   }, [zmClient, onConnectionChange, onMediaSDKChange]);
-  return /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_14__["jsxDEV"])("div", {
+  return /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_15__["jsxDEV"])("div", {
     className: "App",
-    children: [loading && /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_14__["jsxDEV"])(_ZoomSample_component_loading_layer__WEBPACK_IMPORTED_MODULE_11__["default"], {
+    children: [loading && /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_15__["jsxDEV"])(_ZoomSample_component_loading_layer__WEBPACK_IMPORTED_MODULE_11__["default"], {
       content: loadingText
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 179,
+      lineNumber: 190,
       columnNumber: 19
-    }, this), !loading && /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_14__["jsxDEV"])(_ZoomSample_context_media_context__WEBPACK_IMPORTED_MODULE_9__["default"].Provider, {
+    }, this), !loading && /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_15__["jsxDEV"])(_ZoomSample_context_media_context__WEBPACK_IMPORTED_MODULE_9__["default"].Provider, {
       value: { ...mediaState,
         mediaStream
       },
-      children: /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_14__["jsxDEV"])(_ZoomSample_context_chat_context__WEBPACK_IMPORTED_MODULE_10__["default"].Provider, {
+      children: /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_15__["jsxDEV"])(_ZoomSample_context_chat_context__WEBPACK_IMPORTED_MODULE_10__["default"].Provider, {
         value: chatClient,
-        children: /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_14__["jsxDEV"])(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+        children: /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_15__["jsxDEV"])(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
           path: `/class/${lectureId}/${lessonId}/${sessionId}/${userType}`,
-          render: props => isSupportGalleryView ? /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_14__["jsxDEV"])(_ZoomSample_feature_video_video__WEBPACK_IMPORTED_MODULE_6__["default"], { ...props,
+          render: props => isSupportGalleryView ? /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_15__["jsxDEV"])(_ZoomSample_feature_video_video__WEBPACK_IMPORTED_MODULE_6__["default"], { ...props,
             lectureId: lectureId,
             lessonId: lessonId,
             sessionId: sessionId
           }, void 0, false, {
             fileName: _jsxFileName,
-            lineNumber: 215,
+            lineNumber: 226,
             columnNumber: 39
-          }, this) : /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_14__["jsxDEV"])(_ZoomSample_feature_video_video_single__WEBPACK_IMPORTED_MODULE_7__["default"], { ...props,
+          }, this) : /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_15__["jsxDEV"])(_ZoomSample_feature_video_video_single__WEBPACK_IMPORTED_MODULE_7__["default"], { ...props,
             lectureId: lectureId,
             lessonId: lessonId,
             sessionId: sessionId
           }, void 0, false, {
             fileName: _jsxFileName,
-            lineNumber: 215,
+            lineNumber: 226,
             columnNumber: 128
           }, this)
         }, void 0, false, {
           fileName: _jsxFileName,
-          lineNumber: 214,
+          lineNumber: 225,
           columnNumber: 13
         }, this)
       }, void 0, false, {
         fileName: _jsxFileName,
-        lineNumber: 182,
+        lineNumber: 193,
         columnNumber: 11
       }, this)
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 181,
+      lineNumber: 192,
       columnNumber: 9
     }, this)]
   }, void 0, true, {
     fileName: _jsxFileName,
-    lineNumber: 178,
+    lineNumber: 189,
     columnNumber: 5
   }, this);
 }
@@ -28986,10 +30111,10 @@ module.exports = content.locals || {};
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /mnt/f/SW_Capstone/frontend/node_modules/webpack/hot/dev-server.js */"./node_modules/webpack/hot/dev-server.js");
-__webpack_require__(/*! /mnt/f/SW_Capstone/frontend/node_modules/@pmmmwh/react-refresh-webpack-plugin/client/ReactRefreshEntry.js */"./node_modules/@pmmmwh/react-refresh-webpack-plugin/client/ReactRefreshEntry.js");
-__webpack_require__(/*! /mnt/f/SW_Capstone/frontend/node_modules/react-dev-utils/webpackHotDevClient.js */"./node_modules/react-dev-utils/webpackHotDevClient.js");
-module.exports = __webpack_require__(/*! /mnt/f/SW_Capstone/frontend/src/index.tsx */"./src/index.tsx");
+__webpack_require__(/*! /mnt/e/sw_capstone/frontend/node_modules/webpack/hot/dev-server.js */"./node_modules/webpack/hot/dev-server.js");
+__webpack_require__(/*! /mnt/e/sw_capstone/frontend/node_modules/@pmmmwh/react-refresh-webpack-plugin/client/ReactRefreshEntry.js */"./node_modules/@pmmmwh/react-refresh-webpack-plugin/client/ReactRefreshEntry.js");
+__webpack_require__(/*! /mnt/e/sw_capstone/frontend/node_modules/react-dev-utils/webpackHotDevClient.js */"./node_modules/react-dev-utils/webpackHotDevClient.js");
+module.exports = __webpack_require__(/*! /mnt/e/sw_capstone/frontend/src/index.tsx */"./src/index.tsx");
 
 
 /***/ }),

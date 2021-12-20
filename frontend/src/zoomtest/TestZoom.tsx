@@ -1,3 +1,4 @@
+
 import React, {
   useEffect,
   useContext,
@@ -22,7 +23,7 @@ import Chat from "../ZoomSample/feature/chat/chat";
 import { ChatClient, MediaStream } from "../index-types";
 import "./test.css";
 import { generateVideoToken } from "../ZoomSample/utils/util";
-
+import  io from "socket.io-client";
 
 const mediaShape = {
   audio: {
@@ -79,6 +80,11 @@ interface TestProps {
   }
 }
 
+interface Myobj {
+  userType: string,
+  sessionId : string
+}
+
 function TestZoom(props: TestProps) {
   const [loading, setIsLoading] = useState(true);
   const [loadingText, setLoadingText] = useState("");
@@ -88,11 +94,13 @@ function TestZoom(props: TestProps) {
   const [mediaStream, setMediaStream] = useState<MediaStream | null>(null);
   const [chatClient, setChatClient] = useState<ChatClient | null>(null);
   const [isSupportGalleryView, setIsSupportGalleryView] = useState<boolean>(true);
+  const init = "init";
+  const socket = io.connect("https://oneboard.connect.o-r.kr:8070");
   const zmClient = useContext(ZoomContext);
   const user = JSON.parse(localStorage.userInfo);
-  const userType = user.userType;
+  const userType: string = user.userType;
   const userName = user.name;
-  const sessionId = props.match.params.sessionId;
+  const sessionId: string = props.match.params.sessionId;
   const lectureId = props.match.params.lectureId;
   const lessonId = props.match.params.lessonId;
   const token = generateVideoToken(
@@ -102,7 +110,10 @@ function TestZoom(props: TestProps) {
     "",
     "",
     ""
-      ); 
+  );
+  
+
+  
   useEffect(() => {
     const init = async () => {
       await zmClient.init("en-US", `${window.location.origin}/lib`, 'zoom.us');
@@ -227,3 +238,4 @@ function TestZoom(props: TestProps) {
 }
 
 export default TestZoom;
+
