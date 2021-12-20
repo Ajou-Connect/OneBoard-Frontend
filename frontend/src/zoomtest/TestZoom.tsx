@@ -23,7 +23,7 @@ import Chat from "../ZoomSample/feature/chat/chat";
 import { ChatClient, MediaStream } from "../index-types";
 import "./test.css";
 import { generateVideoToken } from "../ZoomSample/utils/util";
-import  io from "socket.io-client";
+import io from "socket.io-client";
 
 const mediaShape = {
   audio: {
@@ -82,7 +82,7 @@ interface TestProps {
 
 interface Myobj {
   userType: string,
-  sessionId : string
+  sessionId: string
 }
 
 function TestZoom(props: TestProps) {
@@ -111,24 +111,24 @@ function TestZoom(props: TestProps) {
     "",
     ""
   );
-  
 
-  
+
+
   useEffect(() => {
     const init = async () => {
-      await zmClient.init("en-US", `${window.location.origin}/lib`, 'zoom.us');
+      await zmClient.init("en-US", "Global", 'zoom.us');
       try {
         setLoadingText("Joining the session...");
         await zmClient.join(sessionId, token, userName, "");
         const stream = zmClient.getMediaStream();
         setMediaStream(stream);
-	      setIsSupportGalleryView(stream.isSupportMultipleVideos());
+        setIsSupportGalleryView(stream.isSupportMultipleVideos());
         const chatClient = zmClient.getChatClient();
         setChatClient(chatClient);
         setIsLoading(false);
       } catch (e) {
         setIsLoading(false);
-       
+
       }
     };
     init();
@@ -190,9 +190,9 @@ function TestZoom(props: TestProps) {
       {loading && <LoadingLayer content={loadingText} />}
       {!loading && (
         <ZoomMediaContext.Provider value={{ ...mediaState, mediaStream }}>
-          <ChatContext.Provider value={chatClient}>  
-            
-            
+          <ChatContext.Provider value={chatClient}>
+
+
             {/* <Router>
               <Switch>
                 <Route
@@ -223,11 +223,11 @@ function TestZoom(props: TestProps) {
                 /> */}
             {/* <Route path={`/class/${lectureId}/${lessonId}/${sessionId}/${userType}`} component= {isSupportGalleryView ? Video : VideoSingle} /> */}
             <Route path={`/class/${lectureId}/${lessonId}/${sessionId}/${userType}`} render={(props) => (
-              isSupportGalleryView ? (<Video {...props} lectureId={lectureId} lessonId={lessonId} sessionId={sessionId} />) : (<VideoSingle {...props} lectureId={lectureId} lessonId={lessonId} sessionId={sessionId}/>)
+              isSupportGalleryView ? (<Video {...props} lectureId={lectureId} lessonId={lessonId} sessionId={sessionId} />) : (<VideoSingle {...props} lectureId={lectureId} lessonId={lessonId} sessionId={sessionId} />)
             )} />
-              
-            
-                {/* <Route path="/chat" component={Chat} />
+
+
+            {/* <Route path="/chat" component={Chat} />
               </Switch>
             </Router> */}
           </ChatContext.Provider>

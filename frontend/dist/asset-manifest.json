@@ -28,7 +28,6 @@
     "../public/lib/video_simd.min.js": "/../public/lib/video_simd.min.js",
     "../public/lib/webim.min.js": "/../public/lib/webim.min.js",
     "../public/lib/websipclient.min.js": "/../public/lib/websipclient.min.js",
-    "index.html": "/index.html",
     "static/media/MainImage.png": "/static/media/MainImage.b713129e.png",
     "static/media/MainImage2.png": "/static/media/MainImage2.e83d930d.png",
     "static/media/OneBoardLogo.png": "/static/media/OneBoardLogo.22abb46c.png",
@@ -48,6 +47,7 @@
   "entrypoints": [
     "static/js/bundle.js",
     "static/js/vendors~main.chunk.js",
-    "static/js/main.chunk.js"
+    "static/js/main.chunk.js",
+    "main.c7c860af3feb8085d5fe.hot-update.js"
   ]
 }
