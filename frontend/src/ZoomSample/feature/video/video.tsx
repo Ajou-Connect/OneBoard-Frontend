@@ -31,7 +31,7 @@ const AttendanceBtn = styled.button`
 
 interface VideoProps extends RouteComponentProps {
   lectureId: string;
-  lessonId: string; 
+  lessonId: string;
   sessionId: string;
 }
 
@@ -81,7 +81,7 @@ const VideoContainer: React.FunctionComponent<VideoProps> = (props) => {
   );
   const isSharing = isRecieveSharing || isStartedShare;
   const contentDimension = sharedContentDimension;
-  const socket = io.connect("https://oneboard.connect.o-r.kr:8070");
+  const socket = io.connect("wss://oneboard.connect.o-r.kr:8070");
   if (isSharing && shareContainerRef.current) {
     const { width, height } = sharedContentDimension;
     const {
@@ -122,13 +122,13 @@ const VideoContainer: React.FunctionComponent<VideoProps> = (props) => {
     }
     )
     // understan
-   socket.on("understanding request", (data: any) => { 
+    socket.on("understanding request", (data: any) => {
       setIsUnderstand(true);
-     setModalVisible(true);
-     setUnderStandId(data.understandId);
-     if(userType === "S"){
-     return (
-            
+      setModalVisible(true);
+      setUnderStandId(data.understandId);
+      if (userType === "S") {
+        return (
+
           modalVisible && <UnderStandModal
             visible={modalVisible}
             closable={true}
@@ -138,20 +138,20 @@ const VideoContainer: React.FunctionComponent<VideoProps> = (props) => {
             lectureId={props.lectureId}
             sessionId={props.sessionId}
             underStandId={underStandId}
-            className="modal-under">이해도 체크</UnderStandModal>  
-      )
-     } 
-   })
+            className="modal-under">이해도 체크</UnderStandModal>
+        )
+      }
+    })
     socket.on("quiz request", (data: any) => {
       console.log(data);
       setModalVisible(true);
       setQuizId(data.quizId);
-     
+
     })
   }, [])
 
-  
-  
+
+
   const openAttendance = (e: any) => {
     // e.preventDefault(); 
     axios.get(`/lecture/${lectureId}/lesson/${lessonId}/live/attendance/professor`, { params: { session: `${sessionId}` } })
@@ -167,7 +167,7 @@ const VideoContainer: React.FunctionComponent<VideoProps> = (props) => {
   const openUnderstand = () => {
     axios.get(`/lecture/${lectureId}/lesson/${lessonId}/live/understanding/professor`, { params: { session: `${sessionId}` } })
       .then((res) => {
-        alert("학생들에게 이해도 평가요청을 보냈습니다.");  
+        alert("학생들에게 이해도 평가요청을 보냈습니다.");
         setPfUnderStandId(res.data.data.understandId);
         console.log(underStandId);
       })
@@ -177,7 +177,7 @@ const VideoContainer: React.FunctionComponent<VideoProps> = (props) => {
   }
 
   const checkUnderstand = () => {
-    axios.get(`/lecture/${lectureId}/lesson/${lessonId}/live/understanding/${pfUnderStandId}/professor`,{headers:{"X-AUTH-TOKEN" : `${token}`}})
+    axios.get(`/lecture/${lectureId}/lesson/${lessonId}/live/understanding/${pfUnderStandId}/professor`, { headers: { "X-AUTH-TOKEN": `${token}` } })
       .then((res) => {
         const yes = res.data.data.yes;
         const no = res.data.data.no
@@ -185,8 +185,8 @@ const VideoContainer: React.FunctionComponent<VideoProps> = (props) => {
         alert("이해한 사람 수 : " + yes + " " + "이해 못한 사람 수 : " + no);
       })
       .catch((error) => {
-      console.log(error);
-    })
+        console.log(error);
+      })
   }
 
 
@@ -200,7 +200,7 @@ const VideoContainer: React.FunctionComponent<VideoProps> = (props) => {
   // const checkQuiz = () => {
   //   setModalVisible(true);
   //   return (
-      
+
   //        modalVisible&&<UnderStandModal
   //           visible={modalVisible}
   //           closable={true}
@@ -211,21 +211,21 @@ const VideoContainer: React.FunctionComponent<VideoProps> = (props) => {
   //           sessionId={props.sessionId}
   //           underStandId={underStandId}
   //           className="modal-under">이해도 체크</UnderStandModal>
-        
+
   //   )
   // }
-    
-    
+
+
 
   return (
     <div className="viewport">
-      {userType === "T" ? (<div>
+      {/* {userType === "T" ? (<div>
         <AttendanceBtn onClick={openAttendance}>출석 요청</AttendanceBtn>
         <AttendanceBtn onClick={openUnderstand}>이해도 확인</AttendanceBtn>
         <AttendanceBtn onClick={openModal}>퀴즈 출제</AttendanceBtn>
-        <AttendanceBtn onClick={checkUnderstand}>최근 이해도 결과</AttendanceBtn>
-        {/* <AttendanceBtn onClick={}>최근 퀴즈 결과</AttendanceBtn> */}
-        {
+        <AttendanceBtn onClick={checkUnderstand}>최근 이해도 결과</AttendanceBtn> */}
+      {/* <AttendanceBtn onClick={}>최근 퀴즈 결과</AttendanceBtn> */}
+      {/* {
           modalVisible && <QuizModal
             visible={modalVisible}
             closable={true}
@@ -236,8 +236,8 @@ const VideoContainer: React.FunctionComponent<VideoProps> = (props) => {
             sessionId={props.sessionId}
             quizId={1}
             className="modal-root">퀴즈 출제</QuizModal>
-        }
-      </div>) : (<div>{
+        } */}
+      {/* </div>) : (<div>{
        modalVisible && <QuizModal
             visible={modalVisible}
             closable={true}
@@ -247,7 +247,7 @@ const VideoContainer: React.FunctionComponent<VideoProps> = (props) => {
             lectureId={props.lectureId}
             sessionId={props.sessionId}
             quizId={quizId}
-            className="modal-root">퀴즈</QuizModal>}</div>)}
+            className="modal-root">퀴즈</QuizModal>}</div>)} */}
       <div
         className={classnames('share-container', {
           'in-sharing': isSharing,
@@ -319,8 +319,8 @@ const VideoContainer: React.FunctionComponent<VideoProps> = (props) => {
           inSharing={isSharing}
         />
       )}
-      
-      <Chat/>
+
+      <Chat />
     </div>
   );
 };
